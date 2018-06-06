@@ -156,7 +156,8 @@ plt.xlim(xmax=55)
 plt.ylabel('Frequency')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Frequency of Wind Speeds Recorded on Southeast U.S. Coasts During ' +
-          'Hurricane Seasons from 1979 to 2017')
+          'Hurricane Seasons from 1979 up to 2017')
+plt.savefig('Figures/Wind_Speeds_All_Locations_79-16_Histogram.png')
 plt.show()
 
 ######################################################################################
@@ -208,6 +209,7 @@ plt.title('Frequency of Wind Speeds Recorded on Southeast U.S. Coasts During ' +
 
 plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.2,
                     hspace = 0.5)
+plt.savefig('Figures/Wind_Speeds_All_Locations_79-97_98-16_Histogram.png')
 plt.show()
 
 
@@ -230,5 +232,6 @@ i = 0
 for loc in locs:
     m.scatter(loc[0], loc[1], 8, marker = 'o', color = 'r', latlon = True)
 
-plt.title('Wind Speed Data Measurement Locations')
+plt.title('Wind Speed Measurement Locations')
+plt.savefig('Figures/Wind_Speed_Measurement_Locations.png')
 plt.show()
