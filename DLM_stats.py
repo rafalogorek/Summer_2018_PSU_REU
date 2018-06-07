@@ -213,17 +213,10 @@ plt.savefig('Figures/Wind_Speeds_All_Locations_79-97_98-16_Histogram.png')
 plt.show()
 
 # Plot the two time periods side by side, rather than on two separate plots
-fig, ax = plt.subplots()
-fig.figsize = (20,10)
-#fig.set_size_inches(20,10)
-plt.figure(1, figsize = (20,10))
-print(fig.get_size_inches())
-print(fig.get_figwidth())
-print(fig.get_figheight())
+fig, ax = plt.subplots(figsize = (20,10))
 bar_width = 0.35
 ax.bar(np.arange(len(wind_speed_freq_79_97)), wind_speed_freq_79_97, bar_width,
                 color='b', label='1979-1997')
-
 ax.bar(np.arange(len(wind_speed_freq_98_16)) + bar_width, wind_speed_freq_98_16,
                 bar_width, color='r', label='1998-2016')
 
@@ -233,6 +226,7 @@ ax.set_ylabel('Frequency')
 ax.set_title('Frequency of Wind Speeds Recorded on Southeast U.S. Coasts During ' +
              'Hurricane Seasons\nfrom 1979 up to 1998 vs. Hurricane Seasons from ' +
              '1998 up to 2017')
+
 ax.legend()
 fig.savefig('Figures/Wind_Speeds_All_Locations_79-97_98-16_SBS_Histogram.png')
 plt.show()
