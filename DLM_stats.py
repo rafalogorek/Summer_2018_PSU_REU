@@ -97,15 +97,36 @@ def getWindSpeedInterval(wind_speeds, left_bound, right_bound):
     return wind_speed_interval
 
 
-# Program variables
+# Description: Determines how many of the wind speed measurements in the wind speed
+#              frequency array can be classified as stagnant flow
+# Input: -wind_speed_freq: An array that will store the frequency of a range of wind
+#                          speeds that correspond to its indices (i.e. index 0 will
+#                          store the frequency of wind speeds between 0 m/s and 1 m/s;
+#                          index 1 will store the frequency of wind speeds between
+#                          1 m/s and 2 m/s; etc...).
+#        -stagnant_flow: An integer signifying the upper threshold for what wind speed
+#                        is considered to be stagnant flow
+# Output: -num_stag_flow: The number of measurements in the wind_speed_freq array that
+#                         are classified as stagnant flow
+def calcNumStagFlow(wind_speed_freq, stagnant_flow):
+    i = 0
+    num_stag_flow = 0
+    # Add the value for the current index in wind_speed_freq to the number of stagnant
+    # flow measurements until the index that represents the upper threshold for stagnant
+    # flow is reached
+    while i < stagnant_flow:
+        num_stag_flow = num_stag_flow + wind_speed_freq[i]
+        i = i + 1
 
-# Currently defining stagnant steering flow to be 2 m/s
-stagnant_flow = 2
+    return num_stag_flow
 
 
 ######################################################################################
 ##                                   Begin Program                                  ##
 ######################################################################################
+
+# Currently defining stagnant steering flow to be 2 m/s
+stagnant_flow = 2
 
 # Load data
 data = np.load(sys.argv[1])
@@ -145,8 +166,11 @@ max_wind_speed = max(np.amax(wind_speeds), abs(np.amin(wind_speeds)))
 # of wind speeds between 1 m/s and 2 m/s; etc...
 wind_speed_freq_all = [0] * (max_wind_speed + 1)
 
+# Create wind speed array that will only contain data for the desired period of time
+wind_speeds_79_16 = getWindSpeedInterval(wind_speeds, 0, 27816)
+
 # Populate the wind speed frequency array
-getFrequencies(wind_speeds, wind_speed_freq_all)
+getFrequencies(wind_speeds_79_16, wind_speed_freq_all)
 
 # Generate a histogram to show the frequency distribution for the wind speeds at all
 # measured locations from 1979 to 2017
@@ -251,6 +275,10 @@ plt.title('Difference Between Frequency of Wind Speeds Recorded During ' +
 plt.savefig('Figures/Wind_Speed_Diff_Between_78-97_and_98-16_All_Locations_Histogram.png')
 plt.show()
 
+######################################################################################
+##                                 Print Statistics                                 ##
+######################################################################################
+
 # Create a map showing the points that the data was obtained from
 plt.figure(1, figsize = (10,10))
 m = Basemap(llcrnrlon = -100, llcrnrlat = 20, urcrnrlon = -60, urcrnrlat = 50,
@@ -269,3 +297,24 @@ for loc in locs:
 plt.title('Wind Speed Measurement Locations')
 plt.savefig('Figures/Wind_Speed_Measurement_Locations.png')
 plt.show()
+
+# Print some notable statistics about the data
+print('Total Number of Stagnant Flow Measurements Observed at All Locations from 1979 ' +
+      ' up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all, stagnant_flow)))
+print('Total Number of Stagnant Flow Measurements Observed at All Locations from 1979 ' +
+      ' up to 1998: ' + str(calcNumStagFlow(wind_speed_freq_79_97, stagnant_flow)))
+print('Total Number of Stagnant Flow Measurements Observed at All Locations from 1998 ' +
+      ' up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16, stagnant_flow)))
+print('Mean Observed Wind Speed Among All Locations from 1979 up to 2017: ' + 
+      str(np.mean(wind_speeds_79_16)))
+print('Mean Observed Wind Speed Among All Locations from 1979 up to 1998: ' +
+      str(np.mean(wind_speeds_79_97)))
+print('Mean Observed Wind Speed Among All Locations from 1998 up to 2017: ' +
+      str(np.mean(wind_speeds_98_16)))
+print('Standard Deviation of Observed Wind Speed Among All Locations from 1979 up to ' +
+      '2017: ' + str(np.std(wind_speeds_79_16)))
+print('Standard Deviation of Observed Wind Speed Among All Locations from 1979 up to ' +
+      '1998: ' + str(np.std(wind_speeds_79_97)))
+print('Standard Deviation of Observed Wind Speed Among All Locations from 1998 up to ' +
+      '2017: ' + str(np.std(wind_speeds_98_16)))
+
