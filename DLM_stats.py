@@ -89,6 +89,7 @@ def getWindSpeedInterval(wind_speeds, left_bound, right_bound):
     # Intialize wind_speed_interval to have same size as wind_speeds
     wind_speed_interval = [None] * len(wind_speeds)
     i = 0
+
     # Get data for all locations, but only during the specified time period
     for loc in wind_speeds:
         wind_speed_interval[i] = loc[left_bound:right_bound]
@@ -111,6 +112,7 @@ def getWindSpeedInterval(wind_speeds, left_bound, right_bound):
 def calcNumStagFlow(wind_speed_freq, stagnant_flow):
     i = 0
     num_stag_flow = 0
+
     # Add the value for the current index in wind_speed_freq to the number of stagnant
     # flow measurements until the index that represents the upper threshold for stagnant
     # flow is reached
@@ -119,6 +121,51 @@ def calcNumStagFlow(wind_speed_freq, stagnant_flow):
         i = i + 1
 
     return num_stag_flow
+
+
+# Description: Splits the wind speed data into three different arrays, based on the
+#              time of the hurricane season that the measurement was taken at
+# Input: -wind_speeds: An array that stores an array of floats. Each array within
+#                      this array represents a different location, while each float
+#                      is a wind speed measurement in m/s
+# Output: -wind_speeds_EHS: An array that stores an array of floats. Each array within
+#                           this array represents a different location, while each float
+#                           is a wind speed measurement in m/s. All wind speeds in this
+#                           array were measured in the early part of the Atlantic hurricane
+#                           season (late May, June, or July)
+#         -wind_speeds_MHS: Like wind_speeds_EHS, except all wind speeds in this array
+#                           were measured in the middle part of the Atlantic hurricane
+#                           season (August or September)
+#         -wind_speeds_LHS: Like wind_speeds_EHS and wind_speeds_MHS, except all wind
+#                           speeds in this array were measured in the late part of the
+#                           Atlantic hurricane season (October or November)
+def divideBySeason(wind_speeds):
+    wind_speeds_EHS = [[]] * len(wind_speeds)
+    wind_speeds_MHS = [[]] * len(wind_speeds)
+    wind_speeds_LHS = [[]] * len(wind_speeds)
+    i = 0
+    j = 0
+
+    # Go through each location
+    while i < len(wind_speeds):
+        # Go through each wind speed measurement
+        while j < len(wind_speeds[i]):
+            # If data was obtained prior to August, add it to the early hurricane season
+            # wind speed array
+            if (j % 732) < 252:
+                wind_speeds_EHS[i].append(wind_speeds[i][j])
+            # If data was obtained in October or later, add it to the late hurricane season
+            # wind speed array
+            elif (j % 732) >= 496:
+                wind_speeds_LHS[i].append(wind_speeds[i][j])
+            # Otherwise, the wind speed measurement was take in August or September, so
+            # add it to the mid hurricane season wind speed array
+            else:
+                wind_speeds_MHS[i].append(wind_speeds[i][j])
+            j = j + 1
+        i = i + 1
+
+    return wind_speeds_EHS, wind_speeds_MHS, wind_speeds_LHS
 
 
 ######################################################################################
@@ -183,6 +230,60 @@ plt.title('Frequency of Wind Speeds Recorded on Southeast U.S. Coasts During ' +
           'Hurricane Seasons from 1979 up to 2017')
 plt.savefig('Figures/Wind_Speeds_All_Locations_79-16_Histogram.png')
 plt.show()
+
+
+# Create arrays to store how frequently a wind speed value was recorded (at all
+# locations). The zeroeth index of the array will store the frequency of recorded wind
+# speeds between 0 m/s and 1 m/s; the first index of the array will store the frequency
+# of wind speeds between 1 m/s and 2 m/s; etc...
+wind_speed_freq_all_EHS = [0] * (max_wind_speed + 1)
+wind_speed_freq_all_MHS = [0] * (max_wind_speed + 1)
+wind_speed_freq_all_LHS = [0] * (max_wind_speed + 1)
+
+# Divide the wind speed data up by which part of the hurricane season they were taken in
+# (early hurricane season (June, July), mid  hurricane season (August, September), and
+# late hurricane season (October, November))
+wind_speeds_79_16_EHS, wind_speeds_79_16_MHS, wind_speeds_79_16_LHS = divideBySeason(wind_speeds_79_16)
+
+# Populate the wind speed frequency arrays for each of the three parts of the hurricane season
+#TODO: Fix this
+getFrequencies(wind_speeds_79_16_EHS, wind_speed_freq_all_EHS)
+getFrequencies(wind_speeds_79_16_MHS, wind_speed_freq_all_MHS)
+getFrequencies(wind_speeds_79_16_LHS, wind_speed_freq_all_LHS)
+
+# Generate histograms to show the frequency distribution for the wind speeds at all
+# measured locations for each of the three parts of the hurricane season from 1979 to 2017
+plt.figure(1, figsize = (20,10))
+plt.bar(np.arange(len(wind_speed_freq_all_EHS)), wind_speed_freq_all_EHS)
+plt.xlim(xmax=51)
+plt.ylabel('Frequency')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Frequency of Wind Speeds Recorded on Southeast U.S. Coasts During ' +
+          'Late May, June, and July from 1979 up to 2017')
+plt.savefig('Figures/Wind_Speeds_All_Locations_79-16_EHS_Histogram.png')
+plt.show()
+
+plt.figure(1, figsize = (20,10))
+plt.bar(np.arange(len(wind_speed_freq_all_MHS)), wind_speed_freq_all_MHS)
+plt.xlim(xmax=51)
+plt.ylabel('Frequency')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Frequency of Wind Speeds Recorded on Southeast U.S. Coasts During ' +
+          'August and September from 1979 up to 2017')
+plt.savefig('Figures/Wind_Speeds_All_Locations_79-16_MHS_Histogram.png')
+plt.show()
+
+plt.figure(1, figsize = (20,10))
+plt.bar(np.arange(len(wind_speed_freq_all_LHS)), wind_speed_freq_all_LHS)
+plt.xlim(xmax=51)
+plt.ylabel('Frequency')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Frequency of Wind Speeds Recorded on Southeast U.S. Coasts During ' +
+          'October and November from 1979 up to 2017')
+plt.savefig('Figures/Wind_Speeds_All_Locations_79-16_LHS_Histogram.png')
+plt.show()
+
+# TODO: Perform this for the halved time periods 
 
 ######################################################################################
 ##                        All Locations, Halved Time Periods                        ##
