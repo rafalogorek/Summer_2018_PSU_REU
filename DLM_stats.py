@@ -140,28 +140,37 @@ def calcNumStagFlow(wind_speed_freq, stagnant_flow):
 #                           speeds in this array were measured in the late part of the
 #                           Atlantic hurricane season (October or November)
 def divideBySeason(wind_speeds):
-    wind_speeds_EHS = [[]] * len(wind_speeds)
-    wind_speeds_MHS = [[]] * len(wind_speeds)
-    wind_speeds_LHS = [[]] * len(wind_speeds)
+    wind_speeds_EHS = [[None]] * len(wind_speeds)
+    wind_speeds_MHS = [[None]] * len(wind_speeds)
+    wind_speeds_LHS = [[None]] * len(wind_speeds)
     i = 0
-    j = 0
 
     # Go through each location
     while i < len(wind_speeds):
+        j = 0
         # Go through each wind speed measurement
         while j < len(wind_speeds[i]):
             # If data was obtained prior to August, add it to the early hurricane season
             # wind speed array
             if (j % 732) < 252:
-                wind_speeds_EHS[i].append(wind_speeds[i][j])
+                if wind_speeds_EHS[i] == [None]:
+                    wind_speeds_EHS[i] = [wind_speeds[i][j]]
+                else:
+                    wind_speeds_EHS[i].append(wind_speeds[i][j])
             # If data was obtained in October or later, add it to the late hurricane season
             # wind speed array
             elif (j % 732) >= 496:
-                wind_speeds_LHS[i].append(wind_speeds[i][j])
+                if wind_speeds_LHS[i] == [None]:
+                    wind_speeds_LHS[i] = [wind_speeds[i][j]]
+                else:
+                    wind_speeds_LHS[i].append(wind_speeds[i][j])
             # Otherwise, the wind speed measurement was take in August or September, so
             # add it to the mid hurricane season wind speed array
             else:
-                wind_speeds_MHS[i].append(wind_speeds[i][j])
+                if wind_speeds_MHS[i] == [None]:
+                    wind_speeds_MHS[i] = [wind_speeds[i][j]]
+                else:
+                    wind_speeds_MHS[i].append(wind_speeds[i][j])
             j = j + 1
         i = i + 1
 
@@ -246,7 +255,6 @@ wind_speed_freq_all_LHS = [0] * (max_wind_speed + 1)
 wind_speeds_79_16_EHS, wind_speeds_79_16_MHS, wind_speeds_79_16_LHS = divideBySeason(wind_speeds_79_16)
 
 # Populate the wind speed frequency arrays for each of the three parts of the hurricane season
-#TODO: Fix this
 getFrequencies(wind_speeds_79_16_EHS, wind_speed_freq_all_EHS)
 getFrequencies(wind_speeds_79_16_MHS, wind_speed_freq_all_MHS)
 getFrequencies(wind_speeds_79_16_LHS, wind_speed_freq_all_LHS)
@@ -254,7 +262,7 @@ getFrequencies(wind_speeds_79_16_LHS, wind_speed_freq_all_LHS)
 # Generate histograms to show the frequency distribution for the wind speeds at all
 # measured locations for each of the three parts of the hurricane season from 1979 to 2017
 plt.figure(1, figsize = (20,10))
-plt.bar(np.arange(len(wind_speed_freq_all_EHS)), wind_speed_freq_all_EHS)
+plt.bar(np.arange(len(wind_speed_freq_all_MHS)), wind_speed_freq_all_EHS)
 plt.xlim(xmax=51)
 plt.ylabel('Frequency')
 plt.xlabel('Wind Speed (m/s)')
@@ -407,15 +415,15 @@ print('Total Number of Stagnant Flow Measurements Observed at All Locations from
 print('Total Number of Stagnant Flow Measurements Observed at All Locations from 1998 ' +
       ' up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16, stagnant_flow)))
 print('Mean Observed Wind Speed Among All Locations from 1979 up to 2017: ' + 
-      str(np.mean(wind_speeds_79_16)))
+      str(np.mean(wind_speeds_79_16)) + ' m/s')
 print('Mean Observed Wind Speed Among All Locations from 1979 up to 1998: ' +
-      str(np.mean(wind_speeds_79_97)))
+      str(np.mean(wind_speeds_79_97)) + ' m/s')
 print('Mean Observed Wind Speed Among All Locations from 1998 up to 2017: ' +
-      str(np.mean(wind_speeds_98_16)))
+      str(np.mean(wind_speeds_98_16)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed Among All Locations from 1979 up to ' +
-      '2017: ' + str(np.std(wind_speeds_79_16)))
+      '2017: ' + str(np.std(wind_speeds_79_16)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed Among All Locations from 1979 up to ' +
-      '1998: ' + str(np.std(wind_speeds_79_97)))
+      '1998: ' + str(np.std(wind_speeds_79_97)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed Among All Locations from 1998 up to ' +
-      '2017: ' + str(np.std(wind_speeds_98_16)))
+      '2017: ' + str(np.std(wind_speeds_98_16)) + ' m/s')
 
