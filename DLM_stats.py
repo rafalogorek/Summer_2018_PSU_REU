@@ -291,8 +291,6 @@ plt.title('Frequency of Wind Speeds Recorded on Southeast U.S. Coasts During ' +
 plt.savefig('Figures/Wind_Speeds_All_Locations_79-16_LHS_Histogram.png')
 plt.show()
 
-# TODO: Perform this for the halved time periods 
-
 ######################################################################################
 ##                        All Locations, Halved Time Periods                        ##
 ######################################################################################
@@ -384,6 +382,138 @@ plt.title('Difference Between Frequency of Wind Speeds Recorded During ' +
 plt.savefig('Figures/Wind_Speed_Diff_Between_78-97_and_98-16_All_Locations_Histogram.png')
 plt.show()
 
+
+# Create arrays to store how frequently a wind speed value was recorded (at all
+# locations). The zeroeth index of the array will store the frequency of recorded wind
+# speeds between 0 m/s and 1 m/s; the first index of the array will store the frequency
+# of wind speeds between 1 m/s and 2 m/s; etc...
+wind_speed_freq_79_97_EHS = [0] * (max_wind_speed + 1)
+wind_speed_freq_79_97_MHS = [0] * (max_wind_speed + 1)
+wind_speed_freq_79_97_LHS = [0] * (max_wind_speed + 1)
+wind_speed_freq_98_16_EHS = [0] * (max_wind_speed + 1)
+wind_speed_freq_98_16_MHS = [0] * (max_wind_speed + 1)
+wind_speed_freq_98_16_LHS = [0] * (max_wind_speed + 1)
+
+# Divide the wind speed data up by which part of the hurricane season they were taken in
+# (early hurricane season (June, July), mid  hurricane season (August, September), and
+# late hurricane season (October, November))
+wind_speeds_79_97_EHS, wind_speeds_79_97_MHS, wind_speeds_79_97_LHS = divideBySeason(wind_speeds_79_97)
+wind_speeds_98_16_EHS, wind_speeds_98_16_MHS, wind_speeds_98_16_LHS = divideBySeason(wind_speeds_98_16)
+
+# Populate the wind speed frequency arrays for each of the three parts of the hurricane
+# season for each time period
+getFrequencies(wind_speeds_79_97_EHS, wind_speed_freq_79_97_EHS)
+getFrequencies(wind_speeds_79_97_MHS, wind_speed_freq_79_97_MHS)
+getFrequencies(wind_speeds_79_97_LHS, wind_speed_freq_79_97_LHS)
+getFrequencies(wind_speeds_98_16_EHS, wind_speed_freq_98_16_EHS)
+getFrequencies(wind_speeds_98_16_MHS, wind_speed_freq_98_16_MHS)
+getFrequencies(wind_speeds_98_16_LHS, wind_speed_freq_98_16_LHS)
+
+# Plot the two time periods side by side for each part of the hurricane season
+fig, ax = plt.subplots(figsize = (20,10))
+bar_width = 0.35
+ax.bar(np.arange(len(wind_speed_freq_79_97_EHS)), wind_speed_freq_79_97_EHS, bar_width,
+                color='b', label='1979-1997')
+ax.bar(np.arange(len(wind_speed_freq_98_16_EHS)) + bar_width, wind_speed_freq_98_16_EHS,
+                bar_width, color='r', label='1998-2016')
+ax.set_xlim(xmax=51)
+ax.set_xlabel('Wind Speed (m/s)')
+ax.set_ylabel('Frequency')
+ax.set_title('Frequency of Wind Speeds Recorded on Southeast U.S. Coasts in late May, ' +
+             'June, and July During\nHurricane Seasons from 1979 up to 1998 vs. Hurricane ' +
+             'Seasons from 1998 up to 2017')
+ax.legend()
+fig.savefig('Figures/Wind_Speeds_All_Locations_79-97_98-16_EHS_SBS_Histogram.png')
+plt.show()
+
+fig, ax = plt.subplots(figsize = (20,10))
+bar_width = 0.35
+ax.bar(np.arange(len(wind_speed_freq_79_97_MHS)), wind_speed_freq_79_97_MHS, bar_width,
+                color='b', label='1979-1997')
+ax.bar(np.arange(len(wind_speed_freq_98_16_MHS)) + bar_width, wind_speed_freq_98_16_MHS,
+                bar_width, color='r', label='1998-2016')
+ax.set_xlim(xmax=51)
+ax.set_xlabel('Wind Speed (m/s)')
+ax.set_ylabel('Frequency')
+ax.set_title('Frequency of Wind Speeds Recorded on Southeast U.S. Coasts in August ' +
+             'and September During\nHurricane Seasons from 1979 up to 1998 vs. Hurricane ' +
+             'Seasons from 1998 up to 2017')
+ax.legend()
+fig.savefig('Figures/Wind_Speeds_All_Locations_79-97_98-16_MHS_SBS_Histogram.png')
+plt.show()
+
+fig, ax = plt.subplots(figsize = (20,10))
+bar_width = 0.35
+ax.bar(np.arange(len(wind_speed_freq_79_97_LHS)), wind_speed_freq_79_97_LHS, bar_width,
+                color='b', label='1979-1997')
+ax.bar(np.arange(len(wind_speed_freq_98_16_LHS)) + bar_width, wind_speed_freq_98_16_LHS,
+                bar_width, color='r', label='1998-2016')
+ax.set_xlim(xmax=51)
+ax.set_xlabel('Wind Speed (m/s)')
+ax.set_ylabel('Frequency')
+ax.set_title('Frequency of Wind Speeds Recorded on Southeast U.S. Coasts in October ' +
+             'and November During\nHurricane Seasons from 1979 up to 1998 vs. Hurricane ' +
+             'Seasons from 1998 up to 2017')
+ax.legend()
+fig.savefig('Figures/Wind_Speeds_All_Locations_79-97_98-16_LHS_SBS_Histogram.png')
+plt.show()
+
+# Determine differences in the wind speed frequencies between the two time periods
+# for each part of the hurricane season
+i = 0
+wind_speed_freq_EHS_diff = [0] * len(wind_speed_freq_79_97_EHS)
+while i < len(wind_speed_freq_79_97_EHS):
+    wind_speed_freq_EHS_diff[i] = wind_speed_freq_98_16_EHS[i] - wind_speed_freq_79_97_EHS[i]
+    i = i + 1
+
+i = 0
+wind_speed_freq_MHS_diff = [0] * len(wind_speed_freq_79_97_MHS)
+while i < len(wind_speed_freq_79_97_MHS):
+    wind_speed_freq_MHS_diff[i] = wind_speed_freq_98_16_MHS[i] - wind_speed_freq_79_97_MHS[i]
+    i = i + 1
+
+i = 0
+wind_speed_freq_LHS_diff = [0] * len(wind_speed_freq_79_97_LHS)
+while i < len(wind_speed_freq_79_97_LHS):
+    wind_speed_freq_LHS_diff[i] = wind_speed_freq_98_16_LHS[i] - wind_speed_freq_79_97_LHS[i]
+    i = i + 1
+
+# Create histograms that show the difference between the wind speed frequencies for
+# the two time periods for each part of the hurricane season
+plt.figure(1, figsize = (20,10))
+plt.bar(np.arange(len(wind_speed_freq_EHS_diff)), wind_speed_freq_EHS_diff)
+plt.xlim(xmax=51)
+plt.ylabel('Frequency Difference')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Difference Between Frequency of Wind Speeds Recorded in Late May, June, and ' +
+          'July During Hurricane Seasons\nfrom 1979 up to 1998 and During Hurricane ' +
+          'Seasons from 1998 up to 2017')
+plt.savefig('Figures/Wind_Speed_Diff_Between_78-97_and_98-16_EHS_All_Locations_Histogram.png')
+plt.show()
+
+plt.figure(1, figsize = (20,10))
+plt.bar(np.arange(len(wind_speed_freq_MHS_diff)), wind_speed_freq_MHS_diff)
+plt.xlim(xmax=51)
+plt.ylabel('Frequency Difference')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Difference Between Frequency of Wind Speeds Recorded in August and September ' +
+          'During Hurricane Seasons\nfrom 1979 up to 1998 and During Hurricane ' +
+          'Seasons from 1998 up to 2017')
+plt.savefig('Figures/Wind_Speed_Diff_Between_78-97_and_98-16_MHS_All_Locations_Histogram.png')
+plt.show()
+
+plt.figure(1, figsize = (20,10))
+plt.bar(np.arange(len(wind_speed_freq_LHS_diff)), wind_speed_freq_LHS_diff)
+plt.xlim(xmax=51)
+plt.ylabel('Frequency Difference')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Difference Between Frequency of Wind Speeds Recorded in October and November ' +
+          'During Hurricane Seasons\nfrom 1979 up to 1998 and During Hurricane ' +
+          'Seasons from 1998 up to 2017')
+plt.savefig('Figures/Wind_Speed_Diff_Between_78-97_and_98-16_LHS_All_Locations_Histogram.png')
+plt.show()
+
+
 ######################################################################################
 ##                                 Print Statistics                                 ##
 ######################################################################################
@@ -408,12 +538,12 @@ plt.savefig('Figures/Wind_Speed_Measurement_Locations.png')
 plt.show()
 
 # Print some notable statistics about the data
+print('\nTotal Number of Stagnant Flow Measurements Observed at All Locations from 1979 ' +
+      'up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all, stagnant_flow)))
 print('Total Number of Stagnant Flow Measurements Observed at All Locations from 1979 ' +
-      ' up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all, stagnant_flow)))
-print('Total Number of Stagnant Flow Measurements Observed at All Locations from 1979 ' +
-      ' up to 1998: ' + str(calcNumStagFlow(wind_speed_freq_79_97, stagnant_flow)))
+      'up to 1998: ' + str(calcNumStagFlow(wind_speed_freq_79_97, stagnant_flow)))
 print('Total Number of Stagnant Flow Measurements Observed at All Locations from 1998 ' +
-      ' up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16, stagnant_flow)))
+      'up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16, stagnant_flow)))
 print('Mean Observed Wind Speed Among All Locations from 1979 up to 2017: ' + 
       str(np.mean(wind_speeds_79_16)) + ' m/s')
 print('Mean Observed Wind Speed Among All Locations from 1979 up to 1998: ' +
@@ -425,5 +555,61 @@ print('Standard Deviation of Observed Wind Speed Among All Locations from 1979 u
 print('Standard Deviation of Observed Wind Speed Among All Locations from 1979 up to ' +
       '1998: ' + str(np.std(wind_speeds_79_97)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed Among All Locations from 1998 up to ' +
-      '2017: ' + str(np.std(wind_speeds_98_16)) + ' m/s')
+      '2017: ' + str(np.std(wind_speeds_98_16)) + ' m/s\n')
 
+print('Total Number of Stagnant Flow Measurements Observed in Late May, June, and July ' +
+      'at All Locations from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_EHS, stagnant_flow)))
+print('Total Number of Stagnant Flow Measurements Observed in Late May, June, and July ' +
+      'at All Locations from 1979 up to 1998: ' + str(calcNumStagFlow(wind_speed_freq_79_97_EHS, stagnant_flow)))
+print('Total Number of Stagnant Flow Measurements Observed in Late May, June, and July ' +
+      'at All Locations from 1998 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16_EHS, stagnant_flow)))
+print('Mean Observed Wind Speed Among All Locations in Late May, June, and July from 1979 up to 2017: ' +
+      str(np.mean(wind_speeds_79_16_EHS)) + ' m/s')
+print('Mean Observed Wind Speed Among All Locations in Late May, June, and July from 1979 up to 1998: ' +
+      str(np.mean(wind_speeds_79_97_EHS)) + ' m/s')
+print('Mean Observed Wind Speed Among All Locations in Late May, June, and July from 1998 up to 2017: ' +
+      str(np.mean(wind_speeds_98_16_EHS)) + ' m/s')
+print('Standard Deviation of Observed Wind Speed Among All Locations in Late May, June, and July ' +
+      'from 1979 up to 2017: ' + str(np.std(wind_speeds_79_16_EHS)) + ' m/s')
+print('Standard Deviation of Observed Wind Speed Among All Locations in Late May, June, and July ' +
+      'from 1979 up to 1998: ' + str(np.std(wind_speeds_79_97_EHS)) + ' m/s')
+print('Standard Deviation of Observed Wind Speed Among All Locations in Late May, June, and July ' +
+      'from 1998 up to 2017: ' + str(np.std(wind_speeds_98_16_EHS)) + ' m/s\n')
+
+print('Total Number of Stagnant Flow Measurements Observed in August and September ' +
+      'at All Locations from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_MHS, stagnant_flow)))
+print('Total Number of Stagnant Flow Measurements Observed in August and September ' +
+      'at All Locations from 1979 up to 1998: ' + str(calcNumStagFlow(wind_speed_freq_79_97_MHS, stagnant_flow)))
+print('Total Number of Stagnant Flow Measurements Observed in August and September ' +
+      'at All Locations from 1998 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16_MHS, stagnant_flow)))
+print('Mean Observed Wind Speed Among All Locations in August and September from 1979 up to 2017: ' +
+      str(np.mean(wind_speeds_79_16_MHS)) + ' m/s')
+print('Mean Observed Wind Speed Among All Locations in August and September from 1979 up to 1998: ' +
+      str(np.mean(wind_speeds_79_97_MHS)) + ' m/s')
+print('Mean Observed Wind Speed Among All Locations in August and September from 1998 up to 2017: ' +
+      str(np.mean(wind_speeds_98_16_MHS)) + ' m/s')
+print('Standard Deviation of Observed Wind Speed Among All Locations in August and September ' +
+      'from 1979 up to 2017: ' + str(np.std(wind_speeds_79_16_MHS)) + ' m/s')
+print('Standard Deviation of Observed Wind Speed Among All Locations in August and September ' +
+      'from 1979 up to 1998: ' + str(np.std(wind_speeds_79_97_MHS)) + ' m/s')
+print('Standard Deviation of Observed Wind Speed Among All Locations in August and September ' +
+      'from 1998 up to 2017: ' + str(np.std(wind_speeds_98_16_MHS)) + ' m/s\n')
+
+print('Total Number of Stagnant Flow Measurements Observed in October and November ' +
+      'at All Locations from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_LHS, stagnant_flow)))
+print('Total Number of Stagnant Flow Measurements Observed in October and November ' +
+      'at All Locations from 1979 up to 1998: ' + str(calcNumStagFlow(wind_speed_freq_79_97_LHS, stagnant_flow)))
+print('Total Number of Stagnant Flow Measurements Observed in October and November ' +
+      'at All Locations from 1998 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16_LHS, stagnant_flow)))
+print('Mean Observed Wind Speed Among All Locations in October and November from 1979 up to 2017: ' +
+      str(np.mean(wind_speeds_79_16_LHS)) + ' m/s')
+print('Mean Observed Wind Speed Among All Locations in October and November from 1979 up to 1998: ' +
+      str(np.mean(wind_speeds_79_97_LHS)) + ' m/s')
+print('Mean Observed Wind Speed Among All Locations in October and November from 1998 up to 2017: ' +
+      str(np.mean(wind_speeds_98_16_LHS)) + ' m/s')
+print('Standard Deviation of Observed Wind Speed Among All Locations in October and November ' +
+      'from 1979 up to 2017: ' + str(np.std(wind_speeds_79_16_LHS)) + ' m/s')
+print('Standard Deviation of Observed Wind Speed Among All Locations in October and November ' +
+      'from 1979 up to 1998: ' + str(np.std(wind_speeds_79_97_LHS)) + ' m/s')
+print('Standard Deviation of Observed Wind Speed Among All Locations in October and November ' +
+      'from 1998 up to 2017: ' + str(np.std(wind_speeds_98_16_LHS)) + ' m/s\n')
