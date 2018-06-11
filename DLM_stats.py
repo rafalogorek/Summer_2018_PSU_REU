@@ -379,7 +379,7 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Frequency of Wind Speeds Recorded During ' +
           'Hurricane Seasons\nfrom 1979 up to 1998 and During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Wind_Speed_Diff_Between_78-97_and_98-16_All_Locations_Histogram.png')
+plt.savefig('Figures/Wind_Speeds_All_Locations_Diff_Between_78-97_and_98-16_Histogram.png')
 plt.show()
 
 
@@ -488,7 +488,7 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Frequency of Wind Speeds Recorded in Late May, June, and ' +
           'July During Hurricane Seasons\nfrom 1979 up to 1998 and During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Wind_Speed_Diff_Between_78-97_and_98-16_EHS_All_Locations_Histogram.png')
+plt.savefig('Figures/Wind_Speeds_All_Locations_Diff_Between_78-97_and_98-16_EHS_Histogram.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -499,7 +499,7 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Frequency of Wind Speeds Recorded in August and September ' +
           'During Hurricane Seasons\nfrom 1979 up to 1998 and During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Wind_Speed_Diff_Between_78-97_and_98-16_MHS_All_Locations_Histogram.png')
+plt.savefig('Figures/Wind_Speeds_All_Locations_Diff_Between_78-97_and_98-16_MHS_Histogram.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -510,7 +510,7 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Frequency of Wind Speeds Recorded in October and November ' +
           'During Hurricane Seasons\nfrom 1979 up to 1998 and During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Wind_Speed_Diff_Between_78-97_and_98-16_LHS_All_Locations_Histogram.png')
+plt.savefig('Figures/Wind_Speeds_All_Locations_Diff_Between_78-97_and_98-16_LHS_Histogram.png')
 plt.show()
 
 
@@ -550,6 +550,12 @@ print('Mean Observed Wind Speed Among All Locations from 1979 up to 1998: ' +
       str(np.mean(wind_speeds_79_97)) + ' m/s')
 print('Mean Observed Wind Speed Among All Locations from 1998 up to 2017: ' +
       str(np.mean(wind_speeds_98_16)) + ' m/s')
+print('Median Observed Wind Speed Among All Locations from 1979 up to 2017: ' +
+      str(np.median(wind_speeds_79_16)) + ' m/s')
+print('Median Observed Wind Speed Among All Locations from 1979 up to 1998: ' +
+      str(np.median(wind_speeds_79_97)) + ' m/s')
+print('Median Observed Wind Speed Among All Locations from 1998 up to 2017: ' +
+      str(np.median(wind_speeds_98_16)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed Among All Locations from 1979 up to ' +
       '2017: ' + str(np.std(wind_speeds_79_16)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed Among All Locations from 1979 up to ' +
@@ -569,6 +575,12 @@ print('Mean Observed Wind Speed Among All Locations in Late May, June, and July 
       str(np.mean(wind_speeds_79_97_EHS)) + ' m/s')
 print('Mean Observed Wind Speed Among All Locations in Late May, June, and July from 1998 up to 2017: ' +
       str(np.mean(wind_speeds_98_16_EHS)) + ' m/s')
+print('Median Observed Wind Speed Among All Locations in Late May, June, and July from 1979 up to 2017: ' +
+      str(np.median(wind_speeds_79_16_EHS)) + ' m/s')
+print('Median Observed Wind Speed Among All Locations in Late May, June, and July from 1979 up to 1998: ' +
+      str(np.median(wind_speeds_79_97_EHS)) + ' m/s')
+print('Median Observed Wind Speed Among All Locations in Late May, June, and July from 1998 up to 2017: ' +
+      str(np.median(wind_speeds_98_16_EHS)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed Among All Locations in Late May, June, and July ' +
       'from 1979 up to 2017: ' + str(np.std(wind_speeds_79_16_EHS)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed Among All Locations in Late May, June, and July ' +
@@ -588,6 +600,12 @@ print('Mean Observed Wind Speed Among All Locations in August and September from
       str(np.mean(wind_speeds_79_97_MHS)) + ' m/s')
 print('Mean Observed Wind Speed Among All Locations in August and September from 1998 up to 2017: ' +
       str(np.mean(wind_speeds_98_16_MHS)) + ' m/s')
+print('Median Observed Wind Speed Among All Locations in August and September from 1979 up to 2017: ' +
+      str(np.median(wind_speeds_79_16_MHS)) + ' m/s')
+print('Median Observed Wind Speed Among All Locations in August and September from 1979 up to 1998: ' +
+      str(np.median(wind_speeds_79_97_MHS)) + ' m/s')
+print('Median Observed Wind Speed Among All Locations in August and September from 1998 up to 2017: ' +
+      str(np.median(wind_speeds_98_16_MHS)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed Among All Locations in August and September ' +
       'from 1979 up to 2017: ' + str(np.std(wind_speeds_79_16_MHS)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed Among All Locations in August and September ' +
@@ -607,6 +625,12 @@ print('Mean Observed Wind Speed Among All Locations in October and November from
       str(np.mean(wind_speeds_79_97_LHS)) + ' m/s')
 print('Mean Observed Wind Speed Among All Locations in October and November from 1998 up to 2017: ' +
       str(np.mean(wind_speeds_98_16_LHS)) + ' m/s')
+print('Median Observed Wind Speed Among All Locations in October and November from 1979 up to 2017: ' +
+      str(np.median(wind_speeds_79_16_LHS)) + ' m/s')
+print('Median Observed Wind Speed Among All Locations in October and November from 1979 up to 1998: ' +
+      str(np.median(wind_speeds_79_97_LHS)) + ' m/s')
+print('Median Observed Wind Speed Among All Locations in October and November from 1998 up to 2017: ' +
+      str(np.median(wind_speeds_98_16_LHS)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed Among All Locations in October and November ' +
       'from 1979 up to 2017: ' + str(np.std(wind_speeds_79_16_LHS)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed Among All Locations in October and November ' +
