@@ -1,0 +1,150 @@
+----------------------------------------------------------------------------------------------------------------------------
+x                                                      All Locations                                                       x
+----------------------------------------------------------------------------------------------------------------------------
+
+Total Number of Stagnant Flow Measurements Observed at All Locations from 1979 up to 2017: 888771
+Total Number of Stagnant Flow Measurements Observed at All Locations from 1979 up to 1998: 440524
+Total Number of Stagnant Flow Measurements Observed at All Locations from 1998 up to 2017: 448247
+Mean Observed Wind Speed for All Locations from 1979 up to 2017: 6.66266072886 m/s
+Mean Observed Wind Speed for All Locations from 1979 up to 1998: 6.74730614416 m/s
+Mean Observed Wind Speed for All Locations from 1998 up to 2017: 6.57801531355 m/s
+Median Observed Wind Speed for All Locations from 1979 up to 2017: 4.90558971765 m/s
+Median Observed Wind Speed for All Locations from 1979 up to 1998: 4.93410997202 m/s
+Median Observed Wind Speed for All Locations from 1998 up to 2017: 4.87743854404 m/s
+Standard Deviation of Observed Wind Speed for All Locations from 1979 up to 2017: 5.95994272641 m/s
+Standard Deviation of Observed Wind Speed for All Locations from 1979 up to 1998: 6.03577536189 m/s
+Standard Deviation of Observed Wind Speed for All Locations from 1998 up to 2017: 5.88191471311 m/s
+
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at All Locations from 1979 up to 2017: 393212
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at All Locations from 1979 up to 1998: 190857
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at All Locations from 1998 up to 2017: 202355
+Mean Observed Wind Speed for All Locations in Late May, June, and July from 1979 up to 2017: 4.51660325984 m/s
+Mean Observed Wind Speed for All Locations in Late May, June, and July from 1979 up to 1998: 4.61538829265 m/s
+Mean Observed Wind Speed for All Locations in Late May, June, and July from 1998 up to 2017: 4.41781822702 m/s
+Median Observed Wind Speed for All Locations in Late May, June, and July from 1979 up to 2017: 3.66855634365 m/s
+Median Observed Wind Speed for All Locations in Late May, June, and July from 1979 up to 1998: 3.7554472799 m/s
+Median Observed Wind Speed for All Locations in Late May, June, and July from 1998 up to 2017: 3.58380377918 m/s
+Standard Deviation of Observed Wind Speed for All Locations in Late May, June, and July from 1979 up to 2017: 3.68372391193 m/s
+Standard Deviation of Observed Wind Speed for All Locations in Late May, June, and July from 1979 up to 1998: 3.71905828649 m/s
+Standard Deviation of Observed Wind Speed for All Locations in Late May, June, and July from 1998 up to 2017: 3.64537134116 m/s
+
+Total Number of Stagnant Flow Measurements Observed in August and September at All Locations from 1979 up to 2017: 393080
+Total Number of Stagnant Flow Measurements Observed in August and September at All Locations from 1979 up to 1998: 200725
+Total Number of Stagnant Flow Measurements Observed in August and September at All Locations from 1998 up to 2017: 192355
+Mean Observed Wind Speed for All Locations in August and September from 1979 up to 2017: 4.4350522117 m/s
+Mean Observed Wind Speed for All Locations in August and September from 1979 up to 1998: 4.36810580473 m/s
+Mean Observed Wind Speed for All Locations in August and September from 1998 up to 2017: 4.50199861866 m/s
+Median Observed Wind Speed for All Locations in August and September from 1979 up to 2017: 3.58966310907 m/s
+Median Observed Wind Speed for All Locations in August and September from 1979 up to 1998: 3.49034811091 m/s
+Median Observed Wind Speed for All Locations in August and September from 1998 up to 2017: 3.69335939136 m/s
+Standard Deviation of Observed Wind Speed for All Locations in August and September from 1979 up to 2017: 3.62198877399 m/s
+Standard Deviation of Observed Wind Speed for All Locations in August and September from 1979 up to 1998: 3.6457029359 m/s
+Standard Deviation of Observed Wind Speed for All Locations in August and September from 1998 up to 2017: 3.59687250514 m/s
+
+Total Number of Stagnant Flow Measurements Observed in October and November at All Locations from 1979 up to 2017: 102479
+Total Number of Stagnant Flow Measurements Observed in October and November at All Locations from 1979 up to 1998: 48942
+Total Number of Stagnant Flow Measurements Observed in October and November at All Locations from 1998 up to 2017: 53537
+Mean Observed Wind Speed for All Locations in October and November from 1979 up to 2017: 11.2573342898 m/s
+Mean Observed Wind Speed for All Locations in October and November from 1979 up to 1998: 11.4836119976 m/s
+Mean Observed Wind Speed for All Locations in October and November from 1998 up to 2017: 11.031056582 m/s
+Median Observed Wind Speed for All Locations in October and November from 1979 up to 2017: 10.3786798925 m/s
+Median Observed Wind Speed for All Locations in October and November from 1979 up to 1998: 10.6396303954 m/s
+Median Observed Wind Speed for All Locations in October and November from 1998 up to 2017: 10.1046596117 m/s
+Standard Deviation of Observed Wind Speed for All Locations in October and November from 1979 up to 2017: 7.13879894627 m/s
+Standard Deviation of Observed Wind Speed for All Locations in October and November from 1979 up to 1998: 7.16571406207 m/s
+Standard Deviation of Observed Wind Speed for All Locations in October and November from 1998 up to 2017: 7.10457877493 m/s
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                                     Atlantic Coast                                                       x
+----------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                                  Gulf of Mexico Coast                                                    x
+----------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                                       Texas Coast                                                        x
+----------------------------------------------------------------------------------------------------------------------------
+
+Total Number of Stagnant Flow Measurements Observed at Locations Along the Texas Coast from 1979 up to 2017: 135919
+Total Number of Stagnant Flow Measurements Observed at Locations Along the Texas Coast from 1979 up to 1998: 67474
+Total Number of Stagnant Flow Measurements Observed at Locations Along the Texas Coast from 1998 up to 2017: 68445
+Mean Observed Wind Speed for Locations Along the Texas Coast from 1979 up to 2017: 5.90049673085 m/s
+Mean Observed Wind Speed for Locations Along the Texas Coast from 1979 up to 1998: 6.04791106297 m/s
+Mean Observed Wind Speed for Locations Along the Texas Coast from 1998 up to 2017: 5.75308239872 m/s
+Median Observed Wind Speed for Locations Along the Texas Coast from 1979 up to 2017: 4.385914682 m/s
+Median Observed Wind Speed for Locations Along the Texas Coast from 1979 up to 1998: 4.43091877844 m/s
+Median Observed Wind Speed for Locations Along the Texas Coast from 1998 up to 2017: 4.34599142819 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast from 1979 up to 2017: 5.24587218217 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast from 1979 up to 1998: 5.39897190368 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast from 1998 up to 2017: 5.08389519129 m/s
+
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Texas Coast from 1979 up to 2017: 61994
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Texas Coast from 1979 up to 1998: 30902
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Texas Coast from 1998 up to 2017: 31092
+Mean Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1979 up to 2017: 3.72906929931 m/s
+Mean Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1979 up to 1998: 3.79778499239 m/s
+Mean Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1998 up to 2017: 3.66035360624 m/s
+Median Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1979 up to 2017: 3.21779015344 m/s
+Median Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1979 up to 1998: 3.22417039088 m/s
+Median Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1998 up to 2017: 3.21282496647 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1979 up to 2017: 2.83888193394 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1979 up to 1998: 2.9523303971 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1998 up to 2017: 2.71897090883 m/s
+
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Texas Coast from 1979 up to 2017: 60847
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Texas Coast from 1979 up to 1998: 30759
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Texas Coast from 1998 up to 2017: 30088
+Mean Observed Wind Speed for Locations Along the Texas Coast in August and September from 1979 up to 2017: 3.71972987245 m/s
+Mean Observed Wind Speed for Locations Along the Texas Coast in August and September from 1979 up to 1998: 3.67323211794 m/s
+Mean Observed Wind Speed for Locations Along the Texas Coast in August and September from 1998 up to 2017: 3.76622762697 m/s
+Median Observed Wind Speed for Locations Along the Texas Coast in August and September from 1979 up to 2017: 3.15397073558 m/s
+Median Observed Wind Speed for Locations Along the Texas Coast in August and September from 1979 up to 1998: 3.09038490672 m/s
+Median Observed Wind Speed for Locations Along the Texas Coast in August and September from 1998 up to 2017: 3.22744838191 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in August and September from 1979 up to 2017: 2.8474463845 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in August and September from 1979 up to 1998: 2.86599532664 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in August and September from 1998 up to 2017: 2.82801140919 m/s
+
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Texas Coast from 1979 up to 2017: 13078
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Texas Coast from 1979 up to 1998: 5813
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Texas Coast from 1998 up to 2017: 7265
+Mean Observed Wind Speed for Locations Along the Texas Coast in October and November from 1979 up to 2017: 10.4738307401 m/s
+Mean Observed Wind Speed for Locations Along the Texas Coast in October and November from 1979 up to 1998: 10.90576459 m/s
+Mean Observed Wind Speed for Locations Along the Texas Coast in October and November from 1998 up to 2017: 10.0418968903 m/s
+Median Observed Wind Speed for Locations Along the Texas Coast in October and November from 1979 up to 2017: 9.97874487792 m/s
+Median Observed Wind Speed for Locations Along the Texas Coast in October and November from 1979 up to 1998: 10.5001456562 m/s
+Median Observed Wind Speed for Locations Along the Texas Coast in October and November from 1998 up to 2017: 9.45653928438 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in October and November from 1979 up to 2017: 6.12376872521 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in October and November from 1979 up to 1998: 6.14622727195 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in October and November from 1998 up to 2017: 6.07057191868 m/s
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                               Lousiana-Mississippi Coast                                                 x
+----------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                             Alabama-Florida Panhandle Coast                                              x
+----------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                                   West Florida Coast                                                     x
+----------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                                   East Florida Coast                                                     x
+----------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                              Georgia-South Carolina Coast                                                x
+----------------------------------------------------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                                  North Carolina Coast                                                    x
+----------------------------------------------------------------------------------------------------------------------------
