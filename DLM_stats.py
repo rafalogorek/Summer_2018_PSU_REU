@@ -197,7 +197,7 @@ location_names['AC'] = ['Atlantic_Coast', 'the Southeast U.S. Atlantic Coast',
 location_names['GOM'] = ['Gulf_of_Mexico_Coast', 'the Gulf of Mexico Coast',
                          'Locations Along the Gulf of Mexico Coast']
 location_names['TX'] = ['TX_Coast', 'the Texas Coast', 'Locations Along the Texas Coast']
-location_names['LA-MS'] = ['LA-MS_Coast', 'Lousiana and Mississippi Coasts',
+location_names['LA-MS'] = ['LA-MS_Coast', 'Louisiana and Mississippi Coasts',
                            'Locations Along the Louisiana and Mississippi Coasts']
 location_names['AL-FL'] = ['AL-FL_Pan_Coast', 'Alabama and Florida Panhandle Coasts',
                            'Locations Along the Alabama and Florida Panhandle Coasts']
@@ -231,50 +231,51 @@ while i < len(locs):
             # Cases for each specified region
             if region == 'AC':
                 # Atlantic coast case
-                temp_locs.append(locs[i])
-                temp_wind_speeds.append(wind_speeds[i])
-                print('Atlantic coast')
+                if locs[i][0] >= -80.25 or (locs[i][0] == -81.75 and locs[i][1] > 28.5) or (locs[i][0] == -81 and locs[i][1] > 26.25):
+                    temp_locs.append(locs[i])
+                    temp_wind_speeds.append(wind_speeds[i])
             elif region == 'GOM':
                 # Gulf of Mexico coast case
-                temp_locs.append(locs[i])
-                temp_wind_speeds.append(wind_speeds[i])
-                print('Gulf of Mexico')
+                if locs[i][0] <= -82.5 or (locs[i][0] == -81.75 and locs[i][1] <= 28.5) or (locs[i][0] == -81 and locs[i][1] <= 26.25):
+                    temp_locs.append(locs[i])
+                    temp_wind_speeds.append(wind_speeds[i])
             elif region == 'TX':
                 # Texas coast case
                 if locs[i][0] <= -94.5:
                     temp_locs.append(locs[i])
                     temp_wind_speeds.append(wind_speeds[i])
-                    print('Texas')
             elif region == 'LA-MS':
                 # Lousiana/Mississippi coast case
-                temp_locs.append(locs[i])
-                temp_wind_speeds.append(wind_speeds[i])
-                print('LA/MS')
+                if locs[i][0] > -94.5 and locs[i][0] <= -88.5:
+                    temp_locs.append(locs[i])
+                    temp_wind_speeds.append(wind_speeds[i])
             elif region == 'AL-FL':
                 # Alabama/Florida Panhandle coast case
-                temp_locs.append(locs[i])
-                temp_wind_speeds.append(wind_speeds[i])
-                print('AL/FLPan')
+                if locs[i][0] > -88.5 and locs[i][0] <= -84:
+                    temp_locs.append(locs[i])
+                    temp_wind_speeds.append(wind_speeds[i])
             elif region == 'WFL':
                 # West Florida coast case
-                temp_locs.append(locs[i])
-                temp_wind_speeds.append(wind_speeds[i])
-                print('West FL')
+                if (locs[i][0] > -84 and locs[i][0] <= -82.5) or (locs[i][0] == -81.75 and locs[i][1] <= 28.5) or (locs[i][0] == -81 and locs[i][1] <= 26.25):
+                    temp_locs.append(locs[i])
+                    temp_wind_speeds.append(wind_speeds[i])
             elif region == 'EFL':
                 # East Florida coast case
-                temp_locs.append(locs[i])
-                temp_wind_speeds.append(wind_speeds[i])
-                print('East FL')
+                if (locs[i][0] == -81.75 and locs[i][1] > 28.5 and locs[i][1] <= 30.75) or (locs[i][0] == -81 and locs[i][1] > 26.25 and locs[i][1] <= 30.75) or \
+                   (locs[i][0] == -80.25 and locs[i][1] <= 30.75) or (locs[i][0] == -79.5 and locs[i][1] <= 30.75):
+                    temp_locs.append(locs[i])
+                    temp_wind_speeds.append(wind_speeds[i])
             elif region == 'GA-SC':
                 # Georgia/South Carolina coast case
-                temp_locs.append(locs[i])
-                temp_wind_speeds.append(wind_speeds[i])
-                print('GA/SC')
+                if (locs[i][0] == -81.75 and locs[i][1] > 30.75) or (locs[i][0] == -81 and locs[i][1] > 30.75) or (locs[i][0] == -80.25 and locs[i][1] > 30.75) or \
+                   (locs[i][0] == -79.5 and locs[i][1] > 30.75) or (locs[i][0] == -78.75 and locs[i][1] <= 33.75) or (locs[i][0] == -78 and locs[i][1] == 33):
+                    temp_locs.append(locs[i])
+                    temp_wind_speeds.append(wind_speeds[i])
             elif region == 'NC':
                 # North Carolina coast case
-                temp_locs.append(locs[i])
-                temp_wind_speeds.append(wind_speeds[i])
-                print('NC')
+                if locs[i][1] > 33.75 or (locs[i][1] == 33.75 and locs[i][0] >= -78):
+                    temp_locs.append(locs[i])
+                    temp_wind_speeds.append(wind_speeds[i])
             else:
                 # General case for all locations
                 temp_locs.append(locs[i])
@@ -285,8 +286,6 @@ while i < len(locs):
 locs = temp_locs
 # Ensures wind direction doesn't matter
 wind_speeds = map(abs, temp_wind_speeds)
-
-print(locs)
 
 # Determine the maximum wind speed recorded
 max_wind_speed = int(math.ceil(np.amax(wind_speeds)))
