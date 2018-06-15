@@ -82,9 +82,9 @@ def getFrequencies(wind_speeds, wind_speed_freq):
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
 #                      is a wind speed measurement in m/s
-#        -left_bound: The index that represents the beginning of the time interval
+#        -left_bound: The index that represents the beginning of the desired time interval
 #                     (included in the time interval that is returned)
-#        -right_bound: The index that represents the end of the time interval (not
+#        -right_bound: The index that represents the end of the desired time interval (not
 #                      included in the time interval that is returned)
 # Output: -wind_speed_interval: An array that stores an array of floats. It includes
 #                               all locations, but only includes the wind speeds that
@@ -181,6 +181,59 @@ def divideBySeason(wind_speeds):
         i = i + 1
 
     return wind_speeds_EHS, wind_speeds_MHS, wind_speeds_LHS
+
+
+# Description: Averages wind speeds over a specified time interval.
+# Input: -wind_speeds: An array that stores an array of floats. Each array within
+#                      this array represents a different location, while each float
+#                      is a wind speed measurement in m/s
+#        -dates_and_times: An array that stores Datetime objects. Each index in the array
+#                          corresponds to the time that a measurement was taken at
+#        -time_interval: An integer representing the period of time the winds should be
+#                        averaged over. A time interval of 1 would correspond to averaging
+#                        over every 6 hours (this would just be the time period between
+#                        measurements), a time interval of 2 would correspond to averaging
+#                        over every 12 hours, etc. The time interval needs to be able to
+#                        divide the length of the wind speed array in order for this
+#                        function to work properly
+# Output: -avg_wind_speeds: An array that stores an array of floats. It includes
+#                           all locations, but should be a condensed version of
+#                           wind_speeds where it stores the average wind speeds based
+#                           on the specified time interval
+#         -new_dates_and_times: An array that stores Datetime objects. Each index in the
+#                               array now represents the beginning time of when the
+#                               averaged wind speeds were measured
+def averageWindsOverTime(wind_speeds, dates_and_times, time_interval):
+    # Set the size of the average wind speed array
+    avg_wind_speeds = [[None] * (len(wind_speeds[0])/time_interval)] * len(wind_speeds)
+
+    print('Yeah')
+    print(len(wind_speeds))
+    print(len(wind_speeds[0]))
+    print(len(avg_wind_speeds))
+    print(len(avg_wind_speeds[0]))
+    # For each location, average over the specified time interval
+    i = 0
+    while i < len(wind_speeds):
+        j = 0
+        while j < len(wind_speeds[i]):
+            avg_wind_speeds[i][j/time_interval] = np.sum(wind_speeds[i][j:(j+time_interval)])/time_interval
+            j = j + time_interval
+        i = i + 1
+
+    print(len(avg_wind_speeds))
+    print(len(avg_wind_speeds[0]))
+
+    # Update the dates_and_times array to account for the newly averaged wind speeds
+    new_dates_and_times = []
+    i = 0
+    while i < len(wind_speeds[0]):
+        new_dates_and_times.append(dates_and_times[i])
+        i = i + time_interval
+
+    print(len(dates_and_times))
+    print(len(new_dates_and_times))
+    return avg_wind_speeds, new_dates_and_times
 
 
 ######################################################################################
@@ -312,6 +365,9 @@ wind_speed_freq_all = [0] * max_wind_speed
 # Create wind speed array that will only contain data for the desired period of time
 wind_speeds_79_16 = getWindSpeedInterval(wind_speeds, 0, 27816)
 
+# Get updated time interval as well
+dates_and_times_79_16 = dates_and_times[0:27816]
+
 # Populate the wind speed frequency array
 getFrequencies(wind_speeds_79_16, wind_speed_freq_all)
 
@@ -406,6 +462,10 @@ wind_speed_freq_98_16 = [0] * max_wind_speed
 # Create wind speed arrays that will only contain data for the desired period of time
 wind_speeds_79_97 = getWindSpeedInterval(wind_speeds, 0, 13908)
 wind_speeds_98_16 = getWindSpeedInterval(wind_speeds, 13908, 27816)
+
+# Get updated time intervals as well
+dates_and_times_79_97 = dates_and_times[0:13908]
+dates_and_times_98_16 = dates_and_times[13908:27816]
 
 # Populate the wind speed frequency arrays
 getFrequencies(wind_speeds_79_97, wind_speed_freq_79_97)
@@ -628,6 +688,125 @@ plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location
 plt.savefig('Figures/WS_Diff_79-97_98-16_LHS/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_Histogram.png')
 plt.show()
 
+
+######################################################################################
+##                                 Plot Time Series                                 ##
+######################################################################################
+
+# Average the wind speeds by day
+avg_1d_wind_speeds_79_16, dates_and_times_79_16_1d = averageWindsOverTime(wind_speeds_79_16, dates_and_times_79_16, 4)
+
+# Average the wind speeds for every six days
+avg_6d_wind_speeds_79_16, dates_and_times_79_16_6d = averageWindsOverTime(wind_speeds_79_16, dates_and_times_79_16, 24)
+
+# Average the wind speed by year (length of a hurricane season)
+avg_1y_wind_speeds_79_16, dates_and_times_79_16_1y = averageWindsOverTime(wind_speeds_79_16, dates_and_times_79_16, 732)
+
+# Plot a time series for one location throughout the whole time period
+plt.figure(1, figsize = (20,10))
+plt.plot(dates_and_times_79_16, wind_speeds_79_16[0])
+#plt.xlim(xmax = max_wind_speed + 1)
+plt.ylabel('Wind Speed (m/s)')
+plt.xlabel('Time')
+plt.title('Wind Speed Over Time During Hurricane Seasons from 1979 up to 2017 at a Location on ' +
+          location_names[region][1])
+#plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+#plt.savefig('Figures/WS_Diff_79-97_98-16/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+plt.show()
+
+# Plot two time series on the same graph for the same location. The first time series
+# goes from 1979 up to 1998, while the second time series spans from 1998 up to 2017
+
+# Plot a time series for the whole region (averaged) throughout the whole time period
+
+# Plot two time series on the same graph for the whole region (averaged). The first time series
+# goes from 1979 up to 1998, while the second time series spans from 1998 up to 2017
+
+
+
+
+
+# Plot a time series (averaged by day) for one location throughout the whole time period
+plt.figure(1, figsize = (20,10))
+plt.plot(dates_and_times_79_16_1d, avg_1d_wind_speeds_79_16[0])
+#plt.xlim(xmax = max_wind_speed + 1)
+plt.ylabel('Wind Speed (m/s)')
+plt.xlabel('Time')
+plt.title('Wind Speed Over Time During Hurricane Seasons from 1979 up to 2017 at a Location on ' +
+          location_names[region][1])
+#plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+#plt.savefig('Figures/WS_Diff_79-97_98-16/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+plt.show()
+
+# Plot two time series (averaged by day) on the same graph for the same location. The first time series
+# goes from 1979 up to 1998, while the second time series spans from 1998 up to 2017
+
+# Plot a time series (averaged by day) for the whole region (averaged) throughout the whole time period
+
+# Plot two time series (averaged by day) on the same graph for the whole region (averaged). The first time series
+# goes from 1979 up to 1998, while the second time series spans from 1998 up to 2017
+
+
+# Plot a time series (averaged every six days) for one location throughout the whole time period
+plt.figure(1, figsize = (20,10))
+plt.plot(dates_and_times_79_16_6d, avg_6d_wind_speeds_79_16[0])
+#plt.xlim(xmax = max_wind_speed + 1)
+plt.ylabel('Wind Speed (m/s)')
+plt.xlabel('Time')
+plt.title('Wind Speed Over Time During Hurricane Seasons from 1979 up to 2017 at a Location on ' +
+          location_names[region][1])
+#plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+#plt.savefig('Figures/WS_Diff_79-97_98-16/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+plt.show()
+
+# Plot two time series (averaged every six days) on the same graph for the same location. The first time series
+# goes from 1979 up to 1998, while the second time series spans from 1998 up to 2017
+
+# Plot a time series (averaged every six days) for the whole region (averaged) throughout the whole time period
+
+# Plot two time series (averaged every six days) on the same graph for the whole region (averaged). The first time series
+# goes from 1979 up to 1998, while the second time series spans from 1998 up to 2017
+
+
+print('Here')
+print(len(dates_and_times_79_16_1y))
+print(len(avg_1y_wind_speeds_79_16))
+print(len(avg_1y_wind_speeds_79_16[0]))
+# Plot a time series (averaged by year) for one location throughout the whole time period
+plt.figure(1, figsize = (20,10))
+plt.plot(dates_and_times_79_16_1y, avg_1y_wind_speeds_79_16[0])
+#plt.xlim(xmax = max_wind_speed + 1)
+plt.ylabel('Wind Speed (m/s)')
+plt.xlabel('Time')
+plt.title('Wind Speed Over Time During Hurricane Seasons from 1979 up to 2017 at a Location on ' +
+          location_names[region][1])
+#plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+#plt.savefig('Figures/WS_Diff_79-97_98-16/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+plt.show()
+
+# Plot two time series (averaged by year) on the same graph for the same location. The first time series
+# goes from 1979 up to 1998, while the second time series spans from 1998 up to 2017
+
+# Plot a time series (averaged by year) for the whole region (averaged) throughout the whole time period
+
+# Plot two time series (averaged by year) on the same graph for the whole region (averaged). The first time series
+# goes from 1979 up to 1998, while the second time series spans from 1998 up to 2017
+
+
+# Plot averaged wind speeds over the course of a year
+plt.figure(1, figsize = (20,10))
+plt.plot(dates_and_times_79_16[(0 + (0 * 732)):(732 * 1)], wind_speeds_79_16[0][(0 + (0 * 732)):(732 * 1)])
+#plt.xlim(xmax = max_wind_speed + 1)
+plt.ylabel('Wind Speed (m/s)')
+plt.xlabel('Time')
+plt.title('Wind Speed Over Time During 1979 Hurricane Season at a Location on ' +
+          location_names[region][1])
+#plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+#plt.savefig('Figures/WS_Diff_79-97_98-16/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+plt.show()
+
+
+# Create the same graphs for each part of the hurricane season
 
 ######################################################################################
 ##                                 Print Statistics                                 ##
