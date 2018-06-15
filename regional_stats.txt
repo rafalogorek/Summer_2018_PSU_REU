@@ -1,5 +1,61 @@
 ----------------------------------------------------------------------------------------------------------------------------
-x                                                      All Locations                                                       x
+x                                         All Locations (Excluding North Carolina)                                         x
+----------------------------------------------------------------------------------------------------------------------------
+
+Total Number of Stagnant Flow Measurements Observed at All Locations from 1979 up to 2017: 833235
+Total Number of Stagnant Flow Measurements Observed at All Locations from 1979 up to 1998: 413680
+Total Number of Stagnant Flow Measurements Observed at All Locations from 1998 up to 2017: 419555
+Mean Observed Wind Speed for All Locations from 1979 up to 2017: 6.2747506586 m/s
+Mean Observed Wind Speed for All Locations from 1979 up to 1998: 6.35804560663 m/s
+Mean Observed Wind Speed for All Locations from 1998 up to 2017: 6.19145571058 m/s
+Median Observed Wind Speed for All Locations from 1979 up to 2017: 4.59410113197 m/s
+Median Observed Wind Speed for All Locations from 1979 up to 1998: 4.61204109731 m/s
+Median Observed Wind Speed for All Locations from 1998 up to 2017: 4.5777004414 m/s
+Standard Deviation of Observed Wind Speed for All Locations from 1979 up to 2017: 5.6678117227 m/s
+Standard Deviation of Observed Wind Speed for All Locations from 1979 up to 1998: 5.75239594215 m/s
+Standard Deviation of Observed Wind Speed for All Locations from 1998 up to 2017: 5.58070284786 m/s
+
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at All Locations from 1979 up to 2017: 369651
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at All Locations from 1979 up to 1998: 179190
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at All Locations from 1998 up to 2017: 190461
+Mean Observed Wind Speed for All Locations in Late May, June, and July from 1979 up to 2017: 4.16448291664 m/s
+Mean Observed Wind Speed for All Locations in Late May, June, and July from 1979 up to 1998: 4.28337274583 m/s
+Mean Observed Wind Speed for All Locations in Late May, June, and July from 1998 up to 2017: 4.04559308745 m/s
+Median Observed Wind Speed for All Locations in Late May, June, and July from 1979 up to 2017: 3.42763032449 m/s
+Median Observed Wind Speed for All Locations in Late May, June, and July from 1979 up to 1998: 3.51563318653 m/s
+Median Observed Wind Speed for All Locations in Late May, June, and July from 1998 up to 2017: 3.34209810726 m/s
+Standard Deviation of Observed Wind Speed for All Locations in Late May, June, and July from 1979 up to 2017: 3.34659072626 m/s
+Standard Deviation of Observed Wind Speed for All Locations in Late May, June, and July from 1979 up to 1998: 3.42587184899 m/s
+Standard Deviation of Observed Wind Speed for All Locations in Late May, June, and July from 1998 up to 2017: 3.26105373607 m/s
+
+Total Number of Stagnant Flow Measurements Observed in August and September at All Locations from 1979 up to 2017: 368624
+Total Number of Stagnant Flow Measurements Observed in August and September at All Locations from 1979 up to 1998: 188946
+Total Number of Stagnant Flow Measurements Observed in August and September at All Locations from 1998 up to 2017: 179678
+Mean Observed Wind Speed for All Locations in August and September from 1979 up to 2017: 4.10546685914 m/s
+Mean Observed Wind Speed for All Locations in August and September from 1979 up to 1998: 4.0121715096 m/s
+Mean Observed Wind Speed for All Locations in August and September from 1998 up to 2017: 4.19876220868 m/s
+Median Observed Wind Speed for All Locations in August and September from 1979 up to 2017: 3.35608451856 m/s
+Median Observed Wind Speed for All Locations in August and September from 1979 up to 1998: 3.25022166602 m/s
+Median Observed Wind Speed for All Locations in August and September from 1998 up to 2017: 3.46740494672 m/s
+Standard Deviation of Observed Wind Speed for All Locations in August and September from 1979 up to 2017: 3.3087935194 m/s
+Standard Deviation of Observed Wind Speed for All Locations in August and September from 1979 up to 1998: 3.29583558878 m/s
+Standard Deviation of Observed Wind Speed for All Locations in August and September from 1998 up to 2017: 3.31907951626 m/s
+
+Total Number of Stagnant Flow Measurements Observed in October and November at All Locations from 1979 up to 2017: 94960
+Total Number of Stagnant Flow Measurements Observed in October and November at All Locations from 1979 up to 1998: 45544
+Total Number of Stagnant Flow Measurements Observed in October and November at All Locations from 1998 up to 2017: 49416
+Mean Observed Wind Speed for All Locations in October and November from 1979 up to 2017: 10.7709062435 m/s
+Mean Observed Wind Speed for All Locations in October and November from 1979 up to 1998: 10.9987695075 m/s
+Mean Observed Wind Speed for All Locations in October and November from 1998 up to 2017: 10.5430429796 m/s
+Median Observed Wind Speed for All Locations in October and November from 1979 up to 2017: 9.94008028322 m/s
+Median Observed Wind Speed for All Locations in October and November from 1979 up to 1998: 10.2231529395 m/s
+Median Observed Wind Speed for All Locations in October and November from 1998 up to 2017: 9.64846771699 m/s
+Standard Deviation of Observed Wind Speed for All Locations in October and November from 1979 up to 2017: 6.82092736319 m/s
+Standard Deviation of Observed Wind Speed for All Locations in October and November from 1979 up to 1998: 6.85931063543 m/s
+Standard Deviation of Observed Wind Speed for All Locations in October and November from 1998 up to 2017: 6.77466711068 m/s
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                         All Locations (Including North Carolina)                                         x
 ----------------------------------------------------------------------------------------------------------------------------
 
 Total Number of Stagnant Flow Measurements Observed at All Locations from 1979 up to 2017: 888771
@@ -55,7 +111,63 @@ Standard Deviation of Observed Wind Speed for All Locations in October and Novem
 Standard Deviation of Observed Wind Speed for All Locations in October and November from 1998 up to 2017: 7.10457877493 m/s
 
 ----------------------------------------------------------------------------------------------------------------------------
-x                                                     Atlantic Coast                                                       x
+x                                        Atlantic Coast (Excluding North Carolina)                                         x
+----------------------------------------------------------------------------------------------------------------------------
+
+Total Number of Stagnant Flow Measurements Observed at Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 2017: 228783
+Total Number of Stagnant Flow Measurements Observed at Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 1998: 113499
+Total Number of Stagnant Flow Measurements Observed at Locations Along the Southeast U.S. Atlantic Coast from 1998 up to 2017: 115284
+Mean Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 2017: 6.62854393317 m/s
+Mean Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 1998: 6.647823808 m/s
+Mean Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast from 1998 up to 2017: 6.60926405834 m/s
+Median Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 2017: 4.87908830762 m/s
+Median Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 1998: 4.8522134028 m/s
+Median Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast from 1998 up to 2017: 4.90716775646 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 2017: 5.96761507084 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 1998: 5.99123480186 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast from 1998 up to 2017: 5.94383894374 m/s
+
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 2017: 98524
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 1998: 47510
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Southeast U.S. Atlantic Coast from 1998 up to 2017: 51014
+Mean Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in Late May, June, and July from 1979 up to 2017: 4.62894279803 m/s
+Mean Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in Late May, June, and July from 1979 up to 1998: 4.71570443439 m/s
+Mean Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in Late May, June, and July from 1998 up to 2017: 4.54218116166 m/s
+Median Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in Late May, June, and July from 1979 up to 2017: 3.74777594615 m/s
+Median Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in Late May, June, and July from 1979 up to 1998: 3.83022377182 m/s
+Median Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in Late May, June, and July from 1998 up to 2017: 3.66619739744 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in Late May, June, and July from 1979 up to 2017: 3.7530374462 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in Late May, June, and July from 1979 up to 1998: 3.75064679184 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in Late May, June, and July from 1998 up to 2017: 3.75342158901 m/s
+
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 2017: 99546
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 1998: 50884
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Southeast U.S. Atlantic Coast from 1998 up to 2017: 48662
+Mean Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in August and September from 1979 up to 2017: 4.46936437051 m/s
+Mean Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in August and September from 1979 up to 1998: 4.35976419406 m/s
+Mean Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in August and September from 1998 up to 2017: 4.57896454696 m/s
+Median Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in August and September from 1979 up to 2017: 3.63431596836 m/s
+Median Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in August and September from 1979 up to 1998: 3.51750904937 m/s
+Median Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in August and September from 1998 up to 2017: 3.75340269847 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in August and September from 1979 up to 2017: 3.61544681777 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in August and September from 1979 up to 1998: 3.58777188687 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in August and September from 1998 up to 2017: 3.63961259952 m/s
+
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 2017: 30713
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 1998: 15105
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Southeast U.S. Atlantic Coast from 1998 up to 2017: 15608
+Mean Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in October and November from 1979 up to 2017: 10.9960833372 m/s
+Mean Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in October and November from 1979 up to 1998: 11.0765552824 m/s
+Mean Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in October and November from 1998 up to 2017: 10.915611392 m/s
+Median Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in October and November from 1979 up to 2017: 9.91332098504 m/s
+Median Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in October and November from 1979 up to 1998: 10.0030107924 m/s
+Median Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in October and November from 1998 up to 2017: 9.82217971345 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in October and November from 1979 up to 2017: 7.33069815322 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in October and November from 1979 up to 1998: 7.34799100006 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Southeast U.S. Atlantic Coast in October and November from 1998 up to 2017: 7.31247889721 m/s
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                        Atlantic Coast (Including North Carolina)                                         x
 ----------------------------------------------------------------------------------------------------------------------------
 
 Total Number of Stagnant Flow Measurements Observed at Locations Along the Southeast U.S. Atlantic Coast from 1979 up to 2017: 284319

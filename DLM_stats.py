@@ -1,16 +1,16 @@
 ######################################################################################
-#
-# Deep Layer Mean Steering Flow Statistics Calculator
-#
-# Author: Rafal Ogorek
-#
-# Description: This program makes use of reanalysis data to calculate various
-#              statistics for the deep layer mean steering flow winds along the
-#              coastline of the southeastern U.S. from 1979 to 2017. Several
-#              graphics are also generated to help visualize this data better.
-#
-# Last updated: 6/5/2018
-#
+#                                                                                    #
+# Deep Layer Mean Steering Flow Statistics Calculator                                #
+#                                                                                    #
+# Author: Rafal Ogorek                                                               #
+#                                                                                    #
+# Description: This program makes use of reanalysis data to calculate various        #
+#              statistics for the deep layer mean steering flow winds along the      #
+#              coastline of the southeastern U.S. from 1979 to 2017. Several         #
+#              graphics are also generated to help visualize this data better.       #
+#                                                                                    #
+# Last updated: 6/14/2018                                                            #
+#                                                                                    #
 ######################################################################################
 
 import math
@@ -70,7 +70,11 @@ def getFrequencies(wind_speeds, wind_speed_freq):
             # the nearest integer. Then, increment the frequency of the wind speed range
             # that this value falls in.
             current_ws = int(math.floor(abs(wind_speed)))
-            wind_speed_freq[current_ws] = wind_speed_freq[current_ws] + 1
+            if current_ws < len(wind_speed_freq):
+                wind_speed_freq[current_ws] = wind_speed_freq[current_ws] + 1
+            else:
+                # Optionally, disregard high wind speed measurements
+                current_ws = current_ws
 
 
 # Description: Obtains the wind speeds recorded at all locations within a specified
@@ -226,8 +230,8 @@ while i < len(locs):
     # Get rid of points north or east of North Carolina, west of Corpus Christi, and
     # south of Key West
     if locs[i][0] > -98 and locs[i][0] <= -75 and locs[i][1] > 24 and locs[i][1] <= 36:
-        # Also get rid of points along Mexican Coast and around The Bahamas
-        if not (locs[i][0] < -96 and locs[i][1] < 26) and not (locs[i][0] > -79 and locs[i][1] < 30):
+        # Also get rid of points along Mexican Coast and around The Bahamas. Removed North Carolina points as well
+        if not (locs[i][0] < -96 and locs[i][1] < 26) and not (locs[i][0] > -79 and locs[i][1] < 30) and not (locs[i][1] > 33.75 or (locs[i][1] == 33.75 and locs[i][0] >= -78)):
             # Cases for each specified region
             if region == 'AC':
                 # Atlantic coast case
@@ -271,11 +275,11 @@ while i < len(locs):
                    (locs[i][0] == -79.5 and locs[i][1] > 30.75) or (locs[i][0] == -78.75 and locs[i][1] <= 33.75) or (locs[i][0] == -78 and locs[i][1] == 33):
                     temp_locs.append(locs[i])
                     temp_wind_speeds.append(wind_speeds[i])
-            elif region == 'NC':
-                # North Carolina coast case
-                if locs[i][1] > 33.75 or (locs[i][1] == 33.75 and locs[i][0] >= -78):
-                    temp_locs.append(locs[i])
-                    temp_wind_speeds.append(wind_speeds[i])
+            #elif region == 'NC':
+            #    # North Carolina coast case
+            #    if locs[i][1] > 33.75 or (locs[i][1] == 33.75 and locs[i][0] >= -78):
+            #        temp_locs.append(locs[i])
+            #        temp_wind_speeds.append(wind_speeds[i])
             else:
                 # General case for all locations
                 temp_locs.append(locs[i])
@@ -284,11 +288,14 @@ while i < len(locs):
     i = i + 1
 
 locs = temp_locs
-# Ensures wind direction doesn't matter
+# Ensures wind direction doesn't matter by making any negative wind speeds positive
 wind_speeds = map(abs, temp_wind_speeds)
 
 # Determine the maximum wind speed recorded
 max_wind_speed = int(math.ceil(np.amax(wind_speeds)))
+# Or set a predefined max to disregard larger wind speed recordings
+# Comment this line out if you don't want any maximum limit on what values to plot
+max_wind_speed = 40
 
 ######################################################################################
 ##                         All Locations, Whole Time Period                         ##
@@ -322,7 +329,6 @@ plt.title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + 
 plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
 plt.savefig('Figures/WS_79-16/Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
 plt.show()
-
 
 # Create arrays to store how frequently a wind speed value was recorded (at all
 # locations). The zeroeth index of the array will store the frequency of recorded wind
