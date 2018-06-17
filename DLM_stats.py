@@ -16,8 +16,8 @@
 import math
 import sys
 import numpy as np
-import matplotlib
-matplotlib.use('Agg')
+#import matplotlib
+#matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from datetime import datetime
 from mpl_toolkits.basemap import Basemap
@@ -184,15 +184,18 @@ def divideBySeason(wind_speeds):
                     wind_speeds_MHS[i].append(wind_speeds[i][j])
 
                 # Also add the measurement to the August or September array
-                if wind_speeds_Aug[i] == [None]:
-                    wind_speeds_Aug[i] = [wind_speeds[i][j]]
+                # August case
+                if (j % 732) < 376:
+                    if wind_speeds_Aug[i] == [None]:
+                        wind_speeds_Aug[i] = [wind_speeds[i][j]]
+                    else:
+                        wind_speeds_Aug[i].append(wind_speeds[i][j])
+                # September case
                 else:
-                    wind_speeds_Aug[i].append(wind_speeds[i][j])
-
-                if wind_speeds_Sep[i] == [None]:
-                    wind_speeds_Sep[i] = [wind_speeds[i][j]]
-                else:
-                    wind_speeds_Sep[i].append(wind_speeds[i][j])
+                    if wind_speeds_Sep[i] == [None]:
+                        wind_speeds_Sep[i] = [wind_speeds[i][j]]
+                    else:
+                        wind_speeds_Sep[i].append(wind_speeds[i][j])
 
             j = j + 1
 
