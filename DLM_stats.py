@@ -390,6 +390,7 @@ while i < len(locs):
 
 locs = temp_locs
 # Ensures wind direction doesn't matter by making any negative wind speeds positive
+# (All wind speeds should already be positive though)
 wind_speeds = map(abs, temp_wind_speeds)
 
 # Determine the maximum wind speed recorded
@@ -419,23 +420,22 @@ dates_and_times_79_16 = dates_and_times[0:27816]
 # Populate the wind speed frequency array
 getFrequencies(wind_speeds_79_16, wind_speed_freq_all)
 
-
-current_year = 1979
-current_year_index = current_year - 1979
+#current_year = 1979
+#current_year_index = current_year - 1979
 
 # Average the wind speed between all locations at each time
-avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
+#avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
 
 # Plot averaged wind speeds over the course of a year
-plt.figure(1, figsize = (20,10))
-plt.plot(dates_and_times_79_16[(current_year_index * 732):(732 * (current_year_index + 1))], avg_wind_speeds_79_16[(current_year_index * 732):(732 * (current_year_index + 1))])
-plt.ylabel('Wind Speed (m/s)')
-plt.xlabel('Time')
-plt.title('Average Wind Speed Over Time During the ' + str(current_year) + ' Hurricane Season on ' +
-          location_names[region][1])
-plt.savefig('Figures/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
-plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
-plt.show()
+#plt.figure(1, figsize = (20,10))
+#plt.plot(dates_and_times_79_16[(current_year_index * 732):(732 * (current_year_index + 1))], avg_wind_speeds_79_16[(current_year_index * 732):(732 * (current_year_index + 1))])
+#plt.ylabel('Wind Speed (m/s)')
+#plt.xlabel('Time')
+#plt.title('Average Wind Speed Over Time During the ' + str(current_year) + ' Hurricane Season on ' +
+#          location_names[region][1])
+#plt.savefig('Figures/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+#plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+#plt.show()
 
 
 
@@ -882,22 +882,22 @@ plt.show()
 ##                                 Plot Time Series                                 ##
 ######################################################################################
 
-current_year = 1986
-current_year_index = current_year - 1979
+#current_year = 1986
+#current_year_index = current_year - 1979
 
 # Average the wind speed between all locations at each time
-avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
+#avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
 
 # Plot averaged wind speeds over the course of a year
-plt.figure(1, figsize = (20,10))
-plt.plot(dates_and_times_79_16[(current_year_index * 732):(732 * (current_year_index + 1))], avg_wind_speeds_79_16[(current_year_index * 732):(732 * (current_year_index + 1))])
-plt.ylabel('Wind Speed (m/s)')
-plt.xlabel('Time')
-plt.title('Average Wind Speed Over Time During the ' + str(current_year) + ' Hurricane Season on ' +
-          location_names[region][1])
-plt.savefig('Figures/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
-plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
-plt.show()
+#plt.figure(1, figsize = (20,10))
+#plt.plot(dates_and_times_79_16[(current_year_index * 732):(732 * (current_year_index + 1))], avg_wind_speeds_79_16[(current_year_index * 732):(732 * (current_year_index + 1))])
+#plt.ylabel('Wind Speed (m/s)')
+#plt.xlabel('Time')
+#plt.title('Average Wind Speed Over Time During the ' + str(current_year) + ' Hurricane Season on ' +
+#          location_names[region][1])
+#plt.savefig('Figures/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+#plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+#plt.show()
 
 
 # Average the wind speeds by day
