@@ -1,6 +1,15 @@
-Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: xx Total; xx Hurricanes; xx Tropical Storms
-From 1979 up to 1998: xx Total; xx Hurricanes; xx Tropical Storms
-From 1998 up to 2017: 79 Total; 29 Hurricanes; 50 Tropical Storms
+Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: xx Total; xx Tropical Storms; xx Hurricanes
+From 1979 up to 1998: xx Total; xx Tropical Storms; xx Hurricanes
+From 1998 up to 2017: 76 Total; 47 Tropical Storms; 29 Hurricanes
+
+Early Season 1979-1997:
+Early Season 1998-2016: 20 Total; 14 Tropical Storms; 6 Hurricanes
+
+Mid Season 1979-1997:
+Mid Season 1998-2016: 48 Total; 28 Tropical Storms; 20 Hurricanes
+
+Late Season 1979-1997:
+Late Season 1998-2016: 8 Total; 4 Tropical Storms; 4 Hurricanes
 
 1979:
     Tropical Storms (x):
@@ -110,7 +119,7 @@ From 1998 up to 2017: 79 Total; 29 Hurricanes; 50 Tropical Storms
     -Georges (September 27-29, Louisiana, Florida Panhandle)
 
 1999:
-    Tropical Storms (3):
+    Tropical Storms (2):
     -Dennis (August 29-September 5; South Carolina, North Carolina)
     -Harvey (September 20-22; West Florida, East Florida)
 
@@ -149,7 +158,7 @@ From 1998 up to 2017: 79 Total; 29 Hurricanes; 50 Tropical Storms
 
 2003:
     Tropical Storms (3):
-    -Bill (June 30-July 1l Louisiana; Mississippi)
+    -Bill (June 30-July 1 Louisiana; Mississippi)
     -Grace (August 31; Texas)
     -Henri (September 5-6; West Florida, East Florida)
 
@@ -192,8 +201,8 @@ From 1998 up to 2017: 79 Total; 29 Hurricanes; 50 Tropical Storms
     Hurricanes (0):
 
 2007:
-    Tropical Storms (3*):
-    -Andrea (May 9-11; Georgia, East Florida)
+    Tropical Storms (2*):
+    -*Andrea (May 9-11; Georgia, East Florida)
     -Barry (June 1-2; West Florida)
     -Erin (August 15-16; Texas)
     -*Gabrielle (September 9-10; North Carolina)
@@ -233,11 +242,11 @@ From 1998 up to 2017: 79 Total; 29 Hurricanes; 50 Tropical Storms
     -Lee (September 3-5; Louisiana)
 
     Hurricanes (0*):
-    -Irene (August 26-27; North Carolina)
+    -*Irene (August 26-27; North Carolina)
 
 2012:
-    Tropical Storms (3):
-    -Alberto (May 20; Georgia, East Florida)
+    Tropical Storms (2*):
+    -*Alberto (May 20; Georgia, East Florida)
     -Beryl (May 28-29; East Florida, Georgia)
     -Debby (June 25-26; Florida Panhandle, West Florida, East Florida)
 
@@ -258,8 +267,8 @@ From 1998 up to 2017: 79 Total; 29 Hurricanes; 50 Tropical Storms
     -Arthur (July 1-4; East Florida, South Carolina, North Carolina)
 
 2015:
-    Tropical Storms (2):
-    -Ana (May 10; South Carolina, North Carolina)
+    Tropical Storms (1*):
+    -*Ana (May 10; South Carolina, North Carolina)
     -Bill (June 16-17; Texas)
 
     Hurricanes (0):

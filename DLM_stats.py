@@ -420,15 +420,15 @@ dates_and_times_79_16 = dates_and_times[0:27816]
 # Populate the wind speed frequency array
 getFrequencies(wind_speeds_79_16, wind_speed_freq_all)
 
-current_year = 1979
+current_year = 2017
 current_year_index = current_year - 1979
 
 # Average the wind speed between all locations at each time
-avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
+avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds)
 
 # Plot averaged wind speeds over the course of a year
 plt.figure(1, figsize = (20,10))
-plt.plot(dates_and_times_79_16[(current_year_index * 732):(732 * (current_year_index + 1))], avg_wind_speeds_79_16[(current_year_index * 732):(732 * (current_year_index + 1))])
+plt.plot(dates_and_times[(current_year_index * 732):(732 * (current_year_index + 1))], avg_wind_speeds_79_16[(current_year_index * 732):(732 * (current_year_index + 1))])
 plt.ylabel('Wind Speed (m/s)')
 plt.xlabel('Time')
 plt.title('Average Wind Speed Over Time During the ' + str(current_year) + ' Hurricane Season on ' +
