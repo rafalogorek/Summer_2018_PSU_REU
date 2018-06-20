@@ -1,49 +1,86 @@
 Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: xx Total; xx Hurricanes; xx Tropical Storms
 From 1979 up to 1998: xx Total; xx Hurricanes; xx Tropical Storms
-From 1998 up to 2017: xx Total; xx Hurricanes; xx Tropical Storms
+From 1998 up to 2017: 79 Total; 29 Hurricanes; 50 Tropical Storms
 
 1979:
+    Tropical Storms (x):
 
-
+    Hurricanes (x):
 1980:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1981:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1982:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1983:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1984:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1985:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1986:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1987:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1988:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1989:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1990:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1991:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1992:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1993:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1994:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1995:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1996:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1997:
+    Tropical Storms (x):
 
+    Hurricanes (x):
 1998:
     Tropical Storms (4):
-    -Charley (August 22; Texas)
+    -Charlie (August 22; Texas)
     -Frances (September 11-13, Texas)
     -Hermine (September 19-20, Louisiana)
     -Mitch (September 4-5, West Florida, East Florida)
@@ -54,38 +91,177 @@ From 1998 up to 2017: xx Total; xx Hurricanes; xx Tropical Storms
     -Georges (September 27-29, Louisiana, Florida Panhandle)
 
 1999:
+    Tropical Storms (3):
+    -Dennis (August 29-September 5; South Carolina, North Carolina)
+    -Harvey (September 20-22; West Florida, East Florida)
+
+    Hurricanes (3):
+    -Bret (August 22-23; Texas)
+    -Floyd (September 15-16; South Carolina, North Carolina)
+    -Irene (October 15-18; West Florida, East Florida, Georgia, South Carolina, North Carolina)
 
 2000:
+    Tropical Storms (1):
+    -Helene (September 22; Alabama, Florida Panhandle)
+
+    Hurricanes (1):
+    -Gordon (September 17-18; West Florida, East Florida, Georgia)
 
 2001:
+    Tropical Storms (3):
+    -Allison (June 5; Texas)
+    -Barry (August 5-6; Alabama, Florida Panhandle)
+    -Gabrielle (September 14-15; West Florida, East Florida)
+
+    Hurricanes (0):
 
 2002:
+    Tropical Storms (6*):
+    -Bertha (August 4-5; Louisiana, Mississippi)
+    -Edouard (September 2-5; East Florida, West Florida)
+    -Faye (September 6-7; Texas)
+    -*Gustav (September 10; North Carolina)
+    -Hanna (September 13-14; Louisiana, Mississippi, Alabama, Florida Panhandle)
+    -Isidore (September 25-26; Louisiana, Mississippi)
+    -Kyle (October 11-12; Georgia, South Carolina, North Carolina)
+
+    Hurricanes (1):
+    -Lili (October 3-4; Louisiana)
 
 2003:
+    Tropical Storms (3):
+    -Bill (June 30-July 1l Louisiana; Mississippi)
+    -Grace (August 31; Texas)
+    -Henri (September 5-6; West Florida, East Florida)
+
+    Hurricanes (2*):
+    -Claudette (July 14-15; Texas)
+    -Erika (August 16; Texas)
+    -*Isabel (September 17-18; North Carolina)
 
 2004:
+    Tropical Storms (2):
+    -Bonnie (August 12; Florida Panhandle, West Florida)
+    -Gaston (August 27-29; South Carolina, North Carolina)
+
+    Hurricanes (5):
+    -Alex (July 31-August 3; Georgia, South Carolina, North Carolina)
+    -Charlie (August 13-14; West Florida, East Florida, Georgia, South Carolina, North Carolina)
+    -Frances (September 4-6; East Florida, West Florida, Florida Panhandle)
+    -Ivan (September 15-16, 24; Louisiana, Mississippi, Alabama, Florida Panhandle, Texas)
+    -Jeanne (September 25-27; East Florida, West Florida, Florida Panhandle)
 
 2005:
+    Tropical Storms (3):
+    -Arlene (June 11-12; Alabama, Florida Panhandle)
+    -Cindy (July 5-6; Louisiana, Mississippi, Alabama)
+    -Tammy (October 5-6; East Florida, Georgia)
+
+    Hurricanes (6):
+    -Dennis (July 9-11; Alabama, Florida Panhandle, Mississippi)
+    -Emily (July 19-20; Texas)
+    -Katrina (August 28-29; Lousiana, Mississippi, Alabama)
+    -Ophelia (September 8-15; East Florida, South Carolina, North Carolina)
+    -Rita (September 23; Texas, Louisiana)
+    -Wilma (October 23; West Florida, East Florida)
 
 2006:
+    Tropical Storms (2):
+    -Alberto (June 12-13; Florida Panhandle, West Florida)
+    -Ernesto (August 29-September 1; West Florida, East Florida, Georgia, South Carolina, North Carolina)
+
+    Hurricanes (0):
 
 2007:
+    Tropical Storms (3*):
+    -Andrea (May 9-11; Georgia, East Florida)
+    -Barry (June 1-2; West Florida)
+    -Erin (August 15-16; Texas)
+    -*Gabrielle (September 9-10; North Carolina)
+
+    Hurricanes (1):
+    -Humberto (September 12-13; Texas, Louisiana)
 
 2008:
+    Tropical Storms (4):
+    -Cristobal (July 19-20; South Carolina, North Carolina)
+    -Edouard (August 3-5; Louisiana, Texas)
+    -Fay (August 19-24; West Florida, East Florida, Florida Panhandle)
+    -Hanna (September 5-6; South Carolina, North Carolina)
+
+    Hurricanes (3):
+    -Dolly (July 23-24; Texas)
+    -Gustav (September 1-2; Louisiana)
+    -Ike (September 12-13; Texas)
 
 2009:
+    Tropical Storms (2):
+    -Claudette (August 16-17; Florida Panhandle, Alabama)
+    -Ida (November 10; Louisiana, Mississippi, Alabama, Florida Panhandle)
+
+    Hurricanes (0):
 
 2010:
+    Tropical Storms (2):
+    -Bonnie (July 23-24; East Florida, West Florida)
+    -Hermine (September 6-7; Texas)
+
+    Hurricanes (0):
 
 2011:
+    Tropical Storms (2):
+    -Don (July 29-30; Texas)
+    -Lee (September 3-5; Louisiana)
+
+    Hurricanes (0*):
+    -Irene (August 26-27; North Carolina)
 
 2012:
+    Tropical Storms (3):
+    -Alberto (May 20; Georgia, East Florida)
+    -Beryl (May 28-29; East Florida, Georgia)
+    -Debby (June 25-26; Florida Panhandle, West Florida, East Florida)
+
+    Hurricanes (1):
+    -Isaac (August 28-29; Louisiana)
 
 2013:
+    Tropical Storms (2):
+    -Andrea (June 6-7; West Florida, Florida Panhandle, Georgia, South Carolina)
+    -Karen (October 6; Louisiana)
+
+    Hurricanes (0):
 
 2014:
+    Tropical Storms (0):
+
+    Hurricanes (1):
+    -Arthur (July 1-4; East Florida, South Carolina, North Carolina)
 
 2015:
+    Tropical Storms (2):
+    -Ana (May 10; South Carolina, North Carolina)
+    -Bill (June 16-17; Texas)
+
+    Hurricanes (0):
 
 2016:
+    Tropical Storms (3):
+    -Bonnie (May 28-29; South Carolina)
+    -Colin (June 6-7; West Florida, Florida Panhandle, Georgia, South Carolina)
+    -Julia (September 14; East Florida, Georgia, South Carolina)
 
+    Hurricanes (2):
+    -Hermine (September 1-3; Florida Panhandle, Georgia, South Carolina, North Carolina)
+    -Matthew (October 6-9; East Florida, Georgia, South Carolina, North Carolina)
+
+2017:
+    Tropical Storms (3):
+    -Cindy (June 22; Texas, Louisiana)
+    -Emily (July 31-August 1; West Florida)
+    -Philippe (October 28-29; West Florida, East Florida)
+
+    Hurricanes (3):
+    -Harvey (August 25-30; Texas, Louisiana)
+    -Irma (September 10-12; West Florida, East Florida, Florida Panhandle)
+    -Nate (October 7-8; Louisiana, Mississippi, Alabama)
