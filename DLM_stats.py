@@ -320,15 +320,9 @@ locs = data['loc']
 measurement_times = data['mydate']
 wind_speeds = data['ts']
 
-print(len(locs))
-print(len(wind_speeds))
-print(len(measurement_times))
-print(len(wind_speeds[0]))
-print(measurement_times[len(measurement_times) - 1])
 # Convert floats in the measurement_times array to datetime objects
 dates_and_times = convertToDatetime(measurement_times)
-print(dates_and_times[0])
-print(dates_and_times[len(dates_and_times) - 1])
+
 # Get rid of data points that are not along the U.S. coast or north of Cape Hatteras
 temp_locs = []
 temp_wind_speeds = []
@@ -426,17 +420,11 @@ dates_and_times_79_16 = dates_and_times[0:27816]
 # Populate the wind speed frequency array
 getFrequencies(wind_speeds_79_16, wind_speed_freq_all)
 
-current_year = 2017
+current_year = 1979
 current_year_index = current_year - 1979
 
 # Average the wind speed between all locations at each time
 avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
-print(len(wind_speeds[0]))
-print(len(avg_wind_speeds_79_16))
-print(len(dates_and_times))
-print(len(dates_and_times_79_16))
-print(dates_and_times[len(dates_and_times) - 1])
-print(dates_and_times_79_16[len(dates_and_times_79_16) - 1])
 
 # Plot averaged wind speeds over the course of a year
 plt.figure(1, figsize = (20,10))

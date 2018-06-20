@@ -1,1 +1,10 @@
 List of Notable Events in These Graphs:
+
+TX_Time_Series_2001: Tropical Storm Allison (June 5)
+WFL_Time_Series_2004: Tropical Storm Bonnie (August 12), Hurricane Charlie (August 13-14), Hurricane Frances (September 4-6), Hurricane Jeanne (September 25-27)
+EFL_Time_Series_2004: Hurricane Charlie (August 13-14), Hurricane Frances (September 4-6), Hurricane Jeanne (September 25-27)
+LA-MS_Time_Series_2005: Tropical Storm Cindy (July 5-6), Hurricane Dennis (July 9-11), Hurricane Katrina (August 28-29), Hurricane Rita (September 23)
+WFL_Time_Series_2005: Hurricane Katrina (August 24-26), Hurricane Wilma (October 23)
+GA-SC_Time_Series_2016: Tropical Storm Colin (June 6-7), Hurricane Hermine (September 1-3), Tropical Storm Julia (September 14), Hurricane Matthew (October 6-9)
+WFL_Time_Series_2017: Tropical Storm Emily (July 31-August 1), Hurricane Irma (September 10-12), Tropical Storm Philippe (October 28-29)
+TX_Time_Series_2017: Hurricane Harvey (August 25-30)
