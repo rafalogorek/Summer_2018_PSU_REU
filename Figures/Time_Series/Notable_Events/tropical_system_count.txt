@@ -1,114 +1,166 @@
-Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: xx Total; xx Tropical Storms; xx Hurricanes
-From 1979 up to 1998: xx Total; xx Tropical Storms; xx Hurricanes
-From 1998 up to 2017: 76 Total; 47 Tropical Storms; 29 Hurricanes
+Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: 122 Total; 68 Tropical Storms; 54 Hurricanes
+From 1979 up to 1998: 47 Total; 22 Tropical Storms; 25 Hurricanes
+From 1998 up to 2017: 75 Total; 46 Tropical Storms; 29 Hurricanes
 
-Early Season 1979-1997:
-Early Season 1998-2016: 20 Total; 14 Tropical Storms; 6 Hurricanes
+Early Season 1979-1997: 13 Total; 7 Tropical Storms; 6 Hurricanes
+Early Season 1998-2016: 20 Total; 15 Tropical Storms; 5 Hurricanes
 
-Mid Season 1979-1997:
-Mid Season 1998-2016: 48 Total; 28 Tropical Storms; 20 Hurricanes
+Mid Season 1979-1997: 23 Total; 9 Tropical Storms; 14 Hurricanes
+Mid Season 1998-2016: 47 Total; 27 Tropical Storms; 20 Hurricanes
 
-Late Season 1979-1997:
+Late Season 1979-1997: 11 Total; 6 Tropical Storms; 5 Hurricanes
 Late Season 1998-2016: 8 Total; 4 Tropical Storms; 4 Hurricanes
 
 1979:
-    Tropical Storms (x):
+    Tropical Storms (2):
+    -Claudette (July 24-25; Louisiana, Texas)
+    -Elena (August 31-September 1; Texas)
 
-    Hurricanes (x):
+    Hurricanes (3):
+    -Bob (July 10-11; Louisiana, Mississippi)
+    -David (September 2-4; East Florida, Georgia, South Carolina)
+    -Frederic (September 12; Louisiana, Mississippi, Alabama, Florida Panhandle) (MH)
 
 1980:
-    Tropical Storms (x):
+    Tropical Storms (1):
+    -Danielle (September 4-5; Louisiana, Texas)
 
-    Hurricanes (x):
+    Hurricanes (1):
+    -Allen (August 9-10; Texas) (MH)
 
 1981:
-    Tropical Storms (x):
+    Tropical Storms (1):
+    -Dennis (August 16-20; West Florida, East Florida, Georgia, South Carolina, North Carolina)
 
-    Hurricanes (x):
+    Hurricanes (0):
 
 1982:
-    Tropical Storms (x):
+    Tropical Storms (1):
+    -Chris (September 10-11; Louisiana, Texas)
 
-    Hurricanes (x):
+    Hurricanes (0):
 
 1983:
-    Tropical Storms (x):
+    Tropical Storms (0):
 
-    Hurricanes (x):
+    Hurricanes (2):
+    -Alicia (August 17-18; Texas) (MH)
+    -Barry (August 24-25, 27-28; East Florida, Texas)
 
 1984:
-    Tropical Storms (x):
+    Tropical Storms (1):
+    -Isidore (September 26-29; East Florida, West Florida, Georgia, South Carolina)
 
-    Hurricanes (x):
+    Hurricanes (1):
+    -Diana (September 8-14; East Florida, South Carolina, North Carolina) (MH)
 
 1985:
-    Tropical Storms (x):
+    Tropical Storms (1):
+    -Isabel (October 9-12; East Florida, Georgia, South Carolina)
 
-    Hurricanes (x):
+    Hurricanes (5*):
+    -Bob (July 22-24; West Florida, East Florida, Georgia, South Carolina)
+    -Danny (August 14-15; Louisiana, Texas)
+    -Elena (August 30-September 2; West Florida, Florida Panhandle, Alabama, Mississippi, Louisiana) (MH)
+    -*Gloria (September 26; North Carolina)
+    -Juan (October 27-31; Louisiana, Mississippi, Alabama, Florida Panhandle)
+    -Kate (November 21-22; Florida Panhandle, Georgia, South Carolina, North Carolina)
 
 1986:
-    Tropical Storms (x):
+    Tropical Storms (0):
 
-    Hurricanes (x):
+    Hurricanes (2):
+    -Bonnie (June 25-26; Texas, Louisiana)
+    -Charley (August 15-17; South Carolina, North Carolina)
 
 1987:
-    Tropical Storms (x):
+    Tropical Storms (0):
 
-    Hurricanes (x):
+    Hurricanes (1):
+    -Floyd (October 12; West Florida, East Florida)
 
 1988:
-    Tropical Storms (x):
+    Tropical Storms (3):
+    -Beryl (August 8-10; Louisiana, Mississippi)
+    -Chris (August 27-28; East Florida, Georgia, South Carolina)
+    -Keith (November 22-23; West Florida, East Florida)
 
-    Hurricanes (x):
+    Hurricanes (1):
+    -Florence (September 9-10; Louisiana, Mississippi)
 
 1989:
-    Tropical Storms (x):
+    Tropical Storms (1):
+    -Allison (June 24-27; Texas)
 
-    Hurricanes (x):
+    Hurricanes (3):
+    -Chantal (July 31-August 1; Texas, Louisiana)
+    -Hugo (September 21; South Carolina) (MH)
+    -Jerry (October 15; Texas, Louisiana)
 
 1990:
-    Tropical Storms (x):
+    Tropical Storms (1):
+    -Marco (October 10-11; West Florida, Florida Panhandle)
 
-    Hurricanes (x):
+    Hurricanes (0):
 
 1991:
-    Tropical Storms (x):
+    Tropical Storms (1):
+    -Fabian (October 15-16; East Florida)
 
-    Hurricanes (x):
+    Hurricanes (0*):
+    -*Bob (August 18; North Carolina)
 
 1992:
-    Tropical Storms (x):
+    Tropical Storms (0*):
+    -*Danielle (September 24-25; North Carolina)
 
-    Hurricanes (x):
+    Hurricanes (1):
+    -Andrew (August 23-26; East Florida, West Florida, Louisiana) (MH)
 
 1993:
-    Tropical Storms (x):
+    Tropical Storms (1):
+    -Arlene (June 19-20; Texas)
 
-    Hurricanes (x):
+    Hurricanes (0*):
+    -*Emily (August 31; North Carolina)
 
 1994:
-    Tropical Storms (x):
+    Tropical Storms (3):
+    -Alberto (July 2-3; Florida Panhandle, Alabama)
+    -Beryl (August 14-15; Florida Panhandle, Alabama)
+    -Gordon (November 15-16; West Florida, East Florida)
 
-    Hurricanes (x):
+    Hurricanes (0):
 
 1995:
-    Tropical Storms (x):
+    Tropical Storms (3):
+    -Allison (June 4-5; Florida Panhandle)
+    -Dean (July 30; Texas)
+    -Jerry (August 23-24; East Florida, West Florida)
 
-    Hurricanes (x):
+    Hurricanes (2):
+    -Erin (August 1-3; East Florida, West Florida, Florida Panhandle, Alabama, Mississippi)
+    -Opal (October 4; Florida Panhandle, Alabama, Mississippi, Louisiana) (MH)
 
 1996:
-    Tropical Storms (x):
+    Tropical Storms (2):
+    -Arthur (June 18-19; South Carolina, North Carolina)
+    -Josephine (October 7; West Florida, Florida Panhandle)
 
-    Hurricanes (x):
+    Hurricanes (2):
+    -Bertha (July 12; South Carolina, North Carolina)
+    -Fran (September 5; South Carolina, North Carolina) (MH)
 
 1997:
-    Tropical Storms (x):
+    Tropical Storms (0):
 
-    Hurricanes (x):
+    Hurricanes (1):
+    -Danny (July 17-20; Louisiana, Mississippi, Alabama, Florida Panhandle)
 
+----------------------------------------------------------------------------------------------------
 1998:
     Tropical Storms (4):
-    -Charlie (August 22; Texas)
+    -Charley (August 22; Texas)
     -Frances (September 11-13, Texas)
     -Hermine (September 19-20, Louisiana)
     -Mitch (September 4-5, West Florida, East Florida)
@@ -174,7 +226,7 @@ Late Season 1998-2016: 8 Total; 4 Tropical Storms; 4 Hurricanes
 
     Hurricanes (5):
     -Alex (July 31-August 3; Georgia, South Carolina, North Carolina)
-    -Charlie (August 13-14; West Florida, East Florida, Georgia, South Carolina, North Carolina)
+    -Charley (August 13-14; West Florida, East Florida, Georgia, South Carolina, North Carolina)
     -Frances (September 4-6; East Florida, West Florida, Florida Panhandle)
     -Ivan (September 15-16, 24; Louisiana, Mississippi, Alabama, Florida Panhandle, Texas)
     -Jeanne (September 25-27; East Florida, West Florida, Florida Panhandle)

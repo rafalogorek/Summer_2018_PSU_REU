@@ -1,5 +1,11 @@
 List of Notable Events in These Graphs:
 
+TX_Time_Series_1989: Tropical Storm Allison (June 24-27), Hurricane Chantal (July 31-August 1), Hurricane Jerry (October 15)
+GA-SC_Time_Series_1989: Hurricane Hugo (September 21)
+East_FL_Time_Series_1992: Hurricane Andrew (August 23-24)
+LA-MS_Time_Series_1992: Hurricane Andrew (August 25-26)
+GA-SC_Time_Series_1996: Tropical Storm Arthur (June 18-20), Hurricane Bertha (July 11-12), Hurricane Fran (September 5)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 TX_Time_Series_2001: Tropical Storm Allison (June 5)
 West_FL_Time_Series_2004: Tropical Storm Bonnie (August 12), Hurricane Charlie (August 13-14), Hurricane Frances (September 4-6), Hurricane Jeanne (September 25-27)
 East_FL_Time_Series_2004: Hurricane Charlie (August 13-14), Hurricane Frances (September 4-6), Hurricane Jeanne (September 25-27)
