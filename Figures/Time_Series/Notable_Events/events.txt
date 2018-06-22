@@ -1,5 +1,7 @@
 List of Notable Events in These Graphs:
 
+LA-MS_Time_Series_1979: Hurricane Bob (July 10-11), Tropical Storm Claudette (July 24), Hurricane Frederic (September 12)
+AL_FL_Pan_Time_Series_1985: Hurricane Elena (August 30-September 2), Hurricane Juan (October 31), Hurricane Kate (November 21) 
 TX_Time_Series_1989: Tropical Storm Allison (June 24-27), Hurricane Chantal (July 31-August 1), Hurricane Jerry (October 15)
 GA-SC_Time_Series_1989: Hurricane Hugo (September 21)
 East_FL_Time_Series_1992: Hurricane Andrew (August 23-24)
