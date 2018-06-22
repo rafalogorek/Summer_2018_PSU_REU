@@ -397,7 +397,7 @@ wind_speeds = map(abs, temp_wind_speeds)
 max_wind_speed = int(math.ceil(np.amax(wind_speeds)))
 # Or set a predefined max to disregard larger wind speed recordings
 # Comment this line out if you don't want any maximum limit on what values to plot
-max_wind_speed = 40
+max_wind_speed = 45
 
 ######################################################################################
 ##                         All Locations, Whole Time Period                         ##
@@ -420,22 +420,24 @@ dates_and_times_79_16 = dates_and_times[0:27816]
 # Populate the wind speed frequency array
 getFrequencies(wind_speeds_79_16, wind_speed_freq_all)
 
-current_year = 1996
-current_year_index = current_year - 1979
+
+
+#current_year = 1996
+#current_year_index = current_year - 1979
 
 # Average the wind speed between all locations at each time
-avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
+#avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
 
 # Plot averaged wind speeds over the course of a year
-plt.figure(1, figsize = (20,10))
-plt.plot(dates_and_times_79_16[(current_year_index * 732):(732 * (current_year_index + 1))], avg_wind_speeds_79_16[(current_year_index * 732):(732 * (current_year_index + 1))])
-plt.ylabel('Wind Speed (m/s)')
-plt.xlabel('Time')
-plt.title('Average Wind Speed Over Time During the ' + str(current_year) + ' Hurricane Season on ' +
-          location_names[region][1])
-plt.savefig('Figures/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
-plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
-plt.show()
+#plt.figure(1, figsize = (20,10))
+#plt.plot(dates_and_times_79_16[(current_year_index * 732):(732 * (current_year_index + 1))], avg_wind_speeds_79_16[(current_year_index * 732):(732 * (current_year_index + 1))])
+#plt.ylabel('Wind Speed (m/s)')
+#plt.xlabel('Time')
+#plt.title('Average Wind Speed Over Time During the ' + str(current_year) + ' Hurricane Season on ' +
+#          location_names[region][1])
+#plt.savefig('Figures/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+#plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+#plt.show()
 
 
 
@@ -445,8 +447,8 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(wind_speed_freq_all)), wind_speed_freq_all)
 plt.xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    plt.ylim(ymax = 500000)
+#if region == 'AL':
+#    plt.ylim(ymax = 500000)
 plt.ylabel('Frequency')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' During ' +
@@ -485,8 +487,8 @@ getFrequencies(wind_speeds_79_16_Sep, wind_speed_freq_all_Sep)
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(wind_speed_freq_all_MHS)), wind_speed_freq_all_EHS)
 plt.xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    plt.ylim(ymax = 220000)
+#if region == 'AL':
+#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' During ' +
@@ -498,8 +500,8 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(wind_speed_freq_all_MHS)), wind_speed_freq_all_MHS)
 plt.xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    plt.ylim(ymax = 220000)
+#if region == 'AL':
+#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' During ' +
@@ -511,8 +513,8 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(wind_speed_freq_all_Aug)), wind_speed_freq_all_Aug)
 plt.xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    plt.ylim(ymax = 220000)
+#if region == 'AL':
+#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' During ' +
@@ -524,8 +526,8 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(wind_speed_freq_all_Sep)), wind_speed_freq_all_Sep)
 plt.xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    plt.ylim(ymax = 220000)
+#if region == 'AL':
+#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' During ' +
@@ -537,8 +539,8 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(wind_speed_freq_all_LHS)), wind_speed_freq_all_LHS)
 plt.xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    plt.ylim(ymax = 220000)
+#if region == 'AL':
+#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' During ' +
@@ -685,8 +687,8 @@ ax.bar(np.arange(len(wind_speed_freq_79_97_EHS)), wind_speed_freq_79_97_EHS, bar
 ax.bar(np.arange(len(wind_speed_freq_98_16_EHS)) + bar_width, wind_speed_freq_98_16_EHS,
                 bar_width, color='r', label='1998-2016')
 ax.set_xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    ax.set_ylim(ymax = 120000)
+#if region == 'AL':
+#    ax.set_ylim(ymax = 120000)
 ax.set_xlabel('Wind Speed (m/s)')
 ax.set_ylabel('Frequency')
 ax.set_title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' in late May, ' +
@@ -704,8 +706,8 @@ ax.bar(np.arange(len(wind_speed_freq_79_97_MHS)), wind_speed_freq_79_97_MHS, bar
 ax.bar(np.arange(len(wind_speed_freq_98_16_MHS)) + bar_width, wind_speed_freq_98_16_MHS,
                 bar_width, color='r', label='1998-2016')
 ax.set_xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    ax.set_ylim(ymax = 120000)
+#if region == 'AL':
+#    ax.set_ylim(ymax = 120000)
 ax.set_xlabel('Wind Speed (m/s)')
 ax.set_ylabel('Frequency')
 ax.set_title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' in August ' +
@@ -723,8 +725,8 @@ ax.bar(np.arange(len(wind_speed_freq_79_97_Aug)), wind_speed_freq_79_97_Aug, bar
 ax.bar(np.arange(len(wind_speed_freq_98_16_Aug)) + bar_width, wind_speed_freq_98_16_Aug,
                 bar_width, color='r', label='1998-2016')
 ax.set_xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    ax.set_ylim(ymax = 120000)
+#if region == 'AL':
+#    ax.set_ylim(ymax = 120000)
 ax.set_xlabel('Wind Speed (m/s)')
 ax.set_ylabel('Frequency')
 ax.set_title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' in the Month ' +
@@ -742,8 +744,8 @@ ax.bar(np.arange(len(wind_speed_freq_79_97_Sep)), wind_speed_freq_79_97_Sep, bar
 ax.bar(np.arange(len(wind_speed_freq_98_16_Sep)) + bar_width, wind_speed_freq_98_16_Sep,
                 bar_width, color='r', label='1998-2016')
 ax.set_xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    ax.set_ylim(ymax = 120000)
+#if region == 'AL':
+#    ax.set_ylim(ymax = 120000)
 ax.set_xlabel('Wind Speed (m/s)')
 ax.set_ylabel('Frequency')
 ax.set_title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' in the Month ' +
@@ -761,8 +763,8 @@ ax.bar(np.arange(len(wind_speed_freq_79_97_LHS)), wind_speed_freq_79_97_LHS, bar
 ax.bar(np.arange(len(wind_speed_freq_98_16_LHS)) + bar_width, wind_speed_freq_98_16_LHS,
                 bar_width, color='r', label='1998-2016')
 ax.set_xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    ax.set_ylim(ymax = 120000)
+#if region == 'AL':
+#    ax.set_ylim(ymax = 120000)
 ax.set_xlabel('Wind Speed (m/s)')
 ax.set_ylabel('Frequency')
 ax.set_title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' in October ' +
@@ -810,8 +812,8 @@ while i < len(wind_speed_freq_79_97_Sep):
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(wind_speed_freq_EHS_diff)), wind_speed_freq_EHS_diff)
 plt.xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    plt.ylim(ymax = 9000, ymin = -7000)
+#if region == 'AL':
+#    plt.ylim(ymax = 9000, ymin = -7000)
 plt.ylabel('Frequency Difference')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' in Late ' +
@@ -824,8 +826,8 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(wind_speed_freq_MHS_diff)), wind_speed_freq_MHS_diff)
 plt.xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    plt.ylim(ymax = 9000, ymin = -7000)
+#if region == 'AL':
+#    plt.ylim(ymax = 9000, ymin = -7000)
 plt.ylabel('Frequency Difference')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' in August ' +
@@ -838,8 +840,8 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(wind_speed_freq_Aug_diff)), wind_speed_freq_Aug_diff)
 plt.xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    plt.ylim(ymax = 9000, ymin = -7000)
+#if region == 'AL':
+#    plt.ylim(ymax = 9000, ymin = -7000)
 plt.ylabel('Frequency Difference')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' in the Month ' +
@@ -852,8 +854,8 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(wind_speed_freq_Sep_diff)), wind_speed_freq_Sep_diff)
 plt.xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    plt.ylim(ymax = 9000, ymin = -7000)
+#if region == 'AL':
+#    plt.ylim(ymax = 9000, ymin = -7000)
 plt.ylabel('Frequency Difference')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' in the Month ' +
@@ -866,8 +868,8 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(wind_speed_freq_LHS_diff)), wind_speed_freq_LHS_diff)
 plt.xlim(xmax = max_wind_speed + 1)
-if region == 'AL':
-    plt.ylim(ymax = 9000, ymin = -7000)
+#if region == 'AL':
+#    plt.ylim(ymax = 9000, ymin = -7000)
 plt.ylabel('Frequency Difference')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' in October ' +

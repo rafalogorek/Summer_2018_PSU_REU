@@ -1,3 +1,5 @@
+All Locations:
+
 Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: 122 Total; 68 Tropical Storms; 54 Hurricanes
 From 1979 up to 1998: 47 Total; 22 Tropical Storms; 25 Hurricanes
 From 1998 up to 2017: 75 Total; 46 Tropical Storms; 29 Hurricanes
@@ -10,6 +12,153 @@ Mid Season 1998-2016: 47 Total; 27 Tropical Storms; 20 Hurricanes
 
 Late Season 1979-1997: 11 Total; 6 Tropical Storms; 5 Hurricanes
 Late Season 1998-2016: 8 Total; 4 Tropical Storms; 4 Hurricanes
+
+------------------------------------------------------------------------------------------------------
+Atlantic Coast:
+
+Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: 56 Total; 29 Tropical Storms; 27 Hurricanes
+From 1979 up to 1998: 22 Total; 10 Tropical Storms; 12 Hurricanes
+From 1998 up to 2017: 34 Total; 19 Tropical Storms; 15 Hurricanes
+
+Early Season 1979-1997: 2 Total; 0 Tropical Storms; 2 Hurricanes
+Early Season 1998-2016: 8 Total; 7 Tropical Storms; 1 Hurricanes
+
+Mid Season 1979-1997: 13 Total; 5 Tropical Storms; 8 Hurricanes
+Mid Season 1998-2016: 21 Total; 11 Tropical Storms; 10 Hurricanes
+
+Late Season 1979-1997: 7 Total; 5 Tropical Storms; 2 Hurricanes
+Late Season 1998-2016: 5 Total; 1 Tropical Storms; 4 Hurricanes
+
+------------------------------------------------------------------------------------------------------
+Gulf of Mexico Coast:
+
+Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: 97 Total; 55 Tropical Storms; 42 Hurricanes
+From 1979 up to 1998: 37 Total; 18 Tropical Storms; 19 Hurricanes
+From 1998 up to 2017: 60 Total; 37 Tropical Storms; 23 Hurricanes
+
+Early Season 1979-1997: 11 Total; 6 Tropical Storms; 5 Hurricanes
+Early Season 1998-2016: 16 Total; 12 Tropical Storms; 4 Hurricanes
+
+Mid Season 1979-1997: 17 Total; 8 Tropical Storms; 9 Hurricanes
+Mid Season 1998-2016: 39 Total; 23 Tropical Storms; 16 Hurricanes
+
+Late Season 1979-1997: 9 Total; 4 Tropical Storms; 5 Hurricanes
+Late Season 1998-2016: 5 Total; 2 Tropical Storms; 3 Hurricanes
+
+------------------------------------------------------------------------------------------------------
+Texas Coast:
+
+Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: 32 Total; 17 Tropical Storms; 15 Hurricanes
+From 1979 up to 1998: 13 Total; 7 Tropical Storms; 6 Hurricanes
+From 1998 up to 2017: 19 Total; 10 Tropical Storms; 9 Hurricanes
+
+Early Season 1979-1997: 6 Total; 4 Tropical Storms; 2 Hurricanes
+Early Season 1998-2016: 6 Total; 3 Tropical Storms; 3 Hurricanes
+
+Mid Season 1979-1997: 7 Total; 3 Tropical Storms; 4 Hurricanes
+Mid Season 1998-2016: 13 Total; 7 Tropical Storms; 6 Hurricanes
+
+Late Season 1979-1997: 0 Total; 0 Tropical Storms; 1 Hurricanes
+Late Season 1998-2016: 0 Total; 0 Tropical Storms; 0 Hurricanes
+
+------------------------------------------------------------------------------------------------------
+Louisiana-Mississippi Coast:
+
+Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: 38 Total; 14 Tropical Storms; 24 Hurricanes
+From 1979 up to 1998: 18 Total; 4 Tropical Storms; 14 Hurricanes
+From 1998 up to 2017: 20 Total; 10 Tropical Storms; 10 Hurricanes
+
+Early Season 1979-1997: 5 Total; 1 Tropical Storms; 4 Hurricanes
+Early Season 1998-2016: 3 Total; 2 Tropical Storms; 1 Hurricanes
+
+Mid Season 1979-1997: 10 Total; 3 Tropical Storms; 7 Hurricanes
+Mid Season 1998-2016: 14 Total; 6 Tropical Storms; 8 Hurricanes
+
+Late Season 1979-1997: 3 Total; 0 Tropical Storms; 3 Hurricanes
+Late Season 1998-2016: 3 Total; 2 Tropical Storms; 1 Hurricanes
+
+------------------------------------------------------------------------------------------------------
+Alabama-Florida Panhandle Coast:
+
+Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: 33 Total; 18 Tropical Storms; 15 Hurricanes
+From 1979 up to 1998: 12 Total; 5 Tropical Storms; 7 Hurricanes
+From 1998 up to 2017: 21 Total; 13 Tropical Storms; 8 Hurricanes
+
+Early Season 1979-1997: 3 Total; 2 Tropical Storms; 1 Hurricanes
+Early Season 1998-2016: 7 Total; 6 Tropical Storms; 1 Hurricanes
+
+Mid Season 1979-1997: 4 Total; 1 Tropical Storms; 3 Hurricanes
+Mid Season 1998-2016: 13 Total; 6 Tropical Storms; 7 Hurricanes
+
+Late Season 1979-1997: 5 Total; 2 Tropical Storms; 3 Hurricanes
+Late Season 1998-2016: 1 Total; 1 Tropical Storms; 0 Hurricanes
+
+------------------------------------------------------------------------------------------------------
+West Florida Coast:
+
+Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: 32 Total; 20 Tropical Storms; 12 Hurricanes
+From 1979 up to 1998: 11 Total; 6 Tropical Storms; 5 Hurricanes
+From 1998 up to 2017: 21 Total; 14 Tropical Storms; 7 Hurricanes
+
+Early Season 1979-1997: 1 Total; 0 Tropical Storms; 1 Hurricanes
+Early Season 1998-2016: 6 Total; 6 Tropical Storms; 0 Hurricanes
+
+Mid Season 1979-1997: 5 Total; 2 Tropical Storms; 3 Hurricanes
+Mid Season 1998-2016: 13 Total; 8 Tropical Storms; 5 Hurricanes
+
+Late Season 1979-1997: 5 Total; 4 Tropical Storms; 1 Hurricanes
+Late Season 1998-2016: 2 Total; 0 Tropical Storms; 2 Hurricanes
+
+-------------------------------------------------------------------------------------------------------
+East Florida Coast:
+
+Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: 36 Total; 18 Tropical Storms; 18 Hurricanes
+From 1979 up to 1998: 14 Total; 7 Tropical Storms; 7 Hurricanes
+From 1998 up to 2017: 22 Total; 11 Tropical Storms; 11 Hurricanes
+
+Early Season 1979-1997: 1 Total; 0 Tropical Storms; 1 Hurricanes
+Early Season 1998-2016: 4 Total; 3 Tropical Storms; 1 Hurricanes
+
+Mid Season 1979-1997: 8 Total; 3 Tropical Storms; 5 Hurricanes
+Mid Season 1998-2016: 14 Total; 8 Tropical Storms; 6 Hurricanes
+
+Late Season 1979-1997: 5 Total; 4 Tropical Storms; 1 Hurricanes
+Late Season 1998-2016: 4 Total; 0 Tropical Storms; 4 Hurricanes
+
+------------------------------------------------------------------------------------------------------
+Georgia-South Carolina Coast:
+
+Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: 34 Total; 15 Tropical Storms; 19 Hurricanes
+From 1979 up to 1998: 12 Total; 4 Tropical Storms; 8 Hurricanes
+From 1998 up to 2017: 22 Total; 11 Tropical Storms; 11 Hurricanes
+
+Early Season 1979-1997: 3 Total; 1 Tropical Storms; 2 Hurricanes
+Early Season 1998-2016: 6 Total; 5 Tropical Storms; 1 Hurricanes
+
+Mid Season 1979-1997: 7 Total; 2 Tropical Storms; 5 Hurricanes
+Mid Season 1998-2016: 12 Total; 5 Tropical Storms; 7 Hurricanes
+
+Late Season 1979-1997: 2 Total; 1 Tropical Storms; 1 Hurricanes
+Late Season 1998-2016: 4 Total; 1 Tropical Storms; 3 Hurricanes
+
+------------------------------------------------------------------------------------------------------
+North Carolina Coast:
+
+Total number of tropical systems to come at least within 1 degree of landfall from 1979 up to 2017: 30 Total; 11 Tropical Storms; 19 Hurricanes
+From 1979 up to 1998: 11 Total; 3 Tropical Storms; 8 Hurricanes
+From 1998 up to 2017: 19 Total; 8 Tropical Storms; 11 Hurricanes
+
+Early Season 1979-1997: 2 Total; 1 Tropical Storm; 1 Hurricanes
+Early Season 1998-2016: 2 Total; 1 Tropical Storms; 1 Hurricanes
+
+Mid Season 1979-1997: 8 Total; 2 Tropical Storms; 6 Hurricanes
+Mid Season 1998-2016: 14 Total; 6 Tropical Storms; 8 Hurricanes
+
+Late Season 1979-1997: 1 Total; 0 Tropical Storms; 1 Hurricanes
+Late Season 1998-2016: 3 Total; 1 Tropical Storms; 2 Hurricanes
+
+------------------------------------------------------------------------------------------------------
+
 
 1979:
     Tropical Storms (2):
@@ -210,7 +359,7 @@ Late Season 1998-2016: 8 Total; 4 Tropical Storms; 4 Hurricanes
 
 2003:
     Tropical Storms (3):
-    -Bill (June 30-July 1 Louisiana; Mississippi)
+    -Bill (June 30-July 1; Louisiana, Mississippi)
     -Grace (August 31; Texas)
     -Henri (September 5-6; West Florida, East Florida)
 
