@@ -148,7 +148,7 @@ def calcNumStagFlow(wind_speed_freq, stagnant_flow):
 #                           were taken in August
 #         -wind_speeds_Sep: Same as the above arrays, except all wind speed measurements
 #                           were taken in September
-def divideBySeason(wind_speeds):
+def divideBySeason(wind_speeds, avg_index):
     wind_speeds_EHS = [[None]] * len(wind_speeds)
     wind_speeds_MHS = [[None]] * len(wind_speeds)
     wind_speeds_LHS = [[None]] * len(wind_speeds)
@@ -163,14 +163,14 @@ def divideBySeason(wind_speeds):
         while j < len(wind_speeds[i]):
             # If data was obtained prior to August, add it to the early hurricane season
             # wind speed array
-            if (j % (732/4)) < (252/4):
+            if (j % (732/avg_index)) < (252/avg_index):
                 if wind_speeds_EHS[i] == [None]:
                     wind_speeds_EHS[i] = [wind_speeds[i][j]]
                 else:
                     wind_speeds_EHS[i].append(wind_speeds[i][j])
             # If data was obtained in October or later, add it to the late hurricane season
             # wind speed array
-            elif (j % (732/4)) >= (496/4):
+            elif (j % (732/avg_index)) >= (496/avg_index):
                 if wind_speeds_LHS[i] == [None]:
                     wind_speeds_LHS[i] = [wind_speeds[i][j]]
                 else:
@@ -185,7 +185,7 @@ def divideBySeason(wind_speeds):
 
                 # Also add the measurement to the August or September array
                 # August case
-                if (j % (732/4)) < (376/4):
+                if (j % (732/avg_index)) < (376/avg_index):
                     if wind_speeds_Aug[i] == [None]:
                         wind_speeds_Aug[i] = [wind_speeds[i][j]]
                     else:
@@ -410,7 +410,7 @@ wind_speeds_79_16 = getWindSpeedInterval(wind_speeds, 0, 27816)
 # Get updated time interval as well
 dates_and_times_79_16 = dates_and_times[0:27816]
 
-current_year = 1979
+current_year = 1996
 current_year_index = current_year - 1979
 
 # Average the wind speed between all locations at each time
@@ -428,16 +428,19 @@ plt.savefig('Figures/Time_Series/' + str(current_year) + '/' + location_names[re
 plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
 plt.show()
 
+# Change this value to average by a different number of days (4 for one day average, 24 for six day average, 48 for 12 day average) 
+avg_index = 4
+
 # Average the wind speeds by day
-wind_speeds_79_16, dates_and_times_79_16 = averageWindsOverTime_v1(wind_speeds_79_16, dates_and_times_79_16, 4)
+wind_speeds_79_16, dates_and_times_79_16 = averageWindsOverTime_v1(wind_speeds_79_16, dates_and_times_79_16, avg_index)
 
 # Average the wind speed between all locations at each time
 avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
 
 # Plot wind speeds averaged every day and averaged among all points
 plt.figure(1, figsize = (20,10))
-plt.plot(dates_and_times_79_16[(current_year_index * (732/4)):((732/4) * (current_year_index + 1))],
-         avg_wind_speeds_79_16[(current_year_index * (732/4)):((732/4) * (current_year_index + 1))])
+plt.plot(dates_and_times_79_16[(current_year_index * (732/avg_index)):((732/avg_index) * (current_year_index + 1))],
+         avg_wind_speeds_79_16[(current_year_index * (732/avg_index)):((732/avg_index) * (current_year_index + 1))])
 #plt.xlim(xmax = max_wind_speed + 1)
 plt.ylabel('Wind Speed (m/s)')
 plt.xlabel('Time')
@@ -479,7 +482,16 @@ wind_speed_freq_all_Sep = [0] * max_wind_speed
 # (early hurricane season (June, July), mid  hurricane season (August, September), and
 # late hurricane season (October, November)). Also get data for August and September
 # individually
-wind_speeds_79_16_EHS, wind_speeds_79_16_MHS, wind_speeds_79_16_LHS, wind_speeds_79_16_Aug, wind_speeds_79_16_Sep = divideBySeason(wind_speeds_79_16)
+wind_speeds_79_16_EHS, wind_speeds_79_16_MHS, wind_speeds_79_16_LHS, wind_speeds_79_16_Aug, wind_speeds_79_16_Sep = divideBySeason(wind_speeds_79_16, avg_index)
+print(len(dates_and_times_79_16))
+print(dates_and_times_79_16[0])
+print(dates_and_times_79_16[1])
+print(dates_and_times_79_16[2])
+print(dates_and_times_79_16[2393])
+print(dates_and_times_79_16[2394])
+print(dates_and_times_79_16[4711])
+print(dates_and_times_79_16[4712])
+print(dates_and_times_79_16[len(dates_and_times_79_16) - 1])
 print(len(wind_speeds_79_16[0]))
 print(len(wind_speeds_79_16_EHS[0]))
 print(len(wind_speeds_79_16_MHS[0]))
@@ -584,8 +596,8 @@ dates_and_times_79_97 = dates_and_times[0:13908]
 dates_and_times_98_16 = dates_and_times[13908:27816]
 
 # Average the wind speeds by day
-wind_speeds_79_97, dates_and_times_79_97 = averageWindsOverTime_v1(wind_speeds_79_97, dates_and_times_79_97, 4)
-wind_speeds_98_16, dates_and_times_98_16 = averageWindsOverTime_v1(wind_speeds_98_16, dates_and_times_98_16, 4)
+wind_speeds_79_97, dates_and_times_79_97 = averageWindsOverTime_v1(wind_speeds_79_97, dates_and_times_79_97, avg_index)
+wind_speeds_98_16, dates_and_times_98_16 = averageWindsOverTime_v1(wind_speeds_98_16, dates_and_times_98_16, avg_index)
 
 # Populate the wind speed frequency arrays
 getFrequencies(wind_speeds_79_97, wind_speed_freq_79_97)
@@ -679,8 +691,17 @@ wind_speed_freq_98_16_Sep = [0] * max_wind_speed
 # (early hurricane season (June, July), mid hurricane season (August, September), and
 # late hurricane season (October, November)). Also get data for the months of August and
 # September individually
-wind_speeds_79_97_EHS, wind_speeds_79_97_MHS, wind_speeds_79_97_LHS, wind_speeds_79_97_Aug, wind_speeds_79_97_Sep = divideBySeason(wind_speeds_79_97)
-wind_speeds_98_16_EHS, wind_speeds_98_16_MHS, wind_speeds_98_16_LHS, wind_speeds_98_16_Aug, wind_speeds_98_16_Sep = divideBySeason(wind_speeds_98_16)
+wind_speeds_79_97_EHS, wind_speeds_79_97_MHS, wind_speeds_79_97_LHS, wind_speeds_79_97_Aug, wind_speeds_79_97_Sep = divideBySeason(wind_speeds_79_97, avg_index)
+wind_speeds_98_16_EHS, wind_speeds_98_16_MHS, wind_speeds_98_16_LHS, wind_speeds_98_16_Aug, wind_speeds_98_16_Sep = divideBySeason(wind_speeds_98_16, avg_index)
+
+print(len(wind_speeds_79_97[0]))
+print(len(wind_speeds_79_97_EHS[0]))
+print(len(wind_speeds_79_97_MHS[0]))
+print(len(wind_speeds_79_97_LHS[0]))
+print(len(wind_speeds_98_16[0]))
+print(len(wind_speeds_98_16_EHS[0]))
+print(len(wind_speeds_98_16_MHS[0]))
+print(len(wind_speeds_98_16_LHS[0]))
 
 # Populate the wind speed frequency arrays for each of the three parts of the hurricane
 # season for each time period (and August and September)
