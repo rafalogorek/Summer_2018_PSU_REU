@@ -272,27 +272,39 @@ def averageWindsOverTime_v1(wind_speeds, dates_and_times, time_interval):
 #                               array now represents the beginning time of when the
 #                               averaged wind speeds were measured
 def averageWindsOverTime_v2(wind_speeds, dates_and_times, time_interval):
-    # Set the size of the average wind speed array
+    # Define arrays
     avg_wind_speeds = [[None]] * len(wind_speeds)
+    new_dates_and_times = []
 
     # For each location, average over the specified time interval
+    # Also get corresponding days/times
     i = 0
     while i < len(wind_speeds):
         j = time_interval / 2
         while j < (len(wind_speeds[i]) - (time_interval / 2) + 1):
+
+            # Only add times during the first loop
+            if i == 0:
+                new_dates_and_times.append(dates_and_times[j])
+
             if avg_wind_speeds[i] == [None]:
                 avg_wind_speeds[i] = [np.sum(wind_speeds[i][(j - (time_interval / 2)):(j + (time_interval / 2))])/time_interval]
             else:
                 avg_wind_speeds[i].append(np.sum(wind_speeds[i][(j - (time_interval / 2)):(j + (time_interval / 2))])/time_interval)
-            j = j + 1
+
+            if (j % 732) != 732 - (time_interval / 2):
+                j = j + 1
+            else:
+                j = j + time_interval
+
         i = i + 1
 
     # Update the dates_and_times array to account for the newly averaged wind speeds
-    new_dates_and_times = []
-    i = time_interval / 2
-    while i < (len(wind_speeds[0]) - (time_interval / 2) + 1):
-        new_dates_and_times.append(dates_and_times[i])
-        i = i + 1
+    #new_dates_and_times = []
+    #i = time_interval / 2
+    #while i < (len(wind_speeds[0]) - (time_interval / 2) + 1):
+    #    new_dates_and_times.append(dates_and_times[i])
+    #    i = i + 1
 
     print(len(avg_wind_speeds))
     print(len(avg_wind_speeds[0]))
@@ -461,7 +473,7 @@ wind_speeds_79_16 = getWindSpeedInterval(wind_speeds, 0, 27816)
 # Get updated time interval as well
 dates_and_times_79_16 = dates_and_times[0:27816]
 
-current_year = 2008
+current_year = 2005
 current_year_index = current_year - 1979
 
 # Average the wind speed between all locations at each time
@@ -480,25 +492,38 @@ plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_
 plt.show()
 
 # Change this value to average by a different number of days (4 for one day average, 24 for six day average, 48 for 12 day average) 
-avg_index = 4
+avg_index = 120
 
 # Average the wind speeds by day
-wind_speeds_79_16, dates_and_times_79_16 = averageWindsOverTime_v1(wind_speeds_79_16, dates_and_times_79_16, avg_index)
+wind_speeds_79_16, dates_and_times_79_16 = averageWindsOverTime_v2(wind_speeds_79_16, dates_and_times_79_16, avg_index)
 
 # Average the wind speed between all locations at each time
 avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
+print(dates_and_times_79_16[728])
+print(dates_and_times_79_16[729])
+print(dates_and_times_79_16[730])
+print(dates_and_times_79_16[731])
+print('x')
+print(dates_and_times_79_16[current_year_index * (732 - avg_index + 1)])
+print(dates_and_times_79_16[current_year_index * (732 - avg_index + 1) + 1])
+print(dates_and_times_79_16[((current_year_index + 1) * (732 - avg_index + 1)) - 2])
+print(dates_and_times_79_16[((current_year_index + 1) * (732 - avg_index + 1)) - 1])
+print(dates_and_times_79_16[((current_year_index + 1) * (732 - avg_index + 1))])
+print(dates_and_times_79_16[((current_year_index + 1) * (732 - avg_index + 1)) + 1])
 
 # Plot wind speeds averaged every day and averaged among all points
 plt.figure(1, figsize = (20,10))
-plt.plot(dates_and_times_79_16[(current_year_index * (732/avg_index)):((732/avg_index) * (current_year_index + 1))],
-         avg_wind_speeds_79_16[(current_year_index * (732/avg_index)):((732/avg_index) * (current_year_index + 1))])
+#plt.plot(dates_and_times_79_16[(current_year_index * (732/avg_index)):((732/avg_index) * (current_year_index + 1))],
+#         avg_wind_speeds_79_16[(current_year_index * (732/avg_index)):((732/avg_index) * (current_year_index + 1))])
+plt.plot(dates_and_times_79_16[(current_year_index * (732 - avg_index + 1)):((current_year_index + 1) * (732 - avg_index + 1))],
+         avg_wind_speeds_79_16[(current_year_index * (732 - avg_index + 1)):((current_year_index + 1) * (732 - avg_index + 1))])
 #plt.xlim(xmax = max_wind_speed + 1)
 plt.ylabel('Wind Speed (m/s)')
 plt.xlabel('Time')
 plt.title('Wind Speed (Averaged Every Day) Over Time During the ' + str(current_year) + ' Hurricane Season on ' +
           location_names[region][1])
-plt.savefig('Figures/One_Day_Averages/v1/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_1d_Avg_Time_Series_' + str(current_year) + '.png')
-plt.savefig('Figures/One_Day_Averages/v1/Time_Series/Yearly/' + location_names[region][0]  + '_1d_Avg_Time_Series_' + str(current_year) + '.png')
+plt.savefig('Figures/One_Day_Averages/v2/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_1d_Avg_Time_Series_' + str(current_year) + '.png')
+plt.savefig('Figures/One_Day_Averages/v2/Time_Series/Yearly/' + location_names[region][0]  + '_1d_Avg_Time_Series_' + str(current_year) + '.png')
 plt.show()
 
 # Populate the wind speed frequency array
