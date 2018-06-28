@@ -492,7 +492,7 @@ plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_
 plt.show()
 
 # Change this value to average by a different number of days (4 for one day average, 24 for six day average, 48 for 12 day average) 
-avg_index = 4
+avg_index = 36
 
 # Average the wind speeds by day
 wind_speeds_79_16, dates_and_times_79_16 = averageWindsOverTime_v2(wind_speeds_79_16, dates_and_times_79_16, avg_index)
@@ -520,9 +520,9 @@ plt.plot(dates_and_times_79_16[(current_year_index * (732 - avg_index + 1)):((cu
 #plt.xlim(xmax = max_wind_speed + 1)
 plt.ylabel('Wind Speed (m/s)')
 plt.xlabel('Time')
-plt.title('Wind Speed (Averaged Every Day) Over Time During the ' + str(current_year) + ' Hurricane Season on ' +
+plt.title('Wind Speed (Averaged Every Nine Days) Over Time During the ' + str(current_year) + ' Hurricane Season on ' +
           location_names[region][1])
-plt.savefig('Figures/One_Day_Averages/v2/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_1d_Avg_Time_Series_' + str(current_year) + '.png')
+plt.savefig('Figures/One_Day_Averages/v2/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_9d_Avg_Time_Series_' + str(current_year) + '.png')
 plt.savefig('Figures/One_Day_Averages/v2/Time_Series/Yearly/' + location_names[region][0]  + '_1d_Avg_Time_Series_' + str(current_year) + '.png')
 plt.show()
 
