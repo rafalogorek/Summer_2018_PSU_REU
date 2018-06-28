@@ -492,7 +492,7 @@ plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_
 plt.show()
 
 # Change this value to average by a different number of days (4 for one day average, 24 for six day average, 48 for 12 day average) 
-avg_index = 120
+avg_index = 4
 
 # Average the wind speeds by day
 wind_speeds_79_16, dates_and_times_79_16 = averageWindsOverTime_v2(wind_speeds_79_16, dates_and_times_79_16, avg_index)
