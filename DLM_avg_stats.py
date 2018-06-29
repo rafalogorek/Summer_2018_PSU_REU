@@ -251,6 +251,58 @@ def averageWindsOverTime(wind_speeds, dates_and_times, time_interval):
     return avg_wind_speeds, new_dates_and_times
 
 
+# Description: Averages wind speeds over a specified time interval using a moving average
+#              filter.
+# Input: -wind_speeds: An array that stores an array of floats. Each array within
+#                      this array represents a different location, while each float
+#                      is a wind speed measurement in m/s
+#        -dates_and_times: An array that stores Datetime objects. Each index in the array
+#                          corresponds to the time that a measurement was taken at
+#        -time_interval: An integer representing the period of time the winds should be
+#                        averaged over. A time interval of 1 would correspond to averaging
+#                        over every 6 hours (this would just be the time period between
+#                        measurements), a time interval of 2 would correspond to averaging
+#                        over every 12 hours, etc. The time interval needs to be able to
+#                        divide the length of the wind speed array in order for this
+#                        function to work properly
+# Output: -avg_wind_speeds: An array that stores an array of floats. It includes
+#                           all locations, but should be a condensed version of
+#                           wind_speeds where it stores the average wind speeds based
+#                           on the specified time interval
+#         -new_dates_and_times: An array that stores Datetime objects. Each index in the
+#                               array now represents the beginning time of when the
+#                               averaged wind speeds were measured
+def averageWindsOverTime_v2(wind_speeds, dates_and_times, time_interval):
+    # Define arrays
+    avg_wind_speeds = [[None]] * len(wind_speeds)
+    new_dates_and_times = []
+
+    # For each location, average over the specified time interval
+    # Also get corresponding days/times
+    i = 0
+    while i < len(wind_speeds):
+        j = time_interval / 2
+        while j < (len(wind_speeds[i]) - (time_interval / 2) + 1):
+
+            # Only add times during the first loop
+            if i == 0:
+                new_dates_and_times.append(dates_and_times[j])
+
+            if avg_wind_speeds[i] == [None]:
+                avg_wind_speeds[i] = [np.sum(wind_speeds[i][(j - (time_interval / 2)):(j + (time_interval / 2))])/time_interval]
+            else:
+                avg_wind_speeds[i].append(np.sum(wind_speeds[i][(j - (time_interval / 2)):(j + (time_interval / 2))])/time_interval)
+
+            if (j % 732) != 732 - (time_interval / 2):
+                j = j + 1
+            else:
+                j = j + time_interval
+
+        i = i + 1
+
+    return avg_wind_speeds, new_dates_and_times
+
+
 # Description: Averages wind speeds between all locations for the whole time period
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
