@@ -685,7 +685,7 @@ plt.bar(np.arange(len(wind_speed_freq_diff)), wind_speed_freq_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 plt.ylabel('Frequency Difference')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('Difference Between Frequency of Wind Speeds Recorded on\n' + location_names[region][1] +
+plt.title('xDifference Between Frequency of Wind Speeds Recorded on\n' + location_names[region][1] +
           ' During Hurricane Seasons from 1979 up to\n1998 and During Hurricane ' +
           'Seasons from 1998 up to 2017')
 plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
@@ -778,7 +778,7 @@ ax.set_xlim(xmax = max_wind_speed + 1)
 #    ax.set_ylim(ymax = 120000)
 ax.set_xlabel('Wind Speed (m/s)')
 ax.set_ylabel('Frequency')
-ax.set_title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + 'in the\nMonth ' +
+ax.set_title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + ' in the\nMonth ' +
              'of August During Hurricane Seasons from 1979 up to 1998\nvs. Hurricane ' +
              'Seasons from 1998 up to 2017')
 ax.legend()
@@ -865,7 +865,7 @@ plt.xlim(xmax = max_wind_speed + 1)
 #    plt.ylim(ymax = 9000, ymin = -7000)
 plt.ylabel('Frequency Difference')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin Late ' +
+plt.title('xDifference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin Late ' +
           'May, June, and July During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
 plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_EHS_Histogram.png')
@@ -879,7 +879,7 @@ plt.xlim(xmax = max_wind_speed + 1)
 #    plt.ylim(ymax = 9000, ymin = -7000)
 plt.ylabel('Frequency Difference')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin August ' +
+plt.title('xDifference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin August ' +
           'and September During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
 plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_Histogram.png')
@@ -893,7 +893,7 @@ plt.xlim(xmax = max_wind_speed + 1)
 #    plt.ylim(ymax = 9000, ymin = -7000)
 plt.ylabel('Frequency Difference')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
+plt.title('xDifference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
           'of August During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
 plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Aug_Histogram.png')
@@ -907,7 +907,7 @@ plt.xlim(xmax = max_wind_speed + 1)
 #    plt.ylim(ymax = 9000, ymin = -7000)
 plt.ylabel('Frequency Difference')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
+plt.title('xDifference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
           'of September During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
 plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Sep_Histogram.png')
@@ -921,7 +921,7 @@ plt.xlim(xmax = max_wind_speed + 1)
 #    plt.ylim(ymax = 9000, ymin = -7000)
 plt.ylabel('Frequency Difference')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin October ' +
+plt.title('xDifference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin October ' +
           'and November During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
 plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_Histogram.png')
