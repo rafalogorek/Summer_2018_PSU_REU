@@ -472,19 +472,19 @@ getFrequencies(avg_wind_speeds_79_16, wind_speed_freq_all)
 print(len(wind_speeds_79_16[0]))
 print(len(avg_wind_speeds_79_16))
 
-#current_year = 1996
-#current_year_index = current_year - 1979
+current_year = 2005
+current_year_index = current_year - 1979
 
 # Plot averaged wind speeds over the course of a year
-#plt.figure(1, figsize = (20,10))
-#plt.plot(dates_and_times_79_16[(current_year_index * 732):(732 * (current_year_index + 1))], avg_wind_speeds_79_16[(current_year_index * 732):(732 * (current_year_index + 1))])
-#plt.ylabel('Wind Speed (m/s)')
-#plt.xlabel('Time')
-#plt.title('Average Wind Speed Over Time During the ' + str(current_year) + ' Hurricane Season on ' +
-#          location_names[region][1])
-#plt.savefig('Figures/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
-#plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
-#plt.show()
+plt.figure(1, figsize = (20,10))
+plt.plot(dates_and_times_79_16[(current_year_index * 732):(732 * (current_year_index + 1))], avg_wind_speeds_79_16[(current_year_index * 732):(732 * (current_year_index + 1))])
+plt.ylabel('Wind Speed (m/s)')
+plt.xlabel('Time')
+plt.title('Average Wind Speed Over Time During the ' + str(current_year) + ' Hurricane Season on ' +
+          location_names[region][1])
+plt.savefig('Figures/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+plt.show()
 
 
 
