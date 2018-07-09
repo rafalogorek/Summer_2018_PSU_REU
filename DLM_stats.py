@@ -70,12 +70,13 @@ def getFrequencies(wind_speeds, wind_speed_freq):
             # Make the wind speed a positive value (if necessary)  and round it down to
             # the nearest integer. Then, increment the frequency of the wind speed range
             # that this value falls in.
-            current_ws = int(math.floor(abs(wind_speed)))
-            if current_ws < len(wind_speed_freq):
-                wind_speed_freq[current_ws] = wind_speed_freq[current_ws] + 1
-            else:
-                # Optionally, disregard high wind speed measurements
-                current_ws = current_ws
+            if not np.isnan(wind_speed):
+                current_ws = int(math.floor(abs(wind_speed)))
+                if current_ws < len(wind_speed_freq):
+                    wind_speed_freq[current_ws] = wind_speed_freq[current_ws] + 1
+                else:
+                    # Optionally, disregard high wind speed measurements
+                    current_ws = current_ws
 
 
 # Description: Obtains the wind speeds recorded at all locations within a specified
@@ -338,16 +339,60 @@ def normalizeWindSpeeds(wind_speed_freq):
 
     # Total count of wind speed frequencies
     sum_freq = np.sum(np.absolute(wind_speed_freq))
-    print(np.absolute(wind_speed_freq))
-    print(sum_freq)
 
     # Normalize each wind speed bucket
     for freq in wind_speed_freq:
         norm_wind_speed_freq.append(float(freq)/float(sum_freq))
 
-    print(norm_wind_speed_freq)
-    print(np.sum(norm_wind_speed_freq))
     return norm_wind_speed_freq
+
+
+# Description: Filters out wind speeds taken during tropical cyclone landfalls or
+#              near-landfalls
+# Input: -wind_speeds: An array that stores an array of floats. Each array within
+#                      this array represents a different location, while each float
+#                      is a wind speed measurement in m/s
+#        -dates_and_times: An array that stores Datetime objects. Each index in the array
+#                          corresponds to the time that a measurement was taken at
+#        -locs: An array storing the coordinates of the locations where wind speed
+#               measurements were taken
+# Output: -new_wind_speeds: Updated version of the wind_speeds array, with any wind
+#                           speeds measured during ongoing tropical cyclones set to
+#                           NaN
+def removeTCWinds(wind_speeds, dates_and_times, locs):
+    # An array storing the dates/times at which potentially contaminated DLM winds were
+    # taken
+    winds_to_remove = [datetime.strptime('2005-08-25 06:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-25 12:00:00', '%Y-%m-%d %H:%M:%S'),
+                       datetime.strptime('2005-08-25 18:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-26 00:00:00', '%Y-%m-%d %H:%M:%S'),
+                       datetime.strptime('2005-08-26 06:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-26 12:00:00', '%Y-%m-%d %H:%M:%S'),
+                       datetime.strptime('2005-08-26 18:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-27 00:00:00', '%Y-%m-%d %H:%M:%S'),
+                       datetime.strptime('2005-08-27 06:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-27 12:00:00', '%Y-%m-%d %H:%M:%S'),
+                       datetime.strptime('2005-08-27 18:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-28 00:00:00', '%Y-%m-%d %H:%M:%S'),
+                       datetime.strptime('2005-08-28 06:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-28 12:00:00', '%Y-%m-%d %H:%M:%S'),
+                       datetime.strptime('2005-08-28 18:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-29 00:00:00', '%Y-%m-%d %H:%M:%S'),
+                       datetime.strptime('2005-08-29 06:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-29 12:00:00', '%Y-%m-%d %H:%M:%S'),
+                       datetime.strptime('2005-08-29 18:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-30 00:00:00', '%Y-%m-%d %H:%M:%S')]
+    print(datetime.strptime('2005-08-29 00:00:00', '%Y-%m-%d %H:%M:%S'))
+    print(dates_and_times[19396])
+
+    new_wind_speeds = wind_speeds
+    print(new_wind_speeds[0][19395])
+    print(new_wind_speeds[0][19396])
+    # Loop through times and look for times to be removed
+    i = 0
+    while i < len(wind_speeds[0]):
+        # If the the current time's wind speed needs to be removed, remove it for all locations
+        if dates_and_times[i] in winds_to_remove:
+            j = 0
+
+            while j < len(wind_speeds):
+                new_wind_speeds[j][i] = float('nan')
+                j = j + 1
+
+        i = i + 1
+    print(new_wind_speeds[0][19395])
+    print(new_wind_speeds[0][19396])
+    return new_wind_speeds
 
 
 ######################################################################################
@@ -465,6 +510,9 @@ max_wind_speed = int(math.ceil(np.amax(wind_speeds)))
 # Comment this line out if you don't want any maximum limit on what values to plot
 max_wind_speed = 45
 
+# Remove DLM winds contaminated with tropical cyclone winds
+wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs)
+
 ######################################################################################
 ##                         All Locations, Whole Time Period                         ##
 ######################################################################################
@@ -486,8 +534,6 @@ dates_and_times_79_16 = dates_and_times[0:27816]
 # Populate the wind speed frequency array
 getFrequencies(wind_speeds_79_16, wind_speed_freq_all)
 
-
-
 current_year = 2005
 current_year_index = current_year - 1979
 
@@ -505,8 +551,8 @@ plt.ylabel('Wind Speed (m/s)')
 plt.xlabel('Time')
 plt.title('Average Wind Speeds During the ' + str(current_year) + ' Hurricane Season on ' +
           location_names[region][1])
-plt.savefig('Figures/Time_Series/' + str(current_year) + '/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
-plt.savefig('Figures/Time_Series/Yearly/' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+plt.savefig('Figures/Time_Series/' + str(current_year) + '/Filtered_' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+plt.savefig('Figures/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
 plt.show()
 
 # Normalize wind speed frequencies
