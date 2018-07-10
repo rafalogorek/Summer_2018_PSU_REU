@@ -356,24 +356,31 @@ def normalizeWindSpeeds(wind_speed_freq):
 #                          corresponds to the time that a measurement was taken at
 #        -locs: An array storing the coordinates of the locations where wind speed
 #               measurements were taken
+#        -times_to_remove: An array of Datetime objects that indicates the times when
+#                          a tropical cyclone may be affecting the DLM wind speeds
+#        -locs_to_remove: An array containing the locations that were impacted by
+#                         the tropical cyclone at the corresponding index in the
+#                         times_to_remove array
 # Output: -new_wind_speeds: Updated version of the wind_speeds array, with any wind
 #                           speeds measured during ongoing tropical cyclones set to
 #                           NaN
-def removeTCWinds(wind_speeds, dates_and_times, locs):
+def removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove):
     # An array storing the dates/times at which potentially contaminated DLM winds were
     # taken
-    winds_to_remove = [datetime.strptime('2005-08-25 06:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-25 12:00:00', '%Y-%m-%d %H:%M:%S'),
-                       datetime.strptime('2005-08-25 18:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-26 00:00:00', '%Y-%m-%d %H:%M:%S'),
-                       datetime.strptime('2005-08-26 06:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-26 12:00:00', '%Y-%m-%d %H:%M:%S'),
-                       datetime.strptime('2005-08-26 18:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-27 00:00:00', '%Y-%m-%d %H:%M:%S'),
-                       datetime.strptime('2005-08-27 06:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-27 12:00:00', '%Y-%m-%d %H:%M:%S'),
-                       datetime.strptime('2005-08-27 18:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-28 00:00:00', '%Y-%m-%d %H:%M:%S'),
-                       datetime.strptime('2005-08-28 06:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-28 12:00:00', '%Y-%m-%d %H:%M:%S'),
-                       datetime.strptime('2005-08-28 18:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-29 00:00:00', '%Y-%m-%d %H:%M:%S'),
-                       datetime.strptime('2005-08-29 06:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-29 12:00:00', '%Y-%m-%d %H:%M:%S'),
-                       datetime.strptime('2005-08-29 18:00:00', '%Y-%m-%d %H:%M:%S'), datetime.strptime('2005-08-30 00:00:00', '%Y-%m-%d %H:%M:%S')]
-    print(datetime.strptime('2005-08-29 00:00:00', '%Y-%m-%d %H:%M:%S'))
-    print(dates_and_times[19396])
+    #times_to_remove = [datetime.strptime('20050825, 0600', '%Y%m%d, %H%M'), datetime.strptime('20050825, 1200', '%Y%m%d, %H%M'),
+    #                   datetime.strptime('20050825, 1800', '%Y%m%d, %H%M'), datetime.strptime('20050826, 0000', '%Y%m%d, %H%M'),
+    #                   datetime.strptime('20050826, 0600', '%Y%m%d, %H%M'), datetime.strptime('20050826, 1200', '%Y%m%d, %H%M'),
+    #                   datetime.strptime('20050826, 1800', '%Y%m%d, %H%M'), datetime.strptime('20050827, 0000', '%Y%m%d, %H%M'),
+    #                   datetime.strptime('20050827, 0600', '%Y%m%d, %H%M'), datetime.strptime('20050827, 1200', '%Y%m%d, %H%M'),
+    #                   datetime.strptime('20050827, 1800', '%Y%m%d, %H%M'), datetime.strptime('20050828, 0000', '%Y%m%d, %H%M'),
+    #                   datetime.strptime('20050828, 0600', '%Y%m%d, %H%M'), datetime.strptime('20050828, 1200', '%Y%m%d, %H%M'),
+    #                   datetime.strptime('20050828, 1800', '%Y%m%d, %H%M'), datetime.strptime('20050829, 0000', '%Y%m%d, %H%M'),
+    #                   datetime.strptime('20050829, 0600', '%Y%m%d, %H%M'), datetime.strptime('20050829, 1200', '%Y%m%d, %H%M'),
+    #                   datetime.strptime('20050829, 1800', '%Y%m%d, %H%M'), datetime.strptime('20050830, 0000', '%Y%m%d, %H%M')]
+
+    # An array storing arrays of locations to remove winds from. Each index corresponds to
+    # the same index for the winds to remove array
+    locs_to_remove = []
 
     new_wind_speeds = wind_speeds
     print(new_wind_speeds[0][19395])
@@ -382,7 +389,7 @@ def removeTCWinds(wind_speeds, dates_and_times, locs):
     i = 0
     while i < len(wind_speeds[0]):
         # If the the current time's wind speed needs to be removed, remove it for all locations
-        if dates_and_times[i] in winds_to_remove:
+        if dates_and_times[i] in times_to_remove:
             j = 0
 
             while j < len(wind_speeds):
@@ -394,6 +401,50 @@ def removeTCWinds(wind_speeds, dates_and_times, locs):
     print(new_wind_speeds[0][19396])
     return new_wind_speeds
 
+
+# Description: Reads in HURDAT2 best track data and populates arrays with times and
+#              locations of tropical cyclones
+# Input: -filename: A string containing the name of the text file that contains the
+#                   hurricane best track data
+#        -locs: An array storing the coordinates of the locations where wind speed
+#               measurements were taken
+# Output: -times_to_remove: An array of Datetime objects that indicates the times when
+#                           a tropical cyclone may be affecting the DLM wind speeds
+#         -locs_to_remove: An array containing the locations that were impacted by
+#                          the tropical cyclone at the corresponding index in the
+#                          times_to_remove array
+def readBestTracks(filename, locs):
+    times_to_remove = []
+    locs_to_remove = []
+
+    # Read file
+    f = open(filename, 'r')
+    lines = f.readlines()
+    f.close()
+
+    # Parse data line by line
+    for line in lines:
+        # Data had to have been taken between May 30 and November 28
+        if (line[0:4] == '2005') and (((int(line[4:6]) > 5) and (int(line[4:6]) < 11)) or \
+           (((int(line[4:6]) == 5) and (int(line[6:8]) >= 30))) or (((int(line[4:6]) == 11) and (int(line[6:8]) <= 28)))):
+
+           # Only take times at 0000, 0600, 1200, and 1800
+           if (line[10:14] == '0000') or (line[10:14] == '0600') or (line[10:14] == '1200') or (line[10:14] == '1800'):
+
+               # Only consider tropical depressions, tropical storms, and hurricanes
+               if (line[19:21] == 'TD') or (line[19:21] == 'TS') or (line[19:21] == 'HU'):
+
+                   # Remove any tropical cyclones that were too far away from the region
+                   # of interest
+                   if (float(line[23:27]) < 38) and (float(line[23:27]) > 20) and (float(line[30:35]) < 105) and (float(line[30:35]) > 72):
+
+                       # Add the time that needs to be removed
+                       times_to_remove.append(datetime.strptime(line[0:14], '%Y%m%d, %H%M'))
+                       print(line[0:14])
+                       # TODO: Add the locations that need to be removed
+
+
+    return times_to_remove, locs_to_remove
 
 ######################################################################################
 ##                                   Begin Program                                  ##
@@ -500,6 +551,7 @@ while i < len(locs):
     i = i + 1
 
 locs = temp_locs
+
 # Ensures wind direction doesn't matter by making any negative wind speeds positive
 # (All wind speeds should already be positive though)
 wind_speeds = map(abs, temp_wind_speeds)
@@ -510,8 +562,11 @@ max_wind_speed = int(math.ceil(np.amax(wind_speeds)))
 # Comment this line out if you don't want any maximum limit on what values to plot
 max_wind_speed = 45
 
+# Read in hurricane best track data
+times_to_remove, locs_to_remove = readBestTracks('best_tracks.txt', locs)
+
 # Remove DLM winds contaminated with tropical cyclone winds
-wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs)
+wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove)
 
 ######################################################################################
 ##                         All Locations, Whole Time Period                         ##
