@@ -425,8 +425,8 @@ def readBestTracks(filename, locs):
     # Parse data line by line
     for line in lines:
         # Data had to have been taken between May 30 and November 28
-        if (line[0:4] == '2005') and (((int(line[4:6]) > 5) and (int(line[4:6]) < 11)) or \
-           (((int(line[4:6]) == 5) and (int(line[6:8]) >= 30))) or (((int(line[4:6]) == 11) and (int(line[6:8]) <= 28)))):
+        if (((int(line[4:6]) > 5) and (int(line[4:6]) < 11)) or (((int(line[4:6]) == 5) and \
+           (int(line[6:8]) >= 30))) or (((int(line[4:6]) == 11) and (int(line[6:8]) <= 28)))):
 
            # Only take times at 0000, 0600, 1200, and 1800
            if (line[10:14] == '0000') or (line[10:14] == '0600') or (line[10:14] == '1200') or (line[10:14] == '1800'):
@@ -593,7 +593,7 @@ current_year = 2005
 current_year_index = current_year - 1979
 
 # Average the wind speed between all locations at each time
-avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
+avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds)
 
 # Plot averaged wind speeds over the course of a year
 plt.figure(1, figsize = (20,10))
@@ -625,8 +625,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'Hurricane Seasons from 1979 up to 2017')
-plt.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
-plt.savefig('Figures/WS_79-16/Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
+plt.savefig('Figures/WS_79-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
 plt.show()
 
 # Create arrays to store how frequently a wind speed value was recorded (at all
@@ -670,8 +670,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'Late May, June, and July from 1979 up to 2017')
-plt.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_EHS_Histogram.png')
-plt.savefig('Figures/WS_79-16_EHS/Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_EHS_Histogram.png')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_EHS_Histogram.png')
+plt.savefig('Figures/WS_79-16_EHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_EHS_Histogram.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -683,8 +683,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'August and September from 1979 up to 2017')
-plt.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_Histogram.png')
-plt.savefig('Figures/WS_79-16_MHS/Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_Histogram.png')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_Histogram.png')
+plt.savefig('Figures/WS_79-16_MHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_Histogram.png')
 plt.show()
 
 #plt.figure(1, figsize = (20,10))
@@ -722,8 +722,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'October and November from 1979 up to 2017')
-plt.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_Histogram.png')
-plt.savefig('Figures/WS_79-16_LHS/Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_Histogram.png')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_Histogram.png')
+plt.savefig('Figures/WS_79-16_LHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_Histogram.png')
 plt.show()
 
 ######################################################################################
@@ -779,8 +779,8 @@ plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[re
 
 plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.2,
                     hspace = 0.5)
-plt.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram.png')
-plt.savefig('Figures/WS_79-97_98-16/Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram.png')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram.png')
+plt.savefig('Figures/WS_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram.png')
 plt.show()
 
 # Plot the two time periods side by side, rather than on two separate plots
@@ -799,8 +799,8 @@ ax.set_title('Normalized Frequency of Wind Speeds Recorded on ' + location_names
              '1998 up to 2017')
 
 ax.legend()
-fig.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram.png')
-fig.savefig('Figures/WS_79-97_98-16_SBS/Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram.png')
+fig.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram.png')
+fig.savefig('Figures/WS_79-97_98-16_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram.png')
 plt.show()
 
 # Determine differences in the wind speed frequencies between the two time periods
@@ -822,8 +822,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequency of Wind Speeds Recorded on\n' + location_names[region][1] +
           ' During Hurricane Seasons from 1979 up to\n1998 and During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
-plt.savefig('Figures/WS_Diff_79-97_98-16/Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+plt.savefig('Figures/WS_Diff_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
 plt.show()
 
 
@@ -886,8 +886,8 @@ ax.set_title('Normalized Frequency of Wind Speeds Recorded on ' + location_names
              'June, and July During Hurricane Seasons from 1979 up to 1998\nvs. Hurricane ' +
              'Seasons from 1998 up to 2017')
 ax.legend()
-fig.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_EHS_SBS_Histogram.png')
-fig.savefig('Figures/WS_79-97_98-16_EHS_SBS/Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_EHS_SBS_Histogram.png')
+fig.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_EHS_SBS_Histogram.png')
+fig.savefig('Figures/WS_79-97_98-16_EHS_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_EHS_SBS_Histogram.png')
 plt.show()
 
 fig, ax = plt.subplots(figsize = (20,15))
@@ -905,8 +905,8 @@ ax.set_title('Normalized Frequency of Wind Speeds Recorded on ' + location_names
              'and September During Hurricane Seasons from 1979 up to\n1998 vs. Hurricane ' +
              'Seasons from 1998 up to 2017')
 ax.legend()
-fig.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_MHS_SBS_Histogram.png')
-fig.savefig('Figures/WS_79-97_98-16_MHS_SBS/Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_MHS_SBS_Histogram.png')
+fig.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_MHS_SBS_Histogram.png')
+fig.savefig('Figures/WS_79-97_98-16_MHS_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_MHS_SBS_Histogram.png')
 plt.show()
 
 #fig, ax = plt.subplots(figsize = (20,15))
@@ -962,8 +962,8 @@ ax.set_title('Normalized Frequency of Wind Speeds Recorded on ' + location_names
              'and November During Hurricane Seasons from 1979 up to\n1998 vs. Hurricane ' +
              'Seasons from 1998 up to 2017')
 ax.legend()
-fig.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_SBS_Histogram.png')
-fig.savefig('Figures/WS_79-97_98-16_LHS_SBS/Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_SBS_Histogram.png')
+fig.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_SBS_Histogram.png')
+fig.savefig('Figures/WS_79-97_98-16_LHS_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_SBS_Histogram.png')
 plt.show()
 
 # Determine differences in the wind speed frequencies between the two time periods
@@ -1016,8 +1016,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin Late ' +
           'May, June, and July During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_EHS_Histogram.png')
-plt.savefig('Figures/WS_Diff_79-97_98-16_EHS/Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_EHS_Histogram.png')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_EHS_Histogram.png')
+plt.savefig('Figures/WS_Diff_79-97_98-16_EHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_EHS_Histogram.png')
 plt.show()
 
 plt.figure(1, figsize = (20,15))
@@ -1030,8 +1030,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin August ' +
           'and September During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_Histogram.png')
-plt.savefig('Figures/WS_Diff_79-97_98-16_MHS/Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_Histogram.png')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_Histogram.png')
+plt.savefig('Figures/WS_Diff_79-97_98-16_MHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_Histogram.png')
 plt.show()
 
 #plt.figure(1, figsize = (20,15))
@@ -1072,8 +1072,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin October ' +
           'and November During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/' + location_names[region][0]  + '/Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_Histogram.png')
-plt.savefig('Figures/WS_Diff_79-97_98-16_LHS/Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_Histogram.png')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_Histogram.png')
+plt.savefig('Figures/WS_Diff_79-97_98-16_LHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_Histogram.png')
 plt.show()
 
 
