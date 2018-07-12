@@ -316,15 +316,22 @@ def averageWindsAmongAllPoints(wind_speeds):
     # For each time, average the wind speed between all locations
     i = 0
     while i < len(wind_speeds[0]):
-        # Reset the sum of the wind speeds
+        # Reset the sum of the wind speeds and location count
         sum_wind_speeds = 0
+        count = 0
 
         for loc in wind_speeds:
-            # Sum the wind speeds among all locations
-            sum_wind_speeds = sum_wind_speeds + loc[i]
+            if not np.isnan(loc[i]):
+                # Sum the wind speeds among all locations
+                sum_wind_speeds = sum_wind_speeds + loc[i]
+                count = count + 1
 
         # Average the wind speed for the current time
-        avg_wind_speeds.append(sum_wind_speeds/len(wind_speeds))
+        if count != 0:
+            avg_wind_speeds.append(sum_wind_speeds/count)
+        else:
+            avg_wind_speeds.append(float('nan'))
+
         i = i + 1
 
     return avg_wind_speeds
@@ -365,40 +372,30 @@ def normalizeWindSpeeds(wind_speed_freq):
 #                           speeds measured during ongoing tropical cyclones set to
 #                           NaN
 def removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove):
-    # An array storing the dates/times at which potentially contaminated DLM winds were
-    # taken
-    #times_to_remove = [datetime.strptime('20050825, 0600', '%Y%m%d, %H%M'), datetime.strptime('20050825, 1200', '%Y%m%d, %H%M'),
-    #                   datetime.strptime('20050825, 1800', '%Y%m%d, %H%M'), datetime.strptime('20050826, 0000', '%Y%m%d, %H%M'),
-    #                   datetime.strptime('20050826, 0600', '%Y%m%d, %H%M'), datetime.strptime('20050826, 1200', '%Y%m%d, %H%M'),
-    #                   datetime.strptime('20050826, 1800', '%Y%m%d, %H%M'), datetime.strptime('20050827, 0000', '%Y%m%d, %H%M'),
-    #                   datetime.strptime('20050827, 0600', '%Y%m%d, %H%M'), datetime.strptime('20050827, 1200', '%Y%m%d, %H%M'),
-    #                   datetime.strptime('20050827, 1800', '%Y%m%d, %H%M'), datetime.strptime('20050828, 0000', '%Y%m%d, %H%M'),
-    #                   datetime.strptime('20050828, 0600', '%Y%m%d, %H%M'), datetime.strptime('20050828, 1200', '%Y%m%d, %H%M'),
-    #                   datetime.strptime('20050828, 1800', '%Y%m%d, %H%M'), datetime.strptime('20050829, 0000', '%Y%m%d, %H%M'),
-    #                   datetime.strptime('20050829, 0600', '%Y%m%d, %H%M'), datetime.strptime('20050829, 1200', '%Y%m%d, %H%M'),
-    #                   datetime.strptime('20050829, 1800', '%Y%m%d, %H%M'), datetime.strptime('20050830, 0000', '%Y%m%d, %H%M')]
-
-    # An array storing arrays of locations to remove winds from. Each index corresponds to
-    # the same index for the winds to remove array
-    locs_to_remove = []
-
     new_wind_speeds = wind_speeds
-    print(new_wind_speeds[0][19395])
-    print(new_wind_speeds[0][19396])
-    # Loop through times and look for times to be removed
-    i = 0
-    while i < len(wind_speeds[0]):
-        # If the the current time's wind speed needs to be removed, remove it for all locations
-        if dates_and_times[i] in times_to_remove:
-            j = 0
 
-            while j < len(wind_speeds):
-                new_wind_speeds[j][i] = float('nan')
-                j = j + 1
+    # Loop through times and look for times that have measurements that need to be removed
+    i = 0
+    while i < len(times_to_remove):
+        j = 0
+
+        # Remove measurements for all locations that need to have them removed at the
+        # current time
+        while j < len(locs_to_remove[i]):
+            # Determine the proper location index
+            k = 0
+            while k < len(locs):
+                if np.all(locs_to_remove[i][j] == locs[k]):
+                    break
+
+                k = k + 1
+
+            # Remove the measurement by setting it to NaN
+            new_wind_speeds[k][dates_and_times.index(times_to_remove[i])] = float('nan')
+            j = j + 1
 
         i = i + 1
-    print(new_wind_speeds[0][19395])
-    print(new_wind_speeds[0][19396])
+
     return new_wind_speeds
 
 
@@ -410,8 +407,8 @@ def removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_r
 #               measurements were taken
 # Output: -times_to_remove: An array of Datetime objects that indicates the times when
 #                           a tropical cyclone may be affecting the DLM wind speeds
-#         -locs_to_remove: An array containing the locations that were impacted by
-#                          the tropical cyclone at the corresponding index in the
+#         -locs_to_remove: An array containing arrays of locations that were impacted
+#                          by the tropical cyclone at the corresponding index in the
 #                          times_to_remove array
 def readBestTracks(filename, locs):
     times_to_remove = []
@@ -431,20 +428,44 @@ def readBestTracks(filename, locs):
            # Only take times at 0000, 0600, 1200, and 1800
            if (line[10:14] == '0000') or (line[10:14] == '0600') or (line[10:14] == '1200') or (line[10:14] == '1800'):
 
-               # Only consider tropical depressions, tropical storms, and hurricanes
-               if (line[19:21] == 'TD') or (line[19:21] == 'TS') or (line[19:21] == 'HU'):
+               # Only consider tropical storms and hurricanes
+               if (line[19:21] == 'TS') or (line[19:21] == 'HU'):
 
                    # Remove any tropical cyclones that were too far away from the region
                    # of interest
                    if (float(line[23:27]) < 38) and (float(line[23:27]) > 20) and (float(line[30:35]) < 105) and (float(line[30:35]) > 72):
+                       # The radius (in degrees) used to determine how far away from the
+                       # eye of the tropical cyclone should data points be removed
+                       if line[19:21] == 'HU':
+                           deg_radius = max(60 * 8, float(line[49:53]), float(line[55:59]), float(line[61:65]), float(line[67:71])) / 60
+                       else:
+                           deg_radius = max(60 * 6, float(line[49:53]), float(line[55:59]), float(line[61:65]), float(line[67:71])) / 60
 
-                       # Add the time that needs to be removed
-                       times_to_remove.append(datetime.strptime(line[0:14], '%Y%m%d, %H%M'))
-                       print(line[0:14])
-                       # TODO: Add the locations that need to be removed
+                       # Get eye location
+                       eye_loc = [float(line[30:35]) * -1, float(line[23:27])]
 
+                       # Go through the location array and see which locations fall in
+                       # the defined radius
+                       in_range = 0
+                       locs_in_range = []
+                       for loc in locs:
+                           # Add any locations seeing at least tropical storm force winds
+                           # at the current time to an array
+                           if (abs(loc[0] - eye_loc[0]) <= deg_radius) and (abs(loc[1] - eye_loc[1]) <= deg_radius):
+                               in_range = 1
+                               locs_in_range.append(loc)
+
+                       # Indicate that there are locations that need to be removed at
+                       # this time
+                       if in_range != 0:
+                           # Add the time that needs to be removed
+                           times_to_remove.append(datetime.strptime(line[0:14], '%Y%m%d, %H%M'))
+
+                           # Add the locations that need to be removed
+                           locs_to_remove.append(locs_in_range)
 
     return times_to_remove, locs_to_remove
+
 
 ######################################################################################
 ##                                   Begin Program                                  ##
