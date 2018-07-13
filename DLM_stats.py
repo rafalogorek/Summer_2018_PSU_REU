@@ -9,7 +9,7 @@
 #              coastline of the southeastern U.S. from 1979 to 2017. Several         #
 #              graphics are also generated to help visualize this data better.       #
 #                                                                                    #
-# Last updated: 6/14/2018                                                            #
+# Last updated: 7/13/2018                                                            #
 #                                                                                    #
 ######################################################################################
 
@@ -145,16 +145,28 @@ def calcNumStagFlow(wind_speed_freq, stagnant_flow):
 #         -wind_speeds_LHS: Like wind_speeds_EHS and wind_speeds_MHS, except all wind
 #                           speeds in this array were measured in the late part of the
 #                           Atlantic hurricane season (October or November)
+#         -wind_speeds_June: Same as the above arrays, except all wind speed measurements
+#                            were taken in June (plus the last 2 days of May)
+#         -wind_speeds_July: Same as the above arrays, except all wind speed measurements
+#                            were taken in July
 #         -wind_speeds_Aug: Same as the above arrays, except all wind speed measurements
 #                           were taken in August
 #         -wind_speeds_Sep: Same as the above arrays, except all wind speed measurements
 #                           were taken in September
+#         -wind_speeds_Oct: Same as the above arrays, except all wind speed measurements
+#                           were taken in October
+#         -wind_speeds_Nov: Same as the above arrays, except all wind speed measurements
+#                           were taken in November
 def divideBySeason(wind_speeds):
     wind_speeds_EHS = [[None]] * len(wind_speeds)
     wind_speeds_MHS = [[None]] * len(wind_speeds)
     wind_speeds_LHS = [[None]] * len(wind_speeds)
+    wind_speeds_June = [[None]] * len(wind_speeds)
+    wind_speeds_July = [[None]] * len(wind_speeds)
     wind_speeds_Aug = [[None]] * len(wind_speeds)
     wind_speeds_Sep = [[None]] * len(wind_speeds)
+    wind_speeds_Oct = [[None]] * len(wind_speeds)
+    wind_speeds_Nov = [[None]] * len(wind_speeds)
     i = 0
 
     # Go through each location
@@ -169,6 +181,21 @@ def divideBySeason(wind_speeds):
                     wind_speeds_EHS[i] = [wind_speeds[i][j]]
                 else:
                     wind_speeds_EHS[i].append(wind_speeds[i][j])
+
+                # Also add the measurement to the June or July array
+                # Late May/June case
+                if (j % 732) < 128:
+                    if wind_speeds_June[i] == [None]:
+                        wind_speeds_June[i] = [wind_speeds[i][j]]
+                    else:
+                        wind_speeds_June[i].append(wind_speeds[i][j])
+                # July case
+                else:
+                    if wind_speeds_July[i] == [None]:
+                        wind_speeds_July[i] = [wind_speeds[i][j]]
+                    else:
+                        wind_speeds_July[i].append(wind_speeds[i][j])
+
             # If data was obtained in October or later, add it to the late hurricane season
             # wind speed array
             elif (j % 732) >= 496:
@@ -176,6 +203,21 @@ def divideBySeason(wind_speeds):
                     wind_speeds_LHS[i] = [wind_speeds[i][j]]
                 else:
                     wind_speeds_LHS[i].append(wind_speeds[i][j])
+
+                # Also add the measurement to the October or November array
+                # October case
+                if (j % 732) < 620:
+                    if wind_speeds_Oct[i] == [None]:
+                        wind_speeds_Oct[i] = [wind_speeds[i][j]]
+                    else:
+                        wind_speeds_Oct[i].append(wind_speeds[i][j])
+                # November case
+                else:
+                    if wind_speeds_Nov[i] == [None]:
+                        wind_speeds_Nov[i] = [wind_speeds[i][j]]
+                    else:
+                        wind_speeds_Nov[i].append(wind_speeds[i][j])
+
             # Otherwise, the wind speed measurement was take in August or September, so
             # add it to the mid hurricane season wind speed array
             else:
@@ -202,7 +244,7 @@ def divideBySeason(wind_speeds):
 
         i = i + 1
 
-    return wind_speeds_EHS, wind_speeds_MHS, wind_speeds_LHS, wind_speeds_Aug, wind_speeds_Sep
+    return wind_speeds_EHS, wind_speeds_MHS, wind_speeds_LHS, wind_speeds_June, wind_speeds_July, wind_speeds_Aug, wind_speeds_Sep, wind_speeds_Oct, wind_speeds_Nov
 
 
 # Description: Averages wind speeds over a specified time interval.
@@ -303,6 +345,76 @@ def averageWindsOverTime_v2(wind_speeds, dates_and_times, time_interval):
     return avg_wind_speeds, new_dates_and_times
 
 
+# Description: Averages wind speeds for each time of the hurricane season between
+#              all given hurricane seasons and all locations.
+# Input: -wind_speeds: An array that stores an array of floats. Each array within
+#                      this array represents a different location, while each float
+#                      is a wind speed measurement in m/s
+#        -dates_and_times: An array that stores Datetime objects. Each index in the array
+#                          corresponds to the time that a measurement was taken at
+#        -time_interval: An integer representing the period of time the winds should be
+#                        averaged over. A time interval of 1 would correspond to averaging
+#                        over every 6 hours (this would just be the time period between
+#                        measurements), a time interval of 2 would correspond to averaging
+#                        over every 12 hours, etc. The time interval needs to be able to
+#                        divide the length of the wind speed array in order for this
+#                        function to work properly
+# Output: -avg_wind_speeds: An array of floats, where each float is the average wind
+#                           speed between all locations and all hurricane seasons
+#                           at the current time
+def averageWindsEachTime(wind_speeds, dates_and_times, time_interval):
+    avg_wind_speeds = []
+    new_dates_and_times = []
+
+    i = 0
+    # Go through each time where measurements were taken during hurricane seasons
+    while i < 732:
+        j = i
+        sum_wind_speeds = 0
+        count = 0
+
+        # Go through all hurricane seasons
+        while j < len(wind_speeds[0]):
+            k = 0
+
+            # Go through all locations
+            while k < len(wind_speeds):
+
+                if not np.isnan(wind_speeds[k][j]):
+                    # Sum the wind speeds among all locations
+                    sum_wind_speeds = sum_wind_speeds + wind_speeds[k][j]
+                    count = count + 1
+
+                k = k + 1
+
+            j = j + 732
+
+        # Average the wind speed for the current time
+        if count != 0:
+            avg_wind_speeds.append(sum_wind_speeds/count)
+        else:
+            # If all measurements were removed, set the average to NaN
+            avg_wind_speeds.append(float('nan'))
+
+        i = i + 1
+
+    #new_dates_and_times = dates_and_times
+    # Optionally, also perform a low pass filter averaging method to smoothen the curve
+    temp_wind_speeds = avg_wind_speeds
+    avg_wind_speeds = []
+    i = time_interval / 2
+    while i < (len(temp_wind_speeds) - (time_interval / 2) + 1):
+        # Update times
+        new_dates_and_times.append(dates_and_times[i])
+
+        # Average wind speeds
+        avg_wind_speeds.append(np.sum(temp_wind_speeds[(i - (time_interval / 2)):(i + (time_interval / 2))])/time_interval)
+
+        i = i + 1
+
+    return avg_wind_speeds, new_dates_and_times
+
+
 # Description: Averages wind speeds between all locations for the whole time period
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
@@ -330,6 +442,7 @@ def averageWindsAmongAllPoints(wind_speeds):
         if count != 0:
             avg_wind_speeds.append(sum_wind_speeds/count)
         else:
+            # If all measurements were removed, set the average to NaN
             avg_wind_speeds.append(float('nan'))
 
         i = i + 1
@@ -614,7 +727,7 @@ current_year = 2005
 current_year_index = current_year - 1979
 
 # Average the wind speed between all locations at each time
-avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds)
+avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
 
 # Plot averaged wind speeds over the course of a year
 plt.figure(1, figsize = (20,10))
@@ -627,8 +740,8 @@ plt.ylabel('Wind Speed (m/s)')
 plt.xlabel('Time')
 plt.title('Average Wind Speeds During the ' + str(current_year) + ' Hurricane Season on ' +
           location_names[region][1])
-plt.savefig('Figures/Time_Series/' + str(current_year) + '/Filtered_' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
-plt.savefig('Figures/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+#plt.savefig('Figures/Time_Series/' + str(current_year) + '/Filtered_' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+#plt.savefig('Figures/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
 plt.show()
 
 # Normalize wind speed frequencies
@@ -657,31 +770,46 @@ plt.show()
 wind_speed_freq_all_EHS = [0] * max_wind_speed
 wind_speed_freq_all_MHS = [0] * max_wind_speed
 wind_speed_freq_all_LHS = [0] * max_wind_speed
+wind_speed_freq_all_June = [0] * max_wind_speed
+wind_speed_freq_all_July = [0] * max_wind_speed
 wind_speed_freq_all_Aug = [0] * max_wind_speed
 wind_speed_freq_all_Sep = [0] * max_wind_speed
+wind_speed_freq_all_Oct = [0] * max_wind_speed
+wind_speed_freq_all_Nov = [0] * max_wind_speed
 
 # Divide the wind speed data up by which part of the hurricane season they were taken in
 # (early hurricane season (June, July), mid  hurricane season (August, September), and
-# late hurricane season (October, November)). Also get data for August and September
+# late hurricane season (October, November)). Also get data for each month
 # individually
-wind_speeds_79_16_EHS, wind_speeds_79_16_MHS, wind_speeds_79_16_LHS, wind_speeds_79_16_Aug, wind_speeds_79_16_Sep = divideBySeason(wind_speeds_79_16)
+wind_speeds_79_16_EHS, wind_speeds_79_16_MHS, wind_speeds_79_16_LHS, wind_speeds_79_16_June, wind_speeds_79_16_July, \
+wind_speeds_79_16_Aug, wind_speeds_79_16_Sep, wind_speeds_79_16_Oct, wind_speeds_79_16_Nov = divideBySeason(wind_speeds_79_16)
 
 # Populate the wind speed frequency arrays for each of the three parts of the hurricane season
-# (and August and September)
+# (and each month)
 getFrequencies(wind_speeds_79_16_EHS, wind_speed_freq_all_EHS)
 getFrequencies(wind_speeds_79_16_MHS, wind_speed_freq_all_MHS)
 getFrequencies(wind_speeds_79_16_LHS, wind_speed_freq_all_LHS)
-#getFrequencies(wind_speeds_79_16_Aug, wind_speed_freq_all_Aug)
-#getFrequencies(wind_speeds_79_16_Sep, wind_speed_freq_all_Sep)
+getFrequencies(wind_speeds_79_16_June, wind_speed_freq_all_June)
+getFrequencies(wind_speeds_79_16_July, wind_speed_freq_all_July)
+getFrequencies(wind_speeds_79_16_Aug, wind_speed_freq_all_Aug)
+getFrequencies(wind_speeds_79_16_Sep, wind_speed_freq_all_Sep)
+getFrequencies(wind_speeds_79_16_Oct, wind_speed_freq_all_Oct)
+getFrequencies(wind_speeds_79_16_Nov, wind_speed_freq_all_Nov)
 
 # Normalize wind speed frequencies
 norm_wind_speed_freq_all_EHS = normalizeWindSpeeds(wind_speed_freq_all_EHS)
 norm_wind_speed_freq_all_MHS = normalizeWindSpeeds(wind_speed_freq_all_MHS)
 norm_wind_speed_freq_all_LHS = normalizeWindSpeeds(wind_speed_freq_all_LHS)
+norm_wind_speed_freq_all_June = normalizeWindSpeeds(wind_speed_freq_all_June)
+norm_wind_speed_freq_all_July = normalizeWindSpeeds(wind_speed_freq_all_July)
+norm_wind_speed_freq_all_Aug = normalizeWindSpeeds(wind_speed_freq_all_Aug)
+norm_wind_speed_freq_all_Sep = normalizeWindSpeeds(wind_speed_freq_all_Sep)
+norm_wind_speed_freq_all_Oct = normalizeWindSpeeds(wind_speed_freq_all_Oct)
+norm_wind_speed_freq_all_Nov = normalizeWindSpeeds(wind_speed_freq_all_Nov)
 
 # Generate histograms to show the frequency distribution for the wind speeds at all
 # measured locations for each of the three parts of the hurricane season from 1979 to 2017
-# (also August and September)
+# (also each month)
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_MHS)), norm_wind_speed_freq_all_EHS)
 plt.xlim(xmax = max_wind_speed + 1)
@@ -693,6 +821,32 @@ plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[re
           'Late May, June, and July from 1979 up to 2017')
 plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_EHS_Histogram.png')
 plt.savefig('Figures/WS_79-16_EHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_EHS_Histogram.png')
+plt.show()
+
+plt.figure(1, figsize = (20,10))
+plt.bar(np.arange(len(norm_wind_speed_freq_all_June)), norm_wind_speed_freq_all_June)
+plt.xlim(xmax = max_wind_speed + 1)
+#if region == 'AL':
+#    plt.ylim(ymax = 220000)
+plt.ylabel('Frequency (%)')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
+          'the Month of June from 1979 up to 2017')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_June_Histogram.png')
+plt.savefig('Figures/WS_79-16_June/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_June_Histogram.png')
+plt.show()
+
+plt.figure(1, figsize = (20,10))
+plt.bar(np.arange(len(norm_wind_speed_freq_all_July)), norm_wind_speed_freq_all_July)
+plt.xlim(xmax = max_wind_speed + 1)
+#if region == 'AL':
+#    plt.ylim(ymax = 220000)
+plt.ylabel('Frequency (%)')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
+          'the Month of July from 1979 up to 2017')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_July_Histogram.png')
+plt.savefig('Figures/WS_79-16_July/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_July_Histogram.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -708,31 +862,31 @@ plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speed
 plt.savefig('Figures/WS_79-16_MHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_Histogram.png')
 plt.show()
 
-#plt.figure(1, figsize = (20,10))
-#plt.bar(np.arange(len(wind_speed_freq_all_Aug)), wind_speed_freq_all_Aug)
-#plt.xlim(xmax = max_wind_speed + 1)
+plt.figure(1, figsize = (20,10))
+plt.bar(np.arange(len(norm_wind_speed_freq_all_Aug)), norm_wind_speed_freq_all_Aug)
+plt.xlim(xmax = max_wind_speed + 1)
 #if region == 'AL':
 #    plt.ylim(ymax = 220000)
-#plt.ylabel('Frequency')
-#plt.xlabel('Wind Speed (m/s)')
-#plt.title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
-#          'the Month of August from 1979 up to 2017')
-#plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_79-16_Aug_Histogram.png')
-#plt.savefig('Figures/WS_79-16_Aug/Wind_Speeds_' + location_names[region][0] + '_79-16_Aug_Histogram.png')
-#plt.show()
+plt.ylabel('Frequency (%)')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
+          'the Month of August from 1979 up to 2017')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Aug_Histogram.png')
+plt.savefig('Figures/WS_79-16_Aug/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Aug_Histogram.png')
+plt.show()
 
-#plt.figure(1, figsize = (20,10))
-#plt.bar(np.arange(len(wind_speed_freq_all_Sep)), wind_speed_freq_all_Sep)
-#plt.xlim(xmax = max_wind_speed + 1)
+plt.figure(1, figsize = (20,10))
+plt.bar(np.arange(len(norm_wind_speed_freq_all_Sep)), norm_wind_speed_freq_all_Sep)
+plt.xlim(xmax = max_wind_speed + 1)
 #if region == 'AL':
 #    plt.ylim(ymax = 220000)
-#plt.ylabel('Frequency')
-#plt.xlabel('Wind Speed (m/s)')
-#plt.title('Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
-#          'the Month of September from 1979 up to 2017')
-#plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_79-16_Sep_Histogram.png')
-#plt.savefig('Figures/WS_79-16_Sep/Wind_Speeds_' + location_names[region][0] + '_79-16_Sep_Histogram.png')
-#plt.show()
+plt.ylabel('Frequency (%)')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
+          'the Month of September from 1979 up to 2017')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Sep_Histogram.png')
+plt.savefig('Figures/WS_79-16_Sep/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Sep_Histogram.png')
+plt.show()
 
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_LHS)), norm_wind_speed_freq_all_LHS)
@@ -745,6 +899,32 @@ plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[re
           'October and November from 1979 up to 2017')
 plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_Histogram.png')
 plt.savefig('Figures/WS_79-16_LHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_Histogram.png')
+plt.show()
+
+plt.figure(1, figsize = (20,10))
+plt.bar(np.arange(len(norm_wind_speed_freq_all_Oct)), norm_wind_speed_freq_all_Oct)
+plt.xlim(xmax = max_wind_speed + 1)
+#if region == 'AL':
+#    plt.ylim(ymax = 220000)
+plt.ylabel('Frequency (%)')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
+          'the Month of October from 1979 up to 2017')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Oct_Histogram.png')
+plt.savefig('Figures/WS_79-16_Oct/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Oct_Histogram.png')
+plt.show()
+
+plt.figure(1, figsize = (20,10))
+plt.bar(np.arange(len(norm_wind_speed_freq_all_Nov)), norm_wind_speed_freq_all_Nov)
+plt.xlim(xmax = max_wind_speed + 1)
+#if region == 'AL':
+#    plt.ylim(ymax = 220000)
+plt.ylabel('Frequency (%)')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
+          'the Month of November from 1979 up to 2017')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Nov_Histogram.png')
+plt.savefig('Figures/WS_79-16_Nov/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Nov_Histogram.png')
 plt.show()
 
 ######################################################################################
@@ -776,6 +956,26 @@ getFrequencies(wind_speeds_98_16, wind_speed_freq_98_16)
 # Normalize wind speed frequencies
 norm_wind_speed_freq_79_97 = normalizeWindSpeeds(wind_speed_freq_79_97)
 norm_wind_speed_freq_98_16 = normalizeWindSpeeds(wind_speed_freq_98_16)
+
+# Average the wind speed at each time
+avg_wind_speeds_79_97, dates_and_times_1y = averageWindsEachTime(wind_speeds_79_97, dates_and_times_79_97, 12)
+avg_wind_speeds_98_16, dates_and_times_1y = averageWindsEachTime(wind_speeds_98_16, dates_and_times_79_97, 12)
+
+# Plot the averaged wind speeds
+plt.figure(1, figsize = (20,10))
+plt.rc('axes', titlesize = 25)
+plt.rc('axes', labelsize = 20)
+plt.rc('xtick', labelsize = 15)
+plt.rc('ytick', labelsize = 15)
+plt.plot(dates_and_times_1y, avg_wind_speeds_79_97)
+plt.plot(dates_and_times_1y, avg_wind_speeds_98_16)
+plt.ylim(ymin = 0)
+plt.ylabel('Wind Speed (m/s)')
+plt.xlabel('Time')
+plt.title('Average Wind Speeds During Hurricane Seasons from 1979 through 1997 ' +
+          'Compared to\nHurricane Seasons from 1998 through 2016 on ' + location_names[region][1])
+plt.savefig('Figures/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_3d_Avg_Comparison.png')
+plt.show()
 
 # Generate histograms to show the frequency distribution for the wind speeds at all
 # measured locations from 1979 up to 1998 and from 1998 up to 2017
@@ -855,33 +1055,50 @@ plt.show()
 wind_speed_freq_79_97_EHS = [0] * max_wind_speed
 wind_speed_freq_79_97_MHS = [0] * max_wind_speed
 wind_speed_freq_79_97_LHS = [0] * max_wind_speed
+wind_speed_freq_79_97_June = [0] * max_wind_speed
+wind_speed_freq_79_97_July = [0] * max_wind_speed
 wind_speed_freq_79_97_Aug = [0] * max_wind_speed
 wind_speed_freq_79_97_Sep = [0] * max_wind_speed
+wind_speed_freq_79_97_Oct = [0] * max_wind_speed
+wind_speed_freq_79_97_Nov = [0] * max_wind_speed
 wind_speed_freq_98_16_EHS = [0] * max_wind_speed
 wind_speed_freq_98_16_MHS = [0] * max_wind_speed
 wind_speed_freq_98_16_LHS = [0] * max_wind_speed
+wind_speed_freq_98_16_June = [0] * max_wind_speed
+wind_speed_freq_98_16_July = [0] * max_wind_speed
 wind_speed_freq_98_16_Aug = [0] * max_wind_speed
 wind_speed_freq_98_16_Sep = [0] * max_wind_speed
+wind_speed_freq_98_16_Oct = [0] * max_wind_speed
+wind_speed_freq_98_16_Nov = [0] * max_wind_speed
 
 # Divide the wind speed data up by which part of the hurricane season they were taken in
 # (early hurricane season (June, July), mid hurricane season (August, September), and
-# late hurricane season (October, November)). Also get data for the months of August and
-# September individually
-wind_speeds_79_97_EHS, wind_speeds_79_97_MHS, wind_speeds_79_97_LHS, wind_speeds_79_97_Aug, wind_speeds_79_97_Sep = divideBySeason(wind_speeds_79_97)
-wind_speeds_98_16_EHS, wind_speeds_98_16_MHS, wind_speeds_98_16_LHS, wind_speeds_98_16_Aug, wind_speeds_98_16_Sep = divideBySeason(wind_speeds_98_16)
+# late hurricane season (October, November)). Also get data for each month individually
+wind_speeds_79_97_EHS, wind_speeds_79_97_MHS, wind_speeds_79_97_LHS, wind_speeds_79_97_June, wind_speeds_79_97_July, \
+wind_speeds_79_97_Aug, wind_speeds_79_97_Sep, wind_speeds_79_97_Oct, wind_speeds_79_97_Nov = divideBySeason(wind_speeds_79_97)
+wind_speeds_98_16_EHS, wind_speeds_98_16_MHS, wind_speeds_98_16_LHS, wind_speeds_98_16_June, wind_speeds_98_16_July, \
+wind_speeds_98_16_Aug, wind_speeds_98_16_Sep, wind_speeds_98_16_Oct, wind_speeds_98_16_Nov = divideBySeason(wind_speeds_98_16)
 
 # Populate the wind speed frequency arrays for each of the three parts of the hurricane
-# season for each time period (and August and September)
+# season for each time period (and each month)
 getFrequencies(wind_speeds_79_97_EHS, wind_speed_freq_79_97_EHS)
 getFrequencies(wind_speeds_79_97_MHS, wind_speed_freq_79_97_MHS)
 getFrequencies(wind_speeds_79_97_LHS, wind_speed_freq_79_97_LHS)
-#getFrequencies(wind_speeds_79_97_Aug, wind_speed_freq_79_97_Aug)
-#getFrequencies(wind_speeds_79_97_Sep, wind_speed_freq_79_97_Sep)
+getFrequencies(wind_speeds_79_97_June, wind_speed_freq_79_97_June)
+getFrequencies(wind_speeds_79_97_July, wind_speed_freq_79_97_July)
+getFrequencies(wind_speeds_79_97_Aug, wind_speed_freq_79_97_Aug)
+getFrequencies(wind_speeds_79_97_Sep, wind_speed_freq_79_97_Sep)
+getFrequencies(wind_speeds_79_97_Oct, wind_speed_freq_79_97_Oct)
+getFrequencies(wind_speeds_79_97_Nov, wind_speed_freq_79_97_Nov)
 getFrequencies(wind_speeds_98_16_EHS, wind_speed_freq_98_16_EHS)
 getFrequencies(wind_speeds_98_16_MHS, wind_speed_freq_98_16_MHS)
 getFrequencies(wind_speeds_98_16_LHS, wind_speed_freq_98_16_LHS)
-#getFrequencies(wind_speeds_98_16_Aug, wind_speed_freq_98_16_Aug)
-#getFrequencies(wind_speeds_98_16_Sep, wind_speed_freq_98_16_Sep)
+getFrequencies(wind_speeds_98_16_June, wind_speed_freq_98_16_June)
+getFrequencies(wind_speeds_98_16_July, wind_speed_freq_98_16_July)
+getFrequencies(wind_speeds_98_16_Aug, wind_speed_freq_98_16_Aug)
+getFrequencies(wind_speeds_98_16_Sep, wind_speed_freq_98_16_Sep)
+getFrequencies(wind_speeds_98_16_Oct, wind_speed_freq_98_16_Oct)
+getFrequencies(wind_speeds_98_16_Nov, wind_speed_freq_98_16_Nov)
 
 # Normalize wind speed frequencies
 norm_wind_speed_freq_79_97_EHS = normalizeWindSpeeds(wind_speed_freq_79_97_EHS)
@@ -890,6 +1107,18 @@ norm_wind_speed_freq_79_97_MHS = normalizeWindSpeeds(wind_speed_freq_79_97_MHS)
 norm_wind_speed_freq_98_16_MHS = normalizeWindSpeeds(wind_speed_freq_98_16_MHS)
 norm_wind_speed_freq_79_97_LHS = normalizeWindSpeeds(wind_speed_freq_79_97_LHS)
 norm_wind_speed_freq_98_16_LHS = normalizeWindSpeeds(wind_speed_freq_98_16_LHS)
+norm_wind_speed_freq_79_97_June = normalizeWindSpeeds(wind_speed_freq_79_97_June)
+norm_wind_speed_freq_98_16_June = normalizeWindSpeeds(wind_speed_freq_98_16_June)
+norm_wind_speed_freq_79_97_July = normalizeWindSpeeds(wind_speed_freq_79_97_July)
+norm_wind_speed_freq_98_16_July = normalizeWindSpeeds(wind_speed_freq_98_16_July)
+norm_wind_speed_freq_79_97_Aug = normalizeWindSpeeds(wind_speed_freq_79_97_Aug)
+norm_wind_speed_freq_98_16_Aug = normalizeWindSpeeds(wind_speed_freq_98_16_Aug)
+norm_wind_speed_freq_79_97_Sep = normalizeWindSpeeds(wind_speed_freq_79_97_Sep)
+norm_wind_speed_freq_98_16_Sep = normalizeWindSpeeds(wind_speed_freq_98_16_Sep)
+norm_wind_speed_freq_79_97_Oct = normalizeWindSpeeds(wind_speed_freq_79_97_Oct)
+norm_wind_speed_freq_98_16_Oct = normalizeWindSpeeds(wind_speed_freq_98_16_Oct)
+norm_wind_speed_freq_79_97_Nov = normalizeWindSpeeds(wind_speed_freq_79_97_Nov)
+norm_wind_speed_freq_98_16_Nov = normalizeWindSpeeds(wind_speed_freq_98_16_Nov)
 
 # Plot the two time periods side by side for each part of the hurricane season
 fig, ax = plt.subplots(figsize = (20,15))
@@ -988,7 +1217,7 @@ fig.savefig('Figures/WS_79-97_98-16_LHS_SBS/Filtered_Norm_Wind_Speeds_' + locati
 plt.show()
 
 # Determine differences in the wind speed frequencies between the two time periods
-# for each part of the hurricane season
+# for each part of the hurricane season (and for each month)
 i = 0
 wind_speed_freq_EHS_diff = [0] * len(wind_speed_freq_79_97_EHS)
 norm_wind_speed_freq_EHS_diff = [0] * len(norm_wind_speed_freq_79_97_EHS)
@@ -1014,15 +1243,51 @@ while i < len(wind_speed_freq_79_97_LHS):
     i = i + 1
 
 i = 0
+wind_speed_freq_June_diff = [0] * len(wind_speed_freq_79_97_June)
+norm_wind_speed_freq_June_diff = [0] * len(norm_wind_speed_freq_79_97_June)
+while i < len(wind_speed_freq_79_97_June):
+    wind_speed_freq_June_diff[i] = wind_speed_freq_98_16_June[i] - wind_speed_freq_79_97_June[i]
+    norm_wind_speed_freq_June_diff[i] = norm_wind_speed_freq_98_16_June[i] - norm_wind_speed_freq_79_97_June[i]
+    i = i + 1
+
+i = 0
+wind_speed_freq_July_diff = [0] * len(wind_speed_freq_79_97_July)
+norm_wind_speed_freq_July_diff = [0] * len(norm_wind_speed_freq_79_97_July)
+while i < len(wind_speed_freq_79_97_July):
+    wind_speed_freq_July_diff[i] = wind_speed_freq_98_16_July[i] - wind_speed_freq_79_97_July[i]
+    norm_wind_speed_freq_July_diff[i] = norm_wind_speed_freq_98_16_July[i] - norm_wind_speed_freq_79_97_July[i]
+    i = i + 1
+
+i = 0
 wind_speed_freq_Aug_diff = [0] * len(wind_speed_freq_79_97_Aug)
+norm_wind_speed_freq_Aug_diff = [0] * len(norm_wind_speed_freq_79_97_Aug)
 while i < len(wind_speed_freq_79_97_Aug):
     wind_speed_freq_Aug_diff[i] = wind_speed_freq_98_16_Aug[i] - wind_speed_freq_79_97_Aug[i]
+    norm_wind_speed_freq_Aug_diff[i] = norm_wind_speed_freq_98_16_Aug[i] - norm_wind_speed_freq_79_97_Aug[i]
     i = i + 1
 
 i = 0
 wind_speed_freq_Sep_diff = [0] * len(wind_speed_freq_79_97_Sep)
+norm_wind_speed_freq_Sep_diff = [0] * len(norm_wind_speed_freq_79_97_Sep)
 while i < len(wind_speed_freq_79_97_Sep):
     wind_speed_freq_Sep_diff[i] = wind_speed_freq_98_16_Sep[i] - wind_speed_freq_79_97_Sep[i]
+    norm_wind_speed_freq_Sep_diff[i] = norm_wind_speed_freq_98_16_Sep[i] - norm_wind_speed_freq_79_97_Sep[i]
+    i = i + 1
+
+i = 0
+wind_speed_freq_Oct_diff = [0] * len(wind_speed_freq_79_97_Oct)
+norm_wind_speed_freq_Oct_diff = [0] * len(norm_wind_speed_freq_79_97_Oct)
+while i < len(wind_speed_freq_79_97_Oct):
+    wind_speed_freq_Oct_diff[i] = wind_speed_freq_98_16_Oct[i] - wind_speed_freq_79_97_Oct[i]
+    norm_wind_speed_freq_Oct_diff[i] = norm_wind_speed_freq_98_16_Oct[i] - norm_wind_speed_freq_79_97_Oct[i]
+    i = i + 1
+
+i = 0
+wind_speed_freq_Nov_diff = [0] * len(wind_speed_freq_79_97_Nov)
+norm_wind_speed_freq_Nov_diff = [0] * len(norm_wind_speed_freq_79_97_Nov)
+while i < len(wind_speed_freq_79_97_Nov):
+    wind_speed_freq_Nov_diff[i] = wind_speed_freq_98_16_Nov[i] - wind_speed_freq_79_97_Nov[i]
+    norm_wind_speed_freq_Nov_diff[i] = norm_wind_speed_freq_98_16_Nov[i] - norm_wind_speed_freq_79_97_Nov[i]
     i = i + 1
 
 # Create histograms that show the difference between the wind speed frequencies for
@@ -1042,6 +1307,34 @@ plt.savefig('Figures/WS_Diff_79-97_98-16_EHS/Filtered_Norm_Wind_Speeds_' + locat
 plt.show()
 
 plt.figure(1, figsize = (20,15))
+plt.bar(np.arange(len(norm_wind_speed_freq_June_diff)), norm_wind_speed_freq_June_diff)
+plt.xlim(xmax = max_wind_speed + 1)
+#if region == 'AL':
+#    plt.ylim(ymax = 9000, ymin = -7000)
+plt.ylabel('Frequency Difference')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Difference Between Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
+          'of June During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
+          'Seasons from 1998 up to 2017')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_June_Histogram.png')
+plt.savefig('Figures/WS_Diff_79-97_98-16_June/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_June_Histogram.png')
+plt.show()
+
+plt.figure(1, figsize = (20,15))
+plt.bar(np.arange(len(norm_wind_speed_freq_July_diff)), norm_wind_speed_freq_July_diff)
+plt.xlim(xmax = max_wind_speed + 1)
+#if region == 'AL':
+#    plt.ylim(ymax = 9000, ymin = -7000)
+plt.ylabel('Frequency Difference')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Difference Between Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
+          'of July During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
+          'Seasons from 1998 up to 2017')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_July_Histogram.png')
+plt.savefig('Figures/WS_Diff_79-97_98-16_July/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_July_Histogram.png')
+plt.show()
+
+plt.figure(1, figsize = (20,15))
 plt.bar(np.arange(len(norm_wind_speed_freq_MHS_diff)), norm_wind_speed_freq_MHS_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 #if region == 'AL':
@@ -1055,33 +1348,33 @@ plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speed
 plt.savefig('Figures/WS_Diff_79-97_98-16_MHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_Histogram.png')
 plt.show()
 
-#plt.figure(1, figsize = (20,15))
-#plt.bar(np.arange(len(wind_speed_freq_Aug_diff)), wind_speed_freq_Aug_diff)
-#plt.xlim(xmax = max_wind_speed + 1)
+plt.figure(1, figsize = (20,15))
+plt.bar(np.arange(len(norm_wind_speed_freq_Aug_diff)), norm_wind_speed_freq_Aug_diff)
+plt.xlim(xmax = max_wind_speed + 1)
 #if region == 'AL':
 #    plt.ylim(ymax = 9000, ymin = -7000)
-#plt.ylabel('Frequency Difference')
-#plt.xlabel('Wind Speed (m/s)')
-#plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
-#          'of August During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
-#          'Seasons from 1998 up to 2017')
-#plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Aug_Histogram.png')
-#plt.savefig('Figures/WS_Diff_79-97_98-16_Aug/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Aug_Histogram.png')
-#plt.show()
+plt.ylabel('Frequency Difference (%)')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Difference Between Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
+          'of August During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
+          'Seasons from 1998 up to 2017')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Aug_Histogram.png')
+plt.savefig('Figures/WS_Diff_79-97_98-16_Aug/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Aug_Histogram.png')
+plt.show()
 
-#plt.figure(1, figsize = (20,15))
-#plt.bar(np.arange(len(wind_speed_freq_Sep_diff)), wind_speed_freq_Sep_diff)
-#plt.xlim(xmax = max_wind_speed + 1)
+plt.figure(1, figsize = (20,15))
+plt.bar(np.arange(len(norm_wind_speed_freq_Sep_diff)), norm_wind_speed_freq_Sep_diff)
+plt.xlim(xmax = max_wind_speed + 1)
 #if region == 'AL':
 #    plt.ylim(ymax = 9000, ymin = -7000)
-#plt.ylabel('Frequency Difference')
-#plt.xlabel('Wind Speed (m/s)')
-#plt.title('Difference Between Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
-#          'of September During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
-#          'Seasons from 1998 up to 2017')
-#plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Sep_Histogram.png')
-#plt.savefig('Figures/WS_Diff_79-97_98-16_Sep/Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Sep_Histogram.png')
-#plt.show()
+plt.ylabel('Frequency Difference')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Difference Between Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
+          'of September During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
+          'Seasons from 1998 up to 2017')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Sep_Histogram.png')
+plt.savefig('Figures/WS_Diff_79-97_98-16_Sep/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Sep_Histogram.png')
+plt.show()
 
 plt.figure(1, figsize = (20,15))
 plt.bar(np.arange(len(norm_wind_speed_freq_LHS_diff)), norm_wind_speed_freq_LHS_diff)
@@ -1097,6 +1390,33 @@ plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speed
 plt.savefig('Figures/WS_Diff_79-97_98-16_LHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_Histogram.png')
 plt.show()
 
+plt.figure(1, figsize = (20,15))
+plt.bar(np.arange(len(norm_wind_speed_freq_Oct_diff)), norm_wind_speed_freq_Oct_diff)
+plt.xlim(xmax = max_wind_speed + 1)
+#if region == 'AL':
+#    plt.ylim(ymax = 9000, ymin = -7000)
+plt.ylabel('Frequency Difference')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Difference Between Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
+          'of October During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
+          'Seasons from 1998 up to 2017')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Oct_Histogram.png')
+plt.savefig('Figures/WS_Diff_79-97_98-16_Oct/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Oct_Histogram.png')
+plt.show()
+
+plt.figure(1, figsize = (20,15))
+plt.bar(np.arange(len(norm_wind_speed_freq_Nov_diff)), norm_wind_speed_freq_Nov_diff)
+plt.xlim(xmax = max_wind_speed + 1)
+#if region == 'AL':
+#    plt.ylim(ymax = 9000, ymin = -7000)
+plt.ylabel('Frequency Difference')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('Difference Between Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
+          'of November During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
+          'Seasons from 1998 up to 2017')
+plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Nov_Histogram.png')
+plt.savefig('Figures/WS_Diff_79-97_98-16_Nov/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Nov_Histogram.png')
+plt.show()
 
 ######################################################################################
 ##                                 Plot Time Series                                 ##
