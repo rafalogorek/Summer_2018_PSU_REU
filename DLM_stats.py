@@ -398,19 +398,19 @@ def averageWindsEachTime(wind_speeds, dates_and_times, time_interval):
 
         i = i + 1
 
-    #new_dates_and_times = dates_and_times
+    new_dates_and_times = dates_and_times
     # Optionally, also perform a low pass filter averaging method to smoothen the curve
-    temp_wind_speeds = avg_wind_speeds
-    avg_wind_speeds = []
-    i = time_interval / 2
-    while i < (len(temp_wind_speeds) - (time_interval / 2) + 1):
+    #temp_wind_speeds = avg_wind_speeds
+    #avg_wind_speeds = []
+    #i = time_interval / 2
+    #while i < (len(temp_wind_speeds) - (time_interval / 2) + 1):
         # Update times
-        new_dates_and_times.append(dates_and_times[i])
+    #    new_dates_and_times.append(dates_and_times[i])
 
         # Average wind speeds
-        avg_wind_speeds.append(np.sum(temp_wind_speeds[(i - (time_interval / 2)):(i + (time_interval / 2))])/time_interval)
+    #    avg_wind_speeds.append(np.sum(temp_wind_speeds[(i - (time_interval / 2)):(i + (time_interval / 2))])/time_interval)
 
-        i = i + 1
+    #    i = i + 1
 
     return avg_wind_speeds, new_dates_and_times
 
@@ -967,14 +967,14 @@ plt.rc('axes', titlesize = 25)
 plt.rc('axes', labelsize = 20)
 plt.rc('xtick', labelsize = 15)
 plt.rc('ytick', labelsize = 15)
-plt.plot(dates_and_times_1y, avg_wind_speeds_79_97)
-plt.plot(dates_and_times_1y, avg_wind_speeds_98_16)
+plt.plot(dates_and_times_1y[0:732], avg_wind_speeds_79_97)
+plt.plot(dates_and_times_1y[0:732], avg_wind_speeds_98_16)
 plt.ylim(ymin = 0)
 plt.ylabel('Wind Speed (m/s)')
 plt.xlabel('Time')
 plt.title('Average Wind Speeds During Hurricane Seasons from 1979 through 1997 ' +
           'Compared to\nHurricane Seasons from 1998 through 2016 on ' + location_names[region][1])
-plt.savefig('Figures/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_3d_Avg_Comparison.png')
+plt.savefig('Figures/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_Avg_Comparison.png')
 plt.show()
 
 # Generate histograms to show the frequency distribution for the wind speeds at all
