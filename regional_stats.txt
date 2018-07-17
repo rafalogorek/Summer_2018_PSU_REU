@@ -491,6 +491,170 @@ Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico
 Difference: 0.0520411544158
 
 ----------------------------------------------------------------------------------------------------------------------------
+x                                                    Florida Peninsula                                                     x
+----------------------------------------------------------------------------------------------------------------------------
+
+Total Number of Stagnant Flow Measurements Observed at Locations on the Florida Peninsula from 1979 up to 2017: 115891
+Total Number of Stagnant Flow Measurements Observed at Locations on the Florida Peninsula from 1979 up to 1998: 56381
+Total Number of Stagnant Flow Measurements Observed at Locations on the Florida Peninsula from 1998 up to 2017: 59510
+Mean Observed Wind Speed for Locations on the Florida Peninsula from 1979 up to 2017: 7.04084417685 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula from 1979 up to 1998: 7.09953399438 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula from 1998 up to 2017: 6.98103109101 m/s
+Difference: -0.118502903371
+Median Observed Wind Speed for Locations on the Florida Peninsula from 1979 up to 2017: 5.68554763342 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula from 1979 up to 1998: 5.72176502241 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula from 1998 up to 2017: 5.65027260831 m/s
+Difference: -0.0714924141021
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula from 1979 up to 2017: 5.13154832777 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula from 1979 up to 1998: 5.14780938575 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula from 1998 up to 2017: 5.11422993494 m/s
+Difference: -0.0335794508096
+
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations on the Florida Peninsula from 1979 up to 2017: 55120
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations on the Florida Peninsula from 1979 up to 1998: 26150
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations on the Florida Peninsula from 1998 up to 2017: 28970
+Mean Observed Wind Speed for Locations on the Florida Peninsula in Late May, June, and July from 1979 up to 2017: 5.16102996044 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in Late May, June, and July from 1979 up to 1998: 5.31187955195 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in Late May, June, and July from 1998 up to 2017: 5.0093843404 m/s
+Difference: -0.302495211553
+Median Observed Wind Speed for Locations on the Florida Peninsula in Late May, June, and July from 1979 up to 2017: 4.52716816926 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in Late May, June, and July from 1979 up to 1998: 4.63200472513 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in Late May, June, and July from 1998 up to 2017: 4.42329247168 m/s
+Difference: -0.208712253447
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in Late May, June, and July from 1979 up to 2017: 3.22596434404 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in Late May, June, and July from 1979 up to 1998: 3.3273778196 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in Late May, June, and July from 1998 up to 2017: 3.11333737512 m/s
+Difference: -0.214040444479
+
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations on the Florida Peninsula from 1979 up to 2017: 49534
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations on the Florida Peninsula from 1979 up to 1998: 24824
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations on the Florida Peninsula from 1998 up to 2017: 24710
+Mean Observed Wind Speed for Locations on the Florida Peninsula in August and September from 1979 up to 2017: 5.19729383417 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in August and September from 1979 up to 1998: 5.14878896692 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in August and September from 1998 up to 2017: 5.24818954085 m/s
+Difference: 0.0994005739262
+Median Observed Wind Speed for Locations on the Florida Peninsula in August and September from 1979 up to 2017: 4.66198751571 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in August and September from 1979 up to 1998: 4.64304163721 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in August and September from 1998 up to 2017: 4.68575565447 m/s
+Difference: 0.0427140172544
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in August and September from 1979 up to 2017: 3.12044632838 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in August and September from 1979 up to 1998: 3.06070386143 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in August and September from 1998 up to 2017: 3.18113271035 m/s
+Difference: 0.120428848918
+
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations on the Florida Peninsula from 1979 up to 2017: 11237
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations on the Florida Peninsula from 1979 up to 1998: 5407
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations on the Florida Peninsula from 1998 up to 2017: 5830
+Mean Observed Wind Speed for Locations on the Florida Peninsula in October and November from 1979 up to 2017: 10.8930093012 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in October and November from 1979 up to 1998: 11.0009017214 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in October and November from 1998 up to 2017: 10.784596459 m/s
+Difference: -0.216305262425
+Median Observed Wind Speed for Locations on the Florida Peninsula in October and November from 1979 up to 2017: 9.91636504818 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in October and November from 1979 up to 1998: 10.0381442492 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in October and November from 1998 up to 2017: 9.80447423411 m/s
+Difference: -0.233670015055
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in October and November from 1979 up to 2017: 6.15815097394 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in October and November from 1979 up to 1998: 6.16064815979 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in October and November from 1998 up to 2017: 6.15373564882 m/s
+Difference: -0.00691251097276
+
+Total Number of Stagnant Flow Measurements Observed in June at Locations on the Florida Peninsula from 1979 up to 2017: 23236
+Total Number of Stagnant Flow Measurements Observed in June at Locations on the Florida Peninsula from 1979 up to 1998: 10317
+Total Number of Stagnant Flow Measurements Observed in June at Locations on the Florida Peninsula from 1998 up to 2017: 12919
+Mean Observed Wind Speed for Locations on the Florida Peninsula in June from 1979 up to 2017: 5.92976758138 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in June from 1979 up to 1998: 6.27487001639 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in June from 1998 up to 2017: 5.58195583659 m/s
+Difference: -0.692914179801
+Median Observed Wind Speed for Locations on the Florida Peninsula in June from 1979 up to 2017: 5.1811346834 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in June from 1979 up to 1998: 5.54276467282 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in June from 1998 up to 2017: 4.84207898353 m/s
+Difference: -0.700685689295
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in June from 1979 up to 2017: 3.7097433442 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in June from 1979 up to 1998: 3.83195148079 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in June from 1998 up to 2017: 3.54856306589 m/s
+Difference: -0.283388414908
+
+Total Number of Stagnant Flow Measurements Observed in July at Locations on the Florida Peninsula from 1979 up to 2017: 31884
+Total Number of Stagnant Flow Measurements Observed in July at Locations on the Florida Peninsula from 1979 up to 1998: 15833
+Total Number of Stagnant Flow Measurements Observed in July at Locations on the Florida Peninsula from 1998 up to 2017: 16051
+Mean Observed Wind Speed for Locations on the Florida Peninsula in July from 1979 up to 2017: 4.36384685127 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in July from 1979 up to 1998: 4.31065839441 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in July from 1998 up to 2017: 4.41717439163 m/s
+Difference: 0.106515997228
+Median Observed Wind Speed for Locations on the Florida Peninsula in July from 1979 up to 2017: 4.04133223407 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in July from 1979 up to 1998: 4.00321029446 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in July from 1998 up to 2017: 4.07769707235 m/s
+Difference: 0.0744867778935
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in July from 1979 up to 2017: 2.38306800904 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in July from 1979 up to 1998: 2.31279298529 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in July from 1998 up to 2017: 2.45034641841 m/s
+Difference: 0.137553433122
+
+Total Number of Stagnant Flow Measurements Observed in August at Locations on the Florida Peninsula from 1979 up to 2017: 29961
+Total Number of Stagnant Flow Measurements Observed in August at Locations on the Florida Peninsula from 1979 up to 1998: 15402
+Total Number of Stagnant Flow Measurements Observed in August at Locations on the Florida Peninsula from 1998 up to 2017: 14559
+Mean Observed Wind Speed for Locations on the Florida Peninsula in August from 1979 up to 2017: 4.58181711865 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in August from 1979 up to 1998: 4.44043913199 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in August from 1998 up to 2017: 4.72789471954 m/s
+Difference: 0.287455587556
+Median Observed Wind Speed for Locations on the Florida Peninsula in August from 1979 up to 2017: 4.23236258571 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in August from 1979 up to 1998: 4.17962594613 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in August from 1998 up to 2017: 4.29270400516 m/s
+Difference: 0.113078059034
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in August from 1979 up to 2017: 2.56195149474 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in August from 1979 up to 1998: 2.3674845373 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in August from 1998 up to 2017: 2.74081790102 m/s
+Difference: 0.373333363727
+
+Total Number of Stagnant Flow Measurements Observed in September at Locations on the Florida Peninsula from 1979 up to 2017: 19573
+Total Number of Stagnant Flow Measurements Observed in September at Locations on the Florida Peninsula from 1979 up to 1998: 9422
+Total Number of Stagnant Flow Measurements Observed in September at Locations on the Florida Peninsula from 1998 up to 2017: 10151
+Mean Observed Wind Speed for Locations on the Florida Peninsula in September from 1979 up to 2017: 5.84793089266 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in September from 1979 up to 1998: 5.88610821519 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in September from 1998 up to 2017: 5.80721345756 m/s
+Difference: -0.0788947576316
+Median Observed Wind Speed for Locations on the Florida Peninsula in September from 1979 up to 2017: 5.20899192344 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in September from 1979 up to 1998: 5.2523357416 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in September from 1998 up to 2017: 5.16645423795 m/s
+Difference: -0.0858815036487
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in September from 1979 up to 2017: 3.50261220571 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in September from 1979 up to 1998: 3.4955408861 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in September from 1998 up to 2017: 3.50968069647 m/s
+Difference: 0.0141398103673
+
+Total Number of Stagnant Flow Measurements Observed in October at Locations on the Florida Peninsula from 1979 up to 2017: 8324
+Total Number of Stagnant Flow Measurements Observed in October at Locations on the Florida Peninsula from 1979 up to 1998: 3995
+Total Number of Stagnant Flow Measurements Observed in October at Locations on the Florida Peninsula from 1998 up to 2017: 4329
+Mean Observed Wind Speed for Locations on the Florida Peninsula in October from 1979 up to 2017: 9.22109800612 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in October from 1979 up to 1998: 9.43891957517 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in October from 1998 up to 2017: 8.99833781141 m/s
+Difference: -0.440581763753
+Median Observed Wind Speed for Locations on the Florida Peninsula in October from 1979 up to 2017: 8.45763370784 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in October from 1979 up to 1998: 8.66226292628 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in October from 1998 up to 2017: 8.23966785585 m/s
+Difference: -0.422595070428
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in October from 1979 up to 2017: 5.283161194 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in October from 1979 up to 1998: 5.36346962353 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in October from 1998 up to 2017: 5.19030330063 m/s
+Difference: -0.173166322892
+
+Total Number of Stagnant Flow Measurements Observed in November at Locations on the Florida Peninsula from 1979 up to 2017: 2913
+Total Number of Stagnant Flow Measurements Observed in November at Locations on the Florida Peninsula from 1979 up to 1998: 1412
+Total Number of Stagnant Flow Measurements Observed in November at Locations on the Florida Peninsula from 1998 up to 2017: 1501
+Mean Observed Wind Speed for Locations on the Florida Peninsula in November from 1979 up to 2017: 12.7299479109 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in November from 1979 up to 1998: 12.7489998186 m/s
+Mean Observed Wind Speed for Locations on the Florida Peninsula in November from 1998 up to 2017: 12.7111708816 m/s
+Difference: -0.0378289370128
+Median Observed Wind Speed for Locations on the Florida Peninsula in November from 1979 up to 2017: 12.0167280049 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in November from 1979 up to 1998: 12.0695267261 m/s
+Median Observed Wind Speed for Locations on the Florida Peninsula in November from 1998 up to 2017: 11.9700506547 m/s
+Difference: -0.0994760714294
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in November from 1979 up to 2017: 6.51739667731 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in November from 1979 up to 1998: 6.51526352986 m/s
+Standard Deviation of Observed Wind Speed for Locations on the Florida Peninsula in November from 1998 up to 2017: 6.51944388864 m/s
+Difference: 0.00418035878011
+
+----------------------------------------------------------------------------------------------------------------------------
 x                                                       Texas Coast                                                        x
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -1309,6 +1473,175 @@ Standard Deviation of Observed Wind Speed for Locations Along the East Florida C
 Standard Deviation of Observed Wind Speed for Locations Along the East Florida Coast in November from 1979 up to 1998: 6.55254792104 m/s
 Standard Deviation of Observed Wind Speed for Locations Along the East Florida Coast in November from 1998 up to 2017: 6.55272091378 m/s
 Difference: 0.000172992731437
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                                  North Florida Coast                                                     x
+----------------------------------------------------------------------------------------------------------------------------
+
+Total Number of Stagnant Flow Measurements Observed at Locations Along the North Florida Coast from 1979 up to 2017: 57085
+Total Number of Stagnant Flow Measurements Observed at Locations Along the North Florida Coast from 1979 up to 1998: 29007
+Total Number of Stagnant Flow Measurements Observed at Locations Along the North Florida Coast from 1998 up to 2017: 28078
+Mean Observed Wind Speed for Locations Along the North Florida Coast from 1979 up to 2017: 7.69151626027 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast from 1979 up to 1998: 7.7255774526 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast from 1998 up to 2017: 7.65682831018 m/s
+Difference: -0.0687491424159
+Median Observed Wind Speed for Locations Along the North Florida Coast from 1979 up to 2017: 6.14029860851 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast from 1979 up to 1998: 6.11804537453 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast from 1998 up to 2017: 6.16332487557 m/s
+Difference: 0.0452795010356
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast from 1979 up to 2017: 5.6484856322 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast from 1979 up to 1998: 5.70811648905 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast from 1998 up to 2017: 5.58689001777 m/s
+Difference: -0.12122647128
+
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the North Florida Coast from 1979 up to 2017: 28841
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the North Florida Coast from 1979 up to 1998: 14391
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the North Florida Coast from 1998 up to 2017: 14450
+Mean Observed Wind Speed for Locations Along the North Florida Coast in Late May, June, and July from 1979 up to 2017: 5.44119484454 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in Late May, June, and July from 1979 up to 1998: 5.566713081 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in Late May, June, and July from 1998 up to 2017: 5.31505031287 m/s
+Difference: -0.251662768132
+Median Observed Wind Speed for Locations Along the North Florida Coast in Late May, June, and July from 1979 up to 2017: 4.73796724742 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in Late May, June, and July from 1979 up to 1998: 4.79132832473 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in Late May, June, and July from 1998 up to 2017: 4.68799338192 m/s
+Difference: -0.103334942803
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in Late May, June, and July from 1979 up to 2017: 3.46543059656 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in Late May, June, and July from 1979 up to 1998: 3.59716532735 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in Late May, June, and July from 1998 up to 2017: 3.32301547171 m/s
+Difference: -0.274149855631
+
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the North Florida Coast from 1979 up to 2017: 23782
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the North Florida Coast from 1979 up to 1998: 12485
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the North Florida Coast from 1998 up to 2017: 11297
+Mean Observed Wind Speed for Locations Along the North Florida Coast in August and September from 1979 up to 2017: 5.56330222061 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in August and September from 1979 up to 1998: 5.44766665407 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in August and September from 1998 up to 2017: 5.68460209989 m/s
+Difference: 0.236935445815
+Median Observed Wind Speed for Locations Along the North Florida Coast in August and September from 1979 up to 2017: 4.97869745 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in August and September from 1979 up to 1998: 4.83212044924 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in August and September from 1998 up to 2017: 5.1483630909 m/s
+Difference: 0.316242641659
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in August and September from 1979 up to 2017: 3.33675092322 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in August and September from 1979 up to 1998: 3.31569839445 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in August and September from 1998 up to 2017: 3.35441166824 m/s
+Difference: 0.0387132737885
+
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the North Florida Coast from 1979 up to 2017: 4462
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the North Florida Coast from 1979 up to 1998: 2131
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the North Florida Coast from 1998 up to 2017: 2331
+Mean Observed Wind Speed for Locations Along the North Florida Coast in October and November from 1979 up to 2017: 12.2094748468 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in October and November from 1979 up to 1998: 12.3451878322 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in October and November from 1998 up to 2017: 12.0733192617 m/s
+Difference: -0.271868570456
+Median Observed Wind Speed for Locations Along the North Florida Coast in October and November from 1979 up to 2017: 11.30846543 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in October and November from 1979 up to 1998: 11.4822606187 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in October and November from 1998 up to 2017: 11.1386186857 m/s
+Difference: -0.343641932906
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in October and November from 1979 up to 2017: 6.59235821385 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in October and November from 1979 up to 1998: 6.62558846193 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in October and November from 1998 up to 2017: 6.55602793405 m/s
+Difference: -0.0695605278781
+
+Total Number of Stagnant Flow Measurements Observed in June at Locations Along the North Florida Coast from 1979 up to 2017: 10711
+Total Number of Stagnant Flow Measurements Observed in June at Locations Along the North Florida Coast from 1979 up to 1998: 4903
+Total Number of Stagnant Flow Measurements Observed in June at Locations Along the North Florida Coast from 1998 up to 2017: 5808
+Mean Observed Wind Speed for Locations Along the North Florida Coast in June from 1979 up to 2017: 6.47771607832 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in June from 1979 up to 1998: 6.85924994177 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in June from 1998 up to 2017: 6.09304136125 m/s
+Difference: -0.766208580527
+Median Observed Wind Speed for Locations Along the North Florida Coast in June from 1979 up to 2017: 5.72095037019 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in June from 1979 up to 1998: 6.16659405401 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in June from 1998 up to 2017: 5.34548632962 m/s
+Difference: -0.821107724398
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in June from 1979 up to 2017: 3.9561916568 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in June from 1979 up to 1998: 4.07266310882 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in June from 1998 up to 2017: 3.796561709 m/s
+Difference: -0.276101399819
+
+Total Number of Stagnant Flow Measurements Observed in July at Locations Along the North Florida Coast from 1979 up to 2017: 18130
+Total Number of Stagnant Flow Measurements Observed in July at Locations Along the North Florida Coast from 1979 up to 1998: 9488
+Total Number of Stagnant Flow Measurements Observed in July at Locations Along the North Florida Coast from 1998 up to 2017: 8642
+Mean Observed Wind Speed for Locations Along the North Florida Coast in July from 1979 up to 2017: 4.36679955316 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in July from 1979 up to 1998: 4.22255659313 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in July from 1998 up to 2017: 4.51127903244 m/s
+Difference: 0.28872243931
+Median Observed Wind Speed for Locations Along the North Florida Coast in July from 1979 up to 2017: 4.00393631825 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in July from 1979 up to 1998: 3.85142274346 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in July from 1998 up to 2017: 4.16140822284 m/s
+Difference: 0.30998547938
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in July from 1979 up to 2017: 2.44252352637 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in July from 1979 up to 1998: 2.36703083998 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in July from 1998 up to 2017: 2.50756620078 m/s
+Difference: 0.140535360793
+
+Total Number of Stagnant Flow Measurements Observed in August at Locations Along the North Florida Coast from 1979 up to 2017: 14899
+Total Number of Stagnant Flow Measurements Observed in August at Locations Along the North Florida Coast from 1979 up to 1998: 7995
+Total Number of Stagnant Flow Measurements Observed in August at Locations Along the North Florida Coast from 1998 up to 2017: 6904
+Mean Observed Wind Speed for Locations Along the North Florida Coast in August from 1979 up to 2017: 4.77760211239 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in August from 1979 up to 1998: 4.56418181261 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in August from 1998 up to 2017: 4.99793886713 m/s
+Difference: 0.43375705452
+Median Observed Wind Speed for Locations Along the North Florida Coast in August from 1979 up to 2017: 4.43250532207 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in August from 1979 up to 1998: 4.29466651424 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in August from 1998 up to 2017: 4.59993059156 m/s
+Difference: 0.305264077327
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in August from 1979 up to 2017: 2.63829219019 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in August from 1979 up to 1998: 2.42812334757 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in August from 1998 up to 2017: 2.82211330824 m/s
+Difference: 0.393989960668
+
+Total Number of Stagnant Flow Measurements Observed in September at Locations Along the North Florida Coast from 1979 up to 2017: 8883
+Total Number of Stagnant Flow Measurements Observed in September at Locations Along the North Florida Coast from 1979 up to 1998: 4490
+Total Number of Stagnant Flow Measurements Observed in September at Locations Along the North Florida Coast from 1998 up to 2017: 4393
+Mean Observed Wind Speed for Locations Along the North Florida Coast in September from 1979 up to 2017: 6.39401579058 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in September from 1979 up to 1998: 6.36694717837 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in September from 1998 up to 2017: 6.42289277549 m/s
+Difference: 0.0559455971201
+Median Observed Wind Speed for Locations Along the North Florida Coast in September from 1979 up to 2017: 5.73490395245 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in September from 1979 up to 1998: 5.60642382015 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in September from 1998 up to 2017: 5.85806181 m/s
+Difference: 0.251637989857
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in September from 1979 up to 2017: 3.76875898453 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in September from 1979 up to 1998: 3.82638700285 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in September from 1998 up to 2017: 3.70607535837 m/s
+Difference: -0.120311644486
+
+Total Number of Stagnant Flow Measurements Observed in October at Locations Along the North Florida Coast from 1979 up to 2017: 3422
+Total Number of Stagnant Flow Measurements Observed in October at Locations Along the North Florida Coast from 1979 up to 1998: 1679
+Total Number of Stagnant Flow Measurements Observed in October at Locations Along the North Florida Coast from 1998 up to 2017: 1743
+Mean Observed Wind Speed for Locations Along the North Florida Coast in October from 1979 up to 2017: 10.2985849957 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in October from 1979 up to 1998: 10.3987749503 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in October from 1998 up to 2017: 10.1964513852 m/s
+Difference: -0.20232356513
+Median Observed Wind Speed for Locations Along the North Florida Coast in October from 1979 up to 2017: 9.56798394927 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in October from 1979 up to 1998: 9.60753917423 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in October from 1998 up to 2017: 9.52896482282 m/s
+Difference: -0.0785743514124
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in October from 1979 up to 2017: 5.68108700499 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in October from 1979 up to 1998: 5.73987602945 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in October from 1998 up to 2017: 5.61868603451 m/s
+Difference: -0.121189994938
+
+Total Number of Stagnant Flow Measurements Observed in November at Locations Along the North Florida Coast from 1979 up to 2017: 1040
+Total Number of Stagnant Flow Measurements Observed in November at Locations Along the North Florida Coast from 1979 up to 1998: 452
+Total Number of Stagnant Flow Measurements Observed in November at Locations Along the North Florida Coast from 1998 up to 2017: 588
+Mean Observed Wind Speed for Locations Along the North Florida Coast in November from 1979 up to 2017: 14.31061772 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in November from 1979 up to 1998: 14.5215006135 m/s
+Mean Observed Wind Speed for Locations Along the North Florida Coast in November from 1998 up to 2017: 14.1027269907 m/s
+Difference: -0.418773622797
+Median Observed Wind Speed for Locations Along the North Florida Coast in November from 1979 up to 2017: 13.7846784279 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in November from 1979 up to 1998: 14.1146544445 m/s
+Median Observed Wind Speed for Locations Along the North Florida Coast in November from 1998 up to 2017: 13.4675255041 m/s
+Difference: -0.647128940367
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in November from 1979 up to 2017: 6.87948551491 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in November from 1979 up to 1998: 6.86818377272 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the North Florida Coast in November from 1998 up to 2017: 6.88428862461 m/s
+Difference: 0.0161048518881
+
+----------------------------------------------------------------------------------------------------------------------------
+x                                                  South Florida Coast                                                     x
+----------------------------------------------------------------------------------------------------------------------------
+
 
 ----------------------------------------------------------------------------------------------------------------------------
 x                                              Georgia-South Carolina Coast                                                x
