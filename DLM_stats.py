@@ -598,6 +598,8 @@ location_names['AC'] = ['Atlantic_Coast', 'the Southeast U.S. Atlantic Coast',
 location_names['GOM'] = ['Gulf_of_Mexico_Coast', 'the Gulf of Mexico Coast',
                          'Locations Along the Gulf of Mexico Coast']
 location_names['FL'] = ['FL_Coast', 'the Florida Peninsula', 'Locations on the Florida Peninsula']
+location_names['NTX'] = ['NTX_Coast', 'the North Texas Coast', 'Locations Along the North Texas Coast']
+location_names['STX'] = ['STX_Coast', 'the South Texas Coast', 'Locations Along the South Texas Coast']
 location_names['TX'] = ['TX_Coast', 'the Texas Coast', 'Locations Along the Texas Coast']
 location_names['LA-MS'] = ['LA-MS_Coast', 'Louisiana and Mississippi Coasts',
                            'Locations Along the Louisiana and Mississippi Coasts']
@@ -646,6 +648,16 @@ while i < len(locs):
             elif region == 'FL':
                 # Florida peninsula case
                 if (locs[i][0] > -84 and locs[i][0] <= -79.5 and locs[i][1] <= 30.75):
+                    temp_locs.append(locs[i])
+                    temp_wind_speeds.append(wind_speeds[i])
+            elif region == 'NTX':
+                # North Texas coast case
+                if locs[i][0] <= -94.5 and locs[i][1] >= 28.5:
+                    temp_locs.append(locs[i])
+                    temp_wind_speeds.append(wind_speeds[i])
+            elif region == 'STX':
+                # South Texas coast case
+                if locs[i][0] <= -94.5 and locs[i][1] < 28.5:
                     temp_locs.append(locs[i])
                     temp_wind_speeds.append(wind_speeds[i])
             elif region == 'TX':
