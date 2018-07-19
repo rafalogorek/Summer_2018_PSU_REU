@@ -2,18 +2,19 @@
 #                                                                                    #
 # Deep Layer Mean Steering Flow Statistics Calculator                                #
 #                                                                                    #
-# Author: Rafal Ogorek                                                               #
+# Author: Rafal Ogorek (rafalogorek@yahoo.com)                                       #
 #                                                                                    #
 # Description: This program makes use of reanalysis data to calculate various        #
 #              statistics for the deep layer mean steering flow winds along the      #
 #              coastline of the southeastern U.S. from 1979 to 2017. Several         #
 #              graphics are also generated to help visualize this data better.       #
 #                                                                                    #
-# Last updated: 7/13/2018                                                            #
+# Last updated: 7/19/2018                                                            #
 #                                                                                    #
 ######################################################################################
 
 import math
+import random
 import sys
 import numpy as np
 #import matplotlib
@@ -642,7 +643,7 @@ while i < len(locs):
                     temp_wind_speeds.append(wind_speeds[i])
             elif region == 'GOM':
                 # Gulf of Mexico coast case
-                if locs[i][0] <= -82.5 or (locs[i][0] == -81.75 and locs[i][1] <= 28.5) or (locs[i][0] == -81 and locs[i][1] <= 26.25):
+                if locs[i][0] < -83.25: # or (locs[i][0] == -81.75 and locs[i][1] <= 28.5) or (locs[i][0] == -81 and locs[i][1] <= 26.25):
                     temp_locs.append(locs[i])
                     temp_wind_speeds.append(wind_speeds[i])
             elif region == 'FL':
@@ -1493,6 +1494,53 @@ plt.title('Wind Speed Measurement Locations')
 plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
 plt.savefig('Figures/Measurement_Locations/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
 plt.show()
+
+
+# Flatten the wind speed arrays and remove any NaNs
+wind_speeds_79_97_flat = [item for sublist in wind_speeds_79_97 for item in sublist]
+wind_speeds_79_97_no_nan = [x for x in wind_speeds_79_97_flat if str(x) != 'nan']
+wind_speeds_79_97 = np.array(wind_speeds_79_97_no_nan)
+wind_speeds_98_16_flat = [item for sublist in wind_speeds_98_16 for item in sublist]
+wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan']
+wind_speeds_98_16 = np.array(wind_speeds_98_16_no_nan)
+
+# Bootstrap the data to get 95% confidence intervals using the median
+sample_size = 2000
+n_79_97 = wind_speeds_79_97[np.random.randint(0, len(wind_speeds_79_97), sample_size)]
+n_98_16 = wind_speeds_98_16[np.random.randint(0, len(wind_speeds_98_16), sample_size)]
+n_boots = 2000
+me_79_97 = np.zeros(n_boots)
+mn_79_97 = np.zeros(n_boots)
+me_98_16 = np.zeros(n_boots)
+mn_98_16 = np.zeros(n_boots)
+for i in xrange(n_boots):
+    sample_79_97 = n_79_97[np.random.randint(0, sample_size, sample_size)]
+    me_79_97[i] = np.median(sample_79_97)
+    mn_79_97[i] = np.nanmean(sample_79_97)
+    sample_98_16 = n_98_16[np.random.randint(0, sample_size, sample_size)]
+    me_98_16[i] = np.median(sample_98_16)
+    mn_98_16[i] = np.nanmean(sample_98_16)
+
+# Compute means, medians, and their confidence intervals
+med_79_97 = np.median(me_79_97)
+ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
+mea_79_97 = np.mean(mn_79_97)
+ci95mean_79_97 = np.percentile(mn_79_97, [2.5, 97.5])
+med_98_16 = np.median(me_98_16)
+ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
+mea_98_16 = np.mean(mn_98_16)
+ci95mean_98_16 = np.percentile(mn_98_16, [2.5, 97.5])
+
+print('79-97')
+print(ci95med_79_97)
+print(ci95mean_79_97)
+print(med_79_97)
+print(mea_79_97)
+print('98-16')
+print(ci95med_98_16)
+print(ci95mean_98_16)
+print(med_98_16)
+print(mea_98_16)
 
 # Print some notable statistics about the data
 print('\nTotal Number of Stagnant Flow Measurements Observed at ' + location_names[region][2] + ' from 1979 ' +

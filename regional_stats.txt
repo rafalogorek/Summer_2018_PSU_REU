@@ -330,165 +330,165 @@ Difference: -0.219696620181
 x                                                  Gulf of Mexico Coast                                                    x
 ----------------------------------------------------------------------------------------------------------------------------
 
-Total Number of Stagnant Flow Measurements Observed at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 204672
-Total Number of Stagnant Flow Measurements Observed at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 101823
-Total Number of Stagnant Flow Measurements Observed at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 102849
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 7.76437962602 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 7.88840266269 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 7.63907419167 m/s
-Difference: -0.249328471024
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 6.17076331669 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 6.23161847164 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 6.11373089318 m/s
-Difference: -0.117887578461
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 5.69623362906 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 5.80874786557 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 5.57745248997 m/s
-Difference: -0.231295375604
+Total Number of Stagnant Flow Measurements Observed at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 144145
+Total Number of Stagnant Flow Measurements Observed at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 72099
+Total Number of Stagnant Flow Measurements Observed at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 72046
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 8.02006090559 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 8.16216533873 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 7.87691568783 m/s
+Difference: -0.285249650903
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 6.35501352377 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 6.42133737161 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 6.29146491587 m/s
+Difference: -0.129872455741
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 5.86251250852 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 5.99887869043 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 5.71829358372 m/s
+Difference: -0.280585106709
 
-Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 96941
-Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 47692
-Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 49249
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1979 up to 2017: 5.41811508605 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1979 up to 1998: 5.56348385795 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1998 up to 2017: 5.2718974795 m/s
-Difference: -0.291586378456
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1979 up to 2017: 4.86686389216 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1979 up to 1998: 4.95068279864 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1998 up to 2017: 4.78719128417 m/s
-Difference: -0.163491514472
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1979 up to 2017: 3.2137600838 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1979 up to 1998: 3.36364906085 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1998 up to 2017: 3.04860311399 m/s
-Difference: -0.315045946856
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 68364
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 33950
+Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 34414
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1979 up to 2017: 5.51641038778 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1979 up to 1998: 5.65988981651 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1998 up to 2017: 5.37210730613 m/s
+Difference: -0.287782510376
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1979 up to 2017: 4.97936883258 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1979 up to 1998: 5.05345283468 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1998 up to 2017: 4.90873462233 m/s
+Difference: -0.144718212348
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1979 up to 2017: 3.22149631279 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1979 up to 1998: 3.38483460817 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in Late May, June, and July from 1998 up to 2017: 3.04158664287 m/s
+Difference: -0.343247965302
 
-Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 91595
-Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 46695
-Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 44900
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1979 up to 2017: 5.52308302175 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1979 up to 1998: 5.4828650094 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1998 up to 2017: 5.56450266403 m/s
-Difference: 0.0816376546224
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1979 up to 2017: 4.95263448166 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1979 up to 1998: 4.89493365468 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1998 up to 2017: 5.01518839747 m/s
-Difference: 0.120254742796
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1979 up to 2017: 3.28233859149 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1979 up to 1998: 3.29863450783 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1998 up to 2017: 3.26495299261 m/s
-Difference: -0.0336815152278
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 65633
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 33652
+Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 31981
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1979 up to 2017: 5.63700387128 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1979 up to 1998: 5.59464543067 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1998 up to 2017: 5.68035606419 m/s
+Difference: 0.0857106335139
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1979 up to 2017: 5.06112759706 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1979 up to 1998: 4.98459550562 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1998 up to 2017: 5.14326454016 m/s
+Difference: 0.158669034538
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1979 up to 2017: 3.32997684659 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1979 up to 1998: 3.36490253669 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August and September from 1998 up to 2017: 3.29328424972 m/s
+Difference: -0.0716182869659
 
-Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 16136
-Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 7436
-Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 8700
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1979 up to 2017: 12.5177413839 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1979 up to 1998: 12.8365234844 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1998 up to 2017: 12.2002754567 m/s
-Difference: -0.636248027688
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1979 up to 2017: 11.6525185094 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1979 up to 1998: 11.9859418812 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1998 up to 2017: 11.3057579428 m/s
-Difference: -0.680183938351
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1979 up to 2017: 6.65523924791 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1979 up to 1998: 6.70351636899 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1998 up to 2017: 6.59150687176 m/s
-Difference: -0.112009497232
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 10148
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 4497
+Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 5651
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1979 up to 2017: 13.0860513692 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1979 up to 1998: 13.4684001698 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1998 up to 2017: 12.7063731745 m/s
+Difference: -0.762026995324
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1979 up to 2017: 12.3039359367 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1979 up to 1998: 12.6640272994 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1998 up to 2017: 11.9219067843 m/s
+Difference: -0.742120515146
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1979 up to 2017: 6.73069493403 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1979 up to 1998: 6.77364525596 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October and November from 1998 up to 2017: 6.66610566672 m/s
+Difference: -0.107539589237
 
-Total Number of Stagnant Flow Measurements Observed in June at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 38343
-Total Number of Stagnant Flow Measurements Observed in June at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 16861
-Total Number of Stagnant Flow Measurements Observed in June at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 21482
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1979 up to 2017: 6.18955508729 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1979 up to 1998: 6.54310564215 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1998 up to 2017: 5.83306297236 m/s
-Difference: -0.710042669788
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1979 up to 2017: 5.56185160735 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1979 up to 1998: 5.92276185134 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1998 up to 2017: 5.2339434316 m/s
-Difference: -0.688818419739
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1979 up to 2017: 3.61191936583 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1979 up to 1998: 3.76503528768 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1998 up to 2017: 3.41378235025 m/s
-Difference: -0.351252937428
+Total Number of Stagnant Flow Measurements Observed in June at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 26365
+Total Number of Stagnant Flow Measurements Observed in June at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 11420
+Total Number of Stagnant Flow Measurements Observed in June at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 14945
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1979 up to 2017: 6.30094872558 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1979 up to 1998: 6.65860323511 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1998 up to 2017: 5.94063683167 m/s
+Difference: -0.717966403441
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1979 up to 2017: 5.69789227675 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1979 up to 1998: 6.05997220533 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1998 up to 2017: 5.37333567783 m/s
+Difference: -0.686636527504
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1979 up to 2017: 3.59765614899 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1979 up to 1998: 3.75646804095 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in June from 1998 up to 2017: 3.39232042342 m/s
+Difference: -0.364147617534
 
-Total Number of Stagnant Flow Measurements Observed in July at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 58598
-Total Number of Stagnant Flow Measurements Observed in July at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 30831
-Total Number of Stagnant Flow Measurements Observed in July at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 27767
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1979 up to 2017: 4.61804929001 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1979 up to 1998: 4.54496625803 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1998 up to 2017: 4.69137150205 m/s
-Difference: 0.146405244018
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1979 up to 2017: 4.31425953408 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1979 up to 1998: 4.21803155688 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1998 up to 2017: 4.4117409297 m/s
-Difference: 0.193709372823
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1979 up to 2017: 2.50047842158 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1979 up to 1998: 2.51078259304 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1998 up to 2017: 2.48794125629 m/s
-Difference: -0.0228413367576
+Total Number of Stagnant Flow Measurements Observed in July at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 41999
+Total Number of Stagnant Flow Measurements Observed in July at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 22530
+Total Number of Stagnant Flow Measurements Observed in July at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 19469
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1979 up to 2017: 4.70231137707 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1979 up to 1998: 4.62177716381 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1998 up to 2017: 4.78316695756 m/s
+Difference: 0.16138979375
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1979 up to 2017: 4.40349957663 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1979 up to 1998: 4.29105545832 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1998 up to 2017: 4.51196242384 m/s
+Difference: 0.220906965518
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1979 up to 2017: 2.53275499987 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1979 up to 1998: 2.56593168577 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in July from 1998 up to 2017: 2.49639061119 m/s
+Difference: -0.0695410745744
 
-Total Number of Stagnant Flow Measurements Observed in August at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 53670
-Total Number of Stagnant Flow Measurements Observed in August at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 27206
-Total Number of Stagnant Flow Measurements Observed in August at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 26464
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1979 up to 2017: 4.81038183893 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1979 up to 1998: 4.68133575952 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1998 up to 2017: 4.94084501895 m/s
-Difference: 0.259509259431
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1979 up to 2017: 4.47300829881 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1979 up to 1998: 4.40179703385 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1998 up to 2017: 4.55879401654 m/s
-Difference: 0.156996982684
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1979 up to 2017: 2.61141133984 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1979 up to 1998: 2.47783337332 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1998 up to 2017: 2.73365853518 m/s
-Difference: 0.255825161861
+Total Number of Stagnant Flow Measurements Observed in August at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 38047
+Total Number of Stagnant Flow Measurements Observed in August at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 19164
+Total Number of Stagnant Flow Measurements Observed in August at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 18883
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1979 up to 2017: 4.89485498875 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1979 up to 1998: 4.76619796851 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1998 up to 2017: 5.02397804402 m/s
+Difference: 0.257780075509
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1979 up to 2017: 4.56452095699 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1979 up to 1998: 4.47608125599 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1998 up to 2017: 4.66381615549 m/s
+Difference: 0.187734899499
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1979 up to 2017: 2.62606364597 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1979 up to 1998: 2.50961397691 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in August from 1998 up to 2017: 2.73187466656 m/s
+Difference: 0.222260689644
 
-Total Number of Stagnant Flow Measurements Observed in September at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 37925
-Total Number of Stagnant Flow Measurements Observed in September at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 19489
-Total Number of Stagnant Flow Measurements Observed in September at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 18436
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1979 up to 2017: 6.26742688588 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1979 up to 1998: 6.30451322346 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1998 up to 2017: 6.22848636802 m/s
-Difference: -0.0760268554389
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1979 up to 2017: 5.61689849373 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1979 up to 1998: 5.60654686199 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1998 up to 2017: 5.62941792725 m/s
-Difference: 0.0228710652587
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1979 up to 2017: 3.71739754511 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1979 up to 1998: 3.79574116491 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1998 up to 2017: 3.63291196486 m/s
-Difference: -0.162829200052
+Total Number of Stagnant Flow Measurements Observed in September at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 27586
+Total Number of Stagnant Flow Measurements Observed in September at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 14488
+Total Number of Stagnant Flow Measurements Observed in September at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 13098
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1979 up to 2017: 6.40903157392 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1979 up to 1998: 6.43960539571 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1998 up to 2017: 6.3770966452 m/s
+Difference: -0.0625087505165
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1979 up to 2017: 5.76881117255 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1979 up to 1998: 5.7379329549 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1998 up to 2017: 5.79884768847 m/s
+Difference: 0.0609147335754
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1979 up to 2017: 3.77903241641 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1979 up to 1998: 3.87726183864 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in September from 1998 up to 2017: 3.67335474724 m/s
+Difference: -0.203907091401
 
-Total Number of Stagnant Flow Measurements Observed in October at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 12600
-Total Number of Stagnant Flow Measurements Observed in October at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 6006
-Total Number of Stagnant Flow Measurements Observed in October at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 6594
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1979 up to 2017: 10.3935409415 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1979 up to 1998: 10.5297266989 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1998 up to 2017: 10.2571978387 m/s
-Difference: -0.272528860253
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1979 up to 2017: 9.62691321103 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1979 up to 1998: 9.84600197083 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1998 up to 2017: 9.40130921844 m/s
-Difference: -0.444692752384
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1979 up to 2017: 5.65102578732 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1979 up to 1998: 5.65966960588 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1998 up to 2017: 5.63906503435 m/s
-Difference: -0.0206045715269
+Total Number of Stagnant Flow Measurements Observed in October at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 8081
+Total Number of Stagnant Flow Measurements Observed in October at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 3808
+Total Number of Stagnant Flow Measurements Observed in October at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 4273
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1979 up to 2017: 10.8171548683 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1979 up to 1998: 10.9189280891 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1998 up to 2017: 10.7159705258 m/s
+Difference: -0.202957563274
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1979 up to 2017: 10.0818388472 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1979 up to 1998: 10.2703944745 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1998 up to 2017: 9.87064517835 m/s
+Difference: -0.399749296109
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1979 up to 2017: 5.72311277077 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1979 up to 1998: 5.72088192274 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in October from 1998 up to 2017: 5.72353612309 m/s
+Difference: 0.00265420034713
 
-Total Number of Stagnant Flow Measurements Observed in November at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 3536
-Total Number of Stagnant Flow Measurements Observed in November at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 1430
-Total Number of Stagnant Flow Measurements Observed in November at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 2106
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1979 up to 2017: 14.8473834245 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1979 up to 1998: 15.3805273952 m/s
-Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1998 up to 2017: 14.3195132844 m/s
-Difference: -1.06101411077
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1979 up to 2017: 14.4022171539 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1979 up to 1998: 14.9967967074 m/s
-Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1998 up to 2017: 13.8225930751 m/s
-Difference: -1.17420363229
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1979 up to 2017: 6.88982441256 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1979 up to 1998: 6.84317120241 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1998 up to 2017: 6.89521235682 m/s
-Difference: 0.0520411544158
+Total Number of Stagnant Flow Measurements Observed in November at Locations Along the Gulf of Mexico Coast from 1979 up to 2017: 2067
+Total Number of Stagnant Flow Measurements Observed in November at Locations Along the Gulf of Mexico Coast from 1979 up to 1998: 689
+Total Number of Stagnant Flow Measurements Observed in November at Locations Along the Gulf of Mexico Coast from 1998 up to 2017: 1378
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1979 up to 2017: 15.5726162929 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1979 up to 1998: 16.2660046812 m/s
+Mean Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1998 up to 2017: 14.8849806871 m/s
+Difference: -1.38102399415
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1979 up to 2017: 15.194616877 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1979 up to 1998: 15.9221937189 m/s
+Median Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1998 up to 2017: 14.4509448015 m/s
+Difference: -1.47124891742
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1979 up to 2017: 6.87237588212 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1979 up to 1998: 6.73478004772 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Gulf of Mexico Coast in November from 1998 up to 2017: 6.93805904412 m/s
+Difference: 0.203278996391
 
 ----------------------------------------------------------------------------------------------------------------------------
 x                                                    Florida Peninsula                                                     x
