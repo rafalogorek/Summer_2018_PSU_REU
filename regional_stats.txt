@@ -986,165 +986,6 @@ Difference: 0.291754542051
 x                                                       Texas Coast                                                        x
 ----------------------------------------------------------------------------------------------------------------------------
 
-Total Number of Stagnant Flow Measurements Observed at Locations Along the Texas Coast from 1979 up to 2017: 43386
-Total Number of Stagnant Flow Measurements Observed at Locations Along the Texas Coast from 1979 up to 1998: 20853
-Total Number of Stagnant Flow Measurements Observed at Locations Along the Texas Coast from 1998 up to 2017: 22533
-Mean Observed Wind Speed for Locations Along the Texas Coast from 1979 up to 2017: 7.64147945834 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast from 1979 up to 1998: 7.86074410966 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast from 1998 up to 2017: 7.4216890926 m/s
-Difference: -0.43905501706
-Median Observed Wind Speed for Locations Along the Texas Coast from 1979 up to 2017: 6.14478942651 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast from 1979 up to 1998: 6.28205185915 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast from 1998 up to 2017: 6.01640931905 m/s
-Difference: -0.265642540105
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast from 1979 up to 2017: 5.438665716 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast from 1979 up to 1998: 5.58898780417 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast from 1998 up to 2017: 5.27455308629 m/s
-Difference: -0.314434717885
-
-Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Texas Coast from 1979 up to 2017: 20274
-Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Texas Coast from 1979 up to 1998: 9823
-Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Texas Coast from 1998 up to 2017: 10451
-Mean Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1979 up to 2017: 5.35318790425 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1979 up to 1998: 5.52661944321 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1998 up to 2017: 5.17867878528 m/s
-Difference: -0.347940657922
-Median Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1979 up to 2017: 4.94304279108 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1979 up to 1998: 5.03416672956 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1998 up to 2017: 4.8498076325 m/s
-Difference: -0.184359097059
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1979 up to 2017: 2.95717344606 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1979 up to 1998: 3.11545550959 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in Late May, June, and July from 1998 up to 2017: 2.77794809011 m/s
-Difference: -0.337507419485
-
-Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Texas Coast from 1979 up to 2017: 19834
-Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Texas Coast from 1979 up to 1998: 9668
-Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Texas Coast from 1998 up to 2017: 10166
-Mean Observed Wind Speed for Locations Along the Texas Coast in August and September from 1979 up to 2017: 5.33290045446 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in August and September from 1979 up to 1998: 5.3308893566 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in August and September from 1998 up to 2017: 5.33492960748 m/s
-Difference: 0.0040402508751
-Median Observed Wind Speed for Locations Along the Texas Coast in August and September from 1979 up to 2017: 4.90522425972 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in August and September from 1979 up to 1998: 4.91352291824 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in August and September from 1998 up to 2017: 4.89650285236 m/s
-Difference: -0.0170200658765
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in August and September from 1979 up to 2017: 3.00071220217 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in August and September from 1979 up to 1998: 3.01293586133 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in August and September from 1998 up to 2017: 2.98832675478 m/s
-Difference: -0.0246091065446
-
-Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Texas Coast from 1979 up to 2017: 3278
-Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Texas Coast from 1979 up to 1998: 1362
-Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Texas Coast from 1998 up to 2017: 1916
-Mean Observed Wind Speed for Locations Along the Texas Coast in October and November from 1979 up to 2017: 12.4188705486 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in October and November from 1979 up to 1998: 12.9515300193 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in October and November from 1998 up to 2017: 11.8906057708 m/s
-Difference: -1.06092424843
-Median Observed Wind Speed for Locations Along the Texas Coast in October and November from 1979 up to 2017: 11.770667056 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in October and November from 1979 up to 1998: 12.3259500533 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in October and November from 1998 up to 2017: 11.1693573209 m/s
-Difference: -1.15659273245
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in October and November from 1979 up to 2017: 6.23077300495 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in October and November from 1979 up to 1998: 6.21989068947 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in October and November from 1998 up to 2017: 6.1964875134 m/s
-Difference: -0.0234031760728
-
-Total Number of Stagnant Flow Measurements Observed in June at Locations Along the Texas Coast from 1979 up to 2017: 9172
-Total Number of Stagnant Flow Measurements Observed in June at Locations Along the Texas Coast from 1979 up to 1998: 3820
-Total Number of Stagnant Flow Measurements Observed in June at Locations Along the Texas Coast from 1998 up to 2017: 5352
-Mean Observed Wind Speed for Locations Along the Texas Coast in June from 1979 up to 2017: 5.92118453876 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in June from 1979 up to 1998: 6.34116019318 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in June from 1998 up to 2017: 5.50077356814 m/s
-Difference: -0.840386625037
-Median Observed Wind Speed for Locations Along the Texas Coast in June from 1979 up to 2017: 5.38699083266 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in June from 1979 up to 1998: 5.81014231321 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in June from 1998 up to 2017: 5.0315117193 m/s
-Difference: -0.778630593902
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in June from 1979 up to 2017: 3.34985954101 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in June from 1979 up to 1998: 3.51054263583 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in June from 1998 up to 2017: 3.12486126376 m/s
-Difference: -0.385681372068
-
-Total Number of Stagnant Flow Measurements Observed in July at Locations Along the Texas Coast from 1979 up to 2017: 11102
-Total Number of Stagnant Flow Measurements Observed in July at Locations Along the Texas Coast from 1979 up to 1998: 6003
-Total Number of Stagnant Flow Measurements Observed in July at Locations Along the Texas Coast from 1998 up to 2017: 5099
-Mean Observed Wind Speed for Locations Along the Texas Coast in July from 1979 up to 2017: 4.7616718165 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in July from 1979 up to 1998: 4.68279073526 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in July from 1998 up to 2017: 4.84147051774 m/s
-Difference: 0.158679782476
-Median Observed Wind Speed for Locations Along the Texas Coast in July from 1979 up to 2017: 4.60176612259 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in July from 1979 up to 1998: 4.4925787741 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in July from 1998 up to 2017: 4.70569493599 m/s
-Difference: 0.213116161895
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in July from 1979 up to 2017: 2.340890072 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in July from 1979 up to 1998: 2.365313585 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in July from 1998 up to 2017: 2.313184979 m/s
-Difference: -0.0521286060052
-
-Total Number of Stagnant Flow Measurements Observed in August at Locations Along the Texas Coast from 1979 up to 2017: 11006
-Total Number of Stagnant Flow Measurements Observed in August at Locations Along the Texas Coast from 1979 up to 1998: 5408
-Total Number of Stagnant Flow Measurements Observed in August at Locations Along the Texas Coast from 1998 up to 2017: 5598
-Mean Observed Wind Speed for Locations Along the Texas Coast in August from 1979 up to 2017: 4.82107239533 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in August from 1979 up to 1998: 4.74281604045 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in August from 1998 up to 2017: 4.89881276301 m/s
-Difference: 0.155996722556
-Median Observed Wind Speed for Locations Along the Texas Coast in August from 1979 up to 2017: 4.58062281207 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in August from 1979 up to 1998: 4.57492312184 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in August from 1998 up to 2017: 4.58653117348 m/s
-Difference: 0.01160805164
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in August from 1979 up to 2017: 2.48057995354 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in August from 1979 up to 1998: 2.39743703053 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in August from 1998 up to 2017: 2.55813371244 m/s
-Difference: 0.160696681911
-
-Total Number of Stagnant Flow Measurements Observed in September at Locations Along the Texas Coast from 1979 up to 2017: 8828
-Total Number of Stagnant Flow Measurements Observed in September at Locations Along the Texas Coast from 1979 up to 1998: 4260
-Total Number of Stagnant Flow Measurements Observed in September at Locations Along the Texas Coast from 1998 up to 2017: 4568
-Mean Observed Wind Speed for Locations Along the Texas Coast in September from 1979 up to 2017: 5.86249437933 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in September from 1979 up to 1998: 5.92986604012 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in September from 1998 up to 2017: 5.79341499983 m/s
-Difference: -0.136451040292
-Median Observed Wind Speed for Locations Along the Texas Coast in September from 1979 up to 2017: 5.34024205033 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in September from 1979 up to 1998: 5.40226508307 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in September from 1998 up to 2017: 5.27389304306 m/s
-Difference: -0.128372040006
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in September from 1979 up to 2017: 3.37678835967 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in September from 1979 up to 1998: 3.4290797359 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in September from 1998 up to 2017: 3.32089814737 m/s
-Difference: -0.108181588529
-
-Total Number of Stagnant Flow Measurements Observed in October at Locations Along the Texas Coast from 1979 up to 2017: 2442
-Total Number of Stagnant Flow Measurements Observed in October at Locations Along the Texas Coast from 1979 up to 1998: 1081
-Total Number of Stagnant Flow Measurements Observed in October at Locations Along the Texas Coast from 1998 up to 2017: 1361
-Mean Observed Wind Speed for Locations Along the Texas Coast in October from 1979 up to 2017: 10.2603977374 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in October from 1979 up to 1998: 10.6068313362 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in October from 1998 up to 2017: 9.91800175717 m/s
-Difference: -0.688829578984
-Median Observed Wind Speed for Locations Along the Texas Coast in October from 1979 up to 2017: 9.66280816023 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in October from 1979 up to 1998: 10.1061511997 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in October from 1998 up to 2017: 9.1649332961 m/s
-Difference: -0.941217903575
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in October from 1979 up to 2017: 5.26726816902 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in October from 1979 up to 1998: 5.26458981466 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in October from 1998 up to 2017: 5.24748899701 m/s
-Difference: -0.0171008176503
-
-Total Number of Stagnant Flow Measurements Observed in November at Locations Along the Texas Coast from 1979 up to 2017: 836
-Total Number of Stagnant Flow Measurements Observed in November at Locations Along the Texas Coast from 1979 up to 1998: 281
-Total Number of Stagnant Flow Measurements Observed in November at Locations Along the Texas Coast from 1998 up to 2017: 555
-Mean Observed Wind Speed for Locations Along the Texas Coast in November from 1979 up to 2017: 14.7792280914 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in November from 1979 up to 1998: 15.5062818946 m/s
-Mean Observed Wind Speed for Locations Along the Texas Coast in November from 1998 up to 2017: 14.0554564666 m/s
-Difference: -1.45082542798
-Median Observed Wind Speed for Locations Along the Texas Coast in November from 1979 up to 2017: 14.44097364 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in November from 1979 up to 1998: 15.2752669303 m/s
-Median Observed Wind Speed for Locations Along the Texas Coast in November from 1998 up to 2017: 13.5892434563 m/s
-Difference: -1.68602347406
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in November from 1979 up to 2017: 6.34594940729 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in November from 1979 up to 1998: 6.17447639462 m/s
-Standard Deviation of Observed Wind Speed for Locations Along the Texas Coast in November from 1998 up to 2017: 6.43103652604 m/s
-Difference: 0.256560131417
 
 ----------------------------------------------------------------------------------------------------------------------------
 x                                               Louisiana-Mississippi Coast                                                x
@@ -1166,6 +1007,18 @@ Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and 
 Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts from 1998 up to 2017: 5.81394927733 m/s
 Difference: -0.307369831781
 
+Confidence Intervals and Medians:
+79-97 CI and Median
+[6.3261535993260853, 6.4399812179247107]
+6.38156624283
+98-16 CI and Median
+[6.2849943518018616, 6.398992434403576]
+6.34154048215
+CI and Median Diff
+[0.072838835077490671, -0.15498686612284907]
+-0.0400257606814
+
+Done with 79-97
 Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 2017: 30488
 Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 1998: 15068
 Total Number of Stagnant Flow Measurements Observed in Late May, June, and July at Locations Along the Louisiana and Mississippi Coasts from 1998 up to 2017: 15420
@@ -1182,6 +1035,18 @@ Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and 
 Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in Late May, June, and July from 1998 up to 2017: 3.03006571649 m/s
 Difference: -0.362852982743
 
+Early Season Confidence Intervals and Medians:
+79-97 CI and Median
+[4.9347854635904831, 5.1173522738359107]
+5.01229229564
+98-16 CI and Median
+[4.7228522123755781, 4.8736616183653032]
+4.80208088415
+CI and Median Diff
+[-0.061123845225179885, -0.39450006146033267]
+-0.21021141149
+
+Done with 79-97
 Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 2017: 29301
 Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 1998: 15419
 Total Number of Stagnant Flow Measurements Observed in August and September at Locations Along the Louisiana and Mississippi Coasts from 1998 up to 2017: 13882
@@ -1198,6 +1063,46 @@ Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and 
 Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in August and September from 1998 up to 2017: 3.33641633706 m/s
 Difference: -0.0993052037365
 
+Mid Season Confidence Intervals and Medians:
+79-97 CI and Median
+[4.8615101367348927, 5.0545901455988851]
+4.95658168838
+98-16 CI and Median
+[5.0654877361358519, 5.2805760964147703]
+5.16710758097
+CI and Median Diff
+[0.41906595967987759, 0.010897590536966817]
+0.210525892589
+
+Done with 79-97
+Total Number of Stagnant Flow Measurements Observed in July and August at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 2017: 36641
+Total Number of Stagnant Flow Measurements Observed in July and August at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 1998: 18848
+Total Number of Stagnant Flow Measurements Observed in July and August at Locations Along the Louisiana and Mississippi Coasts from 1998 up to 2017: 17793
+Mean Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in July and August from 1979 up to 2017: 4.74141660398 m/s
+Mean Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in July and August from 1979 up to 1998: 4.6581664374 m/s
+Mean Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in July and August from 1998 up to 2017: 4.82495763541 m/s
+Difference: 0.166791198009
+Median Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in July and August from 1979 up to 2017: 4.39799113294 m/s
+Median Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in July and August from 1979 up to 1998: 4.3208680472 m/s
+Median Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in July and August from 1998 up to 2017: 4.47984340995 m/s
+Difference: 0.158975362748
+Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in July and August from 1979 up to 2017: 2.60373410133 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in July and August from 1979 up to 1998: 2.57267600933 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in July and August from 1998 up to 2017: 2.63188686873 m/s
+Difference: 0.763740327728
+
+July/August Confidence Intervals and Medians:
+79-97 CI and Median
+[4.2721034552743609, 4.4173980399085133]
+4.33864419258
+98-16 CI and Median
+[4.4340796461907805, 4.586073633313239]
+4.5029103343
+CI and Median Diff
+[0.31397017803887817, 0.016681606282267225]
+0.164266141716
+
+Done with 79-97
 Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 2017: 4301
 Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 1998: 1997
 Total Number of Stagnant Flow Measurements Observed in October and November at Locations Along the Louisiana and Mississippi Coasts from 1998 up to 2017: 2304
@@ -1214,6 +1119,46 @@ Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and 
 Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in October and November from 1998 up to 2017: 6.74914272769 m/s
 Difference: -0.161079030259
 
+Late Season Confidence Intervals and Medians:
+79-97 CI and Median
+[12.860132704641156, 13.260964173474312]
+13.0469309245
+98-16 CI and Median
+[11.9592342760082, 12.311040381672981]
+12.14994125
+CI and Median Diff
+[-0.54909232296817478, -1.301729897466112]
+-0.896989674495
+
+Done with 79-97
+Total Number of Stagnant Flow Measurements Observed in September and October at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 2017: 15654
+Total Number of Stagnant Flow Measurements Observed in September and October at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 1998: 8506
+Total Number of Stagnant Flow Measurements Observed in September and October at Locations Along the Louisiana and Mississippi Coasts from 1998 up to 2017: 7148
+Mean Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in September and October from 1979 up to 2017: 8.80758148692 m/s
+Mean Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in September and October from 1979 up to 1998: 8.79252736076 m/s
+Mean Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in September and October from 1998 up to 2017: 8.82294978797 m/s
+Difference: 0.0304224272028
+Median Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in September and October from 1979 up to 2017: 7.858079193 m/s
+Median Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in September and October from 1979 up to 1998: 7.87699805473 m/s
+Median Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in September and October from 1998 up to 2017: 7.83958013191 m/s
+Difference: -0.0374179228118
+Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in September and October from 1979 up to 2017: 5.41502631132 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in September and October from 1979 up to 1998: 5.47403310167 m/s
+Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in September and October from 1998 up to 2017: 5.35407364518 m/s
+Difference: -0.11995945649
+
+September/October Confidence Intervals and Medians:
+79-97 CI and Median
+[7.6614467883524355, 8.0116482729933765]
+7.82714934018
+98-16 CI and Median
+[7.5914337090584336, 7.8898669112555249]
+7.73662322682
+CI and Median Diff
+[0.22842012290308933, -0.42021456393494283]
+-0.090526113359
+
+Done with 79-97
 Total Number of Stagnant Flow Measurements Observed in June at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 2017: 11083
 Total Number of Stagnant Flow Measurements Observed in June at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 1998: 4905
 Total Number of Stagnant Flow Measurements Observed in June at Locations Along the Louisiana and Mississippi Coasts from 1998 up to 2017: 6178
@@ -1230,6 +1175,18 @@ Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and 
 Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in June from 1998 up to 2017: 3.35618748528 m/s
 Difference: -0.392039654966
 
+June Confidence Intervals and Medians:
+79-97 CI and Median
+[5.9308405339142718, 6.2393729847746355]
+6.08680403446
+98-16 CI and Median
+[5.2337192066543823, 5.5195466719579471]
+5.36302734075
+CI and Median Diff
+[-0.41129386195632467, -1.0056537781202532]
+-0.723776693715
+
+Done with 79-97
 Total Number of Stagnant Flow Measurements Observed in July at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 2017: 19405
 Total Number of Stagnant Flow Measurements Observed in July at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 1998: 10163
 Total Number of Stagnant Flow Measurements Observed in July at Locations Along the Louisiana and Mississippi Coasts from 1998 up to 2017: 9242
@@ -1246,6 +1203,18 @@ Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and 
 Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in July from 1998 up to 2017: 2.47807809425 m/s
 Difference: -0.121961538127
 
+July Confidence Intervals and Medians:
+79-97 CI and Median
+[4.0651984240533201, 4.2499666796099893]
+4.15328326911
+98-16 CI and Median
+[4.2640071733572089, 4.4733942282779156]
+4.39471069497
+CI and Median Diff
+[0.40819580422459545, 0.014040493747219607]
+0.241427425853
+
+Done with 79-97
 Total Number of Stagnant Flow Measurements Observed in August at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 2017: 17236
 Total Number of Stagnant Flow Measurements Observed in August at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 1998: 8685
 Total Number of Stagnant Flow Measurements Observed in August at Locations Along the Louisiana and Mississippi Coasts from 1998 up to 2017: 8551
@@ -1262,6 +1231,18 @@ Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and 
 Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in August from 1998 up to 2017: 2.76652152326 m/s
 Difference: 0.224795013883
 
+August Confidence Intervals and Medians:
+79-97 CI and Median
+[4.4857464472914916, 4.6727001991528212]
+4.58602617955
+98-16 CI and Median
+[4.5753609344110329, 4.7838930511582074]
+4.66606888709
+CI and Median Diff
+[0.29814660386671576, -0.097339264741788334]
+0.0800427075394
+
+Done with 79-97
 Total Number of Stagnant Flow Measurements Observed in September at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 2017: 12065
 Total Number of Stagnant Flow Measurements Observed in September at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 1998: 6734
 Total Number of Stagnant Flow Measurements Observed in September at Locations Along the Louisiana and Mississippi Coasts from 1998 up to 2017: 5331
@@ -1278,6 +1259,18 @@ Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and 
 Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in September from 1998 up to 2017: 3.68612630339 m/s
 Difference: -0.266292582056
 
+September Confidence Intervals and Medians:
+79-97 CI and Median
+[5.6633479466774528, 6.0444029457197761]
+5.83819635286
+98-16 CI and Median
+[6.0365962992598368, 6.4013550206296754]
+6.22354969466
+CI and Median Diff
+[0.73800707395222265, -0.007806646459939337]
+0.3853533418
+
+Done with 79-97
 Total Number of Stagnant Flow Measurements Observed in October at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 2017: 3589
 Total Number of Stagnant Flow Measurements Observed in October at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 1998: 1772
 Total Number of Stagnant Flow Measurements Observed in October at Locations Along the Louisiana and Mississippi Coasts from 1998 up to 2017: 1817
@@ -1294,6 +1287,18 @@ Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and 
 Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in October from 1998 up to 2017: 5.79754380491 m/s
 Difference: -0.0417933104274
 
+October Confidence Intervals and Medians:
+79-97 CI and Median
+[10.34321477085799, 10.83863421375267]
+10.589736281
+98-16 CI and Median
+[9.591855270648983, 10.086785900953988]
+9.8305037156
+CI and Median Diff
+[-0.25642886990400271, -1.2467789431036866]
+-0.759232565353
+
+Done with 79-97
 Total Number of Stagnant Flow Measurements Observed in November at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 2017: 712
 Total Number of Stagnant Flow Measurements Observed in November at Locations Along the Louisiana and Mississippi Coasts from 1979 up to 1998: 225
 Total Number of Stagnant Flow Measurements Observed in November at Locations Along the Louisiana and Mississippi Coasts from 1998 up to 2017: 487
@@ -1309,6 +1314,17 @@ Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and 
 Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in November from 1979 up to 1998: 6.79533679721 m/s
 Standard Deviation of Observed Wind Speed for Locations Along the Louisiana and Mississippi Coasts in November from 1998 up to 2017: 7.01207525672 m/s
 Difference: 0.21673845951
+
+November Confidence Intervals and Medians:
+79-97 CI and Median
+[16.143178539720942, 16.817910354640841]
+16.4925514753
+98-16 CI and Median
+[14.782001119491593, 15.442655329022109]
+15.1280034177
+CI and Median Diff
+[-0.70052321069883305, -2.0359092351492478]
+-1.36454805757
 
 ----------------------------------------------------------------------------------------------------------------------------
 x                                             Alabama-Florida Panhandle Coast                                              x
