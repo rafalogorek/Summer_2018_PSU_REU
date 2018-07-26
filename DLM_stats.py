@@ -1661,7 +1661,7 @@ wind_speeds_98_16 = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
 print(len(wind_speeds_79_97))
-sample_size = len(wind_speeds_79_97)/10
+sample_size = len(wind_speeds_79_97)/5
 n_79_97 = wind_speeds_79_97[np.random.randint(0, len(wind_speeds_79_97), sample_size)]
 n_98_16 = wind_speeds_98_16[np.random.randint(0, len(wind_speeds_98_16), sample_size)]
 n_boots_79_97 = len(wind_speeds_79_97)
@@ -1741,7 +1741,7 @@ wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan'
 wind_speeds_98_16_EHS = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_EHS)/20
+sample_size = len(wind_speeds_79_97_EHS)/5
 n_79_97 = wind_speeds_79_97_EHS[np.random.randint(0, len(wind_speeds_79_97_EHS), sample_size)]
 n_98_16 = wind_speeds_98_16_EHS[np.random.randint(0, len(wind_speeds_98_16_EHS), sample_size)]
 n_boots_79_97 = len(wind_speeds_79_97_EHS)
@@ -1812,7 +1812,7 @@ wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan'
 wind_speeds_98_16_MHS = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_MHS)/20
+sample_size = len(wind_speeds_79_97_MHS)/5
 n_79_97 = wind_speeds_79_97_MHS[np.random.randint(0, len(wind_speeds_79_97_MHS), sample_size)]
 n_98_16 = wind_speeds_98_16_MHS[np.random.randint(0, len(wind_speeds_98_16_MHS), sample_size)]
 n_boots_79_97 = len(wind_speeds_79_97_MHS)
@@ -1883,7 +1883,7 @@ wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan'
 wind_speeds_98_16_MHS_v2 = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_MHS_v2)/20
+sample_size = len(wind_speeds_79_97_MHS_v2)/5
 n_79_97 = wind_speeds_79_97_MHS_v2[np.random.randint(0, len(wind_speeds_79_97_MHS_v2), sample_size)]
 n_98_16 = wind_speeds_98_16_MHS_v2[np.random.randint(0, len(wind_speeds_98_16_MHS_v2), sample_size)]
 n_boots_79_97 = len(wind_speeds_79_97_MHS_v2)
@@ -1954,7 +1954,7 @@ wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan'
 wind_speeds_98_16_LHS = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_LHS)/20
+sample_size = len(wind_speeds_79_97_LHS)/5
 n_79_97 = wind_speeds_79_97_LHS[np.random.randint(0, len(wind_speeds_79_97_LHS), sample_size)]
 n_98_16 = wind_speeds_98_16_LHS[np.random.randint(0, len(wind_speeds_98_16_LHS), sample_size)]
 n_boots_79_97 = len(wind_speeds_79_97_LHS)
@@ -2025,7 +2025,7 @@ wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan'
 wind_speeds_98_16_LHS_v2 = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_LHS_v2)/20
+sample_size = len(wind_speeds_79_97_LHS_v2)/5
 n_79_97 = wind_speeds_79_97_LHS_v2[np.random.randint(0, len(wind_speeds_79_97_LHS_v2), sample_size)]
 n_98_16 = wind_speeds_98_16_LHS_v2[np.random.randint(0, len(wind_speeds_98_16_LHS_v2), sample_size)]
 n_boots_79_97 = len(wind_speeds_79_97_LHS_v2)
@@ -2096,7 +2096,7 @@ wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan'
 wind_speeds_98_16_June = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_June)/20
+sample_size = len(wind_speeds_79_97_June)/5
 n_79_97 = wind_speeds_79_97_June[np.random.randint(0, len(wind_speeds_79_97_June), sample_size)]
 n_98_16 = wind_speeds_98_16_June[np.random.randint(0, len(wind_speeds_98_16_June), sample_size)]
 n_boots_79_97 = len(wind_speeds_79_97_June)
@@ -2167,7 +2167,7 @@ wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan'
 wind_speeds_98_16_July = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_July)/20
+sample_size = len(wind_speeds_79_97_July)/5
 n_79_97 = wind_speeds_79_97_July[np.random.randint(0, len(wind_speeds_79_97_July), sample_size)]
 n_98_16 = wind_speeds_98_16_July[np.random.randint(0, len(wind_speeds_98_16_July), sample_size)]
 n_boots_79_97 = len(wind_speeds_79_97_July)
@@ -2238,7 +2238,7 @@ wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan'
 wind_speeds_98_16_Aug = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_Aug)/20
+sample_size = len(wind_speeds_79_97_Aug)/5
 n_79_97 = wind_speeds_79_97_Aug[np.random.randint(0, len(wind_speeds_79_97_Aug), sample_size)]
 n_98_16 = wind_speeds_98_16_Aug[np.random.randint(0, len(wind_speeds_98_16_Aug), sample_size)]
 n_boots_79_97 = len(wind_speeds_79_97_Aug)
@@ -2309,7 +2309,7 @@ wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan'
 wind_speeds_98_16_Sep = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_Sep)/20
+sample_size = len(wind_speeds_79_97_Sep)/5
 n_79_97 = wind_speeds_79_97_Sep[np.random.randint(0, len(wind_speeds_79_97_Sep), sample_size)]
 n_98_16 = wind_speeds_98_16_Sep[np.random.randint(0, len(wind_speeds_98_16_Sep), sample_size)]
 n_boots_79_97 = len(wind_speeds_79_97_Sep)
@@ -2380,7 +2380,7 @@ wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan'
 wind_speeds_98_16_Oct = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_Oct)/20
+sample_size = len(wind_speeds_79_97_Oct)/5
 n_79_97 = wind_speeds_79_97_Oct[np.random.randint(0, len(wind_speeds_79_97_Oct), sample_size)]
 n_98_16 = wind_speeds_98_16_Oct[np.random.randint(0, len(wind_speeds_98_16_Oct), sample_size)]
 n_boots_79_97 = len(wind_speeds_79_97_Oct)
@@ -2451,7 +2451,7 @@ wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan'
 wind_speeds_98_16_Nov = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_Nov)/20
+sample_size = len(wind_speeds_79_97_Nov)/5
 n_79_97 = wind_speeds_79_97_Nov[np.random.randint(0, len(wind_speeds_79_97_Nov), sample_size)]
 n_98_16 = wind_speeds_98_16_Nov[np.random.randint(0, len(wind_speeds_98_16_Nov), sample_size)]
 n_boots_79_97 = len(wind_speeds_79_97_Nov)
