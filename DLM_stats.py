@@ -19,6 +19,7 @@ import sys
 import numpy as np
 import matplotlib as mpl
 #matplotlib.use('Agg')
+import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 from datetime import datetime
 from mpl_toolkits.basemap import Basemap
@@ -391,6 +392,8 @@ def averageWindsOverTime_v2(wind_speeds, dates_and_times, time_interval):
 # Output: -avg_wind_speeds: An array of floats, where each float is the average wind
 #                           speed between all locations and all hurricane seasons
 #                           at the current time
+#         -new_dates_and_times: An updated version of the dates_and_times array with certain
+#                               times removed based on which wind speeds were removed
 def averageWindsEachTime(wind_speeds, dates_and_times, time_interval):
     avg_wind_speeds = []
     new_dates_and_times = []
@@ -434,7 +437,8 @@ def averageWindsEachTime(wind_speeds, dates_and_times, time_interval):
     i = time_interval / 2
     while i < (len(temp_wind_speeds) - (time_interval / 2) + 1):
         # Update times
-        new_dates_and_times.append(dates_and_times[i])
+        #new_dates_and_times.append(dates_and_times[i])
+        new_dates_and_times.append(datetime.strptime(dates_and_times[i].strftime('%m-%d %H:%M:%S'), '%m-%d %H:%M:%S'))
 
         # Average wind speeds
         avg_wind_speeds.append(np.sum(temp_wind_speeds[(i - (time_interval / 2)):(i + (time_interval / 2))])/time_interval)
@@ -491,7 +495,7 @@ def normalizeWindSpeeds(wind_speed_freq):
 
     # Normalize each wind speed bucket
     for freq in wind_speed_freq:
-        norm_wind_speed_freq.append(float(freq)/float(sum_freq))
+        norm_wind_speed_freq.append(100 * (float(freq)/float(sum_freq)))
 
     return norm_wind_speed_freq
 
@@ -759,14 +763,7 @@ max_wind_speed = 45
 times_to_remove, locs_to_remove = readBestTracks('best_tracks.txt', locs)
 
 # Remove DLM winds contaminated with tropical cyclone winds
-#wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove)
-
-######################################################################################
-##                         All Locations, Whole Time Period                         ##
-######################################################################################
-
-# Analyze all data together, regardless of time or location
-
+wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove)
 
 # Plot deep layer mean weights
 p_levels = [100, 150, 200, 250, 300, 400, 500, 700, 850, 1000]
@@ -775,10 +772,6 @@ weights = [(float(25)/float(900)) * 100, (float(50)/float(900)) * 100, (float(50
            (float(150)/float(900)) * 100, (float(175)/float(900)) * 100, (float(150)/float(900)) * 100,
            (float(75)/float(900)) * 100]
 fig, ax = plt.subplots(1,1)
-#ax.rc('axes', titlesize = 25)
-#ax.rc('axes', labelsize = 20)
-#ax.rc('xtick', labelsize = 15)
-#ax.rc('ytick', labelsize = 15)
 ax.plot(weights, p_levels)
 ax.set_ylim(1000,100)
 ax.set_yscale('log')
@@ -790,7 +783,11 @@ ax.set_title('Neumann (1988) Deep Layer Mean Weighting Scheme')
 fig.savefig('Figures/DLM_weights.png')
 plt.show()
 
+######################################################################################
+##                         All Locations, Whole Time Period                         ##
+######################################################################################
 
+# Analyze all data together, regardless of time or location
 
 # Create an array to store how frequently a wind speed value was recorded (at all
 # locations). The zeroeth index of the array will store the frequency of recorded wind
@@ -817,8 +814,8 @@ avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
 plt.figure(1, figsize = (20,10))
 plt.rc('axes', titlesize = 25)
 plt.rc('axes', labelsize = 20)
-plt.rc('xtick', labelsize = 15)
-plt.rc('ytick', labelsize = 15)
+plt.rc('xtick', labelsize = 18)
+plt.rc('ytick', labelsize = 18)
 plt.plot(dates_and_times_79_16[(current_year_index * 732):(732 * (current_year_index + 1))], avg_wind_speeds_79_16[(current_year_index * 732):(732 * (current_year_index + 1))])
 plt.ylabel('Wind Speed (m/s)')
 plt.xlabel('Time')
@@ -1079,19 +1076,19 @@ avg_wind_speeds_79_97, dates_and_times_1y = averageWindsEachTime(wind_speeds_79_
 avg_wind_speeds_98_16, dates_and_times_1y = averageWindsEachTime(wind_speeds_98_16, dates_and_times_79_97, 12)
 
 # Plot the averaged wind speeds
-plt.figure(1, figsize = (20,10))
-plt.rc('axes', titlesize = 25)
-plt.rc('axes', labelsize = 20)
-plt.rc('xtick', labelsize = 15)
-plt.rc('ytick', labelsize = 15)
-plt.plot(dates_and_times_1y, avg_wind_speeds_79_97)
-plt.plot(dates_and_times_1y, avg_wind_speeds_98_16)
-plt.ylim(ymin = 0)
-plt.ylabel('Wind Speed (m/s)')
-plt.xlabel('Time')
-plt.title('Three Day Average Wind Speeds During Hurricane Seasons from 1979 through 1997\n' +
-          'Compared to Hurricane Seasons from 1998 through 2016 on ' + location_names[region][1])
-plt.savefig('Figures/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_3d_Avg_Comparison.png')
+fig, ax = plt.subplots(1, figsize = (20,10))
+ax.tick_params(labelsize = 18)
+ax.plot(dates_and_times_1y, avg_wind_speeds_79_97, 'b-', label = '1979-1997')
+ax.plot(dates_and_times_1y, avg_wind_speeds_98_16, 'r-', label = '1998-2016')
+ax.set_ylim(ymin = 0)
+ax.set_ylabel('Wind Speed (m/s)', fontsize = 20)
+ax.set_xlabel('Time', fontsize = 20)
+#plt.title('Three Day Average Wind Speeds During Hurricane Seasons from 1979 through 1997\n' +
+#          'Compared to Hurricane Seasons from 1998 through 2016 on ' + location_names[region][1])
+ax.set_title('Average Wind Speeds During North Atlantic Hurricane Seasons', fontsize = 25)
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%B'))
+ax.legend(loc = 2)
+fig.savefig('Figures/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_3d_Avg_Comparison.png')
 plt.show()
 
 # Determine the difference in the two averaged time series arrays
@@ -1105,8 +1102,8 @@ while i < len(avg_wind_speeds_79_97):
 plt.figure(1, figsize = (20,10))
 plt.rc('axes', titlesize = 25)
 plt.rc('axes', labelsize = 20)
-plt.rc('xtick', labelsize = 15)
-plt.rc('ytick', labelsize = 15)
+plt.rc('xtick', labelsize = 18)
+plt.rc('ytick', labelsize = 18)
 plt.plot(dates_and_times_1y, avg_wind_speeds_diff)
 plt.plot(dates_and_times_1y, [0] * len(dates_and_times_1y))
 plt.ylabel('Wind Speed (m/s)')
@@ -1179,9 +1176,10 @@ plt.bar(np.arange(len(norm_wind_speed_freq_diff)), norm_wind_speed_freq_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 plt.ylabel('Frequency Difference (%)')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('Difference Between Normalized Frequency of Wind Speeds Recorded on\n' + location_names[region][1] +
-          ' During Hurricane Seasons from 1979 up to\n1998 and During Hurricane ' +
-          'Seasons from 1998 up to 2017')
+#plt.title('Difference Between Normalized Frequency of Wind Speeds Recorded on\n' + location_names[region][1] +
+#          ' During Hurricane Seasons from 1979 up to\n1998 and During Hurricane ' +
+#          'Seasons from 1998 up to 2017')
+plt.title('Difference Between Normalized Frequencies of Wind Speeds')
 plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
 plt.savefig('Figures/WS_Diff_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
 plt.show()
