@@ -17,7 +17,7 @@ import math
 import random
 import sys
 import numpy as np
-#import matplotlib
+import matplotlib as mpl
 #matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from datetime import datetime
@@ -759,13 +759,38 @@ max_wind_speed = 45
 times_to_remove, locs_to_remove = readBestTracks('best_tracks.txt', locs)
 
 # Remove DLM winds contaminated with tropical cyclone winds
-wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove)
+#wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove)
 
 ######################################################################################
 ##                         All Locations, Whole Time Period                         ##
 ######################################################################################
 
 # Analyze all data together, regardless of time or location
+
+
+# Plot deep layer mean weights
+p_levels = [100, 150, 200, 250, 300, 400, 500, 700, 850, 1000]
+weights = [(float(25)/float(900)) * 100, (float(50)/float(900)) * 100, (float(50)/float(900)) * 100,
+           (float(50)/float(900)) * 100, (float(75)/float(900)) * 100, (float(100)/float(900)) * 100,
+           (float(150)/float(900)) * 100, (float(175)/float(900)) * 100, (float(150)/float(900)) * 100,
+           (float(75)/float(900)) * 100]
+fig, ax = plt.subplots(1,1)
+#ax.rc('axes', titlesize = 25)
+#ax.rc('axes', labelsize = 20)
+#ax.rc('xtick', labelsize = 15)
+#ax.rc('ytick', labelsize = 15)
+ax.plot(weights, p_levels)
+ax.set_ylim(1000,100)
+ax.set_yscale('log')
+ax.set_yticks([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
+ax.get_yaxis().set_major_formatter(mpl.ticker.ScalarFormatter())
+ax.set_ylabel('Pressure Level (mb)')
+ax.set_xlabel('Weight (%)')
+ax.set_title('Neumann (1988) Deep Layer Mean Weighting Scheme')
+fig.savefig('Figures/DLM_weights.png')
+plt.show()
+
+
 
 # Create an array to store how frequently a wind speed value was recorded (at all
 # locations). The zeroeth index of the array will store the frequency of recorded wind
@@ -1631,25 +1656,31 @@ plt.show()
 ######################################################################################
 
 # Create a map showing the points that the data was obtained from
-plt.figure(1, figsize = (10,10))
-m = Basemap(llcrnrlon = -100, llcrnrlat = 20, urcrnrlon = -60, urcrnrlat = 50,
-            projection = 'tmerc', resolution ='i', lon_0 = -80, lat_0 = 35)
+m = Basemap(llcrnrlon = -100, llcrnrlat = 23, urcrnrlon = -75, urcrnrlat = 37,
+            projection = 'cyl', resolution ='i')#, lon_0 = -80, lat_0 = 35)
 m.drawcoastlines()
 m.drawcountries()
 m.drawmapboundary(fill_color='#99ffff')
-# m.fillcontinents(color='#cc9966',lake_color='#99ffff')
-m.drawparallels(np.arange(20,50,10),labels=[1,1,0,0])
-m.drawmeridians(np.arange(-100,-60,10),labels=[0,0,0,1])
+m.fillcontinents(color = "#f2f2f2", lake_color='#99ffff')
+m.drawparallels(np.arange(20,50,10),labels = [1,1,0,0], fontsize = 15)
+m.drawmeridians(np.arange(-100,-60,10),labels = [0,0,0,1], fontsize = 15)
 
 i = 0
 for loc in locs:
-    m.scatter(loc[0], loc[1], 8, marker = 'o', color = 'r', latlon = True)
+    if (loc[0] > -84 and loc[0] <= -79.5 and loc[1] <= 30.75):
+        colorcode = '#006700'
+    elif (loc[0] == -81.75 and loc[1] > 30.75) or (loc[0] == -81 and loc[1] > 30.75) or (loc[0] == -80.25 and loc[1] > 30.75) or \
+         (loc[0] == -79.5 and loc[1] > 30.75) or (loc[0] == -78.75 and loc[1] <= 33.75) or (loc[0] == -78 and loc[1] == 33):
+        colorcode = '#0000ff'
+    else:
+        colorcode = '#ff0000'
 
-plt.title('Wind Speed Measurement Locations')
+    m.scatter(loc[0], loc[1], 8, marker = 'o', color = colorcode, latlon = True, zorder = 10)
+
+plt.title('Locations of Data Points')
 plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
 plt.savefig('Figures/Measurement_Locations/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
 plt.show()
-
 
 # Flatten the wind speed arrays and remove any NaNs
 wind_speeds_79_97_flat = [item for sublist in wind_speeds_79_97 for item in sublist]
@@ -1933,7 +1964,7 @@ print('Standard Deviation of Observed Wind Speed for ' + location_names[region][
       'from 1979 up to 1998: ' + str(np.nanstd(wind_speeds_79_97_MHS_v2)) + ' m/s')
 print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in July and August ' +
       'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_MHS_v2)) + ' m/s')
-print('Difference: ' + str(np.nanstd(wind_speeds_98_16_MHS) - np.nanstd(wind_speeds_79_97_MHS_v2)) + '\n')
+print('Difference: ' + str(np.nanstd(wind_speeds_98_16_MHS_v2) - np.nanstd(wind_speeds_79_97_MHS_v2)) + '\n')
 print('July/August Confidence Intervals and Medians:')
 print('79-97 CI and Median')
 print(ci95med_79_97)
