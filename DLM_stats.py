@@ -771,15 +771,17 @@ weights = [(float(25)/float(900)) * 100, (float(50)/float(900)) * 100, (float(50
            (float(50)/float(900)) * 100, (float(75)/float(900)) * 100, (float(100)/float(900)) * 100,
            (float(150)/float(900)) * 100, (float(175)/float(900)) * 100, (float(150)/float(900)) * 100,
            (float(75)/float(900)) * 100]
-fig, ax = plt.subplots(1,1)
-ax.plot(weights, p_levels)
-ax.set_ylim(1000,100)
+fig, ax = plt.subplots(1, 1)
+ax.plot(weights, p_levels, linewidth = 2)
+ax.tick_params(labelsize = 12)
+ax.set_xlim(0, 20)
+ax.set_ylim(1000, 100)
 ax.set_yscale('log')
 ax.set_yticks([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
 ax.get_yaxis().set_major_formatter(mpl.ticker.ScalarFormatter())
-ax.set_ylabel('Pressure Level (mb)')
-ax.set_xlabel('Weight (%)')
-ax.set_title('Neumann (1988) Deep Layer Mean Weighting Scheme')
+ax.set_ylabel('Pressure Level (mb)', fontsize = 15)
+ax.set_xlabel('Weight (%)', fontsize = 15)
+ax.set_title('Neumann (1988) Deep Layer Mean Weighting Scheme', fontsize = 17)
 fig.savefig('Figures/DLM_weights.png')
 plt.show()
 
@@ -1078,8 +1080,8 @@ avg_wind_speeds_98_16, dates_and_times_1y = averageWindsEachTime(wind_speeds_98_
 # Plot the averaged wind speeds
 fig, ax = plt.subplots(1, figsize = (20,10))
 ax.tick_params(labelsize = 22)
-ax.plot(dates_and_times_1y, avg_wind_speeds_79_97, 'b-', label = '1979-1997')
-ax.plot(dates_and_times_1y, avg_wind_speeds_98_16, 'r-', label = '1998-2016')
+ax.plot(dates_and_times_1y, avg_wind_speeds_79_97, 'b-', linewidth = 2, label = '1979-1997')
+ax.plot(dates_and_times_1y, avg_wind_speeds_98_16, 'r-', linewidth = 2, label = '1998-2016')
 ax.set_ylim(ymin = 0)
 ax.set_ylabel('Wind Speed (m/s)', fontsize = 25)
 ax.set_xlabel('Time', fontsize = 25)
