@@ -1688,7 +1688,7 @@ plt.ylabel('Frequency Difference (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('November')
 
-plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.3, hspace = 1)
+plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.25, hspace = 0.3)
 
 plt.savefig('Figures/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Diff_2x2_Histogram.png')
 plt.show()
