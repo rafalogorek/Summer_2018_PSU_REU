@@ -9,7 +9,35 @@
 #              coastline of the southeastern U.S. from 1979 to 2017. Several         #
 #              graphics are also generated to help visualize this data better.       #
 #                                                                                    #
-# Last updated: 7/19/2018                                                            #
+#              The program can be run by typing the following command:               #
+#                                                                                    #
+#              python DLM_stats.py <data_file> <location>                            #
+#                                                                                    #
+#              <data_file> is the name of the file with the deep layer mean data.    #
+#              For our use, this file is currently timeseries_June2018.npz.          #
+#                                                                                    #
+#              <location> is an string abbreviation for the specific region to       #
+#              look at. Below are all possible locations that can be looked at,      #
+#              along with the string that needs to be put in as an argument for      #
+#              the program to run for that location:                                 #
+#                                                                                    #
+#              'AL': All condsidered locations                                       #
+#              'NTX': North Texas coast                                              #
+#              'STX': South Texas coast                                              #
+#              'TX': Texas coast (NTX + STX)                                         #
+#              'LA-MS': Louisiana/Mississippi coast                                  #
+#              'AL-FL': Alabama/Florida panhandle coast                              #
+#              'WFL': West Florida coast                                             #
+#              'EFL': East Florida coast                                             #
+#              'NFL': North Florida coast                                            #
+#              'SFL': South Florida coast                                            #
+#              'FL': Florida coast (WFL + EFL or NFL + SFL)                          #
+#              'GA-SC': Georgia/South Carolina coast                                 #
+#              'NC': North Carolina coast (currently unavailable to use)             #
+#              'AC': Atlantic coast (EFL + GA-SC)                                    #
+#              'GOM': Gulf of Mexico coast (TX + LA-MS + AL-FL)                      #
+#                                                                                    #
+# Last updated: 8/3/2018                                                             #
 #                                                                                    #
 ######################################################################################
 
@@ -69,7 +97,7 @@ def convertToDatetime(measurement_times):
 def getFrequencies(wind_speeds, wind_speed_freq):
     for loc in wind_speeds:
         for wind_speed in loc:
-            # Make the wind speed a positive value (if necessary)  and round it down to
+            # Make the wind speed a positive value (if necessary) and round it down to
             # the nearest integer. Then, increment the frequency of the wind speed range
             # that this value falls in.
             if not np.isnan(wind_speed):
@@ -755,6 +783,7 @@ wind_speeds = map(abs, temp_wind_speeds)
 
 # Determine the maximum wind speed recorded
 max_wind_speed = int(math.ceil(np.amax(wind_speeds)))
+
 # Or set a predefined max to disregard larger wind speed recordings
 # Comment this line out if you don't want any maximum limit on what values to plot
 max_wind_speed = 45
@@ -836,8 +865,6 @@ plt.figure(1, figsize = (20,10))
 #plt.bar(np.arange(len(wind_speed_freq_all)), wind_speed_freq_all)
 plt.bar(np.arange(len(norm_wind_speed_freq_all)), norm_wind_speed_freq_all)
 plt.xlim(xmax = max_wind_speed + 1)
-#if region == 'AL':
-#    plt.ylim(ymax = 500000)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
@@ -903,8 +930,6 @@ norm_wind_speed_freq_all_Nov = normalizeWindSpeeds(wind_speed_freq_all_Nov)
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_MHS)), norm_wind_speed_freq_all_EHS)
 plt.xlim(xmax = max_wind_speed + 1)
-#if region == 'AL':
-#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
@@ -916,8 +941,6 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_June)), norm_wind_speed_freq_all_June)
 plt.xlim(xmax = max_wind_speed + 1)
-#if region == 'AL':
-#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
@@ -929,8 +952,6 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_July)), norm_wind_speed_freq_all_July)
 plt.xlim(xmax = max_wind_speed + 1)
-#if region == 'AL':
-#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
@@ -942,8 +963,6 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_MHS)), norm_wind_speed_freq_all_MHS)
 plt.xlim(xmax = max_wind_speed + 1)
-#if region == 'AL':
-#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
@@ -955,8 +974,6 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_MHS_v2)), norm_wind_speed_freq_all_MHS_v2)
 plt.xlim(xmax = max_wind_speed + 1)
-#if region == 'AL':
-#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
@@ -968,8 +985,6 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_Aug)), norm_wind_speed_freq_all_Aug)
 plt.xlim(xmax = max_wind_speed + 1)
-#if region == 'AL':
-#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
@@ -981,8 +996,6 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_Sep)), norm_wind_speed_freq_all_Sep)
 plt.xlim(xmax = max_wind_speed + 1)
-#if region == 'AL':
-#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
@@ -994,8 +1007,6 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_LHS)), norm_wind_speed_freq_all_LHS)
 plt.xlim(xmax = max_wind_speed + 1)
-#if region == 'AL':
-#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
@@ -1007,8 +1018,6 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_LHS_v2)), norm_wind_speed_freq_all_LHS_v2)
 plt.xlim(xmax = max_wind_speed + 1)
-#if region == 'AL':
-#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
@@ -1020,8 +1029,6 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_Oct)), norm_wind_speed_freq_all_Oct)
 plt.xlim(xmax = max_wind_speed + 1)
-#if region == 'AL':
-#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
@@ -1033,8 +1040,6 @@ plt.show()
 plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_Nov)), norm_wind_speed_freq_all_Nov)
 plt.xlim(xmax = max_wind_speed + 1)
-#if region == 'AL':
-#    plt.ylim(ymax = 220000)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
