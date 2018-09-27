@@ -53,12 +53,13 @@ from datetime import datetime
 from mpl_toolkits.basemap import Basemap
 
 # Description: Converts floats to Datetime objects
-# Input: -measurement_times: An array of floats (which should represent a time and date)
+# Input: -wind_speed_times: An array of floats (which should represent a time and date
+#                           for each wind speed)
 # Output: -dates_and_times: An array of Datetime objects that have been converted from
-#                           the floats in the measurement_times array
-def convertToDatetime(measurement_times):
+#                           the floats in the wind_speed_times array
+def convertToDatetime(wind_speed_times):
     dates_and_times = []
-    for mt in measurement_times:
+    for mt in wind_speed_times:
         # Convert the current serial time to a number of seconds
         serial_time = mt
         seconds = (serial_time - 25569) * 86400.0
@@ -84,7 +85,7 @@ def convertToDatetime(measurement_times):
 #              frequency array
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
-#                      is a wind speed measurement in m/s
+#                      is a wind speed in m/s
 #        -wind_speed_freq: An array that will store the frequency of a range of wind
 #                          speeds that correspond to its indices (i.e. index 0 will
 #                          store the frequency of wind speeds between 0 m/s and 1 m/s;
@@ -105,22 +106,21 @@ def getFrequencies(wind_speeds, wind_speed_freq):
                 if current_ws < len(wind_speed_freq):
                     wind_speed_freq[current_ws] = wind_speed_freq[current_ws] + 1
                 else:
-                    # Optionally, disregard high wind speed measurements
+                    # Optionally, disregard high wind speeds
                     current_ws = current_ws
 
 
-# Description: Obtains the wind speeds recorded at all locations within a specified
-#              time interval
+# Description: Obtains the wind speeds at all locations within a specified time interval
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
-#                      is a wind speed measurement in m/s
+#                      is a wind speed in m/s
 #        -left_bound: The index that represents the beginning of the desired time interval
 #                     (included in the time interval that is returned)
 #        -right_bound: The index that represents the end of the desired time interval (not
 #                      included in the time interval that is returned)
 # Output: -wind_speed_interval: An array that stores an array of floats. It includes
 #                               all locations, but only includes the wind speeds that
-#                               were measured in the specified time period
+#                               were from the specified time period
 def getWindSpeedInterval(wind_speeds, left_bound, right_bound):
     # Intialize wind_speed_interval to have same size as wind_speeds
     wind_speed_interval = [None] * len(wind_speeds)
@@ -134,7 +134,7 @@ def getWindSpeedInterval(wind_speeds, left_bound, right_bound):
     return wind_speed_interval
 
 
-# Description: Determines how many of the wind speed measurements in the wind speed
+# Description: Determines how many of the wind speeds in the wind speed
 #              frequency array can be classified as stagnant flow
 # Input: -wind_speed_freq: An array that will store the frequency of a range of wind
 #                          speeds that correspond to its indices (i.e. index 0 will
@@ -143,14 +143,14 @@ def getWindSpeedInterval(wind_speeds, left_bound, right_bound):
 #                          1 m/s and 2 m/s; etc...).
 #        -stagnant_flow: An integer signifying the upper threshold for what wind speed
 #                        is considered to be stagnant flow
-# Output: -num_stag_flow: The number of measurements in the wind_speed_freq array that
+# Output: -num_stag_flow: The number of wind speeds in the wind_speed_freq array that
 #                         are classified as stagnant flow
 def calcNumStagFlow(wind_speed_freq, stagnant_flow):
     i = 0
     num_stag_flow = 0
 
     # Add the value for the current index in wind_speed_freq to the number of stagnant
-    # flow measurements until the index that represents the upper threshold for stagnant
+    # flow data until the index that represents the upper threshold for stagnant
     # flow is reached
     while i < stagnant_flow:
         num_stag_flow = num_stag_flow + wind_speed_freq[i]
@@ -160,37 +160,32 @@ def calcNumStagFlow(wind_speed_freq, stagnant_flow):
 
 
 # Description: Splits the wind speed data into five different arrays, based on the
-#              time of the hurricane season that the measurement was taken at
+#              time of the hurricane season that the wind speed was from
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
-#                      is a wind speed measurement in m/s
+#                      is a wind speed in m/s
 # Output: -wind_speeds_EHS: An array that stores an array of floats. Each array within
 #                           this array represents a different location, while each float
-#                           is a wind speed measurement in m/s. All wind speeds in this
-#                           array were measured in the early part of the Atlantic hurricane
+#                           is a wind speed in m/s. All wind speeds in this
+#                           array were from the early part of the Atlantic hurricane
 #                           season (late May, June, or July)
 #         -wind_speeds_MHS: Like wind_speeds_EHS, except all wind speeds in this array
-#                           were measured in the middle part of the Atlantic hurricane
+#                           were from the middle part of the Atlantic hurricane
 #                           season (August or September)
 #         -wind_speeds_MHS_v2: Like wind_speeds_MHS, except all wind speeds in this array
-#                              were measured in July or August
+#                              were from July or August
 #         -wind_speeds_LHS: Like wind_speeds_EHS and wind_speeds_MHS, except all wind
-#                           speeds in this array were measured in the late part of the
+#                           speeds in this array were from the late part of the
 #                           Atlantic hurricane season (October or November)
 #         -wind_speeds_LHS_v2: Like wind_speeds_LHS, except all wind speeds in this array
-#                              were measured in September or October
-#         -wind_speeds_June: Same as the above arrays, except all wind speed measurements
-#                            were taken in June (plus the last 2 days of May)
-#         -wind_speeds_July: Same as the above arrays, except all wind speed measurements
-#                            were taken in July
-#         -wind_speeds_Aug: Same as the above arrays, except all wind speed measurements
-#                           were taken in August
-#         -wind_speeds_Sep: Same as the above arrays, except all wind speed measurements
-#                           were taken in September
-#         -wind_speeds_Oct: Same as the above arrays, except all wind speed measurements
-#                           were taken in October
-#         -wind_speeds_Nov: Same as the above arrays, except all wind speed measurements
-#                           were taken in November
+#                              were from September or October
+#         -wind_speeds_June: Same as the above arrays, except all wind speeds are from June
+#                            (plus the last 2 days of May)
+#         -wind_speeds_July: Same as the above arrays, except all wind speeds are from July
+#         -wind_speeds_Aug: Same as the above arrays, except all wind speeds are from August
+#         -wind_speeds_Sep: Same as the above arrays, except all wind speeds are from September
+#         -wind_speeds_Oct: Same as the above arrays, except all wind speeds are from October
+#         -wind_speeds_Nov: Same as the above arrays, except all wind speeds are from November
 def divideBySeason(wind_speeds):
     wind_speeds_EHS = [[None]] * len(wind_speeds)
     wind_speeds_MHS = [[None]] * len(wind_speeds)
@@ -208,9 +203,9 @@ def divideBySeason(wind_speeds):
     # Go through each location
     while i < len(wind_speeds):
         j = 0
-        # Go through each wind speed measurement
+        # Go through all wind speed data
         while j < len(wind_speeds[i]):
-            # If data was obtained prior to August, add it to the early hurricane season
+            # If data was in some month prior to August, add it to the early hurricane season
             # wind speed array
             if (j % 732) < 252:
                 if wind_speeds_EHS[i] == [None]:
@@ -218,7 +213,7 @@ def divideBySeason(wind_speeds):
                 else:
                     wind_speeds_EHS[i].append(wind_speeds[i][j])
 
-                # Also add the measurement to the June or July array
+                # Also add the data to the June or July array
                 # Late May/June case
                 if (j % 732) < 128:
                     if wind_speeds_June[i] == [None]:
@@ -237,7 +232,7 @@ def divideBySeason(wind_speeds):
                     else:
                         wind_speeds_MHS_v2[i].append(wind_speeds[i][j])
 
-            # If data was obtained in October or later, add it to the late hurricane season
+            # If data was in October or later, add it to the late hurricane season
             # wind speed array
             elif (j % 732) >= 496:
                 if wind_speeds_LHS[i] == [None]:
@@ -245,7 +240,7 @@ def divideBySeason(wind_speeds):
                 else:
                     wind_speeds_LHS[i].append(wind_speeds[i][j])
 
-                # Also add the measurement to the October or November array
+                # Also add the data to the October or November array
                 # October case
                 if (j % 732) < 620:
                     if wind_speeds_Oct[i] == [None]:
@@ -265,7 +260,7 @@ def divideBySeason(wind_speeds):
                     else:
                         wind_speeds_Nov[i].append(wind_speeds[i][j])
 
-            # Otherwise, the wind speed measurement was take in August or September, so
+            # Otherwise, the wind speed was in August or September, so
             # add it to the mid hurricane season wind speed array
             else:
                 if wind_speeds_MHS[i] == [None]:
@@ -273,7 +268,7 @@ def divideBySeason(wind_speeds):
                 else:
                     wind_speeds_MHS[i].append(wind_speeds[i][j])
 
-                # Also add the measurement to the August or September array
+                # Also add the data to the August or September array
                 # August case
                 if (j % 732) < 376:
                     if wind_speeds_Aug[i] == [None]:
@@ -308,13 +303,13 @@ def divideBySeason(wind_speeds):
 # Description: Averages wind speeds over a specified time interval.
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
-#                      is a wind speed measurement in m/s
+#                      is a wind speed in m/s
 #        -dates_and_times: An array that stores Datetime objects. Each index in the array
-#                          corresponds to the time that a measurement was taken at
+#                          corresponds to the time that data was obtained for
 #        -time_interval: An integer representing the period of time the winds should be
 #                        averaged over. A time interval of 1 would correspond to averaging
 #                        over every 6 hours (this would just be the time period between
-#                        measurements), a time interval of 2 would correspond to averaging
+#                        data), a time interval of 2 would correspond to averaging
 #                        over every 12 hours, etc. The time interval needs to be able to
 #                        divide the length of the wind speed array in order for this
 #                        function to work properly
@@ -324,7 +319,7 @@ def divideBySeason(wind_speeds):
 #                           on the specified time interval
 #         -new_dates_and_times: An array that stores Datetime objects. Each index in the
 #                               array now represents the beginning time of when the
-#                               averaged wind speeds were measured
+#                               averaged wind speeds occurred
 def averageWindsOverTime_v1(wind_speeds, dates_and_times, time_interval):
     # Set the size of the average wind speed array
     avg_wind_speeds = [[None]] * len(wind_speeds)
@@ -355,13 +350,13 @@ def averageWindsOverTime_v1(wind_speeds, dates_and_times, time_interval):
 #              filter.
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
-#                      is a wind speed measurement in m/s
+#                      is a wind speed in m/s
 #        -dates_and_times: An array that stores Datetime objects. Each index in the array
-#                          corresponds to the time that a measurement was taken at
+#                          corresponds to the time that data was obtained for
 #        -time_interval: An integer representing the period of time the winds should be
 #                        averaged over. A time interval of 1 would correspond to averaging
 #                        over every 6 hours (this would just be the time period between
-#                        measurements), a time interval of 2 would correspond to averaging
+#                        data), a time interval of 2 would correspond to averaging
 #                        over every 12 hours, etc. The time interval needs to be able to
 #                        divide the length of the wind speed array in order for this
 #                        function to work properly
@@ -371,7 +366,7 @@ def averageWindsOverTime_v1(wind_speeds, dates_and_times, time_interval):
 #                           on the specified time interval
 #         -new_dates_and_times: An array that stores Datetime objects. Each index in the
 #                               array now represents the beginning time of when the
-#                               averaged wind speeds were measured
+#                               averaged wind speeds were from
 def averageWindsOverTime_v2(wind_speeds, dates_and_times, time_interval):
     # Define arrays
     avg_wind_speeds = [[None]] * len(wind_speeds)
@@ -407,13 +402,13 @@ def averageWindsOverTime_v2(wind_speeds, dates_and_times, time_interval):
 #              all given hurricane seasons and all locations.
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
-#                      is a wind speed measurement in m/s
+#                      is a wind speed in m/s
 #        -dates_and_times: An array that stores Datetime objects. Each index in the array
-#                          corresponds to the time that a measurement was taken at
+#                          corresponds to the time for that data
 #        -time_interval: An integer representing the period of time the winds should be
 #                        averaged over. A time interval of 1 would correspond to averaging
 #                        over every 6 hours (this would just be the time period between
-#                        measurements), a time interval of 2 would correspond to averaging
+#                        data), a time interval of 2 would correspond to averaging
 #                        over every 12 hours, etc. The time interval needs to be able to
 #                        divide the length of the wind speed array in order for this
 #                        function to work properly
@@ -427,7 +422,7 @@ def averageWindsEachTime(wind_speeds, dates_and_times, time_interval):
     new_dates_and_times = []
 
     i = 0
-    # Go through each time where measurements were taken during hurricane seasons
+    # Go through each time that data was obtained for during hurricane seasons
     while i < 732:
         j = i
         sum_wind_speeds = 0
@@ -453,7 +448,7 @@ def averageWindsEachTime(wind_speeds, dates_and_times, time_interval):
         if count != 0:
             avg_wind_speeds.append(sum_wind_speeds/count)
         else:
-            # If all measurements were removed, set the average to NaN
+            # If all wind speeds were removed, set the average to NaN
             avg_wind_speeds.append(float('nan'))
 
         i = i + 1
@@ -479,7 +474,7 @@ def averageWindsEachTime(wind_speeds, dates_and_times, time_interval):
 # Description: Averages wind speeds between all locations for the whole time period
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
-#                      is a wind speed measurement in m/s
+#                      is a wind speed in m/s
 # Output: -avg_wind_speeds: An array of floats, where each float is the average wind
 #                           speed between all locations for the corresponding time
 def averageWindsAmongAllPoints(wind_speeds):
@@ -503,7 +498,7 @@ def averageWindsAmongAllPoints(wind_speeds):
         if count != 0:
             avg_wind_speeds.append(sum_wind_speeds/count)
         else:
-            # If all measurements were removed, set the average to NaN
+            # If all wind speeds were removed, set the average to NaN
             avg_wind_speeds.append(float('nan'))
 
         i = i + 1
@@ -532,11 +527,11 @@ def normalizeWindSpeeds(wind_speed_freq):
 #              near-landfalls
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
-#                      is a wind speed measurement in m/s
+#                      is a wind speed in m/s
 #        -dates_and_times: An array that stores Datetime objects. Each index in the array
 #                          corresponds to the time that a measurement was taken at
 #        -locs: An array storing the coordinates of the locations where wind speed
-#               measurements were taken
+#               data was obtained for
 #        -times_to_remove: An array of Datetime objects that indicates the times when
 #                          a tropical cyclone may be affecting the DLM wind speeds
 #        -locs_to_remove: An array containing the locations that were impacted by
@@ -548,12 +543,12 @@ def normalizeWindSpeeds(wind_speed_freq):
 def removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove):
     new_wind_speeds = wind_speeds
 
-    # Loop through times and look for times that have measurements that need to be removed
+    # Loop through times and look for times that have data that need to be removed
     i = 0
     while i < len(times_to_remove):
         j = 0
 
-        # Remove measurements for all locations that need to have them removed at the
+        # Remove data for all locations that need to have them removed at the
         # current time
         while j < len(locs_to_remove[i]):
             # Determine the proper location index
@@ -564,7 +559,7 @@ def removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_r
 
                 k = k + 1
 
-            # Remove the measurement by setting it to NaN
+            # Remove the data by setting it to NaN
             new_wind_speeds[k][dates_and_times.index(times_to_remove[i])] = float('nan')
             j = j + 1
 
@@ -578,7 +573,7 @@ def removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_r
 # Input: -filename: A string containing the name of the text file that contains the
 #                   hurricane best track data
 #        -locs: An array storing the coordinates of the locations where wind speed
-#               measurements were taken
+#               data was obtained for
 # Output: -times_to_remove: An array of Datetime objects that indicates the times when
 #                           a tropical cyclone may be affecting the DLM wind speeds
 #         -locs_to_remove: An array containing arrays of locations that were impacted
@@ -641,6 +636,67 @@ def readBestTracks(filename, locs):
     return times_to_remove, locs_to_remove
 
 
+# Description: Reads in HURDAT2 best track data and quantifies tropical cyclone speeds
+#              in a few different ways
+# Input: -filename: A string containing the name of the text file that contains the
+#                   hurricane best track data
+#        -locs: An array storing the coordinates of the locations where wind speed
+#               data was obtained for
+# Output: ???
+def bestTrackSpeeds(filename, locs):
+    # Define the Earth's radius in kilometers
+    earth_radius = 6371
+
+    # Read file
+    f = open(filename, 'r')
+    lines = f.readlines()
+    f.close()
+
+    # Parse data line by line
+    for line in lines: # TODO: Change this to indexing
+        # Data had to have been taken between May 30 and November 28
+        if (((int(line[4:6]) > 5) and (int(line[4:6]) < 11)) or (((int(line[4:6]) == 5) and \
+           (int(line[6:8]) >= 30))) or (((int(line[4:6]) == 11) and (int(line[6:8]) <= 28)))):
+
+           # Only take times at 0000, 0600, 1200, and 1800
+           if (line[10:14] == '0000') or (line[10:14] == '0600') or (line[10:14] == '1200') or (line[10:14] == '1800'):
+
+               # Only consider tropical storms and hurricanes
+               if (line[19:21] == 'TS') or (line[19:21] == 'HU'):
+
+                   # Remove any tropical cyclones that were too far away from the region
+                   # of interest
+                   if (float(line[23:27]) < 38) and (float(line[23:27]) > 20) and (float(line[30:35]) < 105) and (float(line[30:35]) > 72):
+                       # TODO: Check if eye is within 1 degree of a point
+                       # TODO: Adjust code to make this calculation work
+                       # TODO: Change variable names
+
+                       # Determine the distance between consecutive eye locations in degrees
+                       dLat = lat2 - lat1
+                       dLon = lon2 - lon1
+
+                       # Convert degrees to radians
+                       dLat = dLat * math.pi/180
+                       dLon = dLon * math.pi/180
+
+                       # Use the Haversine formula to convert degrees to km
+                       a = (math.sin(dLat/2) * math.sin(dLat/2)) + (math.cos(lat1 * math.pi/180) * math.cos(lat2 * math.pi/180) * \
+                           math.sin(dLon/2) * math.sin(dLon/2))
+                       c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+                       dist = earth_radius * c
+
+                       # Calculate the speed of the tropical cyclone in the current 6 hour
+                       # interval (if applicable)
+                       speed = dist/6
+
+                       # Convert from km/hr to m/s
+                       speed = speed * 1000/3600
+
+                       # TODO: Test between known points
+                       # TODO: Do stuff with the data
+    return 1
+
+
 ######################################################################################
 ##                                   Begin Program                                  ##
 ######################################################################################
@@ -679,11 +735,11 @@ data = np.load(sys.argv[1])
 
 # Obtain the locations, times/dates, and the wind speed measurements from the data
 locs = data['loc']
-measurement_times = data['mydate']
+wind_speed_times = data['mydate']
 wind_speeds = data['ts']
 
 # Convert floats in the measurement_times array to datetime objects
-dates_and_times = convertToDatetime(measurement_times)
+dates_and_times = convertToDatetime(wind_speed_times)
 
 # Get rid of data points that are not along the U.S. coast or north of Cape Hatteras
 temp_locs = []
@@ -795,24 +851,24 @@ times_to_remove, locs_to_remove = readBestTracks('best_tracks.txt', locs)
 wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove)
 
 # Plot deep layer mean weights
-p_levels = [100, 150, 200, 250, 300, 400, 500, 700, 850, 1000]
-weights = [(float(25)/float(900)) * 100, (float(50)/float(900)) * 100, (float(50)/float(900)) * 100,
-           (float(50)/float(900)) * 100, (float(75)/float(900)) * 100, (float(100)/float(900)) * 100,
-           (float(150)/float(900)) * 100, (float(175)/float(900)) * 100, (float(150)/float(900)) * 100,
-           (float(75)/float(900)) * 100]
-fig, ax = plt.subplots(1, 1)
-ax.plot(weights, p_levels, linewidth = 2)
-ax.tick_params(labelsize = 12)
-ax.set_xlim(0, 20)
-ax.set_ylim(1000, 100)
-ax.set_yscale('log')
-ax.set_yticks([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
-ax.get_yaxis().set_major_formatter(mpl.ticker.ScalarFormatter())
-ax.set_ylabel('Pressure Level (mb)', fontsize = 15)
-ax.set_xlabel('Weight (%)', fontsize = 15)
-ax.set_title('Neumann (1988) Deep Layer Mean Weighting Scheme', fontsize = 17)
-fig.savefig('Figures/DLM_weights.png')
-plt.show()
+#p_levels = [100, 150, 200, 250, 300, 400, 500, 700, 850, 1000]
+#weights = [(float(25)/float(900)) * 100, (float(50)/float(900)) * 100, (float(50)/float(900)) * 100,
+#           (float(50)/float(900)) * 100, (float(75)/float(900)) * 100, (float(100)/float(900)) * 100,
+#           (float(150)/float(900)) * 100, (float(175)/float(900)) * 100, (float(150)/float(900)) * 100,
+#           (float(75)/float(900)) * 100]
+#fig, ax = plt.subplots(1, 1)
+#ax.plot(weights, p_levels, linewidth = 2)
+#ax.tick_params(labelsize = 12)
+#ax.set_xlim(0, 20)
+#ax.set_ylim(1000, 100)
+#ax.set_yscale('log')
+#ax.set_yticks([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
+#ax.get_yaxis().set_major_formatter(mpl.ticker.ScalarFormatter())
+#ax.set_ylabel('Pressure Level (mb)', fontsize = 15)
+#ax.set_xlabel('Weight (%)', fontsize = 15)
+#ax.set_title('Neumann (1988) Deep Layer Mean Weighting Scheme', fontsize = 17)
+#fig.savefig('Figures/DLM_weights.png')
+#plt.show()
 
 ######################################################################################
 ##                         All Locations, Whole Time Period                         ##
@@ -820,8 +876,8 @@ plt.show()
 
 # Analyze all data together, regardless of time or location
 
-# Create an array to store how frequently a wind speed value was recorded (at all
-# locations). The zeroeth index of the array will store the frequency of recorded wind
+# Create an array to store the frequency of different wind speed values (at all
+# locations). The zeroeth index of the array will store the frequency of wind
 # speeds between 0 m/s and 1 m/s; the first index of the array will store the frequency
 # of wind speeds between 1 m/s and 2 m/s; etc...
 wind_speed_freq_all = [0] * max_wind_speed
@@ -873,8 +929,8 @@ plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speed
 plt.savefig('Figures/WS_79-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
 plt.show()
 
-# Create arrays to store how frequently a wind speed value was recorded (at all
-# locations). The zeroeth index of the array will store the frequency of recorded wind
+# Create arrays to store the frequency of different wind speed values (at all
+# locations). The zeroeth index of the array will store the frequency of wind
 # speeds between 0 m/s and 1 m/s; the first index of the array will store the frequency
 # of wind speeds between 1 m/s and 2 m/s; etc...
 wind_speed_freq_all_EHS = [0] * max_wind_speed
@@ -889,7 +945,7 @@ wind_speed_freq_all_Sep = [0] * max_wind_speed
 wind_speed_freq_all_Oct = [0] * max_wind_speed
 wind_speed_freq_all_Nov = [0] * max_wind_speed
 
-# Divide the wind speed data up by which part of the hurricane season they were taken in
+# Divide the wind speed data up by which part of the hurricane season they were from
 # (early hurricane season (June, July), mid  hurricane season (August, September), and
 # late hurricane season (October, November)). Also get data for each month
 # individually
@@ -1055,8 +1111,8 @@ plt.show()
 # Split the data into two time periods: One from 1979 up to 1998, and the other from 1998
 # up to 2017
 
-# Create arrays to store how frequently a wind speed value was recorded (at all locations
-# for each time period. The zeroeth index of the array will store the frequency of recorded
+# Create arrays to store the frequency of different wind speed values (at all locations
+# for each time period. The zeroeth index of the array will store the frequency of
 # wind speeds between 0 m/s and 1 m/s; the first index of the array will store the frequency
 # of wind speeds between 1 m/s and 2 m/s; etc...
 wind_speed_freq_79_97 = [0] * max_wind_speed
@@ -1192,8 +1248,8 @@ plt.savefig('Figures/WS_Diff_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_
 plt.show()
 
 
-# Create arrays to store how frequently a wind speed value was recorded (at all
-# locations). The zeroeth index of the array will store the frequency of recorded wind
+# Create arrays to store the frequency of different wind speed values (at all
+# locations). The zeroeth index of the array will store the frequency of wind
 # speeds between 0 m/s and 1 m/s; the first index of the array will store the frequency
 # of wind speeds between 1 m/s and 2 m/s; etc...
 wind_speed_freq_79_97_EHS = [0] * max_wind_speed
@@ -1219,7 +1275,7 @@ wind_speed_freq_98_16_Sep = [0] * max_wind_speed
 wind_speed_freq_98_16_Oct = [0] * max_wind_speed
 wind_speed_freq_98_16_Nov = [0] * max_wind_speed
 
-# Divide the wind speed data up by which part of the hurricane season they were taken in
+# Divide the wind speed data up by which part of the hurricane season they were from
 # (early hurricane season (June, July), mid hurricane season (August, September), and
 # late hurricane season (October, November)). Also get data for each month individually
 wind_speeds_79_97_EHS, wind_speeds_79_97_MHS, wind_speeds_79_97_MHS_v2, wind_speeds_79_97_LHS, wind_speeds_79_97_LHS_v2, wind_speeds_79_97_June, \
