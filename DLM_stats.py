@@ -594,7 +594,7 @@ def readBestTracks(filename, locs):
         if (((int(line[4:6]) > 5) and (int(line[4:6]) < 11)) or (((int(line[4:6]) == 5) and \
            (int(line[6:8]) >= 30))) or (((int(line[4:6]) == 11) and (int(line[6:8]) <= 28)))):
 
-           # Only take times at 0000, 0600, 1200, and 1800
+           # Only take times at 0000Z, 0600Z, 1200Z, and 1800Z
            if (line[10:14] == '0000') or (line[10:14] == '0600') or (line[10:14] == '1200') or (line[10:14] == '1800'):
 
                # Only consider tropical storms and hurricanes
@@ -652,48 +652,87 @@ def bestTrackSpeeds(filename, locs):
     lines = f.readlines()
     f.close()
 
+    # Remove any cyclone information that is not at 0000Z, 0600Z, 1200Z, or 1800Z
+    new_lines = []
+    for line in lines:
+        if (line[10:14] == '0000') or (line[10:14] == '0600') or (line[10:14] == '1200') or (line[10:14] == '1800'):
+            new_lines.append(line)
+
+    lines = new_lines
+
     # Parse data line by line
-    for line in lines: # TODO: Change this to indexing
-        # Data had to have been taken between May 30 and November 28
-        if (((int(line[4:6]) > 5) and (int(line[4:6]) < 11)) or (((int(line[4:6]) == 5) and \
-           (int(line[6:8]) >= 30))) or (((int(line[4:6]) == 11) and (int(line[6:8]) <= 28)))):
+    i = 0
+    while i < len(lines):
+        # Data had to have been taken between May 30 and November 28. Also exclude data from 2017
+        if (lines[i][0:4] != '2017') and (((int(lines[i][4:6]) > 5) and (int(lines[i][4:6]) < 11)) or (((int(lines[i][4:6]) == 5) and \
+           (int(lines[i][6:8]) >= 30))) or (((int(lines[i][4:6]) == 11) and (int(lines[i][6:8]) <= 28)))):
 
-           # Only take times at 0000, 0600, 1200, and 1800
-           if (line[10:14] == '0000') or (line[10:14] == '0600') or (line[10:14] == '1200') or (line[10:14] == '1800'):
+           # Only consider tropical storms and hurricanes
+           if (lines[i][19:21] == 'TS') or (lines[i][19:21] == 'HU'):
 
-               # Only consider tropical storms and hurricanes
-               if (line[19:21] == 'TS') or (line[19:21] == 'HU'):
+               # Ignore any tropical cyclones that were too far away from the region of interest
+               if (float(lines[i][23:27]) < 36) and (float(lines[i][23:27]) > 22) and (float(lines[i][30:35]) < 100) and (float(lines[i][30:35]) > 75):
 
-                   # Remove any tropical cyclones that were too far away from the region
-                   # of interest
-                   if (float(line[23:27]) < 38) and (float(line[23:27]) > 20) and (float(line[30:35]) < 105) and (float(line[30:35]) > 72):
-                       # TODO: Check if eye is within 1 degree of a point
-                       # TODO: Adjust code to make this calculation work
-                       # TODO: Change variable names
+                   # Check if the cyclone's eye is within 1 degree of a data point
+                   in_range = 0
+                   for loc in locs:
+                       if (abs(float(lines[i][23:27]) - abs(loc[1])) < 1) and (abs(float(lines[i][30:35]) - abs(loc[0])) < 1):
+                           in_range = 1
+                           break
+                       # Also consider the case where the cyclone was within the desired range at the previous time step
+                       # but moved out of the range at the current time step
+                       elif (lines[i-1][0:2] != 'AL') and (abs(float(lines[i-1][23:27]) - abs(loc[1])) < 1) and (abs(float(lines[i-1][30:35]) - abs(loc[0])) < 1):
+                           in_range = 1
+                           break
 
-                       # Determine the distance between consecutive eye locations in degrees
-                       dLat = lat2 - lat1
-                       dLon = lon2 - lon1
+                   print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+                   if in_range:
+                       # Check if the previous data entry corresponds to the same cyclone. Cyclone must also be classified as
+                       # either a tropical storm or hurricane at that time. If that criteria is met, then calculate the speed
+                       # of the tropical cyclone based on the change in location between the two time steps.
 
-                       # Convert degrees to radians
-                       dLat = dLat * math.pi/180
-                       dLon = dLon * math.pi/180
+                       if (lines[i][10:14] == '0000'):
 
-                       # Use the Haversine formula to convert degrees to km
-                       a = (math.sin(dLat/2) * math.sin(dLat/2)) + (math.cos(lat1 * math.pi/180) * math.cos(lat2 * math.pi/180) * \
-                           math.sin(dLon/2) * math.sin(dLon/2))
-                       c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
-                       dist = earth_radius * c
+                       elif (lines[i][10:14] == '0600'):
 
-                       # Calculate the speed of the tropical cyclone in the current 6 hour
-                       # interval (if applicable)
-                       speed = dist/6
+                       elif (lines[i][10:14] == '1200'):
 
-                       # Convert from km/hr to m/s
-                       speed = speed * 1000/3600
+                       # 1800Z case: calculate tropical cyclone speed if the previously recorded non-landfall entry was at 1200Z
+                       # on the same day, and the cyclone was a tropical storm or hurricane at the time
+                       elif (lines[i][10:14] == '1800'):
+                           if (lines[i-1][0:8] == lines[i][0:8]) and (lines[i-1][10:14] == '1200') and ((lines[i-1][19:21] == 'TS') or (lines[i-1][19:21] == 'HU')):
+                               print('Calculating distance between:')
+                               print(lines[i-1])
+                               print(lines[i])
 
-                       # TODO: Test between known points
-                       # TODO: Do stuff with the data
+                   # TODO: Adjust code to make this calculation work
+                   # TODO: Change variable names
+
+                   # Determine the distance between consecutive eye locations in degrees
+                   ###dLat = lat2 - lat1
+                   ###dLon = lon2 - lon1
+
+                   # Convert degrees to radians
+                   ###dLat = dLat * math.pi/180
+                   ###dLon = dLon * math.pi/180
+
+                   # Use the Haversine formula to convert degrees to km
+                   ###a = (math.sin(dLat/2) * math.sin(dLat/2)) + (math.cos(lat1 * math.pi/180) * math.cos(lat2 * math.pi/180) * \
+                   ###    math.sin(dLon/2) * math.sin(dLon/2))
+                   ###c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+                   ###dist = earth_radius * c
+
+                   # Calculate the speed of the tropical cyclone in the current 6 hour
+                   # interval (if applicable)
+                   ###speed = dist/6
+
+                   # Convert from km/hr to m/s
+                   ###speed = speed * 1000/3600
+                   print(lines[i])
+
+        i = i + 1
+    # TODO: Test between known points
+    # TODO: Do stuff with the data
     return 1
 
 
@@ -845,6 +884,7 @@ max_wind_speed = int(math.ceil(np.amax(wind_speeds)))
 max_wind_speed = 45
 
 # Read in hurricane best track data
+bestTrackSpeeds('best_tracks.txt', locs)
 times_to_remove, locs_to_remove = readBestTracks('best_tracks.txt', locs)
 
 # Remove DLM winds contaminated with tropical cyclone winds
