@@ -652,10 +652,12 @@ def bestTrackSpeeds(filename, locs):
     lines = f.readlines()
     f.close()
 
-    # Remove any cyclone information that is not at 0000Z, 0600Z, 1200Z, or 1800Z
+    # Remove any cyclone information that is not at 0000Z, 0600Z, 1200Z, or 1800Z. Also keep tropical cyclone name header
     new_lines = []
     for line in lines:
         if (line[10:14] == '0000') or (line[10:14] == '0600') or (line[10:14] == '1200') or (line[10:14] == '1800'):
+            new_lines.append(line)
+        elif line[0:2] == 'AL':
             new_lines.append(line)
 
     lines = new_lines
@@ -665,13 +667,13 @@ def bestTrackSpeeds(filename, locs):
     while i < len(lines):
         # Data had to have been taken between May 30 and November 28. Also exclude data from 2017
         if (lines[i][0:4] != '2017') and (((int(lines[i][4:6]) > 5) and (int(lines[i][4:6]) < 11)) or (((int(lines[i][4:6]) == 5) and \
-           (int(lines[i][6:8]) >= 30))) or (((int(lines[i][4:6]) == 11) and (int(lines[i][6:8]) <= 28)))):
+           (int(lines[i][6:8]) >= 30))) or (((int(lines[i][4:6]) == 11) and (int(lines[i][6:8]) <= 28)))) and (lines[i][0:2] != 'AL'):
 
            # Only consider tropical storms and hurricanes
            if (lines[i][19:21] == 'TS') or (lines[i][19:21] == 'HU'):
 
                # Ignore any tropical cyclones that were too far away from the region of interest
-               if (float(lines[i][23:27]) < 36) and (float(lines[i][23:27]) > 22) and (float(lines[i][30:35]) < 100) and (float(lines[i][30:35]) > 75):
+               if (float(lines[i][23:27]) < 38) and (float(lines[i][23:27]) > 20) and (float(lines[i][30:35]) < 103) and (float(lines[i][30:35]) > 73):
 
                    # Check if the cyclone's eye is within 1 degree of a data point
                    in_range = 0
@@ -685,53 +687,40 @@ def bestTrackSpeeds(filename, locs):
                            in_range = 1
                            break
 
-                   print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
                    if in_range:
-                       # Check if the previous data entry corresponds to the same cyclone. Cyclone must also be classified as
-                       # either a tropical storm or hurricane at that time. If that criteria is met, then calculate the speed
-                       # of the tropical cyclone based on the change in location between the two time steps.
+                       # Check if the same tropical cyclone was a tropical storm or hurricane at the previous timestep. If that criteria is met, then
+                       # calculate the speed of the tropical cyclone based on the change in location between the previous and current time step.
+                       if ((lines[i-1][19:21] == 'TS') or (lines[i-1][19:21] == 'HU')):
+                           print('Calculating distance between:')
+                           print(lines[i-1])
+                           print(lines[i])
 
-                       if (lines[i][10:14] == '0000'):
+                           # Determine the distance between consecutive eye locations in degrees
+                           d_lat = abs(float(lines[i][23:27]) - float(lines[i-1][23:27]))
+                           d_lon = abs(float(lines[i][30:35]) - float(lines[i-1][30:35]))
+                           print('d_lat (degrees): ' + str(d_lat))
+                           print('d_lon (degrees): ' + str(d_lon))
 
-                       elif (lines[i][10:14] == '0600'):
+                           # Convert degrees to radians
+                           d_lat = d_lat * math.pi/180
+                           d_lon = d_lon * math.pi/180
+                           print('d_lat (radians): ' + str(d_lat))
+                           print('d_lon (radians): ' + str(d_lon))
 
-                       elif (lines[i][10:14] == '1200'):
+                           # Use the Haversine formula to convert degrees to km
+                           a = (math.sin(d_lat/2) * math.sin(d_lat/2)) + (math.cos(float(lines[i][23:27]) * math.pi/180) * \
+                                math.cos(float(lines[i-1][23:27]) * math.pi/180) * math.sin(d_lon/2) * math.sin(d_lon/2))
+                           dist = 2 * earth_radius * math.atan2(math.sqrt(a), math.sqrt(1-a))
+                           print('Distance (km): ' + str(dist))
 
-                       # 1800Z case: calculate tropical cyclone speed if the previously recorded non-landfall entry was at 1200Z
-                       # on the same day, and the cyclone was a tropical storm or hurricane at the time
-                       elif (lines[i][10:14] == '1800'):
-                           if (lines[i-1][0:8] == lines[i][0:8]) and (lines[i-1][10:14] == '1200') and ((lines[i-1][19:21] == 'TS') or (lines[i-1][19:21] == 'HU')):
-                               print('Calculating distance between:')
-                               print(lines[i-1])
-                               print(lines[i])
-
-                   # TODO: Adjust code to make this calculation work
-                   # TODO: Change variable names
-
-                   # Determine the distance between consecutive eye locations in degrees
-                   ###dLat = lat2 - lat1
-                   ###dLon = lon2 - lon1
-
-                   # Convert degrees to radians
-                   ###dLat = dLat * math.pi/180
-                   ###dLon = dLon * math.pi/180
-
-                   # Use the Haversine formula to convert degrees to km
-                   ###a = (math.sin(dLat/2) * math.sin(dLat/2)) + (math.cos(lat1 * math.pi/180) * math.cos(lat2 * math.pi/180) * \
-                   ###    math.sin(dLon/2) * math.sin(dLon/2))
-                   ###c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
-                   ###dist = earth_radius * c
-
-                   # Calculate the speed of the tropical cyclone in the current 6 hour
-                   # interval (if applicable)
-                   ###speed = dist/6
-
-                   # Convert from km/hr to m/s
-                   ###speed = speed * 1000/3600
-                   print(lines[i])
+                           # Calculate the speed of the tropical cyclone in the current 6 hour
+                           # interval (if applicable)
+                           ###speed = dist/6
+                           # TODO: Also make sure speeds are correct
+                           # Convert from km/hr to m/s
+                           ###speed = speed * 1000/3600
 
         i = i + 1
-    # TODO: Test between known points
     # TODO: Do stuff with the data
     return 1
 
