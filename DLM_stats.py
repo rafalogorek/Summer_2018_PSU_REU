@@ -110,6 +110,36 @@ def getFrequencies(wind_speeds, wind_speed_freq):
                     current_ws = current_ws
 
 
+# Description: Populates a translation speed frequency array with the frequency of
+#              translation speeds within each 1 m/s interval represented in the
+#              translation speed frequency array
+# Input: -best_track_speeds: An array containing translation speeds (in m/s) of all
+#                            tropical cyclones that were within one degree of the
+#                            region of interest during north Atlantic hurricane
+#                            seasons from 1979 to 2016
+#        -trans_speed_freq: An array that will store the frequency of a range of
+#                           translation speeds that correspond to its indices (i.e.
+#                           index 0 will store the frequency of translation speeds
+#                           between 0 m/s and 1 m/s; index 1 will store the frequency
+#                           of translation speeds between 1 m/s and 2 m/s; etc...).
+#                           When passed into the function, all entries should be 0
+#                           since no frequencies have been calculated yet.
+# Output: Nothing, but the trans_speed_freq array should have been modified to now
+#         contain the correct frequency value for each speed range
+def getBestTrackFrequencies(best_track_speeds, trans_speed_freq):
+        for translation_speed in best_track_speeds:
+            # Make the wind speed a positive value (if necessary) and round it down to
+            # the nearest integer. Then, increment the frequency of the wind speed range
+            # that this value falls in.
+            if not np.isnan(translation_speed):
+                current_ts = int(math.floor(abs(translation_speed)))
+                if current_ts < len(trans_speed_freq):
+                    trans_speed_freq[current_ts] = trans_speed_freq[current_ts] + 1
+                else:
+                    # Optionally, disregard high wind speeds
+                    current_ts = current_ts
+
+
 # Description: Obtains the wind speeds at all locations within a specified time interval
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
@@ -636,14 +666,24 @@ def readBestTracks(filename, locs):
     return times_to_remove, locs_to_remove
 
 
-# Description: Reads in HURDAT2 best track data and quantifies tropical cyclone speeds
-#              in a few different ways
+# Description: Reads in HURDAT2 best track data and quantifies tropical cyclone translation
+#              speeds in a few different ways
 # Input: -filename: A string containing the name of the text file that contains the
 #                   hurricane best track data
 #        -locs: An array storing the coordinates of the locations where wind speed
 #               data was obtained for
-# Output: ???
-def bestTrackSpeeds(filename, locs):
+# Output: -best_track_speeds: An array containing translation speeds (in m/s) of all
+#                             tropical cyclones that were within one degree of the region
+#                             of interest during north Atlantic hurricane seasons from
+#                             1979 to 2016
+#         -best_track_speeds_79_97: Same as best_track_speeds except from 1979 through 1997
+#         -best_track_speeds_98_16: Same as best_track_speeds except from 1998 through 2016
+def getBestTrackSpeeds(filename, locs):
+    # Intialize best track speed arrays
+    best_track_speeds = []
+    best_track_speeds_79_97 = []
+    best_track_speeds_98_16 = []
+
     # Define the Earth's radius in kilometers
     earth_radius = 6371
 
@@ -691,38 +731,37 @@ def bestTrackSpeeds(filename, locs):
                        # Check if the same tropical cyclone was a tropical storm or hurricane at the previous timestep. If that criteria is met, then
                        # calculate the speed of the tropical cyclone based on the change in location between the previous and current time step.
                        if ((lines[i-1][19:21] == 'TS') or (lines[i-1][19:21] == 'HU')):
-                           print('Calculating distance between:')
-                           print(lines[i-1])
-                           print(lines[i])
-
                            # Determine the distance between consecutive eye locations in degrees
                            d_lat = abs(float(lines[i][23:27]) - float(lines[i-1][23:27]))
                            d_lon = abs(float(lines[i][30:35]) - float(lines[i-1][30:35]))
-                           print('d_lat (degrees): ' + str(d_lat))
-                           print('d_lon (degrees): ' + str(d_lon))
 
                            # Convert degrees to radians
                            d_lat = d_lat * math.pi/180
                            d_lon = d_lon * math.pi/180
-                           print('d_lat (radians): ' + str(d_lat))
-                           print('d_lon (radians): ' + str(d_lon))
 
                            # Use the Haversine formula to convert degrees to km
                            a = (math.sin(d_lat/2) * math.sin(d_lat/2)) + (math.cos(float(lines[i][23:27]) * math.pi/180) * \
                                 math.cos(float(lines[i-1][23:27]) * math.pi/180) * math.sin(d_lon/2) * math.sin(d_lon/2))
                            dist = 2 * earth_radius * math.atan2(math.sqrt(a), math.sqrt(1-a))
-                           print('Distance (km): ' + str(dist))
 
-                           # Calculate the speed of the tropical cyclone in the current 6 hour
-                           # interval (if applicable)
-                           ###speed = dist/6
-                           # TODO: Also make sure speeds are correct
+                           # Calculate the speed of the tropical cyclone in the current 6 hour interval
+                           speed = dist/6
+
                            # Convert from km/hr to m/s
-                           ###speed = speed * 1000/3600
+                           speed = speed * 1000/3600
+
+                           # Add the translation speed to the best_track_speed array
+                           best_track_speeds.append(speed)
+                           # Also add the speed to a best_track_speed array that corresponds to the 19
+                           # year period that it occurred in
+                           if int(lines[i][0:4]) < 1998:
+                               best_track_speeds_79_97.append(speed)
+                           else:
+                               best_track_speeds_98_16.append(speed)
 
         i = i + 1
-    # TODO: Do stuff with the data
-    return 1
+
+    return best_track_speeds, best_track_speeds_79_97, best_track_speeds_98_16
 
 
 ######################################################################################
@@ -873,9 +912,11 @@ max_wind_speed = int(math.ceil(np.amax(wind_speeds)))
 max_wind_speed = 45
 
 # Read in hurricane best track data
-bestTrackSpeeds('best_tracks.txt', locs)
+best_track_speeds, best_track_speeds_79_97, best_track_speeds_98_16 = getBestTrackSpeeds('best_tracks.txt', locs)
 times_to_remove, locs_to_remove = readBestTracks('best_tracks.txt', locs)
-
+print(np.median(best_track_speeds))
+print(np.median(best_track_speeds_79_97))
+print(np.median(best_track_speeds_98_16))
 # Remove DLM winds contaminated with tropical cyclone winds
 wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove)
 
@@ -910,6 +951,8 @@ wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove,
 # speeds between 0 m/s and 1 m/s; the first index of the array will store the frequency
 # of wind speeds between 1 m/s and 2 m/s; etc...
 wind_speed_freq_all = [0] * max_wind_speed
+# Do the same for translation speeds
+trans_speed_freq_all = [0] * max_wind_speed
 
 # Create wind speed array that will only contain data for the desired period of time
 wind_speeds_79_16 = getWindSpeedInterval(wind_speeds, 0, 27816)
@@ -919,6 +962,8 @@ dates_and_times_79_16 = dates_and_times[0:27816]
 
 # Populate the wind speed frequency array
 getFrequencies(wind_speeds_79_16, wind_speed_freq_all)
+# Alternatively, populate the frequency array using best track translation speeds
+getBestTrackFrequencies(best_track_speeds, trans_speed_freq_all)
 
 current_year = 2005
 current_year_index = current_year - 1979
@@ -943,9 +988,11 @@ plt.show()
 
 # Normalize wind speed frequencies
 norm_wind_speed_freq_all = normalizeWindSpeeds(wind_speed_freq_all)
+# And translation speed frequencies
+norm_trans_speed_freq_all = normalizeWindSpeeds(trans_speed_freq_all)
 
 # Generate a histogram to show the frequency distribution for the wind speeds at all
-# measured locations from 1979 to 2017
+# specified locations from 1979 to 2017
 plt.figure(1, figsize = (20,10))
 #plt.bar(np.arange(len(wind_speed_freq_all)), wind_speed_freq_all)
 plt.bar(np.arange(len(norm_wind_speed_freq_all)), norm_wind_speed_freq_all)
@@ -953,9 +1000,23 @@ plt.xlim(xmax = max_wind_speed + 1)
 plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
-          'Hurricane Seasons from 1979 up to 2017')
+          'North Atlantic Hurricane Seasons from 1979 up to 2017')
 plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
 plt.savefig('Figures/WS_79-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
+plt.show()
+
+# Generate a histogram to show the frequency distribution for the tropical cyclone
+# translation speeds near the region fo interest from 1979 to 2017
+plt.figure(1, figsize = (20,10))
+#plt.bar(np.arange(len(trans_speed_freq_all)), trans_speed_freq_all)
+plt.bar(np.arange(len(norm_trans_speed_freq_all)), norm_trans_speed_freq_all)
+plt.xlim(xmax = max_wind_speed + 1)
+plt.ylabel('Frequency (%)')
+plt.xlabel('Translation Speed (m/s)')
+plt.title('Normalized Frequency of Tropical Cyclone Translation Speeds Recorded\nnear ' + location_names[region][1] + ' During ' +
+          'North Atlantic Hurricane Seasons\nfrom 1979 up to 2017')
+plt.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
+plt.savefig('Figures/Translation_Speeds/TS_79-16/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
 plt.show()
 
 # Create arrays to store the frequency of different wind speed values (at all
@@ -1146,6 +1207,9 @@ plt.show()
 # of wind speeds between 1 m/s and 2 m/s; etc...
 wind_speed_freq_79_97 = [0] * max_wind_speed
 wind_speed_freq_98_16 = [0] * max_wind_speed
+# Do the same for translation speeds
+trans_speed_freq_79_97 = [0] * max_wind_speed
+trans_speed_freq_98_16 = [0] * max_wind_speed
 
 # Create wind speed arrays that will only contain data for the desired period of time
 wind_speeds_79_97 = getWindSpeedInterval(wind_speeds, 0, 13908)
@@ -1158,10 +1222,16 @@ dates_and_times_98_16 = dates_and_times[13908:27816]
 # Populate the wind speed frequency arrays
 getFrequencies(wind_speeds_79_97, wind_speed_freq_79_97)
 getFrequencies(wind_speeds_98_16, wind_speed_freq_98_16)
+# And translation speed frequency arrays
+getBestTrackFrequencies(best_track_speeds_79_97, trans_speed_freq_79_97)
+getBestTrackFrequencies(best_track_speeds_98_16, trans_speed_freq_98_16)
 
 # Normalize wind speed frequencies
 norm_wind_speed_freq_79_97 = normalizeWindSpeeds(wind_speed_freq_79_97)
 norm_wind_speed_freq_98_16 = normalizeWindSpeeds(wind_speed_freq_98_16)
+# Do the same for translation speeds
+norm_trans_speed_freq_79_97 = normalizeWindSpeeds(trans_speed_freq_79_97)
+norm_trans_speed_freq_98_16 = normalizeWindSpeeds(trans_speed_freq_98_16)
 
 # Average the wind speed at each time
 avg_wind_speeds_79_97, dates_and_times_1y = averageWindsEachTime(wind_speeds_79_97, dates_and_times_79_97, 12)
@@ -1206,7 +1276,7 @@ plt.savefig('Figures/Time_Series/Yearly/Filtered_' + location_names[region][0]  
 plt.show()
 
 # Generate histograms to show the frequency distribution for the wind speeds at all
-# measured locations from 1979 up to 1998 and from 1998 up to 2017
+# locations from 1979 up to 1998 and from 1998 up to 2017
 plt.figure(1, figsize = (20,10))
 plt.subplot(211)
 plt.bar(np.arange(len(norm_wind_speed_freq_79_97)), norm_wind_speed_freq_79_97)
@@ -1232,6 +1302,33 @@ plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speed
 plt.savefig('Figures/WS_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram.png')
 plt.show()
 
+# Generate histograms to show the frequency distribution for the translation speeds
+# near the region of interest from 1979 up to 1998 and from 1998 up to 2017
+plt.figure(1, figsize = (20,10))
+plt.subplot(211)
+plt.bar(np.arange(len(norm_trans_speed_freq_79_97)), norm_trans_speed_freq_79_97)
+plt.xlim(xmax = max_wind_speed + 1)
+#plt.ylim(ymax = 250000)
+plt.ylabel('Frequency (%)')
+plt.xlabel('Translation Speed (m/s)')
+plt.title('Normalized Frequency of Tropical Cyclone Translation Speeds Recorded\nnear ' + location_names[region][1] + ' During ' +
+          'Hurricane Seasons from 1979 up to 1998')
+
+plt.subplot(212)
+plt.bar(np.arange(len(norm_trans_speed_freq_98_16)), norm_trans_speed_freq_98_16)
+plt.xlim(xmax = max_wind_speed + 1)
+#plt.ylim(ymax = 250000)
+plt.ylabel('Frequency (%)')
+plt.xlabel('Translation Speed (m/s)')
+plt.title('Normalized Frequency of Tropical Cyclone Translation Speeds Recorded\nnear ' + location_names[region][1] + 'During ' +
+          'Hurricane Seasons from 1998 up to 2017')
+
+plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.2,
+                    hspace = 0.5)
+plt.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram.png')
+plt.savefig('Figures/Translation_Speeds/WS_79-97_98-16/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram.png')
+plt.show()
+
 # Plot the two time periods side by side, rather than on two separate plots
 fig, ax = plt.subplots(figsize = (20,15))
 bar_width = 0.35
@@ -1250,6 +1347,26 @@ ax.set_title('Normalized Frequency of Wind Speeds Recorded on ' + location_names
 ax.legend()
 fig.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram.png')
 fig.savefig('Figures/WS_79-97_98-16_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram.png')
+plt.show()
+
+# Do the same for transation speeds
+fig, ax = plt.subplots(figsize = (20,15))
+bar_width = 0.35
+ax.bar(np.arange(len(norm_trans_speed_freq_79_97)), norm_trans_speed_freq_79_97, bar_width,
+                color='b', label='1979-1997')
+ax.bar(np.arange(len(norm_trans_speed_freq_98_16)) + bar_width, norm_trans_speed_freq_98_16,
+                bar_width, color='r', label='1998-2016')
+
+ax.set_xlim(xmax = max_wind_speed + 1)
+ax.set_xlabel('Translation Speed (m/s)')
+ax.set_ylabel('Frequency (%)')
+ax.set_title('Normalized Frequency of Tropical Cyclone Translation Speeds Recorded\nnear ' + location_names[region][1] + ' During ' +
+             'Hurricane Seasons from 1979 up to 1998\nvs. Hurricane Seasons from ' +
+             '1998 up to 2017')
+
+ax.legend()
+fig.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram.png')
+fig.savefig('Figures/Translation_Speeds/WS_79-97_98-16_SBS/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram.png')
 plt.show()
 
 # Determine differences in the wind speed frequencies between the two time periods
@@ -1274,6 +1391,27 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequencies of Wind Speeds')
 plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
 plt.savefig('Figures/WS_Diff_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+plt.show()
+
+# Determine differences in the translation speed frequencies between the two time periods
+i = 0
+trans_speed_freq_diff = [0] * len(trans_speed_freq_79_97)
+norm_trans_speed_freq_diff = [0] * len(norm_trans_speed_freq_79_97)
+while i < len(trans_speed_freq_79_97):
+    trans_speed_freq_diff[i] = trans_speed_freq_98_16[i] - trans_speed_freq_79_97[i]
+    norm_trans_speed_freq_diff[i] = norm_trans_speed_freq_98_16[i] - norm_trans_speed_freq_79_97[i]
+    i = i + 1
+
+# Create a histogram that shows the difference between the wind speed frequencies for
+# the two time periods
+plt.figure(1, figsize = (20,15))
+plt.bar(np.arange(len(norm_trans_speed_freq_diff)), norm_trans_speed_freq_diff)
+plt.xlim(xmax = max_wind_speed + 1)
+plt.ylabel('Frequency Difference (%)')
+plt.xlabel('Translation Speed (m/s)')
+plt.title('Difference Between Normalized Frequencies of Tropical Cyclone Translation Speeds')
+plt.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+plt.savefig('Figures/Translation_Speeds/WS_Diff_79-97_98-16/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
 plt.show()
 
 
