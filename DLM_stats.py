@@ -764,6 +764,49 @@ def getBestTrackSpeeds(filename, locs):
     return best_track_speeds, best_track_speeds_79_97, best_track_speeds_98_16
 
 
+# Description: Computes the average DLM wind speed for each year represented in a
+#              DLM wind speed array
+# Input: -wind_speeds: An array that stores an array of floats. Each array within
+#                      this array represents a different location, while each float
+#                      is a wind speed in m/s
+# Output: -annual_means: An array of floats where each number is the annual mean
+#                        deep layer mean wind speed between all considered locations
+#                        for a given year.
+def getAnnualMeans(wind_speeds):
+    annual_means = []
+
+    # Loop through all times
+    i = 0
+    total_sum = 0
+    total_count = 0
+    while i < len(wind_speeds[0]):
+        # Loop through all locations
+        j = 0
+        while j < len(wind_speeds):
+            # Sum all wind speeds at all locations for the current year
+            if (~np.isnan(wind_speeds[j][i])):
+                total_sum = total_sum + wind_speeds[j][i]
+                total_count = total_count + 1
+
+            j = j + 1
+
+        # Average wind speeds for the current year and add them to the annual mean array
+        if (i % 732 == 0):
+            annual_means.append(total_sum/total_count)
+            total_sum = 0
+            total_count = 0
+
+        i = i + 1
+
+    print(annual_means)
+
+    # TODO: more testing (make sure NANs aren't being added, counts are right, etc.)
+    # TODO: regression/trend lines
+    # TODO: Split by month?
+
+    return annual_means
+
+
 ######################################################################################
 ##                                   Begin Program                                  ##
 ######################################################################################
@@ -914,9 +957,7 @@ max_wind_speed = 45
 # Read in hurricane best track data
 best_track_speeds, best_track_speeds_79_97, best_track_speeds_98_16 = getBestTrackSpeeds('best_tracks.txt', locs)
 times_to_remove, locs_to_remove = readBestTracks('best_tracks.txt', locs)
-print(np.median(best_track_speeds))
-print(np.median(best_track_speeds_79_97))
-print(np.median(best_track_speeds_98_16))
+
 # Remove DLM winds contaminated with tropical cyclone winds
 wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove)
 
@@ -959,6 +1000,25 @@ wind_speeds_79_16 = getWindSpeedInterval(wind_speeds, 0, 27816)
 
 # Get updated time interval as well
 dates_and_times_79_16 = dates_and_times[0:27816]
+
+# Determine annual mean DLM wind speed from 1979 to 2016
+annual_means_79_16 = getAnnualMeans(wind_speeds_79_16)
+
+# Plot annual mean DLM wind speeds from 1979 to 2016
+years = [1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997,
+         1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016]
+plt.figure(1, figsize = (20,10))
+plt.rc('axes', titlesize = 30)
+plt.rc('axes', labelsize = 25)
+plt.rc('xtick', labelsize = 22)
+plt.rc('ytick', labelsize = 22)
+plt.plot(years, annual_means_79_16)
+plt.ylabel('Wind Speed (m/s)')
+plt.xlabel('Year')
+plt.title('Annual Mean of Deep Layer Mean Wind Speeds During North Atlantic\nHurricane Seasons from 1979 through 2016 on ' +
+          location_names[region][1])
+plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '.png')
+plt.show()
 
 # Populate the wind speed frequency array
 getFrequencies(wind_speeds_79_16, wind_speed_freq_all)
