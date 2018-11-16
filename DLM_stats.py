@@ -765,20 +765,30 @@ def getBestTrackSpeeds(filename, locs):
 
 
 # Description: Computes the average DLM wind speed for each year represented in a
-#              DLM wind speed array
+#              DLM wind speed array and plots a time series of how the annual mean
+#              changes from 1979 to 2016. Also performs this process for each month
+#              in the north Atlantic hurricane season
 # Input: -wind_speeds: An array that stores an array of floats. Each array within
 #                      this array represents a different location, while each float
 #                      is a wind speed in m/s
-# Output: -annual_means: An array of floats where each number is the annual mean
-#                        deep layer mean wind speed between all considered locations
-#                        for a given year.
-def getAnnualMeans(wind_speeds):
+#        -location_names: An array storing names of locations in the region of interest.
+#                         Only used for plot titles and file names for plot images.
+# Output: none
+def getAnnualMeans(wind_speeds, location_names):
     annual_means = []
+    annual_means_June = []
+    annual_means_July = []
+    annual_means_Aug = []
+    annual_means_Sep = []
+    annual_means_Oct = []
+    annual_means_Nov = []
 
     # Loop through all times
     i = 0
     total_sum = 0
     total_count = 0
+    month_sum = 0
+    month_count = 0
     while i < len(wind_speeds[0]):
         # Loop through all locations
         j = 0
@@ -787,24 +797,153 @@ def getAnnualMeans(wind_speeds):
             if (~np.isnan(wind_speeds[j][i])):
                 total_sum = total_sum + wind_speeds[j][i]
                 total_count = total_count + 1
+                month_sum = month_sum + wind_speeds[j][i]
+                month_count = month_count + 1
 
             j = j + 1
 
         # Average wind speeds for the current year and add them to the annual mean array
-        if (i % 732 == 0):
+        # Also calculate annual means for individual months
+        if (i % 732 == 731):
+            # Whole season
             annual_means.append(total_sum/total_count)
             total_sum = 0
             total_count = 0
+            # November
+            annual_means_Nov.append(month_sum/month_count)
+            month_sum = 0
+            month_count = 0
+        # June
+        elif (i % 732 == 127):
+            annual_means_June.append(month_sum/month_count)
+            month_sum = 0
+            month_count = 0
+        # July
+        elif (i % 732 == 251):
+            annual_means_July.append(month_sum/month_count)
+            month_sum = 0
+            month_count = 0
+        # August
+        elif (i % 732 == 375):
+            annual_means_Aug.append(month_sum/month_count)
+            month_sum = 0
+            month_count = 0
+        # September
+        elif (i % 732 == 495):
+            annual_means_Sep.append(month_sum/month_count)
+            month_sum = 0
+            month_count = 0
+        # October
+        elif (i % 732 == 619):
+            annual_means_Oct.append(month_sum/month_count)
+            month_sum = 0
+            month_count = 0
 
         i = i + 1
 
     print(annual_means)
+    print(annual_means_June)
+    print(annual_means_July)
+    print(annual_means_Aug)
+    print(annual_means_Sep)
+    print(annual_means_Oct)
+    print(annual_means_Nov)
 
-    # TODO: more testing (make sure NANs aren't being added, counts are right, etc.)
     # TODO: regression/trend lines
-    # TODO: Split by month?
 
-    return annual_means
+    # Plot annual mean DLM wind speeds from 1979 to 2016
+    years = [1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997,
+             1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016]
+    plt.figure(1, figsize = (20,10))
+    plt.rc('axes', titlesize = 30)
+    plt.rc('axes', labelsize = 25)
+    plt.rc('xtick', labelsize = 22)
+    plt.rc('ytick', labelsize = 22)
+    plt.plot(years, annual_means)
+    plt.ylabel('Wind Speed (m/s)')
+    plt.xlabel('Year')
+    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During North Atlantic\nHurricane Seasons from 1979 through 2016 on ' +
+              location_names[region][1])
+    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '.png')
+    plt.show()
+
+    plt.figure(1, figsize = (20,10))
+    plt.rc('axes', titlesize = 30)
+    plt.rc('axes', labelsize = 25)
+    plt.rc('xtick', labelsize = 22)
+    plt.rc('ytick', labelsize = 22)
+    plt.plot(years, annual_means_June)
+    plt.ylabel('Wind Speed (m/s)')
+    plt.xlabel('Year')
+    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nJune from 1979 through 2016 on ' +
+              location_names[region][1])
+    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_June.png')
+    plt.show()
+
+    plt.figure(1, figsize = (20,10))
+    plt.rc('axes', titlesize = 30)
+    plt.rc('axes', labelsize = 25)
+    plt.rc('xtick', labelsize = 22)
+    plt.rc('ytick', labelsize = 22)
+    plt.plot(years, annual_means_July)
+    plt.ylabel('Wind Speed (m/s)')
+    plt.xlabel('Year')
+    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nJuly from 1979 through 2016 on ' +
+              location_names[region][1])
+    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_July.png')
+    plt.show()
+
+    plt.figure(1, figsize = (20,10))
+    plt.rc('axes', titlesize = 30)
+    plt.rc('axes', labelsize = 25)
+    plt.rc('xtick', labelsize = 22)
+    plt.rc('ytick', labelsize = 22)
+    plt.plot(years, annual_means_Aug)
+    plt.ylabel('Wind Speed (m/s)')
+    plt.xlabel('Year')
+    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nAugust from 1979 through 2016 on ' +
+              location_names[region][1])
+    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Aug.png')
+    plt.show()
+
+    plt.figure(1, figsize = (20,10))
+    plt.rc('axes', titlesize = 30)
+    plt.rc('axes', labelsize = 25)
+    plt.rc('xtick', labelsize = 22)
+    plt.rc('ytick', labelsize = 22)
+    plt.plot(years, annual_means_Sep)
+    plt.ylabel('Wind Speed (m/s)')
+    plt.xlabel('Year')
+    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nSeptember from 1979 through 2016 on ' +
+              location_names[region][1])
+    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Sep.png')
+    plt.show()
+
+    plt.figure(1, figsize = (20,10))
+    plt.rc('axes', titlesize = 30)
+    plt.rc('axes', labelsize = 25)
+    plt.rc('xtick', labelsize = 22)
+    plt.rc('ytick', labelsize = 22)
+    plt.plot(years, annual_means_Oct)
+    plt.ylabel('Wind Speed (m/s)')
+    plt.xlabel('Year')
+    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nOctober from 1979 through 2016 on ' +
+              location_names[region][1])
+    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Oct.png')
+    plt.show()
+
+    plt.figure(1, figsize = (20,10))
+    plt.rc('axes', titlesize = 30)
+    plt.rc('axes', labelsize = 25)
+    plt.rc('xtick', labelsize = 22)
+    plt.rc('ytick', labelsize = 22)
+    plt.plot(years, annual_means_Nov)
+    plt.ylabel('Wind Speed (m/s)')
+    plt.xlabel('Year')
+    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nNovember from 1979 through 2016 on ' +
+              location_names[region][1])
+    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Nov.png')
+    plt.show()
 
 
 ######################################################################################
@@ -1001,24 +1140,8 @@ wind_speeds_79_16 = getWindSpeedInterval(wind_speeds, 0, 27816)
 # Get updated time interval as well
 dates_and_times_79_16 = dates_and_times[0:27816]
 
-# Determine annual mean DLM wind speed from 1979 to 2016
-annual_means_79_16 = getAnnualMeans(wind_speeds_79_16)
-
-# Plot annual mean DLM wind speeds from 1979 to 2016
-years = [1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997,
-         1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016]
-plt.figure(1, figsize = (20,10))
-plt.rc('axes', titlesize = 30)
-plt.rc('axes', labelsize = 25)
-plt.rc('xtick', labelsize = 22)
-plt.rc('ytick', labelsize = 22)
-plt.plot(years, annual_means_79_16)
-plt.ylabel('Wind Speed (m/s)')
-plt.xlabel('Year')
-plt.title('Annual Mean of Deep Layer Mean Wind Speeds During North Atlantic\nHurricane Seasons from 1979 through 2016 on ' +
-          location_names[region][1])
-plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '.png')
-plt.show()
+# Determine and plot annual mean DLM wind speeds from 1979 to 2016
+getAnnualMeans(wind_speeds_79_16, location_names)
 
 # Populate the wind speed frequency array
 getFrequencies(wind_speeds_79_16, wind_speed_freq_all)
