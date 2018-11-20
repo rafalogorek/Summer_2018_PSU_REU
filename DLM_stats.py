@@ -37,7 +37,7 @@
 #              'AC': Atlantic coast (EFL + GA-SC)                                    #
 #              'GOM': Gulf of Mexico coast (TX + LA-MS + AL-FL)                      #
 #                                                                                    #
-# Last updated: 8/3/2018                                                             #
+# Last updated: 11/20/2018                                                            #
 #                                                                                    #
 ######################################################################################
 
@@ -49,6 +49,7 @@ import matplotlib as mpl
 #matplotlib.use('Agg')
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
+from scipy import stats
 from datetime import datetime
 from mpl_toolkits.basemap import Basemap
 
@@ -841,25 +842,25 @@ def getAnnualMeans(wind_speeds, location_names):
 
         i = i + 1
 
-    print(annual_means)
-    print(annual_means_June)
-    print(annual_means_July)
-    print(annual_means_Aug)
-    print(annual_means_Sep)
-    print(annual_means_Oct)
-    print(annual_means_Nov)
-
-    # TODO: regression/trend lines
-
-    # Plot annual mean DLM wind speeds from 1979 to 2016
+    # Determine linear regresion lines
     years = [1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997,
              1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016]
+    am_fit = np.polyfit(years, annual_means, 1)
+    am_June_fit = np.polyfit(years, annual_means_June, 1)
+    am_July_fit = np.polyfit(years, annual_means_July, 1)
+    am_Aug_fit = np.polyfit(years, annual_means_Aug, 1)
+    am_Sep_fit = np.polyfit(years, annual_means_Sep, 1)
+    am_Oct_fit = np.polyfit(years, annual_means_Oct, 1)
+    am_Nov_fit = np.polyfit(years, annual_means_Nov, 1)
+
+    # Plot annual mean DLM wind speeds from 1979 to 2016
     plt.figure(1, figsize = (20,10))
     plt.rc('axes', titlesize = 30)
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
     plt.rc('ytick', labelsize = 22)
-    plt.plot(years, annual_means)
+    plt.plot(years, annual_means, '-b', years, np.poly1d(am_fit)(years), '-k')
+    plt.text(1980, 6.5, 'Linear Regression Slope = ' + str(round(am_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
     plt.title('Annual Mean of Deep Layer Mean Wind Speeds During North Atlantic\nHurricane Seasons from 1979 through 2016 on ' +
@@ -872,7 +873,8 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
     plt.rc('ytick', labelsize = 22)
-    plt.plot(years, annual_means_June)
+    plt.plot(years, annual_means_June, '-b', years, np.poly1d(am_June_fit)(years), '-k')
+    plt.text(2000, 9.5, 'Linear Regression Slope = ' + str(round(am_June_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
     plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nJune from 1979 through 2016 on ' +
@@ -885,7 +887,8 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
     plt.rc('ytick', labelsize = 22)
-    plt.plot(years, annual_means_July)
+    plt.plot(years, annual_means_July, '-b', years, np.poly1d(am_July_fit)(years), '-k')
+    plt.text(1980, 6, 'Linear Regression Slope = ' + str(round(am_July_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
     plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nJuly from 1979 through 2016 on ' +
@@ -898,7 +901,8 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
     plt.rc('ytick', labelsize = 22)
-    plt.plot(years, annual_means_Aug)
+    plt.plot(years, annual_means_Aug, '-b', years, np.poly1d(am_Aug_fit)(years), '-k')
+    plt.text(1980, 6.2, 'Linear Regression Slope = ' + str(round(am_Aug_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
     plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nAugust from 1979 through 2016 on ' +
@@ -911,7 +915,8 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
     plt.rc('ytick', labelsize = 22)
-    plt.plot(years, annual_means_Sep)
+    plt.plot(years, annual_means_Sep, '-b', years, np.poly1d(am_Sep_fit)(years), '-k')
+    plt.text(1995, 9, 'Linear Regression Slope = ' + str(round(am_Sep_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
     plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nSeptember from 1979 through 2016 on ' +
@@ -924,7 +929,8 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
     plt.rc('ytick', labelsize = 22)
-    plt.plot(years, annual_means_Oct)
+    plt.plot(years, annual_means_Oct, '-b', years, np.poly1d(am_Oct_fit)(years), '-k')
+    plt.text(1980, 7, 'Linear Regression Slope = ' + str(round(am_Oct_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
     plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nOctober from 1979 through 2016 on ' +
@@ -937,7 +943,8 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
     plt.rc('ytick', labelsize = 22)
-    plt.plot(years, annual_means_Nov)
+    plt.plot(years, annual_means_Nov, '-b', years, np.poly1d(am_Nov_fit)(years), '-k')
+    plt.text(1980, 10, 'Linear Regression Slope = ' + str(round(am_Nov_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
     plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nNovember from 1979 through 2016 on ' +
