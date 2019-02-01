@@ -952,6 +952,27 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Nov.png')
     plt.show()
 
+    # Plot all regression lines together
+    plt.figure(1, figsize = (20,10))
+    plt.rc('axes', titlesize = 30)
+    plt.rc('axes', labelsize = 25)
+    plt.rc('xtick', labelsize = 22)
+    plt.rc('ytick', labelsize = 22)
+    plt.plot(years, np.poly1d(am_fit)(years), label = 'Whole Season', linewidth = 2)
+    plt.plot(years, np.poly1d(am_June_fit)(years), label = 'June')
+    plt.plot(years, np.poly1d(am_July_fit)(years), label = 'July')
+    plt.plot(years, np.poly1d(am_Aug_fit)(years), label = 'August')
+    plt.plot(years, np.poly1d(am_Sep_fit)(years), label = 'September')
+    plt.plot(years, np.poly1d(am_Oct_fit)(years), label = 'October')
+    plt.plot(years, np.poly1d(am_Nov_fit)(years), label = 'November')
+    plt.legend(loc = 0)
+    plt.ylabel('Wind Speed (m/s)')
+    plt.xlabel('Year')
+    plt.title('Annual Means of Deep Layer Mean Wind Speeds During Months of the North Atlantic\nHurricane Season from 1979 through 2016 on ' +
+              location_names[region][1])
+    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_All_Regression_Lines_79_16_' + location_names[region][0] + '.png')
+    plt.show()
+
 
 ######################################################################################
 ##                                   Begin Program                                  ##
@@ -989,12 +1010,12 @@ location_names['NC'] = ['NC_Coast', 'the North Carolina Coast', 'Locations Along
 # Load data
 data = np.load(sys.argv[1])
 
-# Obtain the locations, times/dates, and the wind speed measurements from the data
+# Obtain the locations, times/dates, and the wind speeds from the data
 locs = data['loc']
 wind_speed_times = data['mydate']
 wind_speeds = data['ts']
 
-# Convert floats in the measurement_times array to datetime objects
+# Convert floats in the wind_speed_times array to datetime objects
 dates_and_times = convertToDatetime(wind_speed_times)
 
 # Get rid of data points that are not along the U.S. coast or north of Cape Hatteras
@@ -1093,10 +1114,10 @@ locs = temp_locs
 # (All wind speeds should already be positive though)
 wind_speeds = map(abs, temp_wind_speeds)
 
-# Determine the maximum wind speed recorded
+# Determine the maximum wind speed
 max_wind_speed = int(math.ceil(np.amax(wind_speeds)))
 
-# Or set a predefined max to disregard larger wind speed recordings
+# Or set a predefined max to disregard larger wind speeds
 # Comment this line out if you don't want any maximum limit on what values to plot
 max_wind_speed = 45
 
