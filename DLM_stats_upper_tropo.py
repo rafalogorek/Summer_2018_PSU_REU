@@ -865,7 +865,7 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.xlabel('Year')
     plt.title('Annual Mean of Upper Troposphere Wind Speeds During North Atlantic\nHurricane Seasons from 1979 through 2016 on ' +
               location_names[region][1])
-    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '.png')
+    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_UT.png')
     plt.show()
 
     plt.figure(1, figsize = (20,10))
@@ -879,7 +879,7 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.xlabel('Year')
     plt.title('Annual Mean of Upper Troposphere Wind Speeds During the Month of\nJune from 1979 through 2016 on ' +
               location_names[region][1])
-    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_June.png')
+    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_June_UT.png')
     plt.show()
 
     plt.figure(1, figsize = (20,10))
@@ -893,7 +893,7 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.xlabel('Year')
     plt.title('Annual Mean of Upper Troposphere Wind Speeds During the Month of\nJuly from 1979 through 2016 on ' +
               location_names[region][1])
-    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_July.png')
+    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_July_UT.png')
     plt.show()
 
     plt.figure(1, figsize = (20,10))
@@ -907,7 +907,7 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.xlabel('Year')
     plt.title('Annual Mean of Upper Troposphere Wind Speeds During the Month of\nAugust from 1979 through 2016 on ' +
               location_names[region][1])
-    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Aug.png')
+    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Aug_UT.png')
     plt.show()
 
     plt.figure(1, figsize = (20,10))
@@ -921,7 +921,7 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.xlabel('Year')
     plt.title('Annual Mean of Upper Troposphere Wind Speeds During the Month of\nSeptember from 1979 through 2016 on ' +
               location_names[region][1])
-    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Sep.png')
+    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Sep_UT.png')
     plt.show()
 
     plt.figure(1, figsize = (20,10))
@@ -935,7 +935,7 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.xlabel('Year')
     plt.title('Annual Mean of Upper Troposphere Wind Speeds During the Month of\nOctober from 1979 through 2016 on ' +
               location_names[region][1])
-    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Oct.png')
+    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Oct_UT.png')
     plt.show()
 
     plt.figure(1, figsize = (20,10))
@@ -949,7 +949,7 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.xlabel('Year')
     plt.title('Annual Mean of Upper Troposphere Wind Speeds During the Month of\nNovember from 1979 through 2016 on ' +
               location_names[region][1])
-    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Nov.png')
+    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Nov_UT.png')
     plt.show()
 
     # Plot all regression lines together
@@ -970,7 +970,7 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.xlabel('Year')
     plt.title('Annual Means of Upper Troposphere Wind Speeds During Months of the North Atlantic\nHurricane Season from 1979 through 2016 on ' +
               location_names[region][1])
-    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_All_Regression_Lines_79_16_' + location_names[region][0] + '.png')
+    plt.savefig('Figures/Upper_Tropo/Annual_Mean_Speeds/WS_79_16/Annual_Mean_All_Regression_Lines_79_16_' + location_names[region][0] + '_UT.png')
     plt.show()
 
 
@@ -1142,8 +1142,8 @@ ax.set_yticks([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
 ax.get_yaxis().set_major_formatter(mpl.ticker.ScalarFormatter())
 ax.set_ylabel('Pressure Level (mb)', fontsize = 15)
 ax.set_xlabel('Weight (%)', fontsize = 15)
-ax.set_title('Neumann (1988) Deep Layer Mean Weighting Scheme Using\nPressure Levels at 500 mb and Upper', fontsize = 17)
-fig.savefig('Figures/Upper_Tropo/DLM_weights.png')
+ax.set_title('Neumann (1988) Deep Layer Mean Weighting Scheme Using\nPressure Levels at 500 mb and Above', fontsize = 17)
+fig.savefig('Figures/Upper_Tropo/DLM_weights_UT.png')
 plt.show()
 
 ######################################################################################
@@ -1191,8 +1191,8 @@ plt.ylabel('Wind Speed (m/s)')
 plt.xlabel('Time')
 plt.title('Average Wind Speeds During the ' + str(current_year) + ' Hurricane Season on ' +
           location_names[region][1])
-#plt.savefig('Figures/Time_Series/' + str(current_year) + '/Filtered_' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
-#plt.savefig('Figures/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '.png')
+#plt.savefig('Figures/Time_Series/' + str(current_year) + '/Filtered_' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '_UT.png')
+#plt.savefig('Figures/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '_UT.png')
 plt.show()
 
 # Normalize wind speed frequencies
@@ -1210,8 +1210,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'North Atlantic Hurricane Seasons from 1979 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Histogram_UT.png')
 plt.show()
 
 # Generate a histogram to show the frequency distribution for the tropical cyclone
@@ -1224,8 +1224,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Translation Speed (m/s)')
 plt.title('Normalized Frequency of Tropical Cyclone Translation Speeds Recorded\nnear ' + location_names[region][1] + ' During ' +
           'North Atlantic Hurricane Seasons\nfrom 1979 up to 2017')
-#plt.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
-#plt.savefig('Figures/Translation_Speeds/TS_79-16/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-16_Histogram.png')
+#plt.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-16_Histogram_UT.png')
+#plt.savefig('Figures/Translation_Speeds/TS_79-16/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-16_Histogram_UT.png')
 plt.show()
 
 # Create arrays to store the frequency of different wind speed values (at all
@@ -1289,8 +1289,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'Late May, June, and July from 1979 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_EHS_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-16_EHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_EHS_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_EHS_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-16_EHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_EHS_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -1300,8 +1300,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'the Month of June from 1979 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_June_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-16_June/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_June_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_June_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-16_June/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_June_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -1311,8 +1311,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'the Month of July from 1979 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_July_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-16_July/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_July_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_July_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-16_July/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_July_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -1322,8 +1322,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'August and September from 1979 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-16_MHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-16_MHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -1333,8 +1333,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'July and August from 1979 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_v2_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-16_MHS_v2/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_v2_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_v2_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-16_MHS_v2/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_MHS_v2_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -1344,8 +1344,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'the Month of August from 1979 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Aug_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-16_Aug/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Aug_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Aug_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-16_Aug/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Aug_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -1355,8 +1355,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'the Month of September from 1979 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Sep_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-16_Sep/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Sep_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Sep_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-16_Sep/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Sep_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -1366,8 +1366,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'October and November from 1979 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-16_LHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-16_LHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -1377,8 +1377,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'September and October from 1979 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_v2_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-16_LHS_v2/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_v2_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_v2_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-16_LHS_v2/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_LHS_v2_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -1388,8 +1388,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'the Month of October from 1979 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Oct_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-16_Oct/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Oct_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Oct_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-16_Oct/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Oct_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,10))
@@ -1399,8 +1399,8 @@ plt.ylabel('Frequency (%)')
 plt.xlabel('Wind Speed (m/s)')
 plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nDuring ' +
           'the Month of November from 1979 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Nov_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-16_Nov/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Nov_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Nov_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-16_Nov/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Nov_Histogram_UT.png')
 plt.show()
 
 ######################################################################################
@@ -1459,7 +1459,7 @@ ax.set_xlabel('Time', fontsize = 25)
 ax.set_title('Average Upper Troposphere Wind Speeds During North Atlantic Hurricane Seasons', fontsize = 30)
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%B'))
 ax.legend(loc = 2, fontsize = 25)
-fig.savefig('Figures/Upper_Tropo/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_3d_Avg_Comparison.png')
+fig.savefig('Figures/Upper_Tropo/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_3d_Avg_Comparison_UT.png')
 plt.show()
 
 # Determine the difference in the two averaged time series arrays
@@ -1481,7 +1481,7 @@ plt.ylabel('Wind Speed (m/s)')
 plt.xlabel('Time')
 plt.title('Difference Between Three Day Average Upper Troposphere Wind Speeds During Hurricane Seasons from 1979 through 1997\n' +
           'and Hurricane Seasons from 1998 through 2016 on ' + location_names[region][1])
-plt.savefig('Figures/Upper_Tropo/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_3d_Avg_Comparison_Diff.png')
+plt.savefig('Figures/Upper_Tropo/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_3d_Avg_Comparison_Diff_UT.png')
 plt.show()
 
 # Generate histograms to show the frequency distribution for the wind speeds at all
@@ -1507,8 +1507,8 @@ plt.title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' +
 
 plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.2,
                     hspace = 0.5)
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram_UT.png')
 plt.show()
 
 # Generate histograms to show the frequency distribution for the translation speeds
@@ -1534,8 +1534,8 @@ plt.title('Normalized Frequency of Tropical Cyclone Translation Speeds Recorded\
 
 plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.2,
                     hspace = 0.5)
-#plt.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram.png')
-#plt.savefig('Figures/Translation_Speeds/WS_79-97_98-16/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram.png')
+#plt.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram_UT.png')
+#plt.savefig('Figures/Translation_Speeds/WS_79-97_98-16/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_Histogram_UT.png')
 plt.show()
 
 # Plot the two time periods side by side, rather than on two separate plots
@@ -1554,8 +1554,8 @@ ax.set_title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on 
              '1998 up to 2017')
 
 ax.legend()
-fig.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram.png')
-fig.savefig('Figures/Upper_Tropo/WS_79-97_98-16_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram.png')
+fig.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram_UT.png')
+fig.savefig('Figures/Upper_Tropo/WS_79-97_98-16_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram_UT.png')
 plt.show()
 
 # Do the same for transation speeds
@@ -1574,8 +1574,8 @@ ax.set_title('Normalized Frequency of Tropical Cyclone Translation Speeds Record
              '1998 up to 2017')
 
 ax.legend()
-#fig.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram.png')
-#fig.savefig('Figures/Translation_Speeds/WS_79-97_98-16_SBS/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram.png')
+#fig.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram_UT.png')
+#fig.savefig('Figures/Translation_Speeds/WS_79-97_98-16_SBS/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram_UT.png')
 plt.show()
 
 # Determine differences in the wind speed frequencies between the two time periods
@@ -1598,8 +1598,8 @@ plt.xlabel('Wind Speed (m/s)')
 #          ' During Hurricane Seasons from 1979 up to\n1998 and During Hurricane ' +
 #          'Seasons from 1998 up to 2017')
 plt.title('Difference Between Normalized Frequencies of Upper Troposphere Wind Speeds')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram_UT.png')
 plt.show()
 
 # Determine differences in the translation speed frequencies between the two time periods
@@ -1619,8 +1619,8 @@ plt.xlim(xmax = max_wind_speed + 1)
 plt.ylabel('Frequency Difference (%)')
 plt.xlabel('Translation Speed (m/s)')
 plt.title('Difference Between Normalized Frequencies of Tropical Cyclone Translation Speeds')
-#plt.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
-#plt.savefig('Figures/Translation_Speeds/WS_Diff_79-97_98-16/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram.png')
+#plt.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram_UT.png')
+#plt.savefig('Figures/Translation_Speeds/WS_Diff_79-97_98-16/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram_UT.png')
 plt.show()
 
 
@@ -1724,8 +1724,8 @@ ax.set_title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on 
              'June, and July During Hurricane Seasons from 1979 up to 1998\nvs. Hurricane ' +
              'Seasons from 1998 up to 2017')
 ax.legend()
-fig.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_EHS_SBS_Histogram.png')
-fig.savefig('Figures/Upper_Tropo/WS_79-97_98-16_EHS_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_EHS_SBS_Histogram.png')
+fig.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_EHS_SBS_Histogram_UT.png')
+fig.savefig('Figures/Upper_Tropo/WS_79-97_98-16_EHS_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_EHS_SBS_Histogram_UT.png')
 plt.show()
 
 fig, ax = plt.subplots(figsize = (20,15))
@@ -1743,8 +1743,8 @@ ax.set_title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on 
              'and September During Hurricane Seasons from 1979 up to\n1998 vs. Hurricane ' +
              'Seasons from 1998 up to 2017')
 ax.legend()
-fig.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_MHS_SBS_Histogram.png')
-fig.savefig('Figures/Upper_Tropo/WS_79-97_98-16_MHS_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_MHS_SBS_Histogram.png')
+fig.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_MHS_SBS_Histogram_UT.png')
+fig.savefig('Figures/Upper_Tropo/WS_79-97_98-16_MHS_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_MHS_SBS_Histogram_UT.png')
 plt.show()
 
 fig, ax = plt.subplots(figsize = (20,15))
@@ -1762,8 +1762,8 @@ ax.set_title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on 
              'and August During Hurricane Seasons from 1979 up to\n1998 vs. Hurricane ' +
              'Seasons from 1998 up to 2017')
 ax.legend()
-fig.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_MHS_v2_SBS_Histogram.png')
-fig.savefig('Figures/Upper_Tropo/WS_79-97_98-16_MHS_v2_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_MHS_v2_SBS_Histogram.png')
+fig.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_MHS_v2_SBS_Histogram_UT.png')
+fig.savefig('Figures/Upper_Tropo/WS_79-97_98-16_MHS_v2_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_MHS_v2_SBS_Histogram_UT.png')
 plt.show()
 
 #fig, ax = plt.subplots(figsize = (20,15))
@@ -1781,8 +1781,8 @@ plt.show()
 #             'of August During Hurricane Seasons from 1979 up to 1998\nvs. Hurricane ' +
 #             'Seasons from 1998 up to 2017')
 #ax.legend()
-#fig.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Aug_SBS_Histogram.png')
-#fig.savefig('Figures/WS_79-97_98-16_Aug_SBS/Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Aug_SBS_Histogram.png')
+#fig.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Aug_SBS_Histogram_UT.png')
+#fig.savefig('Figures/WS_79-97_98-16_Aug_SBS/Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Aug_SBS_Histogram_UT.png')
 #plt.show()
 
 #fig, ax = plt.subplots(figsize = (20,15))
@@ -1800,8 +1800,8 @@ plt.show()
 #             'of September During Hurricane Seasons from 1979 up to\n1998 vs. Hurricane ' +
 #             'Seasons from 1998 up to 2017')
 #ax.legend()
-#fig.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Sep_SBS_Histogram.png')
-#fig.savefig('Figures/WS_79-97_98-16_Sep_SBS/Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Sep_SBS_Histogram.png')
+#fig.savefig('Figures/' + location_names[region][0]  + '/Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Sep_SBS_Histogram_UT.png')
+#fig.savefig('Figures/WS_79-97_98-16_Sep_SBS/Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Sep_SBS_Histogram_UT.png')
 #plt.show()
 
 fig, ax = plt.subplots(figsize = (20,15))
@@ -1819,8 +1819,8 @@ ax.set_title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on 
              'and November During Hurricane Seasons from 1979 up to\n1998 vs. Hurricane ' +
              'Seasons from 1998 up to 2017')
 ax.legend()
-fig.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_SBS_Histogram.png')
-fig.savefig('Figures/Upper_Tropo/WS_79-97_98-16_LHS_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_SBS_Histogram.png')
+fig.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_SBS_Histogram_UT.png')
+fig.savefig('Figures/Upper_Tropo/WS_79-97_98-16_LHS_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_SBS_Histogram_UT.png')
 plt.show()
 
 fig, ax = plt.subplots(figsize = (20,15))
@@ -1838,8 +1838,8 @@ ax.set_title('Normalized Frequency of Upper Troposphere Wind Speeds Recorded on 
              'and October During Hurricane Seasons from 1979 up to\n1998 vs. Hurricane ' +
              'Seasons from 1998 up to 2017')
 ax.legend()
-fig.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_v2_SBS_Histogram.png')
-fig.savefig('Figures/Upper_Tropo/WS_79-97_98-16_LHS_v2_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_v2_SBS_Histogram.png')
+fig.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_v2_SBS_Histogram_UT.png')
+fig.savefig('Figures/Upper_Tropo/WS_79-97_98-16_LHS_v2_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_v2_SBS_Histogram_UT.png')
 plt.show()
 
 # Determine differences in the wind speed frequencies between the two time periods
@@ -1944,8 +1944,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nin Late ' +
           'May, June, and July During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_EHS_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_EHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_EHS_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_EHS_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_EHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_EHS_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,15))
@@ -1958,8 +1958,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
           'of June During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_June_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_June/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_June_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_June_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_June/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_June_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,15))
@@ -1972,8 +1972,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
           'of July During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_July_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_July/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_July_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_July_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_July/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_July_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,15))
@@ -1986,8 +1986,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nin August ' +
           'and September During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_MHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_MHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,15))
@@ -2000,8 +2000,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nin July ' +
           'and August During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_v2_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_MHS_v2/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_v2_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_v2_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_MHS_v2/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_MHS_v2_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,15))
@@ -2014,8 +2014,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
           'of August During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Aug_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_Aug/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Aug_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Aug_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_Aug/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Aug_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,15))
@@ -2028,8 +2028,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
           'of September During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Sep_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_Sep/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Sep_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Sep_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_Sep/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Sep_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,15))
@@ -2042,8 +2042,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nin October ' +
           'and November During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_LHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_LHS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,15))
@@ -2056,8 +2056,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nin September ' +
           'and October During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_v2_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_LHS_v2/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_v2_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_v2_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_LHS_v2/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_LHS_v2_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,15))
@@ -2070,8 +2070,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
           'of October During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Oct_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_Oct/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Oct_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Oct_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_Oct/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Oct_Histogram_UT.png')
 plt.show()
 
 plt.figure(1, figsize = (20,15))
@@ -2084,8 +2084,8 @@ plt.xlabel('Wind Speed (m/s)')
 plt.title('Difference Between Normalized Frequency of Upper Troposphere Wind Speeds Recorded on ' + location_names[region][1] + '\nin the Month ' +
           'of November During Hurricane Seasons from 1979 up to 1998\nand During Hurricane ' +
           'Seasons from 1998 up to 2017')
-plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Nov_Histogram.png')
-plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_Nov/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Nov_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Nov_Histogram_UT.png')
+plt.savefig('Figures/Upper_Tropo/WS_Diff_79-97_98-16_Nov/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Nov_Histogram_UT.png')
 plt.show()
 
 # Generate 2x2 subplots of frequency differences for June, July/August, September/October, and November
@@ -2129,7 +2129,7 @@ plt.title('November')
 
 plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.25, hspace = 0.3)
 
-plt.savefig('Figures/Upper_Tropo/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Diff_2x2_Histogram.png')
+plt.savefig('Figures/Upper_Tropo/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_Diff_2x2_Histogram_UT.png')
 plt.show()
 
 
@@ -2160,8 +2160,8 @@ for loc in locs:
     m.scatter(loc[0], loc[1], 8, marker = 'o', color = colorcode, latlon = True, zorder = 10)
 
 plt.title('Locations of Data Points')
-plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
-plt.savefig('Figures/Measurement_Locations/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
+#plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '_UT.png')
+#plt.savefig('Figures/Measurement_Locations/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '_UT.png')
 plt.show()
 
 # Flatten the wind speed arrays and remove any NaNs
