@@ -1121,33 +1121,6 @@ max_wind_speed = int(math.ceil(np.amax(wind_speeds)))
 # Comment this line out if you don't want any maximum limit on what values to plot
 max_wind_speed = 45
 
-m = Basemap(llcrnrlon = -100, llcrnrlat = 23, urcrnrlon = -75, urcrnrlat = 37,
-            projection = 'cyl', resolution ='i')#, lon_0 = -80, lat_0 = 35)
-m.drawcoastlines()
-m.drawcountries()
-m.drawmapboundary(fill_color='#208eed')
-m.fillcontinents(color = '#2ac745', lake_color='#208eed')
-m.drawparallels(np.arange(20,50,10),labels = [1,1,0,0], fontsize = 15)
-m.drawmeridians(np.arange(-100,-60,10),labels = [0,0,0,1], fontsize = 15)
-
-i = 0
-for loc in locs:
-    #if (loc[0] > -84 and loc[0] <= -79.5 and loc[1] <= 30.75):
-    #    colorcode = '#006700'
-    #elif (loc[0] == -81.75 and loc[1] > 30.75) or (loc[0] == -81 and loc[1] > 30.75) or (loc[0] == -80.25 and loc[1] > 30.75) or \
-    #     (loc[0] == -79.5 and loc[1] > 30.75) or (loc[0] == -78.75 and loc[1] <= 33.75) or (loc[0] == -78 and loc[1] == 33):
-    #    colorcode = '#0000ff'
-    #else:
-    #    colorcode = '#ff0000'
-
-    colorcode = '#ff0000'
-    m.scatter(loc[0], loc[1], 10, marker = 'o', color = colorcode, latlon = True, zorder = 10)
-
-#plt.title('Locations of Data Points')
-plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
-plt.savefig('Figures/Measurement_Locations/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
-
-
 # Read in hurricane best track data
 best_track_speeds, best_track_speeds_79_97, best_track_speeds_98_16 = getBestTrackSpeeds('best_tracks.txt', locs)
 times_to_remove, locs_to_remove = readBestTracks('best_tracks.txt', locs)
@@ -1619,7 +1592,7 @@ while i < len(wind_speed_freq_79_97):
 
 # Create a histogram that shows the difference between the wind speed frequencies for
 # the two time periods
-plt.figure(1, figsize = (20,15))
+'''plt.figure(1, figsize = (20,15))
 plt.bar(np.arange(len(norm_wind_speed_freq_diff)), norm_wind_speed_freq_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 plt.ylabel('Frequency Difference (%)')
@@ -1633,7 +1606,7 @@ plt.savefig('Figures/WS_Diff_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_
 plt.show()
 
 # Determine differences in the translation speed frequencies between the two time periods
-'''i = 0
+i = 0
 trans_speed_freq_diff = [0] * len(trans_speed_freq_79_97)
 norm_trans_speed_freq_diff = [0] * len(norm_trans_speed_freq_79_97)
 while i < len(trans_speed_freq_79_97):
@@ -2118,7 +2091,95 @@ plt.savefig('Figures/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speed
 plt.savefig('Figures/WS_Diff_79-97_98-16_Nov/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Nov_Histogram.png')
 plt.show()'''
 
-# Generate 3x2 subplots of frequency differences for June, July, August, September, October, and November
+# Generate subplots of side-by-side frequency differences for June, July, August, September, October, and November
+# Also add subplot for whole season
+fig, axes = plt.subplots(4, 2, figsize = (30,30))
+bar_width = 0.35
+
+axes[0,0] = plt.subplot2grid((4,8), (0,2), colspan = 4)
+axes[0,0].bar(np.arange(len(norm_wind_speed_freq_79_97)), norm_wind_speed_freq_79_97, bar_width,
+              color='b', label='1979-1997')
+axes[0,0].bar(np.arange(len(norm_wind_speed_freq_98_16)) + bar_width, norm_wind_speed_freq_98_16,
+                bar_width, color='r', label='1998-2016')
+axes[0,0].set_xlim(xmax = max_wind_speed + 1)
+axes[0,0].set_ylim(ymax = 17)
+axes[0,0].set_xlabel('Wind Speed (m/s)')
+axes[0,0].set_ylabel('Frequency (%)')
+axes[0,0].set_title('a.) Whole Hurricane Season')
+axes[0,0].legend()
+
+axes[1,0].bar(np.arange(len(norm_wind_speed_freq_79_97_June)), norm_wind_speed_freq_79_97_June, bar_width,
+              color='b', label='1979-1997')
+axes[1,0].bar(np.arange(len(norm_wind_speed_freq_98_16_June)) + bar_width, norm_wind_speed_freq_98_16_June,
+                bar_width, color='r', label='1998-2016')
+axes[1,0].set_xlim(xmax = max_wind_speed + 1)
+axes[1,0].set_ylim(ymax = 17)
+axes[1,0].set_xlabel('Wind Speed (m/s)')
+axes[1,0].set_ylabel('Frequency (%)')
+axes[1,0].set_title('b.) June')
+axes[1,0].legend()
+
+axes[1,1].bar(np.arange(len(norm_wind_speed_freq_79_97_July)), norm_wind_speed_freq_79_97_July, bar_width,
+              color='b', label='1979-1997')
+axes[1,1].bar(np.arange(len(norm_wind_speed_freq_98_16_July)) + bar_width, norm_wind_speed_freq_98_16_July,
+                bar_width, color='r', label='1998-2016')
+axes[1,1].set_xlim(xmax = max_wind_speed + 1)
+axes[1,1].set_ylim(ymax = 17)
+axes[1,1].set_xlabel('Wind Speed (m/s)')
+axes[1,1].set_ylabel('Frequency (%)')
+axes[1,1].set_title('c.) July')
+axes[1,1].legend()
+
+axes[2,0].bar(np.arange(len(norm_wind_speed_freq_79_97_Aug)), norm_wind_speed_freq_79_97_Aug, bar_width,
+              color='b', label='1979-1997')
+axes[2,0].bar(np.arange(len(norm_wind_speed_freq_98_16_Aug)) + bar_width, norm_wind_speed_freq_98_16_Aug,
+                bar_width, color='r', label='1998-2016')
+axes[2,0].set_xlim(xmax = max_wind_speed + 1)
+axes[2,0].set_ylim(ymax = 17)
+axes[2,0].set_xlabel('Wind Speed (m/s)')
+axes[2,0].set_ylabel('Frequency (%)')
+axes[2,0].set_title('d.) August')
+axes[2,0].legend()
+
+axes[2,1].bar(np.arange(len(norm_wind_speed_freq_79_97_Sep)), norm_wind_speed_freq_79_97_Sep, bar_width,
+              color='b', label='1979-1997')
+axes[2,1].bar(np.arange(len(norm_wind_speed_freq_98_16_Sep)) + bar_width, norm_wind_speed_freq_98_16_Sep,
+                bar_width, color='r', label='1998-2016')
+axes[2,1].set_xlim(xmax = max_wind_speed + 1)
+axes[2,1].set_ylim(ymax = 17)
+axes[2,1].set_xlabel('Wind Speed (m/s)')
+axes[2,1].set_ylabel('Frequency (%)')
+axes[2,1].set_title('e.) September')
+axes[2,1].legend()
+
+axes[3,0].bar(np.arange(len(norm_wind_speed_freq_79_97_Oct)), norm_wind_speed_freq_79_97_Oct, bar_width,
+              color='b', label='1979-1997')
+axes[3,0].bar(np.arange(len(norm_wind_speed_freq_98_16_Oct)) + bar_width, norm_wind_speed_freq_98_16_Oct,
+                bar_width, color='r', label='1998-2016')
+axes[3,0].set_xlim(xmax = max_wind_speed + 1)
+axes[3,0].set_ylim(ymax = 17)
+axes[3,0].set_xlabel('Wind Speed (m/s)')
+axes[3,0].set_ylabel('Frequency (%)')
+axes[3,0].set_title('f.) October')
+axes[3,0].legend()
+
+axes[3,1].bar(np.arange(len(norm_wind_speed_freq_79_97_Nov)), norm_wind_speed_freq_79_97_Nov, bar_width,
+              color='b', label='1979-1997')
+axes[3,1].bar(np.arange(len(norm_wind_speed_freq_98_16_Nov)) + bar_width, norm_wind_speed_freq_98_16_Nov,
+                bar_width, color='r', label='1998-2016')
+axes[3,1].set_xlim(xmax = max_wind_speed + 1)
+axes[3,1].set_ylim(ymax = 17)
+axes[3,1].set_xlabel('Wind Speed (m/s)')
+axes[3,1].set_ylabel('Frequency (%)')
+axes[3,1].set_title('g.) November')
+axes[3,1].legend()
+
+plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.25, hspace = 0.3)
+
+fig.savefig('Figures/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram_Plots.png')
+plt.show()
+
+# Generate subplots of frequency differences for June, July, August, September, October, and November
 # Also add subplot for whole season
 plt.figure(1, figsize = (30,30))
 plt.subplot2grid((4,8), (0,2), colspan = 4)
@@ -2201,7 +2262,7 @@ m = Basemap(llcrnrlon = -100, llcrnrlat = 23, urcrnrlon = -75, urcrnrlat = 37,
             projection = 'cyl', resolution ='i')#, lon_0 = -80, lat_0 = 35)
 m.drawcoastlines()
 m.drawcountries()
-m.drawmapboundary(fill_color='#99ffff')
+m.drawmapboundary(fill_color='#208eed')
 m.fillcontinents(color = '#2ac745', lake_color='#208eed')
 m.drawparallels(np.arange(20,50,10),labels = [1,1,0,0], fontsize = 15)
 m.drawmeridians(np.arange(-100,-60,10),labels = [0,0,0,1], fontsize = 15)
