@@ -1135,7 +1135,7 @@ weights = [(float(25)/float(900)) * 100, (float(50)/float(900)) * 100, (float(50
            (float(150)/float(900)) * 100, (float(175)/float(900)) * 100, (float(150)/float(900)) * 100,
            (float(75)/float(900)) * 100]
 fig, ax = plt.subplots(1, 1)
-fig.set_size_inches(1, 3)
+fig.set_size_inches(8, 8)
 ax.plot(weights, p_levels, linewidth = 2)
 ax.tick_params(labelsize = 12)
 ax.set_xlim(0, 20)
