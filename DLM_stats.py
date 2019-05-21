@@ -1129,24 +1129,25 @@ times_to_remove, locs_to_remove = readBestTracks('best_tracks.txt', locs)
 wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove)
 
 # Plot deep layer mean weights
-#p_levels = [100, 150, 200, 250, 300, 400, 500, 700, 850, 1000]
-#weights = [(float(25)/float(900)) * 100, (float(50)/float(900)) * 100, (float(50)/float(900)) * 100,
-#           (float(50)/float(900)) * 100, (float(75)/float(900)) * 100, (float(100)/float(900)) * 100,
-#           (float(150)/float(900)) * 100, (float(175)/float(900)) * 100, (float(150)/float(900)) * 100,
-#           (float(75)/float(900)) * 100]
-#fig, ax = plt.subplots(1, 1)
-#ax.plot(weights, p_levels, linewidth = 2)
-#ax.tick_params(labelsize = 12)
-#ax.set_xlim(0, 20)
-#ax.set_ylim(1000, 100)
-#ax.set_yscale('log')
-#ax.set_yticks([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
-#ax.get_yaxis().set_major_formatter(mpl.ticker.ScalarFormatter())
-#ax.set_ylabel('Pressure Level (mb)', fontsize = 15)
-#ax.set_xlabel('Weight (%)', fontsize = 15)
+p_levels = [100, 150, 200, 250, 300, 400, 500, 700, 850, 1000]
+weights = [(float(25)/float(900)) * 100, (float(50)/float(900)) * 100, (float(50)/float(900)) * 100,
+           (float(50)/float(900)) * 100, (float(75)/float(900)) * 100, (float(100)/float(900)) * 100,
+           (float(150)/float(900)) * 100, (float(175)/float(900)) * 100, (float(150)/float(900)) * 100,
+           (float(75)/float(900)) * 100]
+fig, ax = plt.subplots(1, 1)
+fig.set_size_inches(1, 3)
+ax.plot(weights, p_levels, linewidth = 2)
+ax.tick_params(labelsize = 12)
+ax.set_xlim(0, 20)
+ax.set_ylim(1000, 100)
+ax.set_yscale('log')
+ax.set_yticks([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
+ax.get_yaxis().set_major_formatter(mpl.ticker.ScalarFormatter())
+ax.set_ylabel('Pressure Level (mb)', fontsize = 15)
+ax.set_xlabel('Weight (%)', fontsize = 15)
 #ax.set_title('Neumann (1988) Deep Layer Mean Weighting Scheme', fontsize = 17)
-#fig.savefig('Figures/DLM_weights.png')
-#plt.show()
+fig.savefig('Figures/DLM_weights.png')
+plt.show()
 
 ######################################################################################
 ##                         All Locations, Whole Time Period                         ##
