@@ -853,8 +853,10 @@ def getAnnualMeans(wind_speeds, location_names):
     am_Oct_fit = np.polyfit(years, annual_means_Oct, 1)
     am_Nov_fit = np.polyfit(years, annual_means_Nov, 1)
 
-    # Plot annual mean DLM wind speeds from 1979 to 2016
-    plt.figure(1, figsize = (20,10))
+    # Generate subplots of annual mean DLMSF for June, July, August, September, October, and November
+    # Also add subplot for whole season
+    plt.figure(1, figsize = (30,30))
+    plt.subplot2grid((4,8), (0,2), colspan = 4)
     plt.rc('axes', titlesize = 30)
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
@@ -863,12 +865,9 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.text(1980, 6.5, 'Linear Regression Slope = ' + str(round(am_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
-    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During North Atlantic\nHurricane Seasons from 1979 through 2016 on ' +
-              location_names[region][1])
-    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '.png')
-    plt.show()
+    plt.title('a.) Whole Hurricane Season')
 
-    plt.figure(1, figsize = (20,10))
+    plt.subplot(423)
     plt.rc('axes', titlesize = 30)
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
@@ -877,12 +876,9 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.text(2000, 9.5, 'Linear Regression Slope = ' + str(round(am_June_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
-    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nJune from 1979 through 2016 on ' +
-              location_names[region][1])
-    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_June.png')
-    plt.show()
+    plt.title('b.) June')
 
-    plt.figure(1, figsize = (20,10))
+    plt.subplot(424)
     plt.rc('axes', titlesize = 30)
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
@@ -891,12 +887,9 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.text(1980, 6, 'Linear Regression Slope = ' + str(round(am_July_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
-    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nJuly from 1979 through 2016 on ' +
-              location_names[region][1])
-    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_July.png')
-    plt.show()
+    plt.title('c.) July')
 
-    plt.figure(1, figsize = (20,10))
+    plt.subplot(425)
     plt.rc('axes', titlesize = 30)
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
@@ -905,12 +898,9 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.text(1980, 6.2, 'Linear Regression Slope = ' + str(round(am_Aug_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
-    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nAugust from 1979 through 2016 on ' +
-              location_names[region][1])
-    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Aug.png')
-    plt.show()
+    plt.title('d.) August')
 
-    plt.figure(1, figsize = (20,10))
+    plt.subplot(426)
     plt.rc('axes', titlesize = 30)
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
@@ -919,12 +909,9 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.text(1995, 9, 'Linear Regression Slope = ' + str(round(am_Sep_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
-    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nSeptember from 1979 through 2016 on ' +
-              location_names[region][1])
-    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Sep.png')
-    plt.show()
+    plt.title('e.) September')
 
-    plt.figure(1, figsize = (20,10))
+    plt.subplot(427)
     plt.rc('axes', titlesize = 30)
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
@@ -933,12 +920,9 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.text(1980, 7, 'Linear Regression Slope = ' + str(round(am_Oct_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
-    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nOctober from 1979 through 2016 on ' +
-              location_names[region][1])
-    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Oct.png')
-    plt.show()
+    plt.title('f.) October')
 
-    plt.figure(1, figsize = (20,10))
+    plt.subplot(428)
     plt.rc('axes', titlesize = 30)
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
@@ -947,13 +931,15 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.text(1980, 10, 'Linear Regression Slope = ' + str(round(am_Nov_fit[0], 6)), fontsize = 20)
     plt.ylabel('Wind Speed (m/s)')
     plt.xlabel('Year')
-    plt.title('Annual Mean of Deep Layer Mean Wind Speeds During the Month of\nNovember from 1979 through 2016 on ' +
-              location_names[region][1])
-    plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_Time_Series_79_16_' + location_names[region][0] + '_Nov.png')
+    plt.title('g.) November')
+
+    plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.25, hspace = 0.3)
+
+    plt.savefig('Figures/Annual_Mean_Regressions_79-16' + location_names[region][0] + '.png')
     plt.show()
 
     # Plot all regression lines together
-    plt.figure(1, figsize = (20,10))
+    '''plt.figure(1, figsize = (20,10))
     plt.rc('axes', titlesize = 30)
     plt.rc('axes', labelsize = 25)
     plt.rc('xtick', labelsize = 22)
@@ -971,7 +957,7 @@ def getAnnualMeans(wind_speeds, location_names):
     plt.title('Annual Means of Deep Layer Mean Wind Speeds During Months of the North Atlantic\nHurricane Season from 1979 through 2016 on ' +
               location_names[region][1])
     plt.savefig('Figures/Annual_Mean_Speeds/WS_79_16/Annual_Mean_All_Regression_Lines_79_16_' + location_names[region][0] + '.png')
-    plt.show()
+    plt.show()'''
 
 
 ######################################################################################
