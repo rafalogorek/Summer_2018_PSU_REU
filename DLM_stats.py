@@ -1121,6 +1121,33 @@ max_wind_speed = int(math.ceil(np.amax(wind_speeds)))
 # Comment this line out if you don't want any maximum limit on what values to plot
 max_wind_speed = 45
 
+m = Basemap(llcrnrlon = -100, llcrnrlat = 23, urcrnrlon = -75, urcrnrlat = 37,
+            projection = 'cyl', resolution ='i')#, lon_0 = -80, lat_0 = 35)
+m.drawcoastlines()
+m.drawcountries()
+m.drawmapboundary(fill_color='#208eed')
+m.fillcontinents(color = '#2ac745', lake_color='#208eed')
+m.drawparallels(np.arange(20,50,10),labels = [1,1,0,0], fontsize = 15)
+m.drawmeridians(np.arange(-100,-60,10),labels = [0,0,0,1], fontsize = 15)
+
+i = 0
+for loc in locs:
+    #if (loc[0] > -84 and loc[0] <= -79.5 and loc[1] <= 30.75):
+    #    colorcode = '#006700'
+    #elif (loc[0] == -81.75 and loc[1] > 30.75) or (loc[0] == -81 and loc[1] > 30.75) or (loc[0] == -80.25 and loc[1] > 30.75) or \
+    #     (loc[0] == -79.5 and loc[1] > 30.75) or (loc[0] == -78.75 and loc[1] <= 33.75) or (loc[0] == -78 and loc[1] == 33):
+    #    colorcode = '#0000ff'
+    #else:
+    #    colorcode = '#ff0000'
+
+    colorcode = '#ff0000'
+    m.scatter(loc[0], loc[1], 10, marker = 'o', color = colorcode, latlon = True, zorder = 10)
+
+#plt.title('Locations of Data Points')
+plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
+plt.savefig('Figures/Measurement_Locations/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
+
+
 # Read in hurricane best track data
 best_track_speeds, best_track_speeds_79_97, best_track_speeds_98_16 = getBestTrackSpeeds('best_tracks.txt', locs)
 times_to_remove, locs_to_remove = readBestTracks('best_tracks.txt', locs)
@@ -2175,7 +2202,7 @@ m = Basemap(llcrnrlon = -100, llcrnrlat = 23, urcrnrlon = -75, urcrnrlat = 37,
 m.drawcoastlines()
 m.drawcountries()
 m.drawmapboundary(fill_color='#99ffff')
-m.fillcontinents(color = '#2ac745', lake_color='#99ffff')
+m.fillcontinents(color = '#2ac745', lake_color='#208eed')
 m.drawparallels(np.arange(20,50,10),labels = [1,1,0,0], fontsize = 15)
 m.drawmeridians(np.arange(-100,-60,10),labels = [0,0,0,1], fontsize = 15)
 
