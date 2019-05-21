@@ -1451,7 +1451,7 @@ avg_wind_speeds_98_16, dates_and_times_1y = averageWindsEachTime(wind_speeds_98_
 
 # Plot the averaged wind speeds
 fig, ax = plt.subplots(1, figsize = (20,10))
-ax.tick_params(labelsize = 22)
+ax.tick_params(labelsize = 26)
 ax.plot(dates_and_times_1y, avg_wind_speeds_79_97, 'b-', linewidth = 2, label = '1979-1997')
 ax.plot(dates_and_times_1y, avg_wind_speeds_98_16, 'r-', linewidth = 2, label = '1998-2016')
 ax.set_ylim(ymin = -0.3)
@@ -1606,7 +1606,7 @@ plt.savefig('Figures/WS_Diff_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_
 plt.show()
 
 # Determine differences in the translation speed frequencies between the two time periods
-i = 0
+'''i = 0
 trans_speed_freq_diff = [0] * len(trans_speed_freq_79_97)
 norm_trans_speed_freq_diff = [0] * len(norm_trans_speed_freq_79_97)
 while i < len(trans_speed_freq_79_97):
@@ -1616,7 +1616,7 @@ while i < len(trans_speed_freq_79_97):
 
 # Create a histogram that shows the difference between the wind speed frequencies for
 # the two time periods
-'''plt.figure(1, figsize = (20,15))
+plt.figure(1, figsize = (20,15))
 plt.bar(np.arange(len(norm_trans_speed_freq_diff)), norm_trans_speed_freq_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 plt.ylabel('Frequency Difference (%)')
@@ -2092,61 +2092,72 @@ plt.savefig('Figures/WS_Diff_79-97_98-16_Nov/Filtered_Norm_Wind_Speeds_' + locat
 plt.show()'''
 
 # Generate 3x2 subplots of frequency differences for June, July, August, September, October, and November
+# Also add subplot for whole season
 plt.figure(1, figsize = (30,30))
-plt.subplot(321)
+plt.subplot2grid((4,8), (0,2), colspan = 4)
+plt.bar(np.arange(len(norm_wind_speed_freq_diff)), norm_wind_speed_freq_diff)
+plt.xlim(xmax = max_wind_speed + 1)
+if region == 'AL':
+    plt.ylim(ymax = 2.5, ymin = -1.7)
+plt.ylabel('Frequency Difference (%)')
+plt.xlabel('Wind Speed (m/s)')
+plt.title('a.) Whole Hurricane Season')
+
+plt.figure(1, figsize = (30,30))
+plt.subplot(423)
 plt.bar(np.arange(len(norm_wind_speed_freq_June_diff)), norm_wind_speed_freq_June_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 if region == 'AL':
-    plt.ylim(ymax = 2.5, ymin = -1.6)
+    plt.ylim(ymax = 2.5, ymin = -1.7)
 plt.ylabel('Frequency Difference (%)')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('a.) June')
+plt.title('b.) June')
 #plt.suptitle('Difference Between Normalized Frequencies of Wind Speeds', fontsize = 35)
 
-plt.subplot(322)
+plt.subplot(424)
 plt.bar(np.arange(len(norm_wind_speed_freq_July_diff)), norm_wind_speed_freq_July_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 if region == 'AL':
-    plt.ylim(ymax = 2.5, ymin = -1.6)
+    plt.ylim(ymax = 2.5, ymin = -1.7)
 plt.ylabel('Frequency Difference (%)')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('b.) July')
+plt.title('c.) July')
 
-plt.subplot(323)
+plt.subplot(425)
 plt.bar(np.arange(len(norm_wind_speed_freq_Aug_diff)), norm_wind_speed_freq_Aug_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 if region == 'AL':
-    plt.ylim(ymax = 2.5, ymin = -1.6)
+    plt.ylim(ymax = 2.5, ymin = -1.7)
 plt.ylabel('Frequency Difference (%)')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('c.) August')
+plt.title('d.) August')
 
-plt.subplot(324)
+plt.subplot(426)
 plt.bar(np.arange(len(norm_wind_speed_freq_Sep_diff)), norm_wind_speed_freq_Sep_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 if region == 'AL':
-    plt.ylim(ymax = 2.5, ymin = -1.6)
+    plt.ylim(ymax = 2.5, ymin = -1.7)
 plt.ylabel('Frequency Difference (%)')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('d.) September')
+plt.title('e.) September')
 
-plt.subplot(325)
+plt.subplot(427)
 plt.bar(np.arange(len(norm_wind_speed_freq_Oct_diff)), norm_wind_speed_freq_Oct_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 if region == 'AL':
-    plt.ylim(ymax = 2.5, ymin = -1.6)
+    plt.ylim(ymax = 2.5, ymin = -1.7)
 plt.ylabel('Frequency Difference (%)')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('e.) October')
+plt.title('f.) October')
 
-plt.subplot(326)
+plt.subplot(428)
 plt.bar(np.arange(len(norm_wind_speed_freq_Nov_diff)), norm_wind_speed_freq_Nov_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 if region == 'AL':
-    plt.ylim(ymax = 2.5, ymin = -1.6)
+    plt.ylim(ymax = 2.5, ymin = -1.7)
 plt.ylabel('Frequency Difference (%)')
 plt.xlabel('Wind Speed (m/s)')
-plt.title('f.) November')
+plt.title('g.) November')
 
 plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.25, hspace = 0.3)
 
@@ -2179,7 +2190,7 @@ for loc in locs:
     #    colorcode = '#ff0000'
 
     colorcode = '#ff0000'
-    m.scatter(loc[0], loc[1], 8, marker = 'o', color = colorcode, latlon = True, zorder = 10)
+    m.scatter(loc[0], loc[1], 10, marker = 'o', color = colorcode, latlon = True, zorder = 10)
 
 #plt.title('Locations of Data Points')
 plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
