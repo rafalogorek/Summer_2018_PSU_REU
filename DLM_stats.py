@@ -1135,7 +1135,7 @@ weights = [(float(25)/float(900)) * 100, (float(50)/float(900)) * 100, (float(50
            (float(150)/float(900)) * 100, (float(175)/float(900)) * 100, (float(150)/float(900)) * 100,
            (float(75)/float(900)) * 100]
 fig, ax = plt.subplots(1, 1)
-fig.set_size_inches(8, 8)
+fig.set_size_inches(6, 6)
 ax.plot(weights, p_levels, linewidth = 2)
 ax.tick_params(labelsize = 12)
 ax.set_xlim(0, 20)
@@ -1143,8 +1143,8 @@ ax.set_ylim(1000, 100)
 ax.set_yscale('log')
 ax.set_yticks([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000])
 ax.get_yaxis().set_major_formatter(mpl.ticker.ScalarFormatter())
-ax.set_ylabel('Pressure Level (mb)', fontsize = 15)
-ax.set_xlabel('Weight (%)', fontsize = 15)
+ax.set_ylabel('Pressure Level (mb)', fontsize = 18)
+ax.set_xlabel('Weight (%)', fontsize = 18)
 #ax.set_title('Neumann (1988) Deep Layer Mean Weighting Scheme', fontsize = 17)
 fig.savefig('Figures/DLM_weights.png')
 plt.show()
@@ -2146,23 +2146,24 @@ m = Basemap(llcrnrlon = -100, llcrnrlat = 23, urcrnrlon = -75, urcrnrlat = 37,
 m.drawcoastlines()
 m.drawcountries()
 m.drawmapboundary(fill_color='#99ffff')
-m.fillcontinents(color = "#f2f2f2", lake_color='#99ffff')
+m.fillcontinents(color = '#aedd77', lake_color='#99ffff')
 m.drawparallels(np.arange(20,50,10),labels = [1,1,0,0], fontsize = 15)
 m.drawmeridians(np.arange(-100,-60,10),labels = [0,0,0,1], fontsize = 15)
 
 i = 0
 for loc in locs:
-    if (loc[0] > -84 and loc[0] <= -79.5 and loc[1] <= 30.75):
-        colorcode = '#006700'
-    elif (loc[0] == -81.75 and loc[1] > 30.75) or (loc[0] == -81 and loc[1] > 30.75) or (loc[0] == -80.25 and loc[1] > 30.75) or \
-         (loc[0] == -79.5 and loc[1] > 30.75) or (loc[0] == -78.75 and loc[1] <= 33.75) or (loc[0] == -78 and loc[1] == 33):
-        colorcode = '#0000ff'
-    else:
-        colorcode = '#ff0000'
+    #if (loc[0] > -84 and loc[0] <= -79.5 and loc[1] <= 30.75):
+    #    colorcode = '#006700'
+    #elif (loc[0] == -81.75 and loc[1] > 30.75) or (loc[0] == -81 and loc[1] > 30.75) or (loc[0] == -80.25 and loc[1] > 30.75) or \
+    #     (loc[0] == -79.5 and loc[1] > 30.75) or (loc[0] == -78.75 and loc[1] <= 33.75) or (loc[0] == -78 and loc[1] == 33):
+    #    colorcode = '#0000ff'
+    #else:
+    #    colorcode = '#ff0000'
 
+    colorcode = '#ff0000'
     m.scatter(loc[0], loc[1], 8, marker = 'o', color = colorcode, latlon = True, zorder = 10)
 
-plt.title('Locations of Data Points')
+#plt.title('Locations of Data Points')
 plt.savefig('Figures/' + location_names[region][0]  + '/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
 plt.savefig('Figures/Measurement_Locations/Wind_Speed_Measurement_Locations_' + location_names[region][0] + '.png')
 plt.show()
