@@ -2106,7 +2106,7 @@ axes[0,0].set_ylim(ymax = 17)
 axes[0,0].set_xlabel('Wind Speed (m/s)')
 axes[0,0].set_ylabel('Frequency (%)')
 axes[0,0].set_title('a.) Whole Hurricane Season')
-axes[0,0].legend()
+axes[0,0].legend(fontsize = 30)
 
 axes[1,0].bar(np.arange(len(norm_wind_speed_freq_79_97_June)), norm_wind_speed_freq_79_97_June, bar_width,
               color='b', label='1979-1997')
@@ -2117,7 +2117,7 @@ axes[1,0].set_ylim(ymax = 17)
 axes[1,0].set_xlabel('Wind Speed (m/s)')
 axes[1,0].set_ylabel('Frequency (%)')
 axes[1,0].set_title('b.) June')
-axes[1,0].legend()
+axes[1,0].legend(fontsize = 30)
 
 axes[1,1].bar(np.arange(len(norm_wind_speed_freq_79_97_July)), norm_wind_speed_freq_79_97_July, bar_width,
               color='b', label='1979-1997')
@@ -2128,7 +2128,7 @@ axes[1,1].set_ylim(ymax = 17)
 axes[1,1].set_xlabel('Wind Speed (m/s)')
 axes[1,1].set_ylabel('Frequency (%)')
 axes[1,1].set_title('c.) July')
-axes[1,1].legend()
+axes[1,1].legend(fontsize = 30)
 
 axes[2,0].bar(np.arange(len(norm_wind_speed_freq_79_97_Aug)), norm_wind_speed_freq_79_97_Aug, bar_width,
               color='b', label='1979-1997')
@@ -2139,7 +2139,7 @@ axes[2,0].set_ylim(ymax = 17)
 axes[2,0].set_xlabel('Wind Speed (m/s)')
 axes[2,0].set_ylabel('Frequency (%)')
 axes[2,0].set_title('d.) August')
-axes[2,0].legend()
+axes[2,0].legend(fontsize = 30)
 
 axes[2,1].bar(np.arange(len(norm_wind_speed_freq_79_97_Sep)), norm_wind_speed_freq_79_97_Sep, bar_width,
               color='b', label='1979-1997')
@@ -2150,7 +2150,7 @@ axes[2,1].set_ylim(ymax = 17)
 axes[2,1].set_xlabel('Wind Speed (m/s)')
 axes[2,1].set_ylabel('Frequency (%)')
 axes[2,1].set_title('e.) September')
-axes[2,1].legend()
+axes[2,1].legend(fontsize = 30)
 
 axes[3,0].bar(np.arange(len(norm_wind_speed_freq_79_97_Oct)), norm_wind_speed_freq_79_97_Oct, bar_width,
               color='b', label='1979-1997')
@@ -2161,7 +2161,7 @@ axes[3,0].set_ylim(ymax = 17)
 axes[3,0].set_xlabel('Wind Speed (m/s)')
 axes[3,0].set_ylabel('Frequency (%)')
 axes[3,0].set_title('f.) October')
-axes[3,0].legend()
+axes[3,0].legend(fontsize = 30)
 
 axes[3,1].bar(np.arange(len(norm_wind_speed_freq_79_97_Nov)), norm_wind_speed_freq_79_97_Nov, bar_width,
               color='b', label='1979-1997')
@@ -2172,7 +2172,7 @@ axes[3,1].set_ylim(ymax = 17)
 axes[3,1].set_xlabel('Wind Speed (m/s)')
 axes[3,1].set_ylabel('Frequency (%)')
 axes[3,1].set_title('g.) November')
-axes[3,1].legend()
+axes[3,1].legend(fontsize = 30)
 
 plt.subplots_adjust(left = 0.125, bottom = 0.1, right = 0.9, top = 0.9, wspace = 0.25, hspace = 0.3)
 
