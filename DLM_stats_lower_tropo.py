@@ -1129,7 +1129,7 @@ times_to_remove, locs_to_remove = readBestTracks('best_tracks.txt', locs)
 wind_speeds = removeTCWinds(wind_speeds, dates_and_times, locs, times_to_remove, locs_to_remove)
 
 # Plot deep layer mean weights
-p_levels = [500, 700, 850, 1000]
+'''p_levels = [500, 700, 850, 1000]
 weights = [(float(150)/float(550)) * 100, (float(175)/float(550)) * 100, (float(150)/float(550)) * 100,
            (float(75)/float(550)) * 100]
 fig, ax = plt.subplots(1, 1)
@@ -1145,7 +1145,7 @@ ax.set_xlabel('Weight (%)', fontsize = 15)
 ax.set_title('Neumann (1988) Deep Layer Mean Weighting Scheme Using\nPressure Levels at 500 mb and Lower', fontsize = 17)
 fig.savefig('Figures/Lower_Tropo/DLM_weights_LT.png')
 plt.show()
-
+'''
 ######################################################################################
 ##                         All Locations, Whole Time Period                         ##
 ######################################################################################
@@ -1167,7 +1167,7 @@ wind_speeds_79_16 = getWindSpeedInterval(wind_speeds, 0, 27816)
 dates_and_times_79_16 = dates_and_times[0:27816]
 
 # Determine and plot annual mean DLM wind speeds from 1979 to 2016
-getAnnualMeans(wind_speeds_79_16, location_names)
+#getAnnualMeans(wind_speeds_79_16, location_names)
 
 # Populate the wind speed frequency array
 getFrequencies(wind_speeds_79_16, wind_speed_freq_all)
@@ -1181,7 +1181,7 @@ current_year_index = current_year - 1979
 avg_wind_speeds_79_16 = averageWindsAmongAllPoints(wind_speeds_79_16)
 
 # Plot averaged wind speeds over the course of a year
-plt.figure(1, figsize = (20,10))
+'''plt.figure(1, figsize = (20,10))
 plt.rc('axes', titlesize = 30)
 plt.rc('axes', labelsize = 25)
 plt.rc('xtick', labelsize = 22)
@@ -1194,7 +1194,7 @@ plt.title('Average Wind Speeds During the ' + str(current_year) + ' Hurricane Se
 #plt.savefig('Figures/Time_Series/' + str(current_year) + '/Filtered_' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '_LT.png')
 #plt.savefig('Figures/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_' + str(current_year) + '_LT.png')
 plt.show()
-
+'''
 # Normalize wind speed frequencies
 norm_wind_speed_freq_all = normalizeWindSpeeds(wind_speed_freq_all)
 # And translation speed frequencies
@@ -1202,7 +1202,7 @@ norm_trans_speed_freq_all = normalizeWindSpeeds(trans_speed_freq_all)
 
 # Generate a histogram to show the frequency distribution for the wind speeds at all
 # specified locations from 1979 to 2017
-plt.figure(1, figsize = (20,10))
+'''plt.figure(1, figsize = (20,10))
 #plt.bar(np.arange(len(wind_speed_freq_all)), wind_speed_freq_all)
 plt.bar(np.arange(len(norm_wind_speed_freq_all)), norm_wind_speed_freq_all)
 plt.xlim(xmax = max_wind_speed + 1)
@@ -1227,7 +1227,7 @@ plt.title('Normalized Frequency of Tropical Cyclone Translation Speeds Recorded\
 #plt.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-16_Histogram_LT.png')
 #plt.savefig('Figures/Translation_Speeds/TS_79-16/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-16_Histogram_LT.png')
 plt.show()
-
+'''
 # Create arrays to store the frequency of different wind speed values (at all
 # locations). The zeroeth index of the array will store the frequency of wind
 # speeds between 0 m/s and 1 m/s; the first index of the array will store the frequency
@@ -1282,7 +1282,7 @@ norm_wind_speed_freq_all_Nov = normalizeWindSpeeds(wind_speed_freq_all_Nov)
 # Generate histograms to show the frequency distribution for the wind speeds at all
 # measured locations for each of the three parts of the hurricane season from 1979 to 2017
 # (also each month)
-plt.figure(1, figsize = (20,10))
+'''plt.figure(1, figsize = (20,10))
 plt.bar(np.arange(len(norm_wind_speed_freq_all_MHS)), norm_wind_speed_freq_all_EHS)
 plt.xlim(xmax = max_wind_speed + 1)
 plt.ylabel('Frequency (%)')
@@ -1402,7 +1402,7 @@ plt.title('Normalized Frequency of Lower Troposphere Wind Speeds Recorded on ' +
 plt.savefig('Figures/Lower_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Nov_Histogram_LT.png')
 plt.savefig('Figures/Lower_Tropo/WS_79-16_Nov/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-16_Nov_Histogram_LT.png')
 plt.show()
-
+'''
 ######################################################################################
 ##                        All Locations, Halved Time Periods                        ##
 ######################################################################################
@@ -1448,17 +1448,14 @@ avg_wind_speeds_98_16, dates_and_times_1y = averageWindsEachTime(wind_speeds_98_
 
 # Plot the averaged wind speeds
 fig, ax = plt.subplots(1, figsize = (20,10))
-ax.tick_params(labelsize = 22)
+ax.tick_params(labelsize = 26)
 ax.plot(dates_and_times_1y, avg_wind_speeds_79_97, 'b-', linewidth = 2, label = '1979-1997')
 ax.plot(dates_and_times_1y, avg_wind_speeds_98_16, 'r-', linewidth = 2, label = '1998-2016')
-ax.set_ylim(ymin = 0)
-ax.set_ylabel('Wind Speed (m/s)', fontsize = 25)
-ax.set_xlabel('Time', fontsize = 25)
-#plt.title('Three Day Average Wind Speeds During Hurricane Seasons from 1979 through 1997\n' +
-#          'Compared to Hurricane Seasons from 1998 through 2016 on ' + location_names[region][1])
-ax.set_title('Average Lower Troposphere Wind Speeds During North Atlantic Hurricane Seasons', fontsize = 30)
+ax.set_ylim(ymin = -0.3)
+ax.set_ylabel('Wind Speed (m/s)', fontsize = 35)
+ax.set_xlabel('Time', fontsize = 35)
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%B'))
-ax.legend(loc = 2, fontsize = 25)
+ax.legend(loc = 2, fontsize = 30)
 fig.savefig('Figures/Lower_Tropo/Time_Series/Yearly/Filtered_' + location_names[region][0]  + '_Time_Series_3d_Avg_Comparison_LT.png')
 plt.show()
 
@@ -1470,7 +1467,7 @@ while i < len(avg_wind_speeds_79_97):
     i = i + 1
 
 # Plot the difference of the averaged wind speeds
-plt.figure(1, figsize = (20,10))
+'''plt.figure(1, figsize = (20,10))
 plt.rc('axes', titlesize = 30)
 plt.rc('axes', labelsize = 25)
 plt.rc('xtick', labelsize = 22)
@@ -1577,7 +1574,7 @@ ax.legend()
 #fig.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram_LT.png')
 #fig.savefig('Figures/Translation_Speeds/WS_79-97_98-16_SBS/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_79-97_98-16_SBS_Histogram_LT.png')
 plt.show()
-
+'''
 # Determine differences in the wind speed frequencies between the two time periods
 i = 0
 wind_speed_freq_diff = [0] * len(wind_speed_freq_79_97)
@@ -1589,7 +1586,7 @@ while i < len(wind_speed_freq_79_97):
 
 # Create a histogram that shows the difference between the wind speed frequencies for
 # the two time periods
-plt.figure(1, figsize = (20,15))
+'''plt.figure(1, figsize = (20,15))
 plt.bar(np.arange(len(norm_wind_speed_freq_diff)), norm_wind_speed_freq_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 plt.ylabel('Frequency Difference (%)')
@@ -1601,7 +1598,7 @@ plt.title('Difference Between Normalized Frequencies of Lower Troposphere Wind S
 plt.savefig('Figures/Lower_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram_LT.png')
 plt.savefig('Figures/Lower_Tropo/WS_Diff_79-97_98-16/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram_LT.png')
 plt.show()
-
+'''
 # Determine differences in the translation speed frequencies between the two time periods
 i = 0
 trans_speed_freq_diff = [0] * len(trans_speed_freq_79_97)
@@ -1613,7 +1610,7 @@ while i < len(trans_speed_freq_79_97):
 
 # Create a histogram that shows the difference between the wind speed frequencies for
 # the two time periods
-plt.figure(1, figsize = (20,15))
+'''plt.figure(1, figsize = (20,15))
 plt.bar(np.arange(len(norm_trans_speed_freq_diff)), norm_trans_speed_freq_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 plt.ylabel('Frequency Difference (%)')
@@ -1622,7 +1619,7 @@ plt.title('Difference Between Normalized Frequencies of Tropical Cyclone Transla
 #plt.savefig('Figures/Translation_Speeds/' + location_names[region][0]  + '/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram_LT.png')
 #plt.savefig('Figures/Translation_Speeds/WS_Diff_79-97_98-16/Filtered_Norm_Trans_Speeds_' + location_names[region][0] + '_Diff_Between_79-97_and_98-16_Histogram_LT.png')
 plt.show()
-
+'''
 
 # Create arrays to store the frequency of different wind speed values (at all
 # locations). The zeroeth index of the array will store the frequency of wind
@@ -1709,7 +1706,7 @@ norm_wind_speed_freq_79_97_Nov = normalizeWindSpeeds(wind_speed_freq_79_97_Nov)
 norm_wind_speed_freq_98_16_Nov = normalizeWindSpeeds(wind_speed_freq_98_16_Nov)
 
 # Plot the two time periods side by side for each part of the hurricane season
-fig, ax = plt.subplots(figsize = (20,15))
+'''fig, ax = plt.subplots(figsize = (20,15))
 bar_width = 0.35
 ax.bar(np.arange(len(norm_wind_speed_freq_79_97_EHS)), norm_wind_speed_freq_79_97_EHS, bar_width,
                 color='b', label='1979-1997')
@@ -1841,7 +1838,7 @@ ax.legend()
 fig.savefig('Figures/Lower_Tropo/' + location_names[region][0]  + '/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_v2_SBS_Histogram_LT.png')
 fig.savefig('Figures/Lower_Tropo/WS_79-97_98-16_LHS_v2_SBS/Filtered_Norm_Wind_Speeds_' + location_names[region][0] + '_79-97_98-16_LHS_v2_SBS_Histogram_LT.png')
 plt.show()
-
+'''
 # Determine differences in the wind speed frequencies between the two time periods
 # for each part of the hurricane season (and for each month)
 i = 0
@@ -1934,7 +1931,7 @@ while i < len(wind_speed_freq_79_97_Nov):
 
 # Create histograms that show the difference between the wind speed frequencies for
 # the two time periods for each part of the hurricane season
-plt.figure(1, figsize = (20,15))
+'''plt.figure(1, figsize = (20,15))
 plt.bar(np.arange(len(norm_wind_speed_freq_EHS_diff)), norm_wind_speed_freq_EHS_diff)
 plt.xlim(xmax = max_wind_speed + 1)
 #if region == 'AL':
@@ -2202,7 +2199,7 @@ med_98_16 = np.median(me_98_16)
 ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
 #mea_98_16 = np.mean(mn_98_16)
 #ci95mean_98_16 = np.percentile(mn_98_16, [2.5, 97.5])
-
+'''
 # Print some notable statistics about the data
 print('\nTotal Number of Stagnant Flow Measurements Observed at ' + location_names[region][2] + ' from 1979 ' +
       'up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all, stagnant_flow)))
@@ -2234,7 +2231,7 @@ print('Standard Deviation of Observed Wind Speed for ' + location_names[region][
 print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' from 1998 up to ' +
       '2017: ' + str(np.nanstd(wind_speeds_98_16)) + ' m/s')
 print('Difference: ' + str(np.nanstd(wind_speeds_98_16) - np.nanstd(wind_speeds_79_97)) + '\n')
-print('Confidence Intervals and Medians:')
+'''print('Confidence Intervals and Medians:')
 print('79-97 CI and Median')
 print(ci95med_79_97)
 print(med_79_97)
@@ -2244,151 +2241,151 @@ print(med_98_16)
 print('CI and Median Diff')
 print([ci95med_98_16[1] - ci95med_79_97[0], ci95med_98_16[0] - ci95med_79_97[1]])
 print(str(med_98_16 - med_79_97) + '\n')
-
+'''
 # Flatten the wind speed arrays and remove any NaNs
-wind_speeds_79_97_flat = [item for sublist in wind_speeds_79_97_EHS for item in sublist]
-wind_speeds_79_97_no_nan = [x for x in wind_speeds_79_97_flat if str(x) != 'nan']
-wind_speeds_79_97_EHS = np.array(wind_speeds_79_97_no_nan)
-wind_speeds_98_16_flat = [item for sublist in wind_speeds_98_16_EHS for item in sublist]
-wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan']
-wind_speeds_98_16_EHS = np.array(wind_speeds_98_16_no_nan)
+#wind_speeds_79_97_flat = [item for sublist in wind_speeds_79_97_EHS for item in sublist]
+#wind_speeds_79_97_no_nan = [x for x in wind_speeds_79_97_flat if str(x) != 'nan']
+#wind_speeds_79_97_EHS = np.array(wind_speeds_79_97_no_nan)
+#wind_speeds_98_16_flat = [item for sublist in wind_speeds_98_16_EHS for item in sublist]
+#wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan']
+#wind_speeds_98_16_EHS = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_EHS)/5
-n_79_97 = wind_speeds_79_97_EHS[np.random.randint(0, len(wind_speeds_79_97_EHS), sample_size)]
-n_98_16 = wind_speeds_98_16_EHS[np.random.randint(0, len(wind_speeds_98_16_EHS), sample_size)]
-n_boots_79_97 = len(wind_speeds_79_97_EHS)
-n_boots_98_16 = len(wind_speeds_98_16_EHS)
-me_79_97 = np.zeros(n_boots_79_97)
-me_98_16 = np.zeros(n_boots_98_16)
-for i in xrange(n_boots_79_97):
-    sample_79_97 = n_79_97[np.random.randint(0, sample_size, sample_size)]
-    me_79_97[i] = np.median(sample_79_97)
-print('Done with 79-97')
-for i in xrange(n_boots_98_16):
-    sample_98_16 = n_98_16[np.random.randint(0, sample_size, sample_size)]
-    me_98_16[i] = np.median(sample_98_16)
+#sample_size = len(wind_speeds_79_97_EHS)/5
+#n_79_97 = wind_speeds_79_97_EHS[np.random.randint(0, len(wind_speeds_79_97_EHS), sample_size)]
+#n_98_16 = wind_speeds_98_16_EHS[np.random.randint(0, len(wind_speeds_98_16_EHS), sample_size)]
+#n_boots_79_97 = len(wind_speeds_79_97_EHS)
+#n_boots_98_16 = len(wind_speeds_98_16_EHS)
+#me_79_97 = np.zeros(n_boots_79_97)
+#me_98_16 = np.zeros(n_boots_98_16)
+#for i in xrange(n_boots_79_97):
+#    sample_79_97 = n_79_97[np.random.randint(0, sample_size, sample_size)]
+#    me_79_97[i] = np.median(sample_79_97)
+#print('Done with 79-97')
+#for i in xrange(n_boots_98_16):
+#    sample_98_16 = n_98_16[np.random.randint(0, sample_size, sample_size)]
+#    me_98_16[i] = np.median(sample_98_16)
 
 # Compute medians and their confidence intervals
-med_79_97 = np.median(me_79_97)
-ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
-med_98_16 = np.median(me_98_16)
-ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
+#med_79_97 = np.median(me_79_97)
+#ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
+#med_98_16 = np.median(me_98_16)
+#ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
 
-print('Total Number of Stagnant Flow Measurements Observed in Late May, June, and July ' +
-      'at ' + location_names[region][2] + ' from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_EHS, stagnant_flow)))
-print('Total Number of Stagnant Flow Measurements Observed in Late May, June, and July ' +
-      'at ' + location_names[region][2] + ' from 1979 up to 1998: ' + str(calcNumStagFlow(wind_speed_freq_79_97_EHS, stagnant_flow)))
-print('Total Number of Stagnant Flow Measurements Observed in Late May, June, and July ' +
-      'at ' + location_names[region][2] + ' from 1998 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16_EHS, stagnant_flow)))
-print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July from 1979 up to 2017: ' +
-      str(np.nanmean(wind_speeds_79_16_EHS)) + ' m/s')
-print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July from 1979 up to 1998: ' +
-      str(np.nanmean(wind_speeds_79_97_EHS)) + ' m/s')
-print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July from 1998 up to 2017: ' +
-      str(np.nanmean(wind_speeds_98_16_EHS)) + ' m/s')
-print('Difference: ' + str(np.nanmean(wind_speeds_98_16_EHS) - np.nanmean(wind_speeds_79_97_EHS)))
-x = np.array(wind_speeds_79_16_EHS)
-print('Median Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July from 1979 up to 2017: ' +
-      str(np.median(x[~np.isnan(x)])) + ' m/s')
-y = np.array(wind_speeds_79_97_EHS)
-print('Median Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July from 1979 up to 1998: ' +
-      str(np.median(y[~np.isnan(y)])) + ' m/s')
-z = np.array(wind_speeds_98_16_EHS)
-print('Median Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July from 1998 up to 2017: ' +
-      str(np.median(z[~np.isnan(z)])) + ' m/s')
-print('Difference: ' + str(np.median(z[~np.isnan(z)]) - np.median(y[~np.isnan(y)])))
-print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July ' +
-      'from 1979 up to 2017: ' + str(np.nanstd(wind_speeds_79_16_EHS)) + ' m/s')
-print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July ' +
-      'from 1979 up to 1998: ' + str(np.nanstd(wind_speeds_79_97_EHS)) + ' m/s')
-print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July ' +
-      'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_EHS)) + ' m/s')
-print('Difference: ' + str(np.nanstd(wind_speeds_98_16_EHS) - np.nanstd(wind_speeds_79_97_EHS)) + '\n')
-print('Early Season Confidence Intervals and Medians:')
-print('79-97 CI and Median')
-print(ci95med_79_97)
-print(med_79_97)
-print('98-16 CI and Median')
-print(ci95med_98_16)
-print(med_98_16)
-print('CI and Median Diff')
-print([ci95med_98_16[1] - ci95med_79_97[0], ci95med_98_16[0] - ci95med_79_97[1]])
-print(str(med_98_16 - med_79_97) + '\n')
+#print('Total Number of Stagnant Flow Measurements Observed in Late May, June, and July ' +
+#      'at ' + location_names[region][2] + ' from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_EHS, stagnant_flow)))
+#print('Total Number of Stagnant Flow Measurements Observed in Late May, June, and July ' +
+#      'at ' + location_names[region][2] + ' from 1979 up to 1998: ' + str(calcNumStagFlow(wind_speed_freq_79_97_EHS, stagnant_flow)))
+#print('Total Number of Stagnant Flow Measurements Observed in Late May, June, and July ' +
+#      'at ' + location_names[region][2] + ' from 1998 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16_EHS, stagnant_flow)))
+#print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July from 1979 up to 2017: ' +
+#      str(np.nanmean(wind_speeds_79_16_EHS)) + ' m/s')
+#print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July from 1979 up to 1998: ' +
+#      str(np.nanmean(wind_speeds_79_97_EHS)) + ' m/s')
+#print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July from 1998 up to 2017: ' +
+#      str(np.nanmean(wind_speeds_98_16_EHS)) + ' m/s')
+#print('Difference: ' + str(np.nanmean(wind_speeds_98_16_EHS) - np.nanmean(wind_speeds_79_97_EHS)))
+#x = np.array(wind_speeds_79_16_EHS)
+#print('Median Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July from 1979 up to 2017: ' +
+#      str(np.median(x[~np.isnan(x)])) + ' m/s')
+#y = np.array(wind_speeds_79_97_EHS)
+#print('Median Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July from 1979 up to 1998: ' +
+#      str(np.median(y[~np.isnan(y)])) + ' m/s')
+#z = np.array(wind_speeds_98_16_EHS)
+#print('Median Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July from 1998 up to 2017: ' +
+#      str(np.median(z[~np.isnan(z)])) + ' m/s')
+#print('Difference: ' + str(np.median(z[~np.isnan(z)]) - np.median(y[~np.isnan(y)])))
+#print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July ' +
+#      'from 1979 up to 2017: ' + str(np.nanstd(wind_speeds_79_16_EHS)) + ' m/s')
+#print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July ' +
+#      'from 1979 up to 1998: ' + str(np.nanstd(wind_speeds_79_97_EHS)) + ' m/s')
+#print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in Late May, June, and July ' +
+#      'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_EHS)) + ' m/s')
+#print('Difference: ' + str(np.nanstd(wind_speeds_98_16_EHS) - np.nanstd(wind_speeds_79_97_EHS)) + '\n')
+#print('Early Season Confidence Intervals and Medians:')
+#print('79-97 CI and Median')
+#print(ci95med_79_97)
+#print(med_79_97)
+#print('98-16 CI and Median')
+#print(ci95med_98_16)
+#print(med_98_16)
+#print('CI and Median Diff')
+#print([ci95med_98_16[1] - ci95med_79_97[0], ci95med_98_16[0] - ci95med_79_97[1]])
+#print(str(med_98_16 - med_79_97) + '\n')
 
 # Flatten the wind speed arrays and remove any NaNs
-wind_speeds_79_97_flat = [item for sublist in wind_speeds_79_97_MHS for item in sublist]
-wind_speeds_79_97_no_nan = [x for x in wind_speeds_79_97_flat if str(x) != 'nan']
-wind_speeds_79_97_MHS = np.array(wind_speeds_79_97_no_nan)
-wind_speeds_98_16_flat = [item for sublist in wind_speeds_98_16_MHS for item in sublist]
-wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan']
-wind_speeds_98_16_MHS = np.array(wind_speeds_98_16_no_nan)
+#wind_speeds_79_97_flat = [item for sublist in wind_speeds_79_97_MHS for item in sublist]
+#wind_speeds_79_97_no_nan = [x for x in wind_speeds_79_97_flat if str(x) != 'nan']
+#wind_speeds_79_97_MHS = np.array(wind_speeds_79_97_no_nan)
+#wind_speeds_98_16_flat = [item for sublist in wind_speeds_98_16_MHS for item in sublist]
+#wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan']
+#wind_speeds_98_16_MHS = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_MHS)/5
-n_79_97 = wind_speeds_79_97_MHS[np.random.randint(0, len(wind_speeds_79_97_MHS), sample_size)]
-n_98_16 = wind_speeds_98_16_MHS[np.random.randint(0, len(wind_speeds_98_16_MHS), sample_size)]
-n_boots_79_97 = len(wind_speeds_79_97_MHS)
-n_boots_98_16 = len(wind_speeds_98_16_MHS)
-me_79_97 = np.zeros(n_boots_79_97)
-me_98_16 = np.zeros(n_boots_98_16)
-for i in xrange(n_boots_79_97):
-    sample_79_97 = n_79_97[np.random.randint(0, sample_size, sample_size)]
-    me_79_97[i] = np.median(sample_79_97)
-print('Done with 79-97')
-for i in xrange(n_boots_98_16):
-    sample_98_16 = n_98_16[np.random.randint(0, sample_size, sample_size)]
-    me_98_16[i] = np.median(sample_98_16)
+#sample_size = len(wind_speeds_79_97_MHS)/5
+#n_79_97 = wind_speeds_79_97_MHS[np.random.randint(0, len(wind_speeds_79_97_MHS), sample_size)]
+#n_98_16 = wind_speeds_98_16_MHS[np.random.randint(0, len(wind_speeds_98_16_MHS), sample_size)]
+#n_boots_79_97 = len(wind_speeds_79_97_MHS)
+#n_boots_98_16 = len(wind_speeds_98_16_MHS)
+#me_79_97 = np.zeros(n_boots_79_97)
+#me_98_16 = np.zeros(n_boots_98_16)
+#for i in xrange(n_boots_79_97):
+#    sample_79_97 = n_79_97[np.random.randint(0, sample_size, sample_size)]
+#    me_79_97[i] = np.median(sample_79_97)
+#print('Done with 79-97')
+#for i in xrange(n_boots_98_16):
+#    sample_98_16 = n_98_16[np.random.randint(0, sample_size, sample_size)]
+#    me_98_16[i] = np.median(sample_98_16)
 
 # Compute medians and their confidence intervals
-med_79_97 = np.median(me_79_97)
-ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
-med_98_16 = np.median(me_98_16)
-ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
+#med_79_97 = np.median(me_79_97)
+#ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
+#med_98_16 = np.median(me_98_16)
+#ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
 
-print('Total Number of Stagnant Flow Measurements Observed in August and September ' +
-      'at ' + location_names[region][2] + ' from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_MHS, stagnant_flow)))
-print('Total Number of Stagnant Flow Measurements Observed in August and September ' +
-      'at ' + location_names[region][2] + ' from 1979 up to 1998: ' + str(calcNumStagFlow(wind_speed_freq_79_97_MHS, stagnant_flow)))
-print('Total Number of Stagnant Flow Measurements Observed in August and September ' +
-      'at ' + location_names[region][2] + ' from 1998 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16_MHS, stagnant_flow)))
-print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in August and September from 1979 up to 2017: ' +
-      str(np.nanmean(wind_speeds_79_16_MHS)) + ' m/s')
-print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in August and September from 1979 up to 1998: ' +
-      str(np.nanmean(wind_speeds_79_97_MHS)) + ' m/s')
-print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in August and September from 1998 up to 2017: ' +
-      str(np.nanmean(wind_speeds_98_16_MHS)) + ' m/s')
-print('Difference: ' + str(np.nanmean(wind_speeds_98_16_MHS) - np.nanmean(wind_speeds_79_97_MHS)))
-x = np.array(wind_speeds_79_16_MHS)
-print('Median Observed Wind Speed for ' + location_names[region][2] + ' in August and September from 1979 up to 2017: ' +
-      str(np.median(x[~np.isnan(x)])) + ' m/s')
-y = np.array(wind_speeds_79_97_MHS)
-print('Median Observed Wind Speed for ' + location_names[region][2] + ' in August and September from 1979 up to 1998: ' +
-      str(np.median(y[~np.isnan(y)])) + ' m/s')
-z = np.array(wind_speeds_98_16_MHS)
-print('Median Observed Wind Speed for ' + location_names[region][2] + ' in August and September from 1998 up to 2017: ' +
-      str(np.median(z[~np.isnan(z)])) + ' m/s')
-print('Difference: ' + str(np.median(z[~np.isnan(z)]) - np.median(y[~np.isnan(y)])))
-print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in August and September ' +
-      'from 1979 up to 2017: ' + str(np.nanstd(wind_speeds_79_16_MHS)) + ' m/s')
-print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in August and September ' +
-      'from 1979 up to 1998: ' + str(np.nanstd(wind_speeds_79_97_MHS)) + ' m/s')
-print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in August and September ' +
-      'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_MHS)) + ' m/s')
-print('Difference: ' + str(np.nanstd(wind_speeds_98_16_MHS) - np.nanstd(wind_speeds_79_97_MHS)) + '\n')
-print('Mid Season Confidence Intervals and Medians:')
-print('79-97 CI and Median')
-print(ci95med_79_97)
-print(med_79_97)
-print('98-16 CI and Median')
-print(ci95med_98_16)
-print(med_98_16)
-print('CI and Median Diff')
-print([ci95med_98_16[1] - ci95med_79_97[0], ci95med_98_16[0] - ci95med_79_97[1]])
-print(str(med_98_16 - med_79_97) + '\n')
+#print('Total Number of Stagnant Flow Measurements Observed in August and September ' +
+#      'at ' + location_names[region][2] + ' from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_MHS, stagnant_flow)))
+#print('Total Number of Stagnant Flow Measurements Observed in August and September ' +
+#      'at ' + location_names[region][2] + ' from 1979 up to 1998: ' + str(calcNumStagFlow(wind_speed_freq_79_97_MHS, stagnant_flow)))
+#print('Total Number of Stagnant Flow Measurements Observed in August and September ' +
+#      'at ' + location_names[region][2] + ' from 1998 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16_MHS, stagnant_flow)))
+#print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in August and September from 1979 up to 2017: ' +
+#      str(np.nanmean(wind_speeds_79_16_MHS)) + ' m/s')
+#print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in August and September from 1979 up to 1998: ' +
+#      str(np.nanmean(wind_speeds_79_97_MHS)) + ' m/s')
+#print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in August and September from 1998 up to 2017: ' +
+#      str(np.nanmean(wind_speeds_98_16_MHS)) + ' m/s')
+#print('Difference: ' + str(np.nanmean(wind_speeds_98_16_MHS) - np.nanmean(wind_speeds_79_97_MHS)))
+#x = np.array(wind_speeds_79_16_MHS)
+#print('Median Observed Wind Speed for ' + location_names[region][2] + ' in August and September from 1979 up to 2017: ' +
+#      str(np.median(x[~np.isnan(x)])) + ' m/s')
+#y = np.array(wind_speeds_79_97_MHS)
+#print('Median Observed Wind Speed for ' + location_names[region][2] + ' in August and September from 1979 up to 1998: ' +
+#      str(np.median(y[~np.isnan(y)])) + ' m/s')
+#z = np.array(wind_speeds_98_16_MHS)
+#print('Median Observed Wind Speed for ' + location_names[region][2] + ' in August and September from 1998 up to 2017: ' +
+#      str(np.median(z[~np.isnan(z)])) + ' m/s')
+#print('Difference: ' + str(np.median(z[~np.isnan(z)]) - np.median(y[~np.isnan(y)])))
+#print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in August and September ' +
+#      'from 1979 up to 2017: ' + str(np.nanstd(wind_speeds_79_16_MHS)) + ' m/s')
+#print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in August and September ' +
+#      'from 1979 up to 1998: ' + str(np.nanstd(wind_speeds_79_97_MHS)) + ' m/s')
+#print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in August and September ' +
+#      'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_MHS)) + ' m/s')
+#print('Difference: ' + str(np.nanstd(wind_speeds_98_16_MHS) - np.nanstd(wind_speeds_79_97_MHS)) + '\n')
+#print('Mid Season Confidence Intervals and Medians:')
+#print('79-97 CI and Median')
+#print(ci95med_79_97)
+#print(med_79_97)
+#print('98-16 CI and Median')
+#print(ci95med_98_16)
+#print(med_98_16)
+#print('CI and Median Diff')
+#print([ci95med_98_16[1] - ci95med_79_97[0], ci95med_98_16[0] - ci95med_79_97[1]])
+#print(str(med_98_16 - med_79_97) + '\n')
 
 # Flatten the wind speed arrays and remove any NaNs
-wind_speeds_79_97_flat = [item for sublist in wind_speeds_79_97_MHS_v2 for item in sublist]
+'''wind_speeds_79_97_flat = [item for sublist in wind_speeds_79_97_MHS_v2 for item in sublist]
 wind_speeds_79_97_no_nan = [x for x in wind_speeds_79_97_flat if str(x) != 'nan']
 wind_speeds_79_97_MHS_v2 = np.array(wind_speeds_79_97_no_nan)
 wind_speeds_98_16_flat = [item for sublist in wind_speeds_98_16_MHS_v2 for item in sublist]
@@ -2459,75 +2456,75 @@ print([ci95med_98_16[1] - ci95med_79_97[0], ci95med_98_16[0] - ci95med_79_97[1]]
 print(str(med_98_16 - med_79_97) + '\n')
 
 # Flatten the wind speed arrays and remove any NaNs
-wind_speeds_79_97_flat = [item for sublist in wind_speeds_79_97_LHS for item in sublist]
-wind_speeds_79_97_no_nan = [x for x in wind_speeds_79_97_flat if str(x) != 'nan']
-wind_speeds_79_97_LHS = np.array(wind_speeds_79_97_no_nan)
-wind_speeds_98_16_flat = [item for sublist in wind_speeds_98_16_LHS for item in sublist]
-wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan']
-wind_speeds_98_16_LHS = np.array(wind_speeds_98_16_no_nan)
+#wind_speeds_79_97_flat = [item for sublist in wind_speeds_79_97_LHS for item in sublist]
+#wind_speeds_79_97_no_nan = [x for x in wind_speeds_79_97_flat if str(x) != 'nan']
+#wind_speeds_79_97_LHS = np.array(wind_speeds_79_97_no_nan)
+#wind_speeds_98_16_flat = [item for sublist in wind_speeds_98_16_LHS for item in sublist]
+#wind_speeds_98_16_no_nan = [x for x in wind_speeds_98_16_flat if str(x) != 'nan']
+#wind_speeds_98_16_LHS = np.array(wind_speeds_98_16_no_nan)
 
 # Bootstrap the data to get 95% confidence intervals using the median
-sample_size = len(wind_speeds_79_97_LHS)/5
-n_79_97 = wind_speeds_79_97_LHS[np.random.randint(0, len(wind_speeds_79_97_LHS), sample_size)]
-n_98_16 = wind_speeds_98_16_LHS[np.random.randint(0, len(wind_speeds_98_16_LHS), sample_size)]
-n_boots_79_97 = len(wind_speeds_79_97_LHS)
-n_boots_98_16 = len(wind_speeds_98_16_LHS)
-me_79_97 = np.zeros(n_boots_79_97)
-me_98_16 = np.zeros(n_boots_98_16)
-for i in xrange(n_boots_79_97):
-    sample_79_97 = n_79_97[np.random.randint(0, sample_size, sample_size)]
-    me_79_97[i] = np.median(sample_79_97)
-print('Done with 79-97')
-for i in xrange(n_boots_98_16):
-    sample_98_16 = n_98_16[np.random.randint(0, sample_size, sample_size)]
-    me_98_16[i] = np.median(sample_98_16)
+#sample_size = len(wind_speeds_79_97_LHS)/5
+#n_79_97 = wind_speeds_79_97_LHS[np.random.randint(0, len(wind_speeds_79_97_LHS), sample_size)]
+#n_98_16 = wind_speeds_98_16_LHS[np.random.randint(0, len(wind_speeds_98_16_LHS), sample_size)]
+#n_boots_79_97 = len(wind_speeds_79_97_LHS)
+#n_boots_98_16 = len(wind_speeds_98_16_LHS)
+#me_79_97 = np.zeros(n_boots_79_97)
+#me_98_16 = np.zeros(n_boots_98_16)
+#for i in xrange(n_boots_79_97):
+#    sample_79_97 = n_79_97[np.random.randint(0, sample_size, sample_size)]
+#    me_79_97[i] = np.median(sample_79_97)
+#print('Done with 79-97')
+#for i in xrange(n_boots_98_16):
+#    sample_98_16 = n_98_16[np.random.randint(0, sample_size, sample_size)]
+#    me_98_16[i] = np.median(sample_98_16)
 
 # Compute medians and their confidence intervals
-med_79_97 = np.median(me_79_97)
-ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
-med_98_16 = np.median(me_98_16)
-ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
+#med_79_97 = np.median(me_79_97)
+#ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
+#med_98_16 = np.median(me_98_16)
+#ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
 
-print('Total Number of Stagnant Flow Measurements Observed in October and November ' +
-      'at ' + location_names[region][2] + ' from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_LHS, stagnant_flow)))
-print('Total Number of Stagnant Flow Measurements Observed in October and November ' +
-      'at ' + location_names[region][2] + ' from 1979 up to 1998: ' + str(calcNumStagFlow(wind_speed_freq_79_97_LHS, stagnant_flow)))
-print('Total Number of Stagnant Flow Measurements Observed in October and November ' +
-      'at ' + location_names[region][2] + ' from 1998 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16_LHS, stagnant_flow)))
-print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in October and November from 1979 up to 2017: ' +
-      str(np.nanmean(wind_speeds_79_16_LHS)) + ' m/s')
-print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in October and November from 1979 up to 1998: ' +
-      str(np.nanmean(wind_speeds_79_97_LHS)) + ' m/s')
-print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in October and November from 1998 up to 2017: ' +
-      str(np.nanmean(wind_speeds_98_16_LHS)) + ' m/s')
-print('Difference: ' + str(np.nanmean(wind_speeds_98_16_LHS) - np.nanmean(wind_speeds_79_97_LHS)))
-x = np.array(wind_speeds_79_16_LHS)
-print('Median Observed Wind Speed for ' + location_names[region][2] + ' in October and November from 1979 up to 2017: ' +
-      str(np.median(x[~np.isnan(x)])) + ' m/s')
-y = np.array(wind_speeds_79_97_LHS)
-print('Median Observed Wind Speed for ' + location_names[region][2] + ' in October and November from 1979 up to 1998: ' +
-      str(np.median(y[~np.isnan(y)])) + ' m/s')
-z = np.array(wind_speeds_98_16_LHS)
-print('Median Observed Wind Speed for ' + location_names[region][2] + ' in October and November from 1998 up to 2017: ' +
-      str(np.median(z[~np.isnan(z)])) + ' m/s')
-print('Difference: ' + str(np.median(z[~np.isnan(z)]) - np.median(y[~np.isnan(y)])))
-print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in October and November ' +
-      'from 1979 up to 2017: ' + str(np.nanstd(wind_speeds_79_16_LHS)) + ' m/s')
-print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in October and November ' +
-      'from 1979 up to 1998: ' + str(np.nanstd(wind_speeds_79_97_LHS)) + ' m/s')
-print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in October and November ' +
-      'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_LHS)) + ' m/s')
-print('Difference: ' + str(np.nanstd(wind_speeds_98_16_LHS) - np.nanstd(wind_speeds_79_97_LHS)) + '\n')
-print('Late Season Confidence Intervals and Medians:')
-print('79-97 CI and Median')
-print(ci95med_79_97)
-print(med_79_97)
-print('98-16 CI and Median')
-print(ci95med_98_16)
-print(med_98_16)
-print('CI and Median Diff')
-print([ci95med_98_16[1] - ci95med_79_97[0], ci95med_98_16[0] - ci95med_79_97[1]])
-print(str(med_98_16 - med_79_97) + '\n')
+#print('Total Number of Stagnant Flow Measurements Observed in October and November ' +
+#      'at ' + location_names[region][2] + ' from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_LHS, stagnant_flow)))
+#print('Total Number of Stagnant Flow Measurements Observed in October and November ' +
+#      'at ' + location_names[region][2] + ' from 1979 up to 1998: ' + str(calcNumStagFlow(wind_speed_freq_79_97_LHS, stagnant_flow)))
+#print('Total Number of Stagnant Flow Measurements Observed in October and November ' +
+#      'at ' + location_names[region][2] + ' from 1998 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_98_16_LHS, stagnant_flow)))
+#print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in October and November from 1979 up to 2017: ' +
+#      str(np.nanmean(wind_speeds_79_16_LHS)) + ' m/s')
+#print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in October and November from 1979 up to 1998: ' +
+#      str(np.nanmean(wind_speeds_79_97_LHS)) + ' m/s')
+#print('Mean Observed Wind Speed for ' + location_names[region][2] + ' in October and November from 1998 up to 2017: ' +
+#      str(np.nanmean(wind_speeds_98_16_LHS)) + ' m/s')
+#print('Difference: ' + str(np.nanmean(wind_speeds_98_16_LHS) - np.nanmean(wind_speeds_79_97_LHS)))
+#x = np.array(wind_speeds_79_16_LHS)
+#print('Median Observed Wind Speed for ' + location_names[region][2] + ' in October and November from 1979 up to 2017: ' +
+#      str(np.median(x[~np.isnan(x)])) + ' m/s')
+#y = np.array(wind_speeds_79_97_LHS)
+#print('Median Observed Wind Speed for ' + location_names[region][2] + ' in October and November from 1979 up to 1998: ' +
+#      str(np.median(y[~np.isnan(y)])) + ' m/s')
+#z = np.array(wind_speeds_98_16_LHS)
+#print('Median Observed Wind Speed for ' + location_names[region][2] + ' in October and November from 1998 up to 2017: ' +
+#      str(np.median(z[~np.isnan(z)])) + ' m/s')
+#print('Difference: ' + str(np.median(z[~np.isnan(z)]) - np.median(y[~np.isnan(y)])))
+#print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in October and November ' +
+#      'from 1979 up to 2017: ' + str(np.nanstd(wind_speeds_79_16_LHS)) + ' m/s')
+#print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in October and November ' +
+#      'from 1979 up to 1998: ' + str(np.nanstd(wind_speeds_79_97_LHS)) + ' m/s')
+#print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in October and November ' +
+#      'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_LHS)) + ' m/s')
+#print('Difference: ' + str(np.nanstd(wind_speeds_98_16_LHS) - np.nanstd(wind_speeds_79_97_LHS)) + '\n')
+#print('Late Season Confidence Intervals and Medians:')
+#print('79-97 CI and Median')
+#print(ci95med_79_97)
+#print(med_79_97)
+#print('98-16 CI and Median')
+#print(ci95med_98_16)
+#print(med_98_16)
+#print('CI and Median Diff')
+#print([ci95med_98_16[1] - ci95med_79_97[0], ci95med_98_16[0] - ci95med_79_97[1]])
+#print(str(med_98_16 - med_79_97) + '\n')
 
 # Flatten the wind speed arrays and remove any NaNs
 wind_speeds_79_97_flat = [item for sublist in wind_speeds_79_97_LHS_v2 for item in sublist]
@@ -2629,7 +2626,7 @@ med_79_97 = np.median(me_79_97)
 ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
 med_98_16 = np.median(me_98_16)
 ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
-
+'''
 print('Total Number of Stagnant Flow Measurements Observed in June ' +
       'at ' + location_names[region][2] + ' from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_June, stagnant_flow)))
 print('Total Number of Stagnant Flow Measurements Observed in June ' +
@@ -2660,7 +2657,7 @@ print('Standard Deviation of Observed Wind Speed for ' + location_names[region][
 print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in June ' +
       'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_June)) + ' m/s')
 print('Difference: ' + str(np.nanstd(wind_speeds_98_16_June) - np.nanstd(wind_speeds_79_97_June)) + '\n')
-print('June Confidence Intervals and Medians:')
+'''print('June Confidence Intervals and Medians:')
 print('79-97 CI and Median')
 print(ci95med_79_97)
 print(med_79_97)
@@ -2700,7 +2697,7 @@ med_79_97 = np.median(me_79_97)
 ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
 med_98_16 = np.median(me_98_16)
 ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
-
+'''
 print('Total Number of Stagnant Flow Measurements Observed in July ' +
       'at ' + location_names[region][2] + ' from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_July, stagnant_flow)))
 print('Total Number of Stagnant Flow Measurements Observed in July ' +
@@ -2731,7 +2728,7 @@ print('Standard Deviation of Observed Wind Speed for ' + location_names[region][
 print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in July ' +
       'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_July)) + ' m/s')
 print('Difference: ' + str(np.nanstd(wind_speeds_98_16_July) - np.nanstd(wind_speeds_79_97_July)) + '\n')
-print('July Confidence Intervals and Medians:')
+'''print('July Confidence Intervals and Medians:')
 print('79-97 CI and Median')
 print(ci95med_79_97)
 print(med_79_97)
@@ -2771,7 +2768,7 @@ med_79_97 = np.median(me_79_97)
 ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
 med_98_16 = np.median(me_98_16)
 ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
-
+'''
 print('Total Number of Stagnant Flow Measurements Observed in August ' +
       'at ' + location_names[region][2] + ' from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_Aug, stagnant_flow)))
 print('Total Number of Stagnant Flow Measurements Observed in August ' +
@@ -2802,7 +2799,7 @@ print('Standard Deviation of Observed Wind Speed for ' + location_names[region][
 print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in August ' +
       'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_Aug)) + ' m/s')
 print('Difference: ' + str(np.nanstd(wind_speeds_98_16_Aug) - np.nanstd(wind_speeds_79_97_Aug)) + '\n')
-print('August Confidence Intervals and Medians:')
+'''print('August Confidence Intervals and Medians:')
 print('79-97 CI and Median')
 print(ci95med_79_97)
 print(med_79_97)
@@ -2842,7 +2839,7 @@ med_79_97 = np.median(me_79_97)
 ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
 med_98_16 = np.median(me_98_16)
 ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
-
+'''
 print('Total Number of Stagnant Flow Measurements Observed in September ' +
       'at ' + location_names[region][2] + ' from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_Sep, stagnant_flow)))
 print('Total Number of Stagnant Flow Measurements Observed in September ' +
@@ -2873,7 +2870,7 @@ print('Standard Deviation of Observed Wind Speed for ' + location_names[region][
 print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in September ' +
       'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_Sep)) + ' m/s')
 print('Difference: ' + str(np.nanstd(wind_speeds_98_16_Sep) - np.nanstd(wind_speeds_79_97_Sep)) + '\n')
-print('September Confidence Intervals and Medians:')
+'''print('September Confidence Intervals and Medians:')
 print('79-97 CI and Median')
 print(ci95med_79_97)
 print(med_79_97)
@@ -2913,7 +2910,7 @@ med_79_97 = np.median(me_79_97)
 ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
 med_98_16 = np.median(me_98_16)
 ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
-
+'''
 print('Total Number of Stagnant Flow Measurements Observed in October ' +
       'at ' + location_names[region][2] + ' from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_Oct, stagnant_flow)))
 print('Total Number of Stagnant Flow Measurements Observed in October ' +
@@ -2944,7 +2941,7 @@ print('Standard Deviation of Observed Wind Speed for ' + location_names[region][
 print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in October ' +
       'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_Oct)) + ' m/s')
 print('Difference: ' + str(np.nanstd(wind_speeds_98_16_Oct) - np.nanstd(wind_speeds_79_97_Oct)) + '\n')
-print('October Confidence Intervals and Medians:')
+'''print('October Confidence Intervals and Medians:')
 print('79-97 CI and Median')
 print(ci95med_79_97)
 print(med_79_97)
@@ -2984,7 +2981,7 @@ med_79_97 = np.median(me_79_97)
 ci95med_79_97 = np.percentile(me_79_97, [2.5, 97.5])
 med_98_16 = np.median(me_98_16)
 ci95med_98_16 = np.percentile(me_98_16, [2.5, 97.5])
-
+'''
 print('Total Number of Stagnant Flow Measurements Observed in November ' +
       'at ' + location_names[region][2] + ' from 1979 up to 2017: ' + str(calcNumStagFlow(wind_speed_freq_all_Nov, stagnant_flow)))
 print('Total Number of Stagnant Flow Measurements Observed in November ' +
@@ -3015,7 +3012,7 @@ print('Standard Deviation of Observed Wind Speed for ' + location_names[region][
 print('Standard Deviation of Observed Wind Speed for ' + location_names[region][2] + ' in November ' +
       'from 1998 up to 2017: ' + str(np.nanstd(wind_speeds_98_16_Nov)) + ' m/s')
 print('Difference: ' + str(np.nanstd(wind_speeds_98_16_Nov) - np.nanstd(wind_speeds_79_97_Nov)) + '\n')
-print('November Confidence Intervals and Medians:')
+'''print('November Confidence Intervals and Medians:')
 print('79-97 CI and Median')
 print(ci95med_79_97)
 print(med_79_97)
@@ -3024,4 +3021,4 @@ print(ci95med_98_16)
 print(med_98_16)
 print('CI and Median Diff')
 print([ci95med_98_16[1] - ci95med_79_97[0], ci95med_98_16[0] - ci95med_79_97[1]])
-print(str(med_98_16 - med_79_97) + '\n')
+print(str(med_98_16 - med_79_97) + '\n')'''
